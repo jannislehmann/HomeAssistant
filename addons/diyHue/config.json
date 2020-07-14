@@ -1,0 +1,14 @@
+{
+  "name": "diyHue",
+  "version": "0.0.1",
+  "slug": "diyhue",
+  "description": "The hue emulator (diyHue) made available for hass.io",
+  "arch": ["aarch64"],
+  "startup": "before",
+  "boot": "auto",
+  "options": {},
+  "schema": {},
+  "host_network": true,
+  "url": "https://diyhue.org/",
+  "stage": "experimental"
+}

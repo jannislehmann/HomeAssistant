@@ -1,0 +1,35 @@
+---
+# This uses a Pi Zero directly attached to the TV, which is running adb.
+media_player:
+  - platform: androidtv
+    name: Fernseher
+    host: !secret philips_host
+    port: 5555
+
+light:
+  - platform: philips_ambilight
+    name: Ambilight
+    host: !secret philips_host
+    username: !secret philips_username
+    password: !secret philips_password
+
+switch:
+  - platform: philips_ambilight+hue
+    name: Ambilight+Hue
+    host: !secret philips_host
+    username: !secret philips_username
+    password: !secret philips_password
+    scan_interval: 5
+
+script:
+  toggle_ambilight:
+    sequence:
+      - service: light.toggle
+        data:
+          entity_id: light.ambilight
+  
+  toggle_ambilight_hue:
+    sequence:
+      - service: switch.toggle
+        data:
+          entity_id: switch.ambilight_hue

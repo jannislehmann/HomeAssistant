@@ -1,0 +1,12 @@
+---
+input_boolean:
+  alarm_clock:
+    icon: mdi:alarm
+  alarm_clock_triggered_today:
+  # Is an alarm currently on?
+  alarm_clock_on:
+
+input_datetime:
+  alarm_time:
+    name: Manuelle Weckzeit
+    has_time: true

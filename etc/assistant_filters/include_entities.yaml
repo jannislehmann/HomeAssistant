@@ -1,0 +1,24 @@
+---
+# Provides a list of entities to include in HomeKit and Amazon Alexa.
+include_entities:
+  # Light
+  - light.flur
+  - light.iris
+  - light.go
+  - light.fado_desk
+  - light.office_desk
+  - light.office_closet
+  - light.ambilight
+  - light.living_floor_light
+  - light.kitchen_cabinets
+  - switch.storage
+  # Temperature
+  - sensor.temperature_bath
+  - sensor.temperature_bed
+  - sensor.temperature_hall
+  - sensor.temperature_living
+  - sensor.temperature_kitchen
+  - sensor.temperature_office
+  - sensor.temperature_storage
+  # Vacuum
+  - switch.glenn

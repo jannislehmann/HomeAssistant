@@ -1,0 +1,6 @@
+---
+device_tracker:
+  - platform: snmp
+    host: !secret snmp_ip
+    community: !secret snmp_community
+    baseoid: !secret snmp_baseoid

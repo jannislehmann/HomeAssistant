@@ -1,0 +1,18 @@
+---
+name: Schlafzimmer
+icon: mdi:bed-double
+sensors:
+  - entity_id: sensor.temperature_bed
+    name: Temperatur
+    color: red
+  - entity_id: sensor.humidity_bed
+    name: Luftfeuchtigkeit
+    color: purple
+lights:
+  - entity_id: light.go
+    name: Go
+media_players:
+  - entity_id: media_player.bed_dot
+  - entity_id: media_player.bed_chromecast
+contact_sensors:
+  - entity_id: binary_sensor.contact_bed

@@ -1,0 +1,5 @@
+---
+sonos:
+  media_player:
+    hosts:
+      - !secret host_sonos

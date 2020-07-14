@@ -1,0 +1,6 @@
+---
+display:
+  - platform: fully_kiosk
+    name: Küchen Tablet
+    host: !secret display_fire_host
+    password: !secret display_fire_password

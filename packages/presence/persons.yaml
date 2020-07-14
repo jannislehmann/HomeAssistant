@@ -1,0 +1,27 @@
+---
+person:
+  - name: Jannis
+    id: jannis
+    user_id: !secret jannis_id
+    device_trackers:
+      # Wifi
+      - device_tracker.iphone_von_jannis
+      # App
+      - device_tracker.iphone_von_jannis_2
+  - name: Hannah
+    id: hannah
+    user_id: !secret hannah_id
+    device_trackers:
+      # Wifi
+      - device_tracker.p20_von_hannah
+      # App
+      # - device_tracker.handy_hannah
+
+# Anyone home?
+binary_sensor:
+  - platform: template
+    sensors:
+      home:
+        device_class: occupancy
+        value_template: >
+          {{ is_state('person.jannis', 'home') or is_state('person.hannah', 'home') }}

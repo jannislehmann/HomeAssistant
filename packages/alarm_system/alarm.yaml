@@ -1,0 +1,22 @@
+---
+alarm_control_panel:
+  - platform: manual
+    code: !secret alarm_code
+    trigger_time: 1800
+    disarm_after_trigger: false
+    code_arm_required: false
+    armed_home:
+      arming_time: 0
+      delay_time: 0
+    armed_away:
+      arming_time: 60
+      delay_time: 30
+
+ios:
+  push:
+    categories:
+      - name: Alarm
+        identifier: alarm_notification
+        actions: 
+          - identifier: SILENCE_ALARM
+            title: 'Deaktivieren'

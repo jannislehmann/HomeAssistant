@@ -1,0 +1,4 @@
+---
+speedtestdotnet:
+  # Run via Node-RED when a speedtest would not interrupt any service / call.
+  manual: true

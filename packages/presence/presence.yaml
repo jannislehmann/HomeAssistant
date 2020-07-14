@@ -1,0 +1,7 @@
+---
+input_boolean:
+  vaction_mode:
+    initial: false
+    icon: mdi:palm-tree
+  motion_sensor:
+    icon: mdi:walk

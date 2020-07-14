@@ -1,0 +1,51 @@
+# lovelace_gen
+{% set home_feed_entities = [
+'alarm_control_panel.ha_alarm',
+'binary_sensor.presence_kitchen'
+'binary_sensor.presence_hall',
+'binary_sensor.contact_office',
+'binary_sensor.contact_kitchen',
+'binary_sensor.contact_bed',
+'binary_sensor.contact_bath',
+'binary_sensor.contact_door',
+'binary_sensor.contact_living_door',
+'binary_sensor.contact_living_window',
+] %}
+- title: Einstellungen
+  icon: mdi:settings
+  path: settings
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include 
+          - ../includes/header.yaml
+          - title: Wecker
+
+        - type: vertical-stack
+          cards:
+            - !include 
+              - ../includes/section.yaml
+              - title: Funktionen
+            - type: custom:time-picker-card
+              entity: input_datetime.alarm_time
+            - !include
+              - ../includes/grid.yaml
+              - entities: 
+                  - entity_id: input_boolean.alarm_clock
+                    name: Wecker
+                  - entity_id: input_boolean.motion_sensor
+                    name: Bewegungsmelder
+
+        - type: vertical-stack
+          cards:
+            - !include 
+              - ../includes/section.yaml
+              - title: Home Feed
+            - type: custom:home-feed-card
+              title: " "
+              entities:
+                {% for entity in home_feed_entities %}
+                - entity: {{ entity }}
+                  include_history: true
+                  max_history: 3
+                {% endfor %}

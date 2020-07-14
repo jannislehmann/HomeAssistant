@@ -1,0 +1,25 @@
+homeassistant:
+  customize:
+    switch.nzbget_pause:
+      friendly_name: NZBGet Pause Downloads
+      icon: 'mdi:pause-circle'
+    sensor.nzbget_speed:
+      friendly_name: Current NZBGet Speed
+      icon: 'mdi:download'
+
+nzbget:
+  host: !secret nzbget_host
+  port: 443
+  ssl: true
+  username: !secret nzbget_username
+  password: !secret nzbget_password
+
+switch:
+  - platform: template
+    switches:
+      nzbget_pause:
+        value_template: "{{ is_state('sensor.nzbget_download_paused', 'True') }}"
+        turn_on:
+          service: nzbget.pause
+        turn_off:
+          service: nzbget.resume

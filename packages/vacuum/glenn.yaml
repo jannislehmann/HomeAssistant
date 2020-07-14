@@ -1,0 +1,97 @@
+---
+sensor:
+  - platform: mqtt
+    state_topic: "valetudo/glenn/state"
+    json_attributes_topic: "valetudo/glenn/map_data_parsed"
+    name: xiaomi_map
+    value_template: 'OK'
+
+input_boolean:
+  cleaned_today:
+    icon: mdi:robot-vacuum
+
+script:
+  # Go To
+  glenn_go_home:
+    sequence:
+      - service: vacuum.return_to_base
+        data:
+          entity_id: vacuum.glenn
+  glenn_go_trash:
+    sequence:
+      - service: vacuum.send_command
+        data:
+          entity_id: vacuum.glenn
+          command: 'go_to'
+          params:
+            'spot_id': 'Garbage'
+  # Zoned Clean
+  glenn_clean_storage:
+    sequence:
+      - service: vacuum.send_command
+        data:
+          entity_id: vacuum.glenn
+          command: 'zoned_cleanup'
+          params:
+            'zone_ids': ['Storage']
+  glenn_clean_bathroom:
+    sequence:
+      - service: vacuum.send_command
+        data:
+          entity_id: vacuum.glenn
+          command: 'zoned_cleanup'
+          params:
+            'zone_ids': ['Bath']
+  glenn_clean_office:
+    sequence:
+      - service: vacuum.send_command
+        data:
+          entity_id: vacuum.glenn
+          command: 'zoned_cleanup'
+          params:
+            'zone_ids': ['Office']
+  glenn_clean_hall:
+    sequence:
+      - service: vacuum.send_command
+        data:
+          entity_id: vacuum.glenn
+          command: 'zoned_cleanup'
+          params:
+            'zone_ids': ['Hall']
+  glenn_clean_kitchen:
+    sequence:
+      - service: vacuum.send_command
+        data:
+          entity_id: vacuum.glenn
+          command: 'zoned_cleanup'
+          params:
+            'zone_ids': ['Kitchen']
+  glenn_clean_bed:
+    sequence:
+      - service: vacuum.send_command
+        data:
+          entity_id: vacuum.glenn
+          command: 'zoned_cleanup'
+          params:
+            'zone_ids': ['Bed']
+  glenn_clean_living:
+    sequence:
+      - service: vacuum.send_command
+        data:
+          entity_id: vacuum.glenn
+          command: 'zoned_cleanup'
+          params:
+            'zone_ids': ['Living']
+
+switch:
+  - platform: template
+    switches:
+      glenn:
+        friendly_name: Glenn
+        value_template: "{{ is_state('vacuum.glenn', 'on') }}"
+        turn_on:
+          service: vacuum.start
+          entity_id: vacuum.glenn
+        turn_off:
+          service: vacuum.return_to_base
+          entity_id: vacuum.glenn

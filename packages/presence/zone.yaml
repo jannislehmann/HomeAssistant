@@ -1,0 +1,2 @@
+---
+zone: !include_dir_list ../../zones

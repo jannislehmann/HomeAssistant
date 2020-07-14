@@ -1,0 +1,109 @@
+---
+homeassistant:
+  name: Home
+
+  # Localization and zone configuration
+  latitude: !secret zone_home_latitude
+  longitude: !secret zone_home_longitude
+  unit_system: metric
+  time_zone: Europe/Berlin
+
+  packages: !include_dir_named packages
+
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 127.0.0.1
+        - 10.0.5.0/24
+        - 10.1.5.0/24
+        - 10.0.10.0/24
+      trusted_users:
+        10.0.5.31: !secret jannis_id
+        10.0.5.32: !secret jannis_id
+        10.0.5.41: !secret jannis_id
+        10.0.5.43: !secret jannis_id
+        10.0.5.35: !secret hannah_id
+        10.0.5.62: !secret hannah_id
+        10.0.10.21: !secret alarmpanel_id
+      allow_bypass_login: true
+    - type: homeassistant
+
+hacs:
+  token: !secret github_hacs_token
+
+# For google calendar integration
+google:
+  client_id: !secret google_calendar_client_id
+  client_secret: !secret google_calendar_client_secret
+
+default_config:
+
+ios:
+
+frontend:
+  # HACS
+  themes: !include_dir_merge_named ./themes
+
+http:
+  server_port: !secret http_port
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 10.0.1.11
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
+
+logger:
+  default: info
+  logs:
+    aiohttp.access: critical
+    aiohttp.server: critical
+    homeassistant.core: error
+    homeassistant.config_entries: error
+    homeassistant.components.automation: warn
+    homeassistant.components.binary_sensor: error
+    homeassistant.components.device_tracker: error
+    homeassistant.components.discovery: warn
+    homeassistant.components.http: warn
+    homeassistant.components.ipp: critical
+    homeassistant.components.media_player: info
+    homeassistant.components.sensor.rest: critical
+    homeassistant.components.rest.sensor: critical
+    homeassistant.components.recorder: error
+    homeassistant.components.sensor.darksky: warn
+    homeassistant.helpers.script: info
+    homeassistant.helpers.entity: critical
+    homeassistant.loader: warn
+    homeassistant.exceptions: info
+    py.warnings: error
+    requests.packages.urllib3.connectionpool: critical
+    urllib3.connectionpool: error
+    root: warn
+
+lovelace: !include lovelace/configuration.yaml
+
+recorder:
+  purge_keep_days: 14
+  db_url: !secret recorder_db_url
+  exclude: !include etc/exclude_recorder.yaml
+
+mqtt:
+  broker: !secret mqtt_broker
+  port: 1883
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  discovery: true
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
+
+browser_mod:
+
+lovelace_gen:
+  rooms: !include_dir_list lovelace/rooms
+
+intent:

@@ -1,0 +1,140 @@
+# lovelace_gen
+- title: Home
+  icon: mdi:home
+  path: home
+  cards:
+    - type: vertical-stack
+      cards:
+      - !include 
+        - ../includes/header.yaml
+        - title: Home
+
+      # Home Header
+      - type: custom:simple-weather-card
+        entity: weather.dark_sky
+        name: " "
+        primary_info:
+          - wind_bearing
+          - humidity
+        secondary_info:
+          - precipitation
+          - precipitation_probability
+        backdrop: true
+
+      # Alarm
+      - type: custom:button-card
+        name: Alarm
+        entity: alarm_control_panel.ha_alarm
+        icon: "mdi:alarm-light"
+        show_state: true
+        tap_action:
+          action: more-info
+        color_type: icon
+        styles:
+          card:
+            - height: 74px
+            - color: white
+            - background-color: >
+                [[[
+                    if (entity.state == 'disarmed')
+                      return "#00FF7F";
+                    else if (entity.state == 'armed_away')
+                      return "orange";
+                    else if (entity.state == 'triggered')
+                      return "red";
+                    else
+                      return "gray";
+                ]]]
+          grid:
+            - grid-template-areas: > 
+                "i n" 
+                "i s"
+            - grid-template-columns: min-content 1fr
+            - grid-template-rows: 2fr 1fr
+          img_cell:
+            - width: 76px
+          name:
+            - justify-self: start
+            - font-weight: bold
+          state:
+            - justify-self: start
+            - font-size: 15px
+
+      # Personen
+      - type: horizontal-stack
+        cards:
+          - type: custom:decluttering-card
+            template: "hk_person"
+            variables:
+              - name: "Jannis"
+              - person: "person.jannis"
+          - type: custom:decluttering-card
+            template: "hk_person"
+            variables:
+              - name: "Hannah"
+              - person: "person.hannah"
+
+      # Rooms
+      - type: vertical-stack
+        cards:
+          - !include 
+            - ../includes/section.yaml
+            - title: Räume
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin: -8px;
+              }
+            card:
+              type: custom:layout-card
+              layout: horizontal
+              column_width: 50%
+              justify_content: start
+              cards:
+                {% for room in _global.rooms %}
+                  - type: custom:decluttering-card
+                    template: "hk_room_link"
+                    variables:
+                      - path: {{ room.name | lower | replace(" ", "_") }}
+                      - name: {{ room.name }}
+                      - icon: {{ room.icon }}
+                      - temperature_sensor: {{room.sensors[0].entity_id }}
+                      {% if room.contact_sensors %}
+                      - contact_sensors:
+                        {% for contact_sensor in room.contact_sensors %}
+                        - {{ contact_sensor.entity_id }}
+                        {% endfor %}
+                      {% endif %}
+                {% endfor %}
+      
+      # Glenn, Audio System
+      - type: vertical-stack
+        cards:
+
+          - !include 
+            - ../includes/section.yaml
+            - title: Sonstiges
+          
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                margin: -8px;
+              }
+            card:
+              type: custom:layout-card
+              layout: horizontal
+              column_width: 50%
+              justify_content: start
+              cards:
+                - type: custom:decluttering-card
+                  template: hk_simple_link
+                  variables:
+                    - path: glenn
+                    - name: Glenn
+                    - icon: mdi:robot-vacuum
+                - type: custom:decluttering-card
+                  template: hk_simple_link
+                  variables:
+                    - path: audio
+                    - name: Audio
+                    - icon: mdi:speaker-multiple

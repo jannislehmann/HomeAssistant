@@ -1,0 +1,41 @@
+- title: audio
+  id: audio
+  visible: false
+  path: audio
+  icon: mdi:speaker-multiple
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include 
+            - ../../includes/header.yaml
+            - title: Audio
+              navigation_path: home
+
+        - artwork: cover
+          entity: media_player.forked_daapd_server
+          group: true
+          hide:
+            source: true
+            volume: true
+          icon: 'mdi:music-circle'
+          name: Multi-Room Audio
+          type: 'custom:mini-media-player'
+        - entity: media_player.snapcast_group_3ec19a5b_9e39_191c_b15b_38e06adf446a
+          group: true
+          hide:
+            controls: true
+            power: true
+            power_state: true
+            source: true
+            volume: false
+          icon: 'mdi:speaker-multiple'
+          name: Master Volume
+          type: 'custom:mini-media-player'
+        - type: custom:decluttering-card
+          template: mini_media_player
+          variables:
+            - entity_id: media_player.bed_chromecast
+        - type: custom:decluttering-card
+          template: mini_media_player
+          variables:
+            - entity: media_player.android_tv

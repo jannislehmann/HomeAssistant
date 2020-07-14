@@ -1,0 +1,4 @@
+---
+alexa:
+  smart_home:
+    filter: !include_dir_merge_named ../../etc/assistant_filters

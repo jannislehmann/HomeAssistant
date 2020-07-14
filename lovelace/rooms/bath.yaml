@@ -1,0 +1,14 @@
+---
+name: Badezimmer
+icon: mdi:shower-head
+sensors:
+  - entity_id: sensor.temperature_bath
+    name: Temperatur
+    color: red
+  - entity_id: sensor.humidity_bath
+    name: Luftfeuchtigkeit
+    color: purple
+contact_sensors:
+  - entity_id: binary_sensor.contact_bath
+media_players:
+  - entity_id: media_player.bath_dot

@@ -1,0 +1,27 @@
+---
+name: Wohnzimmer
+icon: mdi:television
+sensors:
+  - entity_id: sensor.temperature_living
+    name: Temperatur
+    color: red
+  - entity_id: sensor.humidity_living
+    name: Luftfeuchtigkeit
+    color: purple
+lights:
+  - entity_id: light.iris
+    name: Iris
+  - entity_id: light.lightstrip
+    name: Lightstrip
+  - entity_id: light.living_floor_light
+    name: Stehlampe
+media_players:
+  - entity_id: media_player.android_tv
+    shortcuts:
+      - name: Ambilight
+        entity_id: script.toggle_ambilight
+      - name: Ambilight+Hue
+        entity_id: script.toggle_ambilight_hue
+contact_sensors:
+  - entity_id: binary_sensor.contact_living_door
+  - entity_id: binary_sensor.contact_living_window

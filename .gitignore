@@ -1,0 +1,48 @@
+# Personal stuff
+zones/*
+known_devices.yaml
+google_calendars.yaml
+secrets.yaml
+floorplan.svg
+
+# Extension ignores
+*.log
+*.db*
+*.pyc
+
+# Directory (contents) ignores
+.cloud
+.storage
+deps
+custom_components/*
+themes/*
+www/*
+
+# Specific file ignores
+.config_entries.json
+.homekit.state
+.ios.conf
+.spotify-token-cache
+.uuid
+core
+ip_bans.yaml
+options.xml
+.google.token
+.pip_progress
+.HA_VERSION
+
+# Some other generic stuff
+.vscode
+
+# Specific keeps
+!.gitkeep
+
+# Addons
+node-red/
+alexa_media.*
+esphome/**/
+edgeos.key
+aircast.xml
+
+# diyHue
+addons/diyHue/rootsfs

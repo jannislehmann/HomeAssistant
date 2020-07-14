@@ -1,0 +1,64 @@
+- title: Glenn
+  visible: false
+  path: glenn
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include 
+            - ../../includes/header.yaml
+            - title: Glenn
+              navigation_path: home
+
+        - type: custom:valetudo-map-card
+          entity: sensor.xiaomi_map
+          vacuum_entity: vacuum.glenn
+          rotate: 0
+          crop:
+            top: 0
+            bottom: 0
+            left: 0
+            right: 0
+          min_height: 0
+
+        - type: custom:vacuum-card
+          entity: vacuum.glenn
+          stats:
+            default:
+              - attribute: filter
+                unit: hours
+                subtitle: Filter
+              - attribute: sideBrush
+                unit: hours
+                subtitle: Side brush
+              - attribute: mainBrush
+                unit: hours
+                subtitle: Main brush
+              - attribute: sensor
+                unit: hours
+                subtitle: Sensors
+            cleaning:
+              - attribute: currentCleanArea
+                unit: m2
+                subtitle: Cleaning area
+              - attribute: currentCleanTime
+                unit: minutes
+                subtitle: Cleaning time
+          actions:
+            - service: script.glenn_go_home
+              icon: mdi:home
+            - service: script.glenn_go_trash
+              icon: mdi:delete
+            - service: script.glenn_clean_storage
+              icon: mdi:washing-machine
+            - service: script.glenn_clean_bathroom
+              icon: mdi:shower-head
+            - service: script.glenn_clean_office
+              icon: mdi:desk
+            - service: script.glenn_clean_hall
+              icon: mdi:floor-plan
+            - service: script.glenn_clean_kitchen
+              icon: mdi:silverware-fork-knife
+            - service: script.glenn_clean_bed
+              icon: mdi:bed-empty
+            - service: script.glenn_clean_living
+              icon: mdi:television

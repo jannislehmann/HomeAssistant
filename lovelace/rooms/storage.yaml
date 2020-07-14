@@ -1,0 +1,13 @@
+---
+name: Abstellraum
+icon: mdi:broom
+sensors:
+  - entity_id: sensor.temperature_storage
+    name: Temperatur
+    color: red
+  - entity_id: sensor.humidity_storage
+    name: Luftfeuchtigkeit
+    color: purple
+lights:
+  - entity_id: switch.storage
+    name: Abstellraum
