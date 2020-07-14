@@ -11,7 +11,7 @@
 
       # Home Header
       - type: custom:simple-weather-card
-        entity: weather.dark_sky
+        entity: weather.openweathermap
         name: " "
         primary_info:
           - wind_bearing
