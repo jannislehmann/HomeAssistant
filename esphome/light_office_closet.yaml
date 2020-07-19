@@ -27,6 +27,7 @@ light:
     id: color_led
     chipset: WS2812B
     pin: D4
+    # Might be slightly less
     num_leds: 200
     rgb_order: GRB
 
