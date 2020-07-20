@@ -21,6 +21,11 @@ logger:
 ota:
   password: !secret esp_otapass
 
+status_led:
+  pin:
+    number: D4
+    inverted: True
+
 light:
   - platform: fastled_clockless
     name: "color_led"

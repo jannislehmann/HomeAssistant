@@ -17,7 +17,7 @@ logger:
 ota:
   password: !secret esp_otapass
 
-#RGBWarm
+# RGB Warm
 output:
   - platform: esp8266_pwm
     pin: 12

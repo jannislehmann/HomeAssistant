@@ -22,6 +22,11 @@ logger:
 ota:
   password: !secret esp_otapass
 
+status_led:
+  pin:
+    number: D2
+    inverted: True
+
 remote_transmitter:
   pin: D6
   carrier_duty_percent: 50%
