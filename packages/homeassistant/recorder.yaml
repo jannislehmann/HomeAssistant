@@ -1,0 +1,32 @@
+---
+recorder:
+  purge_keep_days: 14
+  db_url: !secret recorder_db_url
+  exclude: !include ../../etc/exclude_recorder.yaml
+  # Disable auto purging, I'm doing this using automations instead
+  auto_purge: false
+
+automation:
+  # By Frenck to purge the recorder database hourly.
+  - alias: system_recorder_purge
+    id: 5d7be990-c0f1-4ef1-9d48-ea00dfef6659
+    trigger:
+      - platform: time_pattern
+        minutes: 12
+    action:
+      - service: recorder.purge
+
+  # By Frenck to repack and clean up the database every sunday.
+  - alias: system_recorder_repack
+    id: 2e998a54-0dd6-4b4f-b9b6-537011953cd9
+    trigger:
+      - platform: time
+        at: '05:55'
+    condition:
+      - condition: time
+        weekday:
+          - sun
+    action:
+      - service: recorder.purge
+        data:
+          repack: true

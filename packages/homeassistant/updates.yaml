@@ -43,6 +43,7 @@ automation:
   # Update is available - un-acknowledgeble, auto-dismiss, me only
   # Wait 5 minutes before first to give core config check time to run
   - alias: ha_update_available
+    id: 471b95f0-f445-4bd6-a003-f46d7188e808
     trigger:
       platform: state
       entity_id: binary_sensor.updater
@@ -55,6 +56,7 @@ automation:
 
   # Supervisor update is available - un-acknowledgeable, auto-dismiss, me only
   - alias: supervisor_update_available
+    id: fc9f3300-a7fd-4fd7-a264-e008677714f2
     trigger:
       platform: state
       entity_id: binary_sensor.updater_supervisor
@@ -67,6 +69,7 @@ automation:
 
   # HACS repos have updates available - unacknowledgeable, auto-dismiss, me only
   - alias: hacs_update_available
+    id: ded400d4-ed4b-4851-ad50-1438ab7aee91
     trigger:
       platform: state
       entity_id: binary_sensor.updater_hacs
@@ -79,6 +82,7 @@ automation:
 
   # Addons have updates available - unacknowledgeable, auto-dismiss, me only
   - alias: addon_update_available
+    id: 47b167ff-56f6-4c21-a943-f90ac9438bb6
     trigger:
       platform: state
       entity_id: binary_sensor.updater_addons
@@ -90,6 +94,7 @@ automation:
         message: ""
 
   - alias: Check config with update
+    id: 4f6fba9b-d96a-4062-8c04-9425a2ef3aaf
     description: Starts the check config addon when an update becomes available
     trigger:
     - entity_id: binary_sensor.updater

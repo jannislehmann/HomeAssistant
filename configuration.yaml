@@ -82,11 +82,6 @@ logger:
 
 lovelace: !include lovelace/configuration.yaml
 
-recorder:
-  purge_keep_days: 14
-  db_url: !secret recorder_db_url
-  exclude: !include etc/exclude_recorder.yaml
-
 mqtt:
   broker: !secret mqtt_broker
   port: 1883

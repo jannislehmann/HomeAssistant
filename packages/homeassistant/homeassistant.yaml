@@ -1,7 +1,7 @@
 ---
 automation:
   - alias: Home Assistant Start - Notify
-    initial_state: true
+    id: 8ccb7b1a-b2ee-4729-930a-8f48abe8d910
     trigger:
       platform: homeassistant
       event: start
@@ -11,7 +11,7 @@ automation:
         message: "Home Assistant started"
 
   - alias: Home Assistant Stop - Notify
-    initial_state: true
+    id: 4106fcff-c771-4bb2-a397-7646896f63bd
     trigger:
       platform: homeassistant
       event: shutdown
