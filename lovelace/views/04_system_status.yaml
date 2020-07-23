@@ -45,12 +45,6 @@
                 - type: custom:decluttering-card
                   template: mini_graph
                   variables:
-                    - entity_id: sensor.cpu_temperature
-                    - color: red
-                    - name: CPU-Temperatur
-                - type: custom:decluttering-card
-                  template: mini_graph
-                  variables:
                     - entity_id: sensor.processor_use
                     - color: green
                     - name: CPU-Auslastung

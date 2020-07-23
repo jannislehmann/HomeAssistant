@@ -11,7 +11,7 @@ include_entities:
   - light.ambilight
   - light.living_floor_light
   - light.kitchen_cabinets
-  - switch.storage
+  - light.storage
   # Temperature
   - sensor.temperature_bath
   - sensor.temperature_bed

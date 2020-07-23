@@ -66,12 +66,11 @@ logger:
     homeassistant.components.device_tracker: error
     homeassistant.components.discovery: warn
     homeassistant.components.http: warn
-    homeassistant.components.ipp: critical
     homeassistant.components.media_player: info
     homeassistant.components.sensor.rest: critical
     homeassistant.components.rest.sensor: critical
     homeassistant.components.recorder: error
-    homeassistant.components.sensor.darksky: warn
+    homeassistant.components.zha: debug
     homeassistant.helpers.script: info
     homeassistant.helpers.entity: critical
     homeassistant.loader: warn

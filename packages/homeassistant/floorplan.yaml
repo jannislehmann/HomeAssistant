@@ -43,7 +43,7 @@ panel_custom:
             - light.kitchen_cabinets
             - light.office_desk
             - light.living_floor_light
-            - switch.storage
+            - light.storage
           states:
             - state: 'on'
               class: 'light-on'

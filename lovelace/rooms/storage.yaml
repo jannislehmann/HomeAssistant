@@ -9,5 +9,5 @@ sensors:
     name: Luftfeuchtigkeit
     color: purple
 lights:
-  - entity_id: switch.storage
+  - entity_id: light.storage
     name: Abstellraum
