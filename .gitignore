@@ -16,7 +16,7 @@ floorplan.svg
 deps
 custom_components/*
 themes/*
-www/*
+www/**/
 
 # Specific file ignores
 .config_entries.json
