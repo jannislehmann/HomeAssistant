@@ -3,7 +3,6 @@ zones/*
 known_devices.yaml
 google_calendars.yaml
 secrets.yaml
-floorplan.svg
 
 # Extension ignores
 *.log
