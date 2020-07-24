@@ -12,7 +12,7 @@
 'binary_sensor.contact_living_window',
 ] %}
 - title: Einstellungen
-  icon: mdi:settings
+  icon: mdi:cog
   path: settings
   cards:
     - type: vertical-stack
