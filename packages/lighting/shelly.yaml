@@ -1,0 +1,5 @@
+shelly:
+  username: !secret shelly_username
+  password: !secret shelly_password
+  discover_by_ip:
+    - '10.0.20.51'
