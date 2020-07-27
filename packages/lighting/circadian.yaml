@@ -1,0 +1,21 @@
+---
+circadian_lighting:
+  transition: 15
+
+switch:
+  - platform: circadian_lighting
+    name: hall
+    min_brightness: 50
+    lights_ct:
+      - light.flur
+
+  - platform: circadian_lighting
+    name: fado_office
+    lights_rgb:
+      - light.fado_desk
+  
+  - platform: circadian_lighting
+    name: kitchen
+    min_brightness: 100
+    lights_rgb:
+      - light.kitchen_cabinets
