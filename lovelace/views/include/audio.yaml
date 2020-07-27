@@ -11,31 +11,65 @@
             - title: Audio
               navigation_path: home
 
-        - artwork: cover
-          entity: media_player.forked_daapd_server
-          group: true
+        - type: entities
+          entities:
+            - type: custom:mini-media-player
+              entity: media_player.mpd
+              group: true
+              source: icon
+              info: short
+              hide:
+                volume: true
+                power: true
+              shortcuts:
+                columns: 2
+                buttons:
+                  - name: Bremen NEXT
+                    type: service
+                    id: media_player.play_media
+                    data:
+                      entity_id: media_player.mpd
+                      media_content_id: tunein:station:s105937
+                      media_content_type: music
+                  - name: Energy Bremen
+                    type: service
+                    id: media_player.play_media
+                    data:
+                      entity_id: media_player.mpd
+                      media_content_id: tunein:station:s9213
+                      media_content_type: music
+
+        - type: custom:mini-media-player
+          entity: media_player.snapcast_client_b8_27_eb_8e_79_2c
           hide:
-            source: true
-            volume: true
-          icon: 'mdi:music-circle'
-          name: Multi-Room Audio
-          type: 'custom:mini-media-player'
-        - entity: media_player.snapcast_group_3ec19a5b_9e39_191c_b15b_38e06adf446a
-          group: true
-          hide:
-            controls: true
             power: true
-            power_state: true
+            icon: true
             source: true
-            volume: false
-          icon: 'mdi:speaker-multiple'
-          name: Master Volume
-          type: 'custom:mini-media-player'
-        - type: custom:decluttering-card
-          template: mini_media_player
-          variables:
-            - entity_id: media_player.bed_chromecast
-        - type: custom:decluttering-card
-          template: mini_media_player
-          variables:
-            - entity: media_player.android_tv
+          speaker_group:
+            platform: snapcast
+            show_group_count: true
+            entities:
+              - entity_id: media_player.snapcast_client_b8_27_eb_8e_79_2c
+                name: Test
+
+        - type: entities
+          entities:
+            - type: custom:mini-media-player
+              entity: media_player.mpd
+              group: true
+              source: icon
+              info: short
+              hide:
+                volume: true
+                power: true
+            - type: custom:mini-media-player
+              entity: media_player.snapcast_client_b8_27_eb_8e_79_2c
+              group: true
+              hide:
+                controls: true
+
+        - type: custom:spotify-card
+          default_device: Home
+          device: Home
+          display_style: Grid
+          grid_covers_per_row: 5
