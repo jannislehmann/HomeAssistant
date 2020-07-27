@@ -40,12 +40,6 @@ default_config:
 
 ios:
 
-frontend:
-  # HACS
-  themes: !include_dir_merge_named ./themes
-  extra_module_url:
-    - /hacsfiles/custom-sidebar/custom-sidebar.js
-
 http:
   server_port: !secret http_port
   ssl_certificate: /ssl/fullchain.pem
