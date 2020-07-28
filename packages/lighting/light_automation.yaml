@@ -3,7 +3,7 @@ automation:
   - alias: Light Hall
     id: c2df6567-a636-48a3-8c86-fec73b866634
     description: Turn on the light in the hall when presence is detected or turn it off if there is no motion.
-    mode: queued
+    mode: restart
     trigger:
       - platform: homeassistant
         event: start
@@ -55,7 +55,7 @@ automation:
   - alias: Light Kitchen
     id: 0c2d7924-c4c3-4fd6-83de-b1f0d8a9c893
     description: Turn on the light in the kitchen in the evening when presence is detected or turn it off if there is no motion.
-    mode: queued
+    mode: restart
     trigger:
       - platform: homeassistant
         event: start
@@ -70,20 +70,18 @@ automation:
       choose:
         # Motion detected
         - conditions:
-            - condition: template
-              value_template: "{{ trigger.to_state.state == 'on' }}"
+            - condition: state
+              entity_id: binary_sensor.presence_kitchen
+              state: 'on'
             - condition: state
               entity_id: alarm_control_panel.ha_alarm
               state: disarmed
             - condition: state
               entity_id: input_boolean.motion_sensor
               state: 'on'
-            - condition: and
-              conditions:
-                - condition: time
-                  after: "21:00:00"
-                - condition: time
-                  before: "07:00:00"
+            - condition: time
+              before: "07:00:00"
+              after: "21:00:00"
           sequence:
             - service: switch.turn_on
               entity_id: switch.circadian_lighting_kitchen
