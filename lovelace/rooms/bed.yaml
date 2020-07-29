@@ -16,3 +16,5 @@ media_players:
   - entity_id: media_player.bed_chromecast
 contact_sensors:
   - entity_id: binary_sensor.contact_bed
+covers:
+  - entity_id: cover.bed

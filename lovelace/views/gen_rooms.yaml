@@ -78,6 +78,19 @@
           {% endfor %}
       {% endif %}
 
+      {% if room.covers %}
+        - type: vertical-stack
+          cards:
+            - !include 
+              - ../includes/section.yaml
+              - title: Cover
+            - type: custom:shutter-card
+              entities:
+              {% for cover in room.covers %}
+                - {{ cover.entity_id }}
+              {% endfor %}
+      {% endif %}
+
       {% if room.additional_buttons or room.additional_switches %}
         - type: vertical-stack
           cards:

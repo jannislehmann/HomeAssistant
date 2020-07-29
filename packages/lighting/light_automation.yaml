@@ -3,7 +3,7 @@ automation:
   - alias: Light Hall
     id: c2df6567-a636-48a3-8c86-fec73b866634
     description: Turn on the light in the hall when presence is detected or turn it off if there is no motion.
-    mode: restart
+    mode: queued
     trigger:
       - platform: homeassistant
         event: start
@@ -14,7 +14,7 @@ automation:
           - binary_sensor.presence_hall
           - input_boolean.motion_sensor
           - alarm_control_panel.ha_alarm
-          - sensor.illuminance_hall
+          # - sensor.illuminance_hall
     action:
       choose:
         # Motion detected
@@ -22,9 +22,9 @@ automation:
             - condition: state
               entity_id: binary_sensor.presence_hall
               state: 'on'
-            - condition: numeric_state
-              entity_id: sensor.illuminance_hall
-              below: 75
+            #- condition: numeric_state
+            #  entity_id: sensor.illuminance_hall
+            #  below: 75
             - condition: state
               entity_id: alarm_control_panel.ha_alarm
               state: disarmed
