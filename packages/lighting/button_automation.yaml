@@ -77,6 +77,7 @@ automation:
                 entity_id: light.go
                 brightness: 75
                 color_name: orange
+                transition: 5
         # Double Click
         - conditions:
           - condition: template
