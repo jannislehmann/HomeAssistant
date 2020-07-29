@@ -7,6 +7,6 @@ trigger:
   platform: homeassistant
   event: start
 action:
-  - service: notify.telegram_jannis
-    data:
-      message: Home Assistant is starting up again 🎉
+  service: notify.telegram_jannis
+  data:
+    message: Home Assistant finished starting up again 🎉

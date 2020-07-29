@@ -17,7 +17,7 @@ action:
         - service: light.toggle
           data:
             entity_id: light.fado_desk
-            brightness_pct: 70
+            brightness_pct: 60
     # Double Click
     - conditions:
       - condition: template
@@ -28,4 +28,4 @@ action:
             entity_id:
               - light.fado_desk
               - light.office_desk
-            brightness_pct: 70
+            brightness_pct: 60
