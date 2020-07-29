@@ -1,0 +1,31 @@
+---
+alias: Button Office
+id: da3e3cb9-4f13-4d65-9d4c-f684888c2398
+mode: queued
+trigger:
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_ieee: "00:15:8d:00:01:d8:db:30"
+action:
+  choose:
+    # Single Click
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.event.data.args.click_type == 'single' }}"
+      sequence:
+        - service: light.toggle
+          data:
+            entity_id: light.fado_desk
+            brightness_pct: 70
+    # Double Click
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.event.data.args.click_type == 'double' }}"
+      sequence:
+        - service: light.toggle
+          data:
+            entity_id:
+              - light.fado_desk
+              - light.office_desk
+            brightness_pct: 70

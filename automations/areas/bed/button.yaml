@@ -1,0 +1,29 @@
+---
+alias: Button Bedroom
+id: 72c9f90d-7208-46ee-88d7-c1055f51f61a
+mode: queued
+trigger:
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_ieee: "00:15:8d:00:01:bc:f8:00"
+action:
+  choose:
+    # Single Click
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.event.data.args.click_type == 'single' }}"
+      sequence:
+        - service: light.toggle
+          data:
+            entity_id: light.go
+            brightness: 75
+            color_name: orange
+            transition: 5
+    # Double Click
+    - conditions:
+      - condition: template
+        value_template: "{{ trigger.event.data.args.click_type == 'double' }}"
+      sequence:
+        - service: media_player.media_stop
+          entity_id: media_player.bed_chromecast

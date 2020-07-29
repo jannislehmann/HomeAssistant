@@ -1,25 +1,4 @@
 ---
-automation:
-  - alias: Home Assistant Start - Notify
-    id: 8ccb7b1a-b2ee-4729-930a-8f48abe8d910
-    trigger:
-      platform: homeassistant
-      event: start
-    action:
-      service: notify.telegram_jannis
-      data:
-        message: "Home Assistant started"
-
-  - alias: Home Assistant Stop - Notify
-    id: 4106fcff-c771-4bb2-a397-7646896f63bd
-    trigger:
-      platform: homeassistant
-      event: shutdown
-    action:
-      service: notify.telegram_jannis
-      data:
-        message: "Home Assistant stopped"
-
 sensor:
   - platform: version
     name: version_current

@@ -1,0 +1,28 @@
+---
+alias: Set Frontend Theme
+id: e6c378ad-bc5d-4d75-b849-caafb206b244
+description: Sets the frontend theme according to the sun level.
+mode: single
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
+  - platform: state
+    entity_id: sun.sun
+action:
+  - choose:
+    - conditions:
+      - condition: numeric_state
+        entity_id: sun.sun
+        value_template: >-
+          {{ state_attr('sun.sun', 'elevation') }}
+        below: 3.0
+      sequence:
+        service: frontend.set_theme
+        data:
+          name: Google Dark Theme
+    default:
+      service: frontend.set_theme
+      data:
+        name: Google Light Theme
