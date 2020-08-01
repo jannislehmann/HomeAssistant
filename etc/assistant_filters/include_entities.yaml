@@ -1,6 +1,8 @@
 ---
 # Provides a list of entities to include in HomeKit and Amazon Alexa.
 include_entities:
+  # Cover
+  - cover.bed
   # Light
   - light.flur
   - light.iris
@@ -9,7 +11,7 @@ include_entities:
   - light.office_desk
   - light.office_closet
   - light.ambilight
-  - light.living_floor_light
+  - light.living_ceiling_light
   - light.kitchen_cabinets
   - light.storage
   # Temperature
