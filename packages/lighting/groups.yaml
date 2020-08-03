@@ -12,3 +12,9 @@ light:
       - light.office_desk
       - light.living_couch_ceiling
       - light.office_closet
+
+  - platform: group
+    name: living_couch_ceiling
+    entities:
+      - light.living_couch_ceiling_1
+      - light.living_couch_ceiling_2
