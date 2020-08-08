@@ -21,8 +21,8 @@ action:
       sequence:
         service: frontend.set_theme
         data:
-          name: Google Dark Theme
+          name: Dark Soft UI
     default:
       service: frontend.set_theme
       data:
-        name: Google Light Theme
+        name: Light Soft UI
