@@ -1,0 +1,11 @@
+---
+alias: Turn off light in bedroom when playing media
+id: ce5e8133-6df5-4423-b676-9ca047d52dbb
+mode: queued
+trigger:
+  - platform: state
+    entity_id: media_player.bed_chromecast
+    to: playing
+action:
+  - service: light.turn_off
+    entity_id: light.go

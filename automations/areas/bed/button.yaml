@@ -26,4 +26,4 @@ action:
         value_template: "{{ trigger.event.data.args.click_type == 'double' }}"
       sequence:
         - service: media_player.media_stop
-          entity_id: media_player.bed_chromecast
+          entity_id: media_player.bed_tv
