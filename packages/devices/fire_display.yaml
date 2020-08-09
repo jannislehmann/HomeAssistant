@@ -4,3 +4,10 @@ display:
     name: Küchen Tablet
     host: !secret display_fire_host
     password: !secret display_fire_password
+
+homeassistant:
+  customize:
+    sensor.32da26fb_9c72d873_battery:
+      battery_alert_disabled: true
+    sensor.kuchen_tablet_battery:
+      battery_alert_disabled: true
