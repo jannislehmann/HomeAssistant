@@ -21,8 +21,8 @@ action:
       sequence:
         service: frontend.set_theme
         data:
-          name: Dark Soft UI
+          name: iOS Dark Mode
     default:
       service: frontend.set_theme
       data:
-        name: Light Soft UI
+        name: iOS Light Mode
