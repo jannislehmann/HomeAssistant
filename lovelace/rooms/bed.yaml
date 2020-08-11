@@ -13,7 +13,7 @@ lights:
     name: Go
 media_players:
   - entity_id: media_player.bed_dot
-  - entity_id: media_player.bed_tv
+  - entity_id: media_player.fernseher_schlafzimmer
 contact_sensors:
   - entity_id: binary_sensor.contact_bed
 covers:

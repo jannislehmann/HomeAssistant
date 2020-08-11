@@ -4,7 +4,6 @@ media_player:
   - platform: androidtv
     name: Fernseher
     host: !secret philips_host
-    port: 5555
 
 light:
   - platform: philips_ambilight

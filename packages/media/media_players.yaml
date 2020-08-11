@@ -1,0 +1,10 @@
+---
+sonos:
+  media_player:
+    hosts:
+      - !secret host_sonos
+
+media_player:
+  - platform: androidtv
+    name: Fernseher Schlafzimmer
+    host: !secret mi_tv_host
