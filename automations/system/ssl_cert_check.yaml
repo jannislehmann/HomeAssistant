@@ -1,0 +1,16 @@
+---
+alias: system_letsencrypt_renewal
+id: 6d3fd9b0-eb21-435b-b85e-bb14d128a843
+trigger:
+  - platform: time
+    at: '04:00:00'
+condition:
+  - condition: numeric_state
+    entity_id: sensor.cert_expiry_ha_iot_home_cludch_net_8123
+    below: 14
+action:
+  - service: hassio.addon_restart
+    data:
+      addon: core_letsencrypt
+  - delay: 00:05:00
+  - service: homeassistant.restart

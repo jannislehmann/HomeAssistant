@@ -10,3 +10,6 @@ sensor:
     resources:
       - type: processor_use
       - type: memory_use_percent
+  - platform: cert_expiry
+    host: !secret internal_url
+    port: !secret http_port
