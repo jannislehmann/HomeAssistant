@@ -22,6 +22,7 @@ action:
         service: frontend.set_theme
         data:
           name: iOS Dark Mode
+          mode: 'dark'
     default:
       service: frontend.set_theme
       data:
