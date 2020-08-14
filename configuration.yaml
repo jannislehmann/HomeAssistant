@@ -101,6 +101,10 @@ logger:
     snapcast.control.server: warn
     urllib3.connectionpool: error
     root: warn
+    custom_components.hacs: debug
+    hacs: debug
+    queueman: debug
+    AIOGitHubAPI: debug
 
 lovelace: !include lovelace/configuration.yaml
 
