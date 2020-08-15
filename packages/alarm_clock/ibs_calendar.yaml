@@ -1,4 +1,0 @@
----
-calendar:
-  - platform: caldav
-    url: !secret ibs_calendar_url
