@@ -77,34 +77,34 @@ logger:
     homeassistant.components.androidtv.media_player: critical
     homeassistant.components.automation: warn
     homeassistant.components.binary_sensor: error
+    homeassistant.components.calendar: critical
+    homeassistant.components.cert_expiry: critical
     homeassistant.components.device_tracker: error
+    homeassistant.components.snmp.device_tracker: critical
     homeassistant.components.discovery: warn
     homeassistant.components.http: warn
     homeassistant.components.media_player: critical
     homeassistant.components.sensor: warn
     homeassistant.components.sensor.rest: critical
-    homeassistant.components.switch: warn
+    homeassistant.components.switch: error
     homeassistant.components.rest.sensor: critical
     homeassistant.components.recorder: error
     homeassistant.components.zha: warn
     homeassistant.helpers.script: info
     homeassistant.helpers.entity: critical
     homeassistant.loader: error
-    homeassistant.setup: warn
+    homeassistant.setup: error
     homeassistant.bootstrap: warn
     homeassistant.exceptions: info
     googleapiclient.discovery: warn
     py.warnings: error
     pyhap.hap_server: warn
-    pychromecast: warn
+    pychromecast: critical
+    telegram.vendor.ptb_urllib3.urllib3.connectionpool: error
     requests.packages.urllib3.connectionpool: critical
     snapcast.control.server: warn
     urllib3.connectionpool: error
-    root: warn
-    custom_components.hacs: debug
-    hacs: debug
-    queueman: debug
-    AIOGitHubAPI: debug
+    custom_components.display: error
 
 lovelace: !include lovelace/configuration.yaml
 
