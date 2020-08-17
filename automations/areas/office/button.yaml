@@ -15,9 +15,7 @@ action:
         value_template: "{{ trigger.event.data.args.click_type == 'single' }}"
       sequence:
         - service: light.toggle
-          data:
-            entity_id: light.fado_desk
-            brightness_pct: 60
+          entity_id: light.fado_desk
     # Double Click
     - conditions:
       - condition: template
@@ -25,7 +23,6 @@ action:
       sequence:
         - service: light.toggle
           data:
-            entity_id:
-              - light.fado_desk
-              - light.office_desk
+            entity_id: light.office_desk
             brightness_pct: 60
+            color: orange

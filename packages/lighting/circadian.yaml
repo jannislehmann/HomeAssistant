@@ -5,12 +5,14 @@ circadian_lighting:
 switch:
   - platform: circadian_lighting
     name: hall
-    min_brightness: 50
+    min_brightness: 25
+    max_brightness: 75
     lights_ct:
       - light.flur
 
   - platform: circadian_lighting
     name: fado_office
+    max_brightness: 75
     lights_rgb:
       - light.fado_desk
   
@@ -19,3 +21,8 @@ switch:
     min_brightness: 100
     lights_rgb:
       - light.kitchen_cabinets
+
+  - platform: circadian_lighting
+    name: living_floor_light
+    lights_rgb:
+      - light.living_floor_light
