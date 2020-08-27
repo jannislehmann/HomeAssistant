@@ -1,0 +1,18 @@
+---
+alias: Close the blinds
+id: 41f7b145-78cd-4da8-8f94-583f478148d3
+mode: single
+trigger:
+  - platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: CLOSE_BLINDS
+  - platform: event
+    event_type: mobile_app_notification_action
+    event_data:
+      actionName: CLOSE_BLINDS
+action:
+  service: cover.set_cover_position
+  data:
+    entity_id: cover.bed
+    position: 20

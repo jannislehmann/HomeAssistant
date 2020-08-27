@@ -1,0 +1,26 @@
+---
+alias: Ask to close the blinds at sunset if this open at 100%
+id: c1663eb4-3248-476e-9f48-be50b94e2e47
+mode: single
+trigger:
+  platform: sun
+  event: sunset
+  offset: "-00:30:00"
+condition:
+  condition: template
+  value_template: '{{ states.cover.bed.attributes.current_position | int == 100 }}'
+action:
+  - service: notify.mobile_app_iphone_von_jannis
+    data:
+      title: "Jalousien"
+      message: "Sollen die Jalousien geschlossen werden?"
+      data:
+        push:
+          category: "CLOSE_BLINDS_QUESTION"
+  - service: notify.mobile_app_eml_l29
+    data:
+      message: "Sollen die Jalousien geschlossen werden?"
+      data:
+        actions:
+          - action: "CLOSE_BLINDS"
+            title: "Schließen"

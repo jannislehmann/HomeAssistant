@@ -1,0 +1,9 @@
+---
+ios:
+  push:
+    categories:
+      - name: Jalousie
+        identifier: CLOSE_BLINDS_QUESTION
+        actions: 
+          - identifier: CLOSE_BLINDS
+            title: 'Schließen'
