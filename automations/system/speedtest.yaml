@@ -1,0 +1,14 @@
+---
+alias: speedtest
+id: 0f96fe64-1909-4d54-96e3-cd649a9e466e
+description: Runs a speedtest when the main pc is turned off.
+mode: single
+trigger:
+  platform: time_pattern
+  minutes: '/5'
+condition:
+  condition: state
+  entity_id: binary_sensor.gaming_connected
+  state: 'off'
+action:
+  service: speedtestdotnet.speedtest

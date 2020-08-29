@@ -9,8 +9,7 @@ trigger:
   - platform: event
     event_type: automation_reloaded
   - platform: state
-    entity_id:
-      - light.storage
+    entity_id: light.storage
 condition:
   - condition: state
     entity_id: light.storage

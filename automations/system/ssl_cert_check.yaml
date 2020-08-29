@@ -1,13 +1,14 @@
 ---
 alias: system_letsencrypt_renewal
+description: Checks whether the SSL certs needs to be renew. If that is the case, start the Let's Encrypt add-on.
 id: 6d3fd9b0-eb21-435b-b85e-bb14d128a843
 trigger:
-  - platform: time
-    at: '04:00:00'
+  platform: time
+  at: '04:00:00'
 condition:
-  - condition: numeric_state
-    entity_id: sensor.cert_expiry_ha_iot_home_cludch_net_8123
-    below: 14
+  condition: numeric_state
+  entity_id: sensor.cert_expiry_ha_iot_home_cludch_net_8123
+  below: 14
 action:
   - service: hassio.addon_restart
     data:
