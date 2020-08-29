@@ -1,0 +1,43 @@
+---
+description: Vacuum maintenance checks
+alias: vacuum_maintenance_checks
+id: be74aead-ac55-4b5f-8005-6941a41c273c
+mode: single
+trigger:
+  platform: state
+  entity_id: vacuum.glenn
+  to: idle
+action:
+  choose:
+  - conditions:
+    - condition: numeric_state
+      entity_id: sensor.glenn_main_brush_remaining
+      below: 10
+    sequence:
+      service: notify.telegram_group
+      data:
+        message: 🔧 Glenns Hauptbrüste muss bald getauscht werden.
+  - conditions:
+    - condition: numeric_state
+      entity_id: sensor.glenn_side_brush_remaining
+      below: 10
+    sequence:
+      service: notify.telegram_group
+      data:
+        message: 🔧 Glenns Seitenbürste müssen bald getauscht werden.
+  - conditions:
+    - condition: numeric_state
+      entity_id: sensor.glenn_filter_remaining
+      below: 10
+    sequence:
+      service: notify.telegram_group
+      data:
+        message: 🔧 Glenns Filter muss bald getauscht werden.
+  - conditions:
+    - condition: numeric_state
+      entity_id: sensor.glenn_sensors_remaining
+      below: 10
+    sequence:
+      service: notify.telegram_group
+      data:
+        message: 🔧 Glenns Sensoren müssen bald gereinigt werden.

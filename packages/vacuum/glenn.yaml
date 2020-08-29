@@ -5,12 +5,39 @@ sensor:
     json_attributes_topic: "valetudo/glenn/map_data_parsed"
     name: xiaomi_map
     value_template: 'OK'
+  - platform: template
+    sensors:
+      glenn_filter_remaining:
+        unit_of_measurement: 'hrs'
+        value_template: "{{state_attr('vacuum.glenn', 'filter')}}"
+      glenn_side_brush_remaining:
+        unit_of_measurement: 'hrs'
+        value_template: "{{state_attr('vacuum.glenn', 'sideBrush')}}"
+      glenn_main_brush_remaining:
+        unit_of_measurement: 'hrs'
+        value_template: "{{state_attr('vacuum.glenn', 'mainBrush')}}"
+      glenn_sensors_remaining:
+        unit_of_measurement: 'hrs'
+        value_template: "{{state_attr('vacuum.glenn', 'sensor')}}"
 
 input_boolean:
   cleaned_today:
     icon: mdi:robot-vacuum
 
 script:
+  # Mopping
+  glenn_mop:
+    sequence:
+      - service: vacuum.start
+        entity_id: vacuum.glenn
+      - service: vacuum.set_fan_speed
+        data:
+          entity_id: vacuum.glenn
+          fan_speed: mop
+      - delay: 30m
+      - service: notify.telegram_group
+        data:
+          message: 💧 Glenn benötigt wieder Wasser
   # Go To
   glenn_go_home:
     sequence:

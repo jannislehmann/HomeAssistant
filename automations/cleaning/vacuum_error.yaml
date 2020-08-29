@@ -1,0 +1,14 @@
+---
+description: Vacuum cleaning error
+alias: vacuum_cleaning_error
+id: 7ceaf2ba-a0ec-4cbf-8ed2-35d93bd096be
+mode: single
+trigger:
+  platform: state
+  entity_id: vacuum.glenn
+  from: cleaning
+  to: error
+action:
+  - service: notify.telegram_group
+    data:
+      message: 😢 Glenn hat ein Problem 

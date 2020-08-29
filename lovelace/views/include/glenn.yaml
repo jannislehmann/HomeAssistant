@@ -62,3 +62,10 @@
               icon: mdi:bed-empty
             - service: script.glenn_clean_living
               icon: mdi:television
+
+        - type: vertical-stack
+          cards:
+          - type: custom:button-card
+            icon: mdi:water
+            name: Wischen
+            entity: script.glenn_mop

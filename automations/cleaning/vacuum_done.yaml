@@ -1,0 +1,16 @@
+---
+description: Vacuum cleaning done
+alias: vacuum_cleaning_done
+id: afff179f-e1d9-4e22-9f4b-0a50aa86c693
+mode: single
+trigger:
+  platform: state
+  entity_id: vacuum.glenn
+  from: cleaning
+  to: returning
+action:
+  - service: notify.telegram_group
+    data:
+      message: 🧹 Glenn ist fertig mit der Reinigung.
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.cleaned_today
