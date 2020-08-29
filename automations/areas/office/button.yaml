@@ -22,7 +22,6 @@ action:
         value_template: "{{ trigger.event.data.args.click_type == 'double' }}"
       sequence:
         - service: light.toggle
-          data:
-            entity_id: light.office_desk
-            brightness_pct: 60
-            color: orange
+          entity_id:
+            - light.office_desk
+            - light.fado_desk
