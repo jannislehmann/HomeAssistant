@@ -8,6 +8,7 @@ light:
       - light.kitchen_cabinets
       - light.fado_desk
       - light.living_floor_light
+      - light.living_couch
       - light.lightstrip
       - light.office_desk
       - light.living_couch_ceiling
