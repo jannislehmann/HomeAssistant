@@ -1,6 +1,6 @@
 ---
 alias: speedtest
-id: 0f96fe64-1909-4d54-96e3-cd649a9e466e
+id: 6bfc5074-8144-4285-94d7-c574bc7e0819
 description: Runs a speedtest when the main pc is turned off.
 mode: single
 trigger:
