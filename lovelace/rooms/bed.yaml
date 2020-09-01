@@ -14,7 +14,7 @@ lights:
 media_players:
   - entity_id: media_player.bed_dot
   # _2 is the adb one
-  - entity_id: media_player.fernseher_schlafzimmer
+  - entity_id: media_player.fernseher_schlafzimmer_2
 contact_sensors:
   - entity_id: binary_sensor.contact_bed
 covers:
