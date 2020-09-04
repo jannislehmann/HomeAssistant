@@ -15,13 +15,10 @@ condition:
     - condition: time
       after: '9:00'
       before: '20:00'
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-        - sat
+    - condition: not
+      conditions:
+        condition: time
+        weekday: sun
     - condition: state
       entity_id: group.home
       state: not_home
@@ -29,5 +26,5 @@ condition:
       entity_id: input_boolean.cleaned_today
       state: 'off'
 action:
-  - service: vacuum.start
-    entity_id: vacuum.glenn
+  service: vacuum.start
+  entity_id: vacuum.glenn

@@ -12,15 +12,15 @@ condition:
 action:
   - service: notify.mobile_app_iphone_von_jannis
     data:
-      title: "Jalousien"
+      title: Jalousien
       message: "Sollen die Jalousien geschlossen werden?"
       data:
         push:
-          category: "CLOSE_BLINDS_QUESTION"
+          category: CLOSE_BLINDS_QUESTION
   - service: notify.mobile_app_eml_l29
     data:
       message: "Sollen die Jalousien geschlossen werden?"
       data:
         actions:
-          - action: "CLOSE_BLINDS"
-            title: "Schließen"
+          - action: CLOSE_BLINDS
+            title: Schließen
