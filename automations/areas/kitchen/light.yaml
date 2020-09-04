@@ -13,22 +13,23 @@ trigger:
       - binary_sensor.presence_kitchen
       - input_boolean.motion_sensor
       - alarm_control_panel.ha_alarm
+      - media_player.kitchen_dot
 action:
   choose:
     # Motion detected
     - conditions:
-        - condition: state
-          entity_id: binary_sensor.presence_kitchen
-          state: 'on'
-        - condition: state
-          entity_id: alarm_control_panel.ha_alarm
-          state: disarmed
-        - condition: state
-          entity_id: input_boolean.motion_sensor
-          state: 'on'
-        - condition: time
-          before: "07:30:00"
-          after: "20:00:00"
+      - condition: state
+        entity_id: binary_sensor.presence_kitchen
+        state: 'on'
+      - condition: state
+        entity_id: alarm_control_panel.ha_alarm
+        state: disarmed
+      - condition: state
+        entity_id: input_boolean.motion_sensor
+        state: 'on'
+      - condition: time
+        before: "08:00:00"
+        after: "19:00:00"
       sequence:
         - service: switch.turn_on
           entity_id: switch.circadian_lighting_kitchen
@@ -41,11 +42,15 @@ action:
               {{ state_attr('sensor.circadian_values', 'colortemp') | int }}
             brightness_pct: >-
               {{ state_attr('switch.circadian_lighting_kitchen', 'brightness') | int }}
-  # No more motion detected
-  default:
-    - service: switch.turn_off
-      entity_id: switch.circadian_lighting_kitchen
-    - service: light.turn_off
-      data:
-        entity_id: light.kitchen_cabinets
-        transition: 3
+    - conditions:
+      # No more motion detected and music is not playing.
+      - condition: state
+        entity_id: media_player.kitchen_dot
+        state: standby
+      sequence:
+      - service: switch.turn_off
+        entity_id: switch.circadian_lighting_kitchen
+      - service: light.turn_off
+        data:
+          entity_id: light.kitchen_cabinets
+          transition: 3
