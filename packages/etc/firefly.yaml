@@ -1,0 +1,53 @@
+---
+# This package provides a basic API Wrapper for Firefly III.
+# Currently this only supports the main account and category, which are used for buying grocieries etc.
+rest_command:
+  firefly_withdraw:
+    url: !secret firefly_url
+    method: post
+    headers:
+      Authorization: !secret firefly_secret
+    payload: > 
+      {
+        "transactions": [
+          {
+            "type": "withdrawal",
+            "date": "{{ now().date() }}",
+            "amount": "{{ states('input_number.firefly_amount') }}",
+            "description": "{{ states('input_text.firefly_description') }}",
+            "category_id": 3,
+            "source_id": 93,
+            "destination_id": 68
+          }
+        ]
+      }
+    content_type: 'application/json; charset=utf-8'
+
+input_text:
+  firefly_description:
+    name: Transaktionsbeschreibung
+    initial: ''
+
+input_number:
+  firefly_amount:
+    name: Kosten
+    min: 0
+    max: 100
+    step: 0.01
+    mode: box
+    initial: 0
+
+script:
+  firefly_create_transaction:
+    alias: Firefly Create Transaction
+    description: Creates a new Firefly III transaction and resets the inputs
+    sequence:
+      - service: rest_command.firefly_withdraw
+      - service: input_text.set_value
+        data:
+          entity_id: input_text.firefly_description
+          value: ''
+      - service: input_number.set_value
+        data:
+          entity_id: input_number.firefly_amount
+          value: 0

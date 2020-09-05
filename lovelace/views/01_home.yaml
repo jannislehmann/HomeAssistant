@@ -107,7 +107,7 @@
                       {% endif %}
                 {% endfor %}
       
-      # Glenn, Audio System
+      # Glenn, Audio System, Firefly
       - type: vertical-stack
         cards:
 
@@ -138,3 +138,9 @@
                     - path: audio
                     - name: Audio
                     - icon: mdi:speaker-multiple
+                - type: custom:decluttering-card
+                  template: hk_simple_link
+                  variables:
+                    - path: firefly
+                    - name: Firefly
+                    - icon: mdi:cash
