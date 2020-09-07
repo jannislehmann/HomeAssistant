@@ -44,9 +44,8 @@ action:
               {{ state_attr('switch.circadian_lighting_kitchen', 'brightness') | int }}
     - conditions:
       # No more motion detected and music is not playing.
-      - condition: state
-        entity_id: media_player.kitchen_dot
-        state: standby
+      - condition: template
+        value_template: "{{ not is_state('media_player.kitchen_dot', 'playing') }}"
       sequence:
       - service: switch.turn_off
         entity_id: switch.circadian_lighting_kitchen
