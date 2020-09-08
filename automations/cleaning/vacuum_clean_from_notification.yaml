@@ -10,7 +10,7 @@ trigger:
   - platform: event
     event_type: mobile_app_notification_action
     event_data:
-      actionName: RUN_VACUUM
+      action: RUN_VACUUM
 action:
   service: vacuum.start
   entity_id: vacuum.glenn

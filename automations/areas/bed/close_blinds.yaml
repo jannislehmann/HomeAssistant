@@ -10,7 +10,7 @@ trigger:
   - platform: event
     event_type: mobile_app_notification_action
     event_data:
-      actionName: CLOSE_BLINDS
+      action: CLOSE_BLINDS
 action:
   service: cover.set_cover_position
   data:
