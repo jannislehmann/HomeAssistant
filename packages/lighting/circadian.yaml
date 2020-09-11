@@ -10,10 +10,13 @@ switch:
       - light.flur
 
   - platform: circadian_lighting
-    name: fado_office
+    name: office
     max_brightness: 75
     lights_rgb:
       - light.fado_desk
+      - light.office_closet
+      - light.office_desk
+      - light.office_kallax
   
   - platform: circadian_lighting
     name: kitchen
