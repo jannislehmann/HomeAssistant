@@ -30,12 +30,14 @@ script:
     sequence:
       - service: vacuum.start
         entity_id: vacuum.glenn
-      - delay: 1m
+      - delay:
+          minutes: 1
       - service: vacuum.set_fan_speed
         data:
           entity_id: vacuum.glenn
           fan_speed: mop
-      - delay: 25m
+      - delay:
+          minutes: 25
       - service: notify.telegram_group
         data:
           message: 💧 Glenn benötigt wieder Wasser

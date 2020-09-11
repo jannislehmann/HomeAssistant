@@ -25,7 +25,7 @@ rest_command:
 
 input_text:
   firefly_description:
-    name: Transaktionsbeschreibung
+    name: Beschreibung
     initial: ''
 
 input_number:
