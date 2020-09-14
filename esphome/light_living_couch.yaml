@@ -6,7 +6,7 @@ esphome:
   includes:
     - diyhueasyncudp.h
   libraries:
-    - ESPAsyncUDP@697c75a025
+    - ESPAsyncUDP
 
 wifi:
   ssid: !secret wifi_ssid
