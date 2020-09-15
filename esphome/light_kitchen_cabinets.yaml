@@ -1,21 +1,10 @@
 ---
-esphome:
-  name: light_kitchen_cabinets
-  platform: ESP8266
-  board: esp01_1m
+substitutions:
+  device: light_kitchen_cabinets
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  domain: !secret wifi_domain
-
-api:
-  password: !secret esp_apipass
-
-logger:
-
-ota:
-  password: !secret esp_otapass
+packages:
+  esphome_base: !include common/esphome_base.yaml
+  main_base: !include common/main_base.yaml
 
 # RGB Warm
 output:
@@ -35,6 +24,7 @@ output:
     pin: 14
     frequency: 1000 Hz
     id: pwm_w
+
 light:
   - platform: rgbw
     name: "H801 Light"

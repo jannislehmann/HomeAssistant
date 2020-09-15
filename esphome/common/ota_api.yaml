@@ -1,0 +1,6 @@
+---
+api:
+  password: !secret esp_apipass
+
+ota:
+  password: !secret esp_otapass

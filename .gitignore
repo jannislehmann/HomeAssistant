@@ -40,8 +40,10 @@ options.xml
 node-red/
 alexa_media.*
 esphome/**/
+!esphome/common
+!esphome/libraries
+
 edgeos.key
-aircast.xml
 
 # diyHue
-addons/diyHue/rootsfs
+addons/diyHue/rootfs
