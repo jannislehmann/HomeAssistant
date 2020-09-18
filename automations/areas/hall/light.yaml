@@ -13,7 +13,6 @@ trigger:
       - binary_sensor.presence_hall
       - input_boolean.motion_sensor
       - alarm_control_panel.ha_alarm
-      # - sensor.illuminance_hall
 action:
   choose:
     # Motion detected
@@ -21,9 +20,6 @@ action:
         - condition: state
           entity_id: binary_sensor.presence_hall
           state: 'on'
-        #- condition: numeric_state
-        #  entity_id: sensor.illuminance_hall
-        #  below: 75
         - condition: state
           entity_id: alarm_control_panel.ha_alarm
           state: disarmed
@@ -37,11 +33,8 @@ action:
           data:
             entity_id: light.flur
             transition: 2
-          data_template:
-            kelvin: >-
-              {{ state_attr('sensor.circadian_values', 'colortemp') | int }}
-            brightness_pct: >-
-              {{ state_attr('switch.circadian_lighting_hall', 'brightness') | int }}
+            kelvin: "{{ state_attr('sensor.circadian_values', 'colortemp') | int }}"
+            brightness_pct: "{{ state_attr('switch.circadian_lighting_hall', 'brightness') | int }}"
   # No more motion detected
   default:
     - service: switch.turn_off

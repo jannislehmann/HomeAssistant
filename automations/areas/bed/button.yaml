@@ -11,8 +11,7 @@ action:
   choose:
     # Single Click
     - conditions:
-      - condition: template
-        value_template: "{{ trigger.event.data.args.click_type == 'single' }}"
+      - "{{ trigger.event.data.args.click_type == 'single' }}"
       sequence:
         - service: light.toggle
           data:
@@ -22,8 +21,7 @@ action:
             transition: 5
     # Double Click
     - conditions:
-      - condition: template
-        value_template: "{{ trigger.event.data.args.click_type == 'double' }}"
+      - "{{ trigger.event.data.args.click_type == 'double' }}"
       sequence:
         - service: media_player.media_stop
           entity_id: media_player.fernseher_schlafzimmer_2

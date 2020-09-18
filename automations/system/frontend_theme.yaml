@@ -15,8 +15,7 @@ action:
     - conditions:
       - condition: numeric_state
         entity_id: sun.sun
-        value_template: >-
-          {{ state_attr('sun.sun', 'elevation') }}
+        attribute: elevation
         below: 3.0
       sequence:
         service: frontend.set_theme

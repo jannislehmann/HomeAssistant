@@ -1,0 +1,12 @@
+---
+alias: Manual alarm clock time
+id: 5adebc92-38c1-402f-a4cf-f9c674c4928d
+mode: single
+trigger:
+  platform: time
+  at: input_datetime.alarm_time
+action:
+  - service: input_datetime.set_datetime
+    data:
+      entity_id: input_datetime.alarm_time
+      time: "00:00:00"

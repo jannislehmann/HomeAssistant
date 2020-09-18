@@ -8,6 +8,6 @@ trigger:
   entity_id: binary_sensor.storage_water
   to: 'on'
 action:
-  - service: notify.telegram_group
-    data:
-      message: ⚠️ Wasser im Abstellraum erkannt!
+  service: notify.telegram_group
+  data:
+    message: ⚠️ Wasser im Abstellraum erkannt!

@@ -11,15 +11,13 @@ action:
   choose:
     # Single Click
     - conditions:
-      - condition: template
-        value_template: "{{ trigger.event.data.args.click_type == 'single' }}"
+      - "{{ trigger.event.data.args.click_type == 'single' }}"
       sequence:
         - service: light.toggle
           entity_id: light.fado_desk
     # Double Click
     - conditions:
-      - condition: template
-        value_template: "{{ trigger.event.data.args.click_type == 'double' }}"
+      - "{{ trigger.event.data.args.click_type == 'double' }}"
       sequence:
         - service: light.toggle
           entity_id:

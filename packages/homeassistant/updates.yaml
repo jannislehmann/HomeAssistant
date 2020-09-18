@@ -18,8 +18,6 @@ binary_sensor:
       updater_supervisor:
         friendly_name: 'Updater - Supervisor'
         device_class: problem
-        entity_id:
-        - sensor.supervisor_updates
         value_template: "{{ state_attr('sensor.supervisor_updates', 'current_version') != state_attr('sensor.supervisor_updates', 'newest_version') }}"
         availability_template: "{{ (states('sensor.supervisor_updates') | int(-1)) > -1 }}"
 
@@ -27,16 +25,12 @@ binary_sensor:
       updater_hacs:
         friendly_name: 'Updater - HACS'
         device_class: problem
-        entity_id:
-        - sensor.hacs
         value_template: "{{ states('sensor.hacs') | int > 0 }}"
 
       # True if there's updates available for any addons
       updater_addons:
         friendly_name: 'Updater - Addons'
         device_class: problem
-        entity_id:
-        - sensor.supervisor_updates
         value_template: "{{ states('sensor.supervisor_updates') | int > 0 }}"
 
 automation:

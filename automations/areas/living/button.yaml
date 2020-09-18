@@ -11,14 +11,12 @@ action:
   choose:
     # Single Click
     - conditions:
-      - condition: template
-        value_template: "{{ trigger.event.data.args.click_type == 'single' }}"
+      - "{{ trigger.event.data.args.click_type == 'single' }}"
       sequence:
         - service: light.toggle
           entity_id: light.living_floor_light
     # Double Click
     - conditions:
-      - condition: template
-        value_template: "{{ trigger.event.data.args.click_type == 'double' }}"
+      - "{{ trigger.event.data.args.click_type == 'double' }}"
       sequence:
         - service: script.toggle_ambilight_hue
