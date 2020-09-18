@@ -66,8 +66,8 @@
         - type: vertical-stack
           cards:
           - type: custom:button-card
+            icon: mdi:water
+            name: Wischen
             tap_action:
               action: call-service
-              icon: mdi:water
-              name: Wischen
               service: script.glenn_mop
