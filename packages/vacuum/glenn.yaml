@@ -36,11 +36,6 @@ script:
         data:
           entity_id: vacuum.glenn
           fan_speed: mop
-      - delay:
-          minutes: 25
-      - service: notify.telegram_group
-        data:
-          message: 💧 Glenn benötigt wieder Wasser
   # Go To
   glenn_go_home:
     sequence:
