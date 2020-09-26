@@ -4,8 +4,8 @@ resources: !include_dir_list resources
 dashboards:
   lovelace-floorplan:
     mode: yaml
-    filename: floorplan.yaml
+    filename: lovelace/dashboards/floorplan.yaml
     title: Floorplan
     icon: mdi:floor-plan
     show_in_sidebar: true
-    require_admin: true  
+    require_admin: false

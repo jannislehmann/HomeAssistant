@@ -1,0 +1,44 @@
+title: Floorplan
+views:
+  - panel: true
+    cards:
+      - type: custom:floorplan-card
+        title: Floorplan
+        config:
+          image: /local/floorplan/floorplan.svg?v=1.0.0
+          stylesheet: /local/floorplan/floorplan.css?v=1.0.0
+          rules:
+            - entities:
+                - sensor.temperature_bath
+                - sensor.temperature_bed
+                - sensor.temperature_hall
+                - sensor.temperature_kitchen
+                - sensor.temperature_living
+                - sensor.temperature_office
+                - sensor.temperature_storage
+              text_template: '${entity.state ? entity.state + "°C" : "unknown"}'
+              class_template: '
+                const temp = parseFloat(entity.state.replace("°", ""));
+                if (temp < 10)
+                return "temp-low";
+                else if (temp <= 23)
+                return "temp-medium";
+                else
+                return "temp-high";
+                '
+            - entities:
+                - light.fado_desk
+                - light.flur
+                - light.go
+                - light.iris
+                - light.kitchen_cabinets
+                - light.office_desk
+                - light.living_floor_light
+                - light.storage
+              states:
+                - state: "on"
+                  class: "light-on"
+                - state: "off"
+                  class: "light-off"
+              action:
+                service: homeassistant.toggle
