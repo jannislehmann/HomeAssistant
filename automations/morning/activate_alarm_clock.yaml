@@ -21,7 +21,8 @@ action:
       - conditions:
           # Weekend
           - condition: time
-            at: '07:15:00'
+            after: '07:15:00'
+            before: '07:15:00'
             weekday: [sat, sun]
           - " {{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int == now().day }} "
           - " {{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] == '08:00:00' }} "
@@ -32,7 +33,8 @@ action:
       - conditions:
           # Workday - Training
           - condition: time
-            at: '06:10:00'
+            after: '06:10:00'
+            before: '06:10:00'
             weekday: [mon, tue, wed, thu, fri]
           - " {{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int == now().day }} "
           - " {{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] == '07:00:00' }} "
@@ -43,7 +45,8 @@ action:
       - conditions:
           # Workday - Work
           - condition: time
-            at: '05:50:00'
+            after: '05:50:00'
+            before: '05:50:00'
             weekday: [mon, tue, wed, thu, fri]
           # Not training today
           - " {{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int != now().day }} "
@@ -56,7 +59,8 @@ action:
       - conditions:
           # Manual time
           - condition: time
-            at: input_datetime.alarm_time
+            after: input_datetime.alarm_time
+            before: input_datetime.alarm_time
         sequence:
           - service: input_datetime.set_datetime
             data:
