@@ -1,0 +1,20 @@
+---
+alias: motion_hall_music_off
+description: Turns off the music in the bed room in the morning when there is motion in the hall.
+id: c62fbc9d-c695-4ed1-8257-fe9ff0635978
+mode: single
+trigger:
+  platform: state
+  entity_id: binary_sensor.presence_hall
+  to: 'on'
+condition:
+  - condition: state
+    entity_id: input_boolean.alarm_clock_on
+    state: 'on'
+action:
+  - service: light.turn_off
+    data:
+      entity_id: light.go
+      transition: 5
+  - service: media_player.media_stop
+    entity_id: media_player.bed_dot

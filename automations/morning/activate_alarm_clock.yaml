@@ -1,0 +1,65 @@
+---
+alias: alarm_clock_triggered_today_off_at_midnight
+description: Turns off the toggle which is used to check whether the alarm clock has been triggered today.
+id: 321b7fa1-9003-4295-84de-2b3b5c2b6531
+mode: single
+trigger:
+  platform: time_pattern
+  minutes: '/5'
+condition:
+  - condition: state
+    entity_id: input_boolean.alarm_clock_triggered_today
+    state: "off"
+  - condition: state
+    entity_id: input_boolean.alarm_clock
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.home
+    state: 'on'
+action:
+  - choose:
+      - conditions:
+          # Weekend
+          - condition: time
+            at: '07:15:00'
+            weekday: [sat, sun]
+          - " {{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int == now().day }} "
+          - " {{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] == '08:00:00' }} "
+          - " {{ state_attr('calendar.jannis_defu_gmail_com', 'message') == 'Trainieren' }} "
+        sequence:
+          service: script.alarm_clock_morning_sequence
+
+      - conditions:
+          # Workday - Training
+          - condition: time
+            at: '06:10:00'
+            weekday: [mon, tue, wed, thu, fri]
+          - " {{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int == now().day }} "
+          - " {{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] == '07:00:00' }} "
+          - " {{ state_attr('calendar.jannis_defu_gmail_com', 'message') == 'Trainieren' }} "
+        sequence:
+          service: script.alarm_clock_morning_sequence
+
+      - conditions:
+          # Workday - Work
+          - condition: time
+            at: '05:50:00'
+            weekday: [mon, tue, wed, thu, fri]
+          # Not training today
+          - " {{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int != now().day }} "
+          - " {{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] != '07:00:00' }} "
+          - " {{ state_attr('calendar.jannis_defu_gmail_com', 'message') != 'Trainieren' }} "
+          # Working today
+        sequence:
+          service: script.alarm_clock_morning_sequence
+    
+      - conditions:
+          # Manual time
+          - condition: time
+            at: input_datetime.alarm_time
+        sequence:
+          - service: input_datetime.set_datetime
+            data:
+              entity_id: input_datetime.alarm_time
+              time: "00:00:00"
+          - service: script.alarm_clock_morning_sequence

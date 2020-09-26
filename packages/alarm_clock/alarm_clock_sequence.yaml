@@ -1,0 +1,39 @@
+---
+# This script turns on the light, open ups the covers and plays music.
+# Everything is turned off again after half an hour.
+script:
+  alarm_clock_morning_sequence:
+    sequence:
+      - service: input_boolean.turn_on
+        entity_id:
+          - input_boolean.alarm_clock_triggered_today
+          - input_boolean.alarm_clock_on
+      - service: light.turn_on
+        data:
+          entity_id: light.go
+          transition: 60
+      - delay:
+          minutes: 1
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.bed_dot
+          volume_level: 0.1
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.bed_dot
+          media_content_id: ENERGY Bremen
+          media_content_type: TUNEIN
+      - delay:
+          minutes: 1
+      - service: cover.open_cover
+        entity_id: cover.bed
+      - delay:
+          minutes: 30
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.alarm_clock_on
+      - service: light.turn_off
+        data:
+          entity_id: light.go
+          transition: 5
+      - service: media_player.media_stop
+        entity_id: media_player.bed_dot

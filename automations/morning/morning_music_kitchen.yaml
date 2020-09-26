@@ -1,0 +1,24 @@
+---
+alias: morning_music_kitchen
+description: Turns off the music in the bed room in the morning when there is motion in the hall.
+id: bdd8c935-07b1-4a67-9e99-d8b99882cbcb
+mode: single
+trigger:
+  platform: state
+  entity_id: binary_sensor.presence_kitchen
+  to: 'on'
+condition:
+  - condition: state
+    entity_id: input_boolean.alarm_clock_on
+    state: 'on'
+  - "{{ not is_state('media_player.kitchen_dot', 'playing') }}"
+action:
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.kitchen_dot
+      volume_level: 0.1
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.kitchen_dot
+      media_content_id: ENERGY Bremen
+      media_content_type: TUNEIN
