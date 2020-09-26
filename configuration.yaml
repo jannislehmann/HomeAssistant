@@ -2,6 +2,9 @@
 homeassistant:
   name: Home
 
+  internal_url: !secret internal_url_http
+  external_url: !secret external_url_http
+
   # Localization and zone configuration
   latitude: !secret zone_home_latitude
   longitude: !secret zone_home_longitude
