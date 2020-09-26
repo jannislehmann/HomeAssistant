@@ -1,0 +1,5 @@
+type: custom:spotify-card
+default_device: Home
+device: Home
+display_style: Grid
+grid_covers_per_row: 5

@@ -1,0 +1,27 @@
+type: entities
+entities:
+  - type: custom:mini-media-player
+    entity: media_player.mpd
+    group: true
+    source: icon
+    info: short
+    hide:
+      volume: true
+      power: true
+    shortcuts:
+      columns: 2
+      buttons:
+        - name: Bremen NEXT
+          type: service
+          id: media_player.play_media
+          data:
+            entity_id: media_player.mpd
+            media_content_id: tunein:station:s105937
+            media_content_type: music
+        - name: Energy Bremen
+          type: service
+          id: media_player.play_media
+          data:
+            entity_id: media_player.mpd
+            media_content_id: tunein:station:s9213
+            media_content_type: music
