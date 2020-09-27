@@ -43,6 +43,9 @@ esphome/**/
 !esphome/common
 !esphome/libraries
 
+# Rhasspy (WiP)
+rhasspy/
+
 edgeos.key
 
 # diyHue
