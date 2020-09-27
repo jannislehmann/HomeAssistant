@@ -27,17 +27,14 @@ action:
       - condition: state
         entity_id: input_boolean.motion_sensor
         state: 'on'
-      - condition: time
-        before: "08:00:00"
-        after: "19:00:00"
       - condition: or
         conditions:
         - condition: sun
           after: sunset
-          after_offset: "+01:00:00"
+          after_offset: "-01:30:00"
         - condition: sun
           before: sunrise
-          before_offset: "+01:00:00"
+          before_offset: "+02:00:00"
       sequence:
         - service: switch.turn_on
           entity_id: switch.circadian_lighting_kitchen
