@@ -60,5 +60,3 @@
                     - entity_id: sensor.memory_use_percent
                     - color: purple
                     - name: RAM-Auslastung
-
-        - !include include/gaming_pc.yaml

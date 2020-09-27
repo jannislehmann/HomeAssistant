@@ -9,3 +9,10 @@ dashboards:
     icon: mdi:floor-plan
     show_in_sidebar: true
     require_admin: false
+  lovelace-admin:
+    mode: yaml
+    filename: lovelace/dashboards/admin.yaml
+    title: Administration
+    icon: mdi:cog
+    show_in_sidebar: true
+    require_admin: true

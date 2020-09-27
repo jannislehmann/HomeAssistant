@@ -11,7 +11,7 @@
         - !include 
           - ../includes/header.yaml
           - title: "{{ room.name }}"
-            navigation_path: "home"
+            navigation_path: "lovelace/home"
 
       {% if room.sensors %}
         - type: horizontal-stack
@@ -89,6 +89,12 @@
               {% for cover in room.covers %}
                 - {{ cover.entity_id }}
               {% endfor %}
+      {% endif %}
+
+      {% if room.includes %}
+        {% for include in room.includes %}
+        - !include {{ include }}
+        {% endfor %}
       {% endif %}
 
       {% if room.additional_buttons or room.additional_switches %}

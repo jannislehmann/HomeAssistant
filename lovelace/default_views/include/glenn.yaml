@@ -7,7 +7,7 @@
         - !include 
             - ../../includes/header.yaml
             - title: Glenn
-              navigation_path: home
+              navigation_path: lovelace/home
 
         - type: custom:valetudo-map-card
           entity: sensor.xiaomi_map

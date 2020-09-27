@@ -6,12 +6,12 @@
   cards:
     - type: vertical-stack
       cards:
-        - !include 
-            - ../../includes/header.yaml
+        - !include
+            - ../includes/header.yaml
             - title: Audio
-              navigation_path: home
+              navigation_path: lovelace-admin/experimental
 
-        - !include ../../cards/audio/mpd.yaml
+        - !include ../cards/audio/mpd.yaml
 
         - type: custom:mini-media-player
           entity: media_player.snapcast_client_b8_27_eb_8e_79_2c
@@ -42,4 +42,4 @@
               hide:
                 controls: true
 
-        - !include ../../cards/audio/spotify.yaml
+        - !include ../cards/audio/spotify.yaml

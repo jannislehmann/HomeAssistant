@@ -22,7 +22,7 @@ style: >
   }
 content: |
   {% if navigation_path %}
-  [<ha-icon icon="mdi:arrow-left"></ha-icon>](/lovelace/{{ navigation_path }})
+  [<ha-icon icon="mdi:arrow-left"></ha-icon>](/{{ navigation_path }})
   {% endif %}
   <h3>{{ subtitle }}</h3>
   <h1>{{ title }}</h1>

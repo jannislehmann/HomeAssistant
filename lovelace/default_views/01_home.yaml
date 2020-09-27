@@ -107,10 +107,9 @@
                       {% endif %}
                 {% endfor %}
       
-      # Glenn, Audio System, Firefly
+      # Glenn, Firefly
       - type: vertical-stack
         cards:
-
           - !include 
             - ../includes/section.yaml
             - title: Sonstiges
@@ -132,12 +131,6 @@
                     - path: glenn
                     - name: Glenn
                     - icon: mdi:robot-vacuum
-                - type: custom:decluttering-card
-                  template: hk_simple_link
-                  variables:
-                    - path: audio
-                    - name: Audio
-                    - icon: mdi:speaker-multiple
                 - type: custom:decluttering-card
                   template: hk_simple_link
                   variables:

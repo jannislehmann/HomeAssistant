@@ -7,7 +7,7 @@
         - !include 
             - ../../includes/header.yaml
             - title: Firefly
-              navigation_path: home
+              navigation_path: lovelace/home
 
         - type: vertical-stack
           title: Transaktion anlegen
