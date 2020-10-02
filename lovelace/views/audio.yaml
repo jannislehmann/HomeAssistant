@@ -13,19 +13,6 @@
 
         - !include ../cards/audio/mpd.yaml
 
-        - type: custom:mini-media-player
-          entity: media_player.snapcast_client_b8_27_eb_8e_79_2c
-          hide:
-            power: true
-            icon: true
-            source: true
-          speaker_group:
-            platform: snapcast
-            show_group_count: true
-            entities:
-              - entity_id: media_player.snapcast_client_b8_27_eb_8e_79_2c
-                name: Test
-
         - type: entities
           entities:
             - type: custom:mini-media-player
@@ -36,6 +23,7 @@
               hide:
                 volume: true
                 power: true
+            # Living Room
             - type: custom:mini-media-player
               entity: media_player.snapcast_client_b8_27_eb_8e_79_2c
               group: true

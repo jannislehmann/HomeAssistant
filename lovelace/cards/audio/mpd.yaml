@@ -25,7 +25,7 @@ entities:
             entity_id: media_player.mpd
             media_content_id: tunein:station:s9213
             media_content_type: music
-        - name: Mashups I❤️Music
+        - name: Mashup
           type: service
           id: media_player.play_media
           data:
