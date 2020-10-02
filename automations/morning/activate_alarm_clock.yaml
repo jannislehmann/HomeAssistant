@@ -5,7 +5,7 @@ id: 321b7fa1-9003-4295-84de-2b3b5c2b6531
 mode: single
 trigger:
   platform: time_pattern
-  minutes: '/1'
+  seconds: '/5'
 condition:
   - condition: state
     entity_id: input_boolean.alarm_clock_triggered_today
@@ -49,9 +49,10 @@ action:
             before: '05:51:00'
             weekday: [mon, tue, wed, thu, fri]
           # Not training today
-          - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int != now().day }}"
-          - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] != '07:00:00' }}"
-          - "{{ state_attr('calendar.jannis_defu_gmail_com', 'message') != 'Trainieren' }}"
+          - condition: or
+            conditions:
+              - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int != now().day }}"
+              - "{{ (state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] != '07:00:00') and (state_attr('calendar.jannis_defu_gmail_com', 'message') != 'Trainieren') }}"
           # Working today
         sequence:
           service: script.alarm_clock_morning_sequence
