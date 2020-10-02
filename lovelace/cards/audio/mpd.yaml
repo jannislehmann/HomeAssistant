@@ -9,7 +9,7 @@ entities:
       volume: true
       power: true
     shortcuts:
-      columns: 2
+      columns: 3
       buttons:
         - name: Bremen NEXT
           type: service
@@ -24,4 +24,11 @@ entities:
           data:
             entity_id: media_player.mpd
             media_content_id: tunein:station:s9213
+            media_content_type: music
+        - name: Mashups I❤️Music
+          type: service
+          id: media_player.play_media
+          data:
+            entity_id: media_player.mpd
+            media_content_id: tunein:station:s189305
             media_content_type: music
