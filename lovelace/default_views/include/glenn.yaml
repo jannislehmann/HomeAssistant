@@ -9,19 +9,9 @@
             - title: Glenn
               navigation_path: lovelace/home
 
-        - type: custom:valetudo-map-card
-          entity: sensor.xiaomi_map
-          vacuum_entity: vacuum.glenn
-          rotate: 0
-          crop:
-            top: 0
-            bottom: 0
-            left: 0
-            right: 0
-          min_height: 0
-
         - type: custom:vacuum-card
           entity: vacuum.glenn
+          map: camera.glenn_map
           stats:
             default:
               - attribute: filter
