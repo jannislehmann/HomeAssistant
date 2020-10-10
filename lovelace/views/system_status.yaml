@@ -13,50 +13,26 @@
           cards:
             - !include 
               - ../includes/section.yaml
-              - title: Internet
-            - type: horizontal-stack
-              cards:
-                - type: custom:decluttering-card
-                  template: mini_graph
-                  variables:
-                    - entity_id: sensor.speedtest_download
-                    - color: red
-                    - name: Download
-                - type: custom:decluttering-card
-                  template: mini_graph
-                  variables:
-                    - entity_id: sensor.speedtest_upload
-                    - color: purple
-                    - name: Upload
-                - type: custom:decluttering-card
-                  template: mini_graph
-                  variables:
-                    - entity_id: sensor.speedtest_ping
-                    - color: blue
-                    - name: Ping
+              - title: Updates
+            - !include ../cards/system/updates.yaml
 
         - type: vertical-stack
           cards:
             - !include 
               - ../includes/section.yaml
-              - title: Systemtemperaturen
-            - type: horizontal-stack
-              cards:
-                - type: custom:decluttering-card
-                  template: mini_graph
-                  variables:
-                    - entity_id: sensor.cpu_temperature
-                    - color: red
-                    - name: CPU-Temperatur
-                - type: custom:decluttering-card
-                  template: mini_graph
-                  variables:
-                    - entity_id: sensor.processor_use
-                    - color: green
-                    - name: CPU-Auslastung
-                - type: custom:decluttering-card
-                  template: mini_graph
-                  variables:
-                    - entity_id: sensor.memory_use_percent
-                    - color: purple
-                    - name: RAM-Auslastung
+              - title: Restart
+            - !include ../cards/system/restart.yaml
+
+        - type: vertical-stack
+          cards:
+            - !include 
+              - ../includes/section.yaml
+              - title: Internet
+            - !include ../cards/system/speedtest.yaml
+
+        - type: vertical-stack
+          cards:
+            - !include 
+              - ../includes/section.yaml
+              - title: Systemauslastung
+            - !include ../cards/system/hardware.yaml
