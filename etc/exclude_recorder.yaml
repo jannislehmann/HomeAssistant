@@ -14,5 +14,3 @@ entities:
   - sensor.date
   - sensor.cpu_temp
   - sensor.xiaomi_map
-event_types:
-  - call_service
