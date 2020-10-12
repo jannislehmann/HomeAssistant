@@ -1,0 +1,10 @@
+---
+# This script open ups the cover if the input_boolean is set to true.
+script:
+  open_cover:
+    sequence:
+      - condition: state
+        entity_id: input_boolean.alarm_clock_open_cover
+        state: 'on'
+      - service: cover.open_cover
+        entity_id: cover.bed

@@ -28,7 +28,7 @@ action:
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] == '08:00:00' }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'message') == 'Trainieren' }}"
         sequence:
-          service: script.alarm_clock_morning_sequence
+          service: script.alarm_clock_morning
 
       - conditions:
           # Workday - Training
@@ -40,7 +40,7 @@ action:
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] == '07:00:00' }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'message') == 'Trainieren' }}"
         sequence:
-          service: script.alarm_clock_morning_sequence
+          service: script.alarm_clock_morning
 
       - conditions:
           # Workday - Work
@@ -55,7 +55,7 @@ action:
               - "{{ (state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] != '07:00:00') and (state_attr('calendar.jannis_defu_gmail_com', 'message') != 'Trainieren') }}"
           # Working today
         sequence:
-          service: script.alarm_clock_morning_sequence
+          service: script.alarm_clock_morning
     
       - conditions:
           # Manual time
@@ -68,4 +68,4 @@ action:
             data:
               entity_id: input_datetime.alarm_time
               time: "00:00:00"
-          - service: script.alarm_clock_morning_sequence
+          - service: script.alarm_clock_morning

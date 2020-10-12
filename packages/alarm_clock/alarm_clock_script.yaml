@@ -2,7 +2,7 @@
 # This script turns on the light, open ups the covers and plays music.
 # Everything is turned off again after half an hour.
 script:
-  alarm_clock_morning_sequence:
+  alarm_clock_morning:
     sequence:
       - service: input_boolean.turn_on
         entity_id:
@@ -25,8 +25,7 @@ script:
           media_content_type: TUNEIN
       - delay:
           minutes: 1
-      - service: cover.open_cover
-        entity_id: cover.bed
+      - service: script.open_cover
       - delay:
           minutes: 30
       - service: input_boolean.turn_off
