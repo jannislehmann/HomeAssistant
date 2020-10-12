@@ -5,7 +5,6 @@ mode: single
 trigger:
   platform: sun
   event: sunset
-  offset: "-00:30:00"
 condition: '{{ states.cover.bed.attributes.current_position | int == 100 }}'
 action:
   - service: notify.mobile_app_iphone_von_jannis
