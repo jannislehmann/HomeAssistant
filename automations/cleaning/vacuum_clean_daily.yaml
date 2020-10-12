@@ -18,8 +18,8 @@ condition:
       - condition: time
         weekday: sun
   - condition: state
-    entity_id: group.home
-    state: not_home
+    entity_id: binary_sensor.home
+    state: 'off'
   - condition: state
     entity_id: input_boolean.cleaned_today
     state: 'off'
