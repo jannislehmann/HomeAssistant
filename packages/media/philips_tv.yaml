@@ -20,6 +20,10 @@ switch:
     password: !secret philips_password
     scan_interval: 5
 
+input_boolean:
+  automatic_ambilight_hue:
+    icon: mdi:spotlight
+
 script:
   toggle_ambilight:
     sequence:

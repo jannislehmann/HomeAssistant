@@ -1,0 +1,22 @@
+- title: Einstellungen
+  icon: mdi:cog
+  path: settings
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include 
+          - ../includes/header.yaml
+          - title: Einstellungen
+
+        - type: vertical-stack
+          cards:
+            - !include 
+              - ../includes/section.yaml
+              - title: Funktionen
+            - !include
+              - ../includes/grid.yaml
+              - entities: 
+                  - entity_id: input_boolean.automatic_ambilight_hue
+                    name: Ambi+Hue
+                  - entity_id: input_boolean.alarm_clock_open_cover
+                    name: Shutter-Automatisierung

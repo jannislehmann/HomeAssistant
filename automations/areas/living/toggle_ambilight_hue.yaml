@@ -1,0 +1,38 @@
+---
+alias: Toggle Ambilight+Hue
+id: 7564e411-05b1-40a3-a675-fec358c81b1a
+description: Toggle Ambilight+Hue depending on the sun level.
+mode: queued
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
+  - platform: time_pattern
+    minutes: "/5"
+condition:
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: media_player.android_tv
+        state: 'unavailable'
+  - condition: state
+    entity_id: input_boolean.automatic_ambilight_hue
+    state: 'on'
+action:
+  choose:
+    # Dark outside.
+    - conditions:
+        - condition: or
+          conditions:
+            - condition: sun
+              after: sunset
+            - condition: sun
+              before: sunrise
+      sequence:
+        - service: script.turn_on
+          entity_id: switch.ambilight_hue
+  # Somewhat bright outside.
+  default:
+    service: script.turn_off
+    entity_id: switch.ambilight_hue

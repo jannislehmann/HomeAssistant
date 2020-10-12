@@ -2,7 +2,7 @@
 title: false
 type: glance
 entities:
-  - entity: sensor.hassio_uptime
+  - entity: sensor.uptime
     name: Uptime
   - entity: sensor.version_current
     name: Installierte Version
