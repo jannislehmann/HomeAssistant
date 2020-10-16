@@ -30,9 +30,9 @@ action:
             - condition: sun
               before: sunrise
       sequence:
-        - service: script.turn_on
+        - service: switch.turn_on
           entity_id: switch.ambilight_hue
   # Somewhat bright outside.
   default:
-    service: script.turn_off
+    service: switch.turn_off
     entity_id: switch.ambilight_hue
