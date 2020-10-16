@@ -1,0 +1,16 @@
+---
+alias: Evening light
+id: cedf6e55-5c96-465c-a091-d930adc794dd
+description: Turns on the light in the living room in the evening if the tv light has been turned off.
+mode: single
+trigger:
+  - platform: state
+    entity_id: media_player.android_tv
+    from: 'idle'
+    to: 'unavailable'
+condition:
+  - condition: sun
+    after: sunset
+action:
+  service: light.turn_on
+  entity_id: light.living_floor_light
