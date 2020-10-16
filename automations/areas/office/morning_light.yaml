@@ -1,0 +1,28 @@
+---
+alias: Morning background light
+id: 030b7c7c-ead0-4123-9674-979eea626e83
+description: Turns on the light in the office in the morning, when I begin working.
+mode: queued
+trigger:
+  platform: sun
+condition:
+  - condition: state
+    entity_id: input_boolean.office_morning_light
+    state: 'on'
+action:
+  choose:
+    # Dark outside.
+    - conditions:
+        - condition: or
+          conditions:
+            - condition: sun
+              after: sunset
+            - condition: sun
+              before: sunrise
+      sequence:
+        - service: light.turn_off
+          entity_id: light.office_closet
+  # Somewhat bright outside.
+  default:
+    service: light.turn_off
+    entity_id: light.office_closet
