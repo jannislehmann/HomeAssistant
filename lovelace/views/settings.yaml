@@ -20,3 +20,5 @@
                     name: Ambi+Hue
                   - entity_id: input_boolean.alarm_clock_open_cover
                     name: Shutter-Automatisierung
+                  - entity_id: input_boolean.office_morning_light
+                    name: Bürolicht
