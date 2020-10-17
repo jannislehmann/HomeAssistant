@@ -107,7 +107,6 @@ logger:
     pychromecast: critical
     telegram.vendor.ptb_urllib3.urllib3.connectionpool: error
     requests.packages.urllib3.connectionpool: critical
-    snapcast.control.server: warn
     urllib3.connectionpool: error
     custom_components.display: error
     custom_components.alexa_media: warn

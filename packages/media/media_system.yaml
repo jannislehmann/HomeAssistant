@@ -2,6 +2,3 @@ media_player:
   - platform: mpd
     host: !secret host_media
     password: !secret mopidy_password
-
-  - platform: snapcast
-    host: !secret host_media

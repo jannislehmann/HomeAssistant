@@ -25,7 +25,7 @@
                 power: true
             # Living Room
             - type: custom:mini-media-player
-              entity: media_player.snapcast_client_b8_27_eb_8e_79_2c
+              entity: media_player.sonos_one
               group: true
               hide:
                 controls: true
