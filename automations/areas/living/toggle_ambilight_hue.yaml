@@ -4,18 +4,12 @@ id: 7564e411-05b1-40a3-a675-fec358c81b1a
 description: Toggle Ambilight+Hue depending on the sun level.
 mode: queued
 trigger:
-  - platform: homeassistant
-    event: start
-  - platform: event
-    event_type: automation_reloaded
-  - platform: time_pattern
-    minutes: "/5"
+  platform: time_pattern
+  minutes: "/5"
 condition:
-  - condition: not
-    conditions:
-      - condition: state
-        entity_id: media_player.android_tv
-        state: 'unavailable'
+  - condition: state
+    entity_id: media_player.android_tv
+    state: playing
   - condition: state
     entity_id: input_boolean.automatic_ambilight_hue
     state: 'on'

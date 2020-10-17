@@ -4,10 +4,14 @@ id: 030b7c7c-ead0-4123-9674-979eea626e83
 description: Turns on the light in the office in the morning, when I begin working.
 mode: queued
 trigger:
-  platform: sun
+  platform: time_pattern
+  minutes: "/2"
 condition:
   - condition: state
     entity_id: input_boolean.office_morning_light
+    state: 'on'
+  - condition: state
+    entity_id: device_tracker.laptop_work_jannis
     state: 'on'
 action:
   choose:
