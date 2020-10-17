@@ -111,6 +111,7 @@ logger:
     urllib3.connectionpool: error
     custom_components.display: error
     custom_components.alexa_media: warn
+    homeassistant.components.automation.toggle_ambilight_hue: fatal
 
 lovelace: !include lovelace/configuration.yaml
 
