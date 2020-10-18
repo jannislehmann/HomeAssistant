@@ -1,5 +1,4 @@
 title: Administration
 decluttering_templates: !include_dir_merge_named /config/lovelace/decluttering_templates
-custom_header: !include /config/lovelace/custom_header.yaml
 visible: false
 views: !include_dir_merge_list /config/lovelace/views
