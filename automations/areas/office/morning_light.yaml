@@ -7,12 +7,9 @@ trigger:
   platform: time_pattern
   minutes: "/2"
 condition:
-  - condition: state
-    entity_id: input_boolean.office_morning_light
-    state: 'on'
-  - condition: state
-    entity_id: device_tracker.laptop_work_jannis
-    state: 'on'
+  condition: state
+  entity_id: device_tracker.laptop_work_jannis
+  state: 'on'
 action:
   choose:
     # Dark outside.

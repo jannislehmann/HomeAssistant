@@ -11,6 +11,8 @@ trigger:
 condition:
   condition: sun
   after: sunset
+  after_offset: "-00:30:00"
 action:
-  service: light.turn_on
-  entity_id: light.living_floor_light
+  - delay: '00:00:10'
+  - service: light.turn_on
+    entity_id: light.living_floor_light

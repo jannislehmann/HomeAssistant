@@ -5,7 +5,11 @@ mode: single
 trigger:
   platform: sun
   event: sunset
-condition: '{{ states.cover.bed.attributes.current_position | int == 100 }}'
+condition:
+  - '{{ states.cover.bed.attributes.current_position | int == 100 }}'
+  - condition: state
+    entity_id: binary_sensor.home
+    state: 'on'
 action:
   - service: notify.mobile_app_iphone_von_jannis
     data:
