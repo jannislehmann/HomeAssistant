@@ -17,4 +17,5 @@ card:
       variables:
         - entity_id: {{ button.entity_id }}
         - name: {{ button.name }}
+        - icon: {{ button.icon }}
   {% endfor %}

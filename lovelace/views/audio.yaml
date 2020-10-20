@@ -16,16 +16,24 @@
         - type: entities
           entities:
             - type: custom:mini-media-player
-              entity: media_player.mpd
+              entity: media_player.forked_daapd_server
               group: true
               source: icon
-              info: short
               hide:
-                volume: true
                 power: true
+                source: true
+                icon: true
+            # Office
+            - type: custom:mini-media-player
+              name: Büro
+              entity: media_player.forked_daapd_output_sonos_one
+              group: true
+              hide:
+                controls: true
             # Living Room
             - type: custom:mini-media-player
-              entity: media_player.sonos_one
+              name: Wohnzimmer
+              entity: media_player.forked_daapd_output_pi_zero_iot_home_cludch_net
               group: true
               hide:
                 controls: true
