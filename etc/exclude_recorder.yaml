@@ -6,7 +6,6 @@ domains:
   - scene
 entity_globs:
   - sensor.weather_*
-  - media_player.*
   - "*energy*"
 entities:
   - sun.sun
