@@ -16,7 +16,6 @@ switch:
       - light.fado_desk
       - light.office_closet
       - light.office_desk
-      - light.office_kallax
   
   - platform: circadian_lighting
     name: kitchen
