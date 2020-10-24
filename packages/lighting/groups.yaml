@@ -19,3 +19,9 @@ light:
     entities:
       - light.living_couch_ceiling_1
       - light.living_couch_ceiling_2
+
+  - platform: group
+    name: flur
+    entities:
+      - light.flur_1
+      - light.flur_2

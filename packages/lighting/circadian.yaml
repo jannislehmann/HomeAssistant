@@ -34,3 +34,8 @@ switch:
     max_brightness: 75
     lights_rgb:
       - light.go
+
+  - platform: circadian_lighting
+    name: bed_ceiling
+    lights_brightness:
+      - light.bed

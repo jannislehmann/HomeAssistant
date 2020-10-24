@@ -581,7 +581,7 @@ automation:
             text: *message
 
 - alias: battery_sensor_from_attributes
-  mode: queued
+  mode: single
   trigger:
     - platform: event
       event_type: state_changed
@@ -730,6 +730,7 @@ automation:
           }
 
 - alias: update_battery_status_group_members
+  mode: single
   trigger:
     - platform: time_pattern
       minutes: '/1'
