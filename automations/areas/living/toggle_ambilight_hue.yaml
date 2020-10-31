@@ -5,7 +5,7 @@ description: Toggle Ambilight+Hue depending on the sun level.
 mode: queued
 trigger:
   platform: time_pattern
-  minutes: "/5"
+  minutes: "/2"
 condition:
   condition: state
   entity_id: media_player.android_tv

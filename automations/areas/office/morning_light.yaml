@@ -22,6 +22,7 @@ action:
               after: sunset
             - condition: sun
               before: sunrise
+              before_offset: "+00:30:00"
       sequence:
         - service: light.turn_on
           entity_id: light.office_closet

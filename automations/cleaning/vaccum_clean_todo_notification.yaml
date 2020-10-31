@@ -6,18 +6,19 @@ trigger:
   platform: time
   at: '13:00'
 condition:
-  condition: and
-  conditions:
-    - condition: not
-      conditions:
-        condition: time
+  - condition: not
+    conditions:
+      - condition: time
         weekday: sun
-    - condition: state
-      entity_id: person.hannah
-      state: home
-    - condition: state
-      entity_id: input_boolean.cleaned_today
-      state: 'off'
+      - condition: state
+        entity_id: vacuum.glenn
+        state: cleaning
+  - condition: state
+    entity_id: person.hannah
+    state: home
+  - condition: state
+    entity_id: input_boolean.cleaned_today
+    state: 'off'
 action:
   service: notify.mobile_app_eml_l29
   data:
