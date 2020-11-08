@@ -9,9 +9,11 @@ trigger:
   - platform: state
     entity_id: device_tracker.laptop_work_jannis
 condition:
-  condition: state
-  entity_id: device_tracker.laptop_work_jannis
-  state: 'home'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: device_tracker.laptop_work_jannis
+      state: home
 action:
   choose:
     # Dark outside.
@@ -25,8 +27,12 @@ action:
               before_offset: "+00:30:00"
       sequence:
         - service: light.turn_on
-          entity_id: light.office_closet
+          entity_id:
+            - light.office_closet
+            - light.office_desk
   # Somewhat bright outside.
   default:
     service: light.turn_off
-    entity_id: light.office_closet
+    entity_id:
+      - light.office_closet
+      - light.office_desk

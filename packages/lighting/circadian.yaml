@@ -1,6 +1,6 @@
 ---
 circadian_lighting:
-  transition: 15
+  transition: 10
 
 switch:
   - platform: circadian_lighting
@@ -11,8 +11,8 @@ switch:
 
   - platform: circadian_lighting
     name: office
-    min_brightness: 25
-    max_brightness: 75
+    min_brightness: 40
+    max_brightness: 90
     lights_rgb:
       - light.fado_desk
       - light.office_closet
