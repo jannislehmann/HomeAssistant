@@ -581,7 +581,7 @@ automation:
             text: *message
 
 - alias: battery_sensor_from_attributes
-  mode: single
+  mode: restart
   trigger:
     - platform: event
       event_type: state_changed

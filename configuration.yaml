@@ -93,7 +93,7 @@ logger:
     homeassistant.components.scene: warn
     homeassistant.components.light: warn
     homeassistant.components.websocket_api: critical
-    homeassistant.components.mqtt.discovery: warn
+    homeassistant.components.mqtt: warn
     homeassistant.components.esphome: warn
     homeassistant.components.zha: warn
     homeassistant.helpers.script: info

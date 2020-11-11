@@ -11,8 +11,6 @@ sensors:
 lights:
   - entity_id: light.go
     name: Go
-  - entity_id: light.bed
-    name: Deckenlampe
 media_players:
   - entity_id: media_player.bed_dot
   # _2 is the adb one

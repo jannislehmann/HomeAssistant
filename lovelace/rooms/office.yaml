@@ -9,6 +9,8 @@ sensors:
     name: Luftfeuchtigkeit
     color: purple
 lights:
+  - entity_id: light.office_ceiling
+    name: Deckenlampe
   - entity_id: light.fado_desk
     name: FADO
   - entity_id: light.office_desk
