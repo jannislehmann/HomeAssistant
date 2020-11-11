@@ -1,0 +1,8 @@
+id: ec9bece3-3bb4-4523-af67-b702721ae31f
+mode: single
+alias: Sync Bring
+trigger:
+  platform: time_pattern
+  minutes: /15
+action:
+  service: shopping_list.sync_bring
