@@ -2,3 +2,8 @@
 title: Home
 decluttering_templates: !include_dir_merge_named lovelace/decluttering_templates
 views: !include_dir_merge_list lovelace/default_views
+kiosk_mode:
+  user_settings:
+    - users:
+        - "Alarmpanel"
+      kiosk: true
