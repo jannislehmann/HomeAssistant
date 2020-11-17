@@ -30,6 +30,13 @@
               group: true
               hide:
                 controls: true
+            # Homepod Mini
+            - type: custom:mini-media-player
+              name: Homepod Mini
+              entity: media_player.homepod_mini
+              group: true
+              hide:
+                controls: true
             # Living Room
             - type: custom:mini-media-player
               name: Wohnzimmer

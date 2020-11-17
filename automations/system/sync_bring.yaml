@@ -1,6 +1,7 @@
 id: ec9bece3-3bb4-4523-af67-b702721ae31f
 mode: single
 alias: Sync Bring
+initial_state: 'false'
 trigger:
   platform: time_pattern
   minutes: /15
