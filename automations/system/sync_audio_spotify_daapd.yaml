@@ -1,0 +1,23 @@
+---
+description: Syncs the audio from spotify connect to the daapd server.
+alias: sync_spotify_volume_daapd
+id: a528d04d-3583-4398-bdb6-dd7803f9822c
+mode: queued
+trigger:
+  platform: state
+  entity_id: media_player.spotify_jannis_defu
+condition:
+  - condition: state
+    entity_id: media_player.spotify_jannis_defu
+    state: 'playing'
+  - "{{ state_attr('media_player.spotify_jannis_defu', 'source') == 'Home' }}"
+  - condition: template
+    value_template: >
+      {% set from = trigger.from_state.attributes.volume_level | float %}
+      {% set to = trigger.to_state.attributes.volume_level | float %}
+      {{ to != from }}
+action:
+  service: media_player.volume_set
+  data:
+    entity_id: media_player.forked_daapd_server
+    volume_level: "{{ trigger.to_state.attributes.volume_level | float }}"
