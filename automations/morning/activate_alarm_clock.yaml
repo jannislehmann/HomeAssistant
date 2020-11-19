@@ -19,11 +19,26 @@ condition:
 action:
   - choose:
       - conditions:
+        # Manual time
+        - condition: time
+          after: input_datetime.alarm_time
+          before: input_datetime.alarm_time
+        - "{{ states('input_datetime.alarm_time') != '00:00:00' }}"
+        sequence:
+        - service: input_datetime.set_datetime
+          data:
+            entity_id: input_datetime.alarm_time
+            time: "00:00:00"
+        - service: script.alarm_clock_morning
+
+      - conditions:
           # Weekend
           - condition: time
             after: '07:15:00'
             before: '07:16:00'
             weekday: [sat, sun]
+          # No manual alarm override
+          - "{{ states('input_datetime.alarm_time') != '00:00:00' }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int == now().day }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] == '08:00:00' }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'message') == 'Trainieren' }}"
@@ -36,6 +51,8 @@ action:
             after: '06:10:00'
             before: '06:11:00'
             weekday: [mon, tue, wed, thu, fri]
+          # No manual alarm override
+          - "{{ states('input_datetime.alarm_time') != '00:00:00' }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int == now().day }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] == '07:00:00' }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'message') == 'Trainieren' }}"
@@ -48,6 +65,8 @@ action:
             after: '06:10:00'
             before: '06:11:00'
             weekday: [mon, tue, wed, thu, fri]
+          # No manual alarm override
+          - "{{ states('input_datetime.alarm_time') != '00:00:00' }}"
           # Not training today
           - condition: or
             conditions:
@@ -56,16 +75,3 @@ action:
           # Working today
         sequence:
           service: script.alarm_clock_morning
-    
-      - conditions:
-          # Manual time
-          - condition: time
-            after: input_datetime.alarm_time
-            before: input_datetime.alarm_time
-          - "{{ states('input_datetime.alarm_time') != '00:00:00' }}"
-        sequence:
-          - service: input_datetime.set_datetime
-            data:
-              entity_id: input_datetime.alarm_time
-              time: "00:00:00"
-          - service: script.alarm_clock_morning
