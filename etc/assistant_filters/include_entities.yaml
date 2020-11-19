@@ -14,6 +14,11 @@ include_entities:
   - light.living_ceiling_light
   - light.kitchen_cabinets
   - light.storage
+  - light.lightstrip
+  - light.living_floor_light
+  - light.living_couch_ceiling
+  - light.living_couch
+  - light.office_ceiling
   # Temperature
   - sensor.temperature_bath
   - sensor.temperature_bed

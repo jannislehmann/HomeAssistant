@@ -1,6 +1,6 @@
 ---
-alias: alarm_clock_triggered_today_off_at_midnight
-description: Turns off the toggle which is used to check whether the alarm clock has been triggered today.
+alias: activate_alarm_clock
+description: Activates the alarm clock.
 id: 321b7fa1-9003-4295-84de-2b3b5c2b6531
 mode: single
 trigger:
@@ -45,14 +45,14 @@ action:
       - conditions:
           # Workday - Work
           - condition: time
-            after: '05:50:00'
-            before: '05:51:00'
+            after: '06:10:00'
+            before: '06:11:00'
             weekday: [mon, tue, wed, thu, fri]
           # Not training today
           - condition: or
             conditions:
               - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int != now().day }}"
-              - "{{ (state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] != '07:00:00') and (state_attr('calendar.jannis_defu_gmail_com', 'message') != 'Trainieren') }}"
+              - "{{ (state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] != '07:00:00') }}"
           # Working today
         sequence:
           service: script.alarm_clock_morning
