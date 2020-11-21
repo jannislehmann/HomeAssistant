@@ -23,6 +23,7 @@
                 power: true
                 source: true
                 icon: true
+                controls: true
             # Office
             - type: custom:mini-media-player
               name: Büro
@@ -45,4 +46,4 @@
               hide:
                 controls: true
 
-        - !include ../../cards/audio/spotify.yaml
+        - !include ../../cards/audio/spotify_player.yaml

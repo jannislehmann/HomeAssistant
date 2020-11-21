@@ -6,3 +6,13 @@ spotify:
 spotcast:
   sp_dc: !secret sp_dc
   sp_key: !secret sp_key
+
+sensor:
+  - platform: template
+    sensors:
+      spotify_jannis_source:
+        value_template: "{{ state_attr('media_player.spotify_jannis', 'source') }}"
+  - platform: template
+    sensors:
+      spotify_hannah_source:
+        value_template: "{{ state_attr('media_player.spotify_hannah', 'source') }}"

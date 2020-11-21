@@ -25,7 +25,7 @@
       - type: custom:button-card
         name: Alarm
         entity: alarm_control_panel.ha_alarm
-        icon: "mdi:alarm-light"
+        icon: mdi:alarm-light
         show_state: true
         tap_action:
           action: more-info
@@ -59,6 +59,71 @@
           state:
             - justify-self: start
             - font-size: 15px
+
+      # Jannis Spotify
+      - type: conditional
+        conditions:
+          - entity: media_player.spotify_jannis
+            state: playing
+          - entity: sensor.spotify_jannis_source
+            state: 'Home'
+        card:
+          type: custom:mini-media-player
+          entity: media_player.spotify_jannis
+          icon: mdi:spotify
+          name: Jannis
+          artwork: cover
+          hide:
+            power: true
+            progress: true
+            volume: true
+            source: true
+
+      # Hannah Spotify
+      - type: conditional
+        conditions:
+          - entity: media_player.spotify_hannah
+            state: playing
+          - entity: sensor.spotify_hannah_source
+            state: 'Home'
+        card:
+          type: custom:mini-media-player
+          entity: media_player.spotify_hannah
+          icon: mdi:spotify
+          name: Hannah
+          artwork: cover
+          hide:
+            power: true
+            progress: true
+            volume: true
+            source: true
+
+      # Playing mpd music
+      - type: conditional
+        conditions:
+          - entity: media_player.mpd
+            state: playing
+        card:
+          type: custom:mini-media-player
+          entity: media_player.mpd
+          icon: mdi:radio
+          name: Jannis
+          tap_action:
+            action: navigate
+            navigation_path: audio
+          hide:
+            power: true
+            volume: true
+            prev: true
+            next: true
+            name: true
+            progress: true
+          style: |
+            ha-card {
+              --ha-card-background: gray;
+              --secondary-text-color: white;
+              --mmp-icon-color: white;
+            }
 
       # Personen
       - type: horizontal-stack
