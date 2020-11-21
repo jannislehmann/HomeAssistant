@@ -7,11 +7,11 @@
     - type: vertical-stack
       cards:
         - !include
-            - ../includes/header.yaml
+            - ../../includes/header.yaml
             - title: Audio
-              navigation_path: lovelace-admin/experimental
+              navigation_path: lovelace/home
 
-        - !include ../cards/audio/mpd.yaml
+        - !include ../../cards/audio/mpd.yaml
 
         - type: entities
           entities:
@@ -45,4 +45,4 @@
               hide:
                 controls: true
 
-        - !include ../cards/audio/spotify.yaml
+        - !include ../../cards/audio/spotify.yaml
