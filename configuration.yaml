@@ -27,7 +27,7 @@ homeassistant:
         10.0.5.43: !secret jannis_id
         10.0.5.35: !secret hannah_id
         10.0.5.62: !secret hannah_id
-        10.0.10.21: !secret alarmpanel_id
+        10.0.10.21: !secret kitchenpanel_id
       allow_bypass_login: true
     - type: homeassistant
 
