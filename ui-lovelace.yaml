@@ -5,5 +5,5 @@ views: !include_dir_merge_list lovelace/default_views
 kiosk_mode:
   user_settings:
     - users:
-        - "Alarmpanel"
+        - "Kitchenpanel"
       kiosk: true

@@ -1,7 +1,7 @@
 # lovelace_gen
 {% set home_feed_entities = [
 'alarm_control_panel.ha_alarm',
-'binary_sensor.presence_kitchen'
+'binary_sensor.presence_kitchen',
 'binary_sensor.presence_hall',
 'binary_sensor.contact_office',
 'binary_sensor.contact_kitchen',
@@ -43,11 +43,9 @@
             - !include 
               - ../includes/section.yaml
               - title: Home Feed
-            - type: custom:home-feed-card
+            - type: logbook
               title: " "
               entities:
                 {% for entity in home_feed_entities %}
-                - entity: {{ entity }}
-                  include_history: true
-                  max_history: 3
+                - {{ entity }}
                 {% endfor %}
