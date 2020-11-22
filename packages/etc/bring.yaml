@@ -1,5 +1,2 @@
 ---
 shopping_list:
-  bring_username: !secret bring_username
-  bring_password: !secret bring_password
-  bring_language: 'de-DE'

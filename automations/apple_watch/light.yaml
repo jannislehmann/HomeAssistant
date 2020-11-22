@@ -1,0 +1,42 @@
+alias: apple_watch_lights
+id: 10893faa-a543-45c5-a212-2169e97a319f
+mode: parallel
+description: Apple Watch Lights
+trigger:
+  platform: event
+  event_type: ios.action_fired
+  event_data:
+    actionName: Licht
+action:
+  - service: notify.mobile_app_iphone_von_jannis
+    data:
+      message: "Apple Watch: set lights"
+      data:
+        push:
+          category: set_lights
+  - wait_for_trigger:
+      platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        categoryName: set_lights
+    timeout: "00:00:20"
+    continue_on_timeout: false
+  - variables:
+      light: >
+        {{
+          {
+            'LIVING_ROOM': 'light.living_floor_light',
+            'OFFICE': 'light.fado_desk',
+            'HALL': 'light.flur',
+            'BEDROOM': 'light.go',
+            'KITCHEN': 'light.kitchen_cabinets',
+          }[wait.trigger.event.data.actionName] }}
+  - service: notify.mobile_app_iphone_von_jannis
+    data:
+      message: "Apple Watch: Auswählen"
+      data:
+        push:
+          category: light_options
+  - service: light.toggle
+    data:
+      entity_id: "{{ light }}"

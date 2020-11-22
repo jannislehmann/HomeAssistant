@@ -11,14 +11,3 @@ alarm_control_panel:
     armed_away:
       arming_time: 60
       delay_time: 30
-
-ios:
-  push:
-    categories:
-      - name: Alarm
-        identifier: alarm_notification
-        actions: 
-          - identifier: SILENCE_ALARM
-            title: 'Deaktivieren'
-            destructive: true
-            authenticationRequired: true

@@ -17,7 +17,7 @@ action:
       message: "Sollen die Jalousien geschlossen werden?"
       data:
         push:
-          category: CLOSE_BLINDS_QUESTION
+          category: close_blinds_question
   - service: notify.mobile_app_eml_l29
     data:
       message: "Sollen die Jalousien geschlossen werden?"
