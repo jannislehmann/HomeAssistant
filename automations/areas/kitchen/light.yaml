@@ -46,7 +46,7 @@ action:
             brightness_pct: "{{ state_attr('switch.circadian_lighting_kitchen', 'brightness') | int }}"
     - conditions:
       # No more motion detected and music is not playing.
-      - "{{ not is_state('media_player.homepod_mini', 'playing') }}"
+      - "{{ not is_state('media_player.homepod_mini', 'on') }}"
       sequence:
       - service: switch.turn_off
         entity_id: switch.circadian_lighting_kitchen
