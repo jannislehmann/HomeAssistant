@@ -31,12 +31,6 @@ action:
             'BEDROOM': 'light.go',
             'KITCHEN': 'light.kitchen_cabinets',
           }[wait.trigger.event.data.actionName] }}
-  - service: notify.mobile_app_iphone_von_jannis
-    data:
-      message: "Apple Watch: Auswählen"
-      data:
-        push:
-          category: light_options
   - service: light.toggle
     data:
       entity_id: "{{ light }}"

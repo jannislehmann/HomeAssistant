@@ -6,4 +6,4 @@ trigger:
   platform: time_pattern
   minutes: /15
 action:
-  service: shopping_list.sync_bring
+  service: shopping_list.bring_sync

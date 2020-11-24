@@ -19,6 +19,10 @@ sensor:
       glenn_sensors_remaining:
         unit_of_measurement: 'hrs'
         value_template: "{{state_attr('vacuum.glenn', 'sensor')}}"
+      glenn_last_bin_out:
+        value_template: "{{state_attr('vacuum.glenn', 'last_bin_out')}}"
+      glenn_last_bin_full:
+        value_template: "{{state_attr('vacuum.glenn', 'last_bin_full')}}"
 
 input_boolean:
   cleaned_today:
