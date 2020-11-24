@@ -1,0 +1,10 @@
+localtuya:
+  - host: 10.0.20.52
+    device_id: !secret tuya_id
+    local_key: !secret tuya_key
+    friendly_name: Plug 1
+    protocol_version: "3.3"
+    entities:
+      - platform: switch
+        friendly_name: Plug
+        id: 1
