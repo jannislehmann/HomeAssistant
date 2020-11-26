@@ -48,8 +48,8 @@ action:
       - conditions:
           # Workday - Training
           - condition: time
-            after: '06:10:00'
-            before: '06:11:00'
+            after: '05:55:00'
+            before: '05:56:00'
             weekday: [mon, tue, wed, thu, fri]
           # No manual alarm override
           - "{{ states('input_datetime.alarm_time') != '00:00:00' }}"
