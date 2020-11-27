@@ -38,7 +38,7 @@ action:
             before: '07:16:00'
             weekday: [sat, sun]
           # No manual alarm override
-          - "{{ states('input_datetime.alarm_time') != '00:00:00' }}"
+          - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int == now().day }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] == '08:00:00' }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'message') == 'Trainieren' }}"
@@ -52,7 +52,7 @@ action:
             before: '05:56:00'
             weekday: [mon, tue, wed, thu, fri]
           # No manual alarm override
-          - "{{ states('input_datetime.alarm_time') != '00:00:00' }}"
+          - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int == now().day }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] == '07:00:00' }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'message') == 'Trainieren' }}"
@@ -66,7 +66,7 @@ action:
             before: '06:11:00'
             weekday: [mon, tue, wed, thu, fri]
           # No manual alarm override
-          - "{{ states('input_datetime.alarm_time') != '00:00:00' }}"
+          - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
           # Not training today
           - condition: or
             conditions:
