@@ -26,19 +26,20 @@ switch:
 
   - platform: circadian_lighting
     name: living_floor_light
+    min_brightness: 25
     lights_rgb:
       - light.living_floor_light
 
   - platform: circadian_lighting
     name: bed_go
     min_brightness: 25
-    max_brightness: 75
+    max_brightness: 70
     lights_rgb:
       - light.go
 
   - platform: circadian_lighting
     name: office_ceiling
-    min_brightness: 60
-    max_brightness: 90
+    min_brightness: 50
+    max_brightness: 80
     lights_brightness:
       - light.office_ceiling
