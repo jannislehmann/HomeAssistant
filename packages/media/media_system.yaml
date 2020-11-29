@@ -2,3 +2,23 @@ media_player:
   - platform: mpd
     host: !secret host_media
     password: !secret mopidy_password
+
+script:
+  bremen_next_kitchen:
+    alias: "Bremen Next Kitchen"
+    sequence:
+      - service: media_player.turn_off
+        entity_id:
+          - media_player.forked_daapd_output_pi_zero_iot_home_cludch_net
+          - media_player.forked_daapd_output_sonos_one
+      - service: media_player.turn_on
+        entity_id: media_player.homepod_mini
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.homepod_mini
+          volume_level: 0.1
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.mpd
+          media_content_id: tunein:station:s105937
+          media_content_type: music

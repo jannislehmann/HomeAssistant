@@ -13,12 +13,4 @@ condition:
     state: 'on'
   - "{{ not is_state('media_player.kitchen_dot', 'playing') }}"
 action:
-  - service: media_player.volume_set
-    data:
-      entity_id: media_player.kitchen_dot
-      volume_level: 0.1
-  - service: media_player.play_media
-    data:
-      entity_id: media_player.kitchen_dot
-      media_content_id: ENERGY Bremen
-      media_content_type: TUNEIN
+  service: script.bremen_next_kitchen
