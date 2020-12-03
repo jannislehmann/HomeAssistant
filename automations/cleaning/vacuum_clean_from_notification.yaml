@@ -12,5 +12,22 @@ trigger:
     event_data:
       action: RUN_VACUUM
 action:
-  service: vacuum.start
-  entity_id: vacuum.glenn
+  choose:
+    # Door open
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.contact_bed_room
+        state: 'off'
+      sequence:
+        - service: vacuum.start
+          entity_id: vacuum.glenn
+
+  # Door closed
+  default:
+    service: notify.mobile_app_eml_l29
+    data:
+      message: "Tür öffnen! Soll Glenn fahren?"
+      data:
+        actions:
+          - action: RUN_VACUUM
+            title: Fahren
