@@ -172,7 +172,7 @@
                       {% endif %}
                 {% endfor %}
       
-      # Glenn, Firefly
+      # Audio, Glenn, Firefly
       - type: vertical-stack
         cards:
           - !include 
@@ -193,6 +193,12 @@
                 - type: custom:decluttering-card
                   template: hk_simple_link
                   variables:
+                    - path: audio
+                    - name: Audio
+                    - icon: mdi:speaker-multiple
+                - type: custom:decluttering-card
+                  template: hk_simple_link
+                  variables:
                     - path: glenn
                     - name: Glenn
                     - icon: mdi:robot-vacuum
@@ -202,9 +208,3 @@
                     - path: firefly
                     - name: Firefly
                     - icon: mdi:cash
-                - type: custom:decluttering-card
-                  template: hk_simple_link
-                  variables:
-                    - path: audio
-                    - name: Audio
-                    - icon: mdi:speaker-multiple

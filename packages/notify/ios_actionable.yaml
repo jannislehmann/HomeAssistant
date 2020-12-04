@@ -35,7 +35,9 @@ ios:
       - name: Glenn
         identifier: vacuum
         actions:
-          - identifier: START
+          - identifier: VACUUM
+            title: Saugen
+          - identifier: MOP
             title: Saugen
           - identifier: STOP
             title: Stop

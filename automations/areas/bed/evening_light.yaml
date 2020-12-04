@@ -17,9 +17,9 @@ action:
         entity_id: binary_sensor.contact_bed_room
         state: 'off'
       sequence:
-        service: light.turn_on
+        service: light.turn_off
         entity_id: light.go
 
   default:
-    service: light.turn_off
+    service: light.turn_on
     entity_id: light.go
