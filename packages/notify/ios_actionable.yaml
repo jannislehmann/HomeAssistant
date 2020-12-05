@@ -38,7 +38,7 @@ ios:
           - identifier: VACUUM
             title: Saugen
           - identifier: MOP
-            title: Saugen
+            title: Wischen
           - identifier: STOP
             title: Stop
 
