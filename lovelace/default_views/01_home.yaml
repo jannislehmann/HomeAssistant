@@ -3,6 +3,9 @@
   icon: mdi:home
   path: home
   cards:
+    # Snow
+    - !include ../cards/snow.yaml
+
     - type: vertical-stack
       cards:
       - !include 
