@@ -11,7 +11,7 @@ switch:
 
   - platform: circadian_lighting
     name: office
-    min_brightness: 65
+    min_brightness: 75
     max_brightness: 90
     lights_rgb:
       - light.fado_desk
