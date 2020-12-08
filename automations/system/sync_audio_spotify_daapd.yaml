@@ -5,12 +5,12 @@ id: a528d04d-3583-4398-bdb6-dd7803f9822c
 mode: queued
 trigger:
   platform: state
-  entity_id: media_player.spotify_jannis
+  entity_id:
+    - media_player.spotify_jannis
+    - media_player.spotify_hannah
 condition:
-  - condition: state
-    entity_id: media_player.spotify_jannis
-    state: 'playing'
-  - "{{ state_attr('media_player.spotify_jannis', 'source') == 'Home' }}"
+  - "{{ states(trigger.entity_id) == 'playing' }}"
+  - "{{ state_attr(trigger.entity_id, 'source') == 'Home' }}"
   - condition: template
     value_template: >
       {% set from = trigger.from_state.attributes.volume_level | float %}
