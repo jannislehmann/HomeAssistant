@@ -19,37 +19,37 @@
               entity: media_player.forked_daapd_server
               group: true
               source: icon
+              tap_action:
+                action: call-service
+                service: browser_mod.popup
+                service_data:
+                  hide_header: true
+                  deviceID: this
+                  card:
+                    type: custom:media_player-popup-card
+                    entity: media_player.forked_daapd_server
               hide:
                 power: true
                 source: true
                 icon: true
                 controls: true
             # Office
-            - type: custom:mini-media-player
-              name: Büro
-              entity: media_player.forked_daapd_output_sonos_one
-              group: true
-              hide:
-                controls: true
+            - type: custom:decluttering-card
+              template: "mini_media_player_popup"
+              variables:
+                - name: Sonos
+                - entity_id: media_player.forked_daapd_output_sonos_one
             # HomePod Mini
-            - type: custom:mini-media-player
-              name: HomePod Mini
-              entity: media_player.homepod_mini
-              group: true
-              hide:
-                controls: true
+            - type: custom:decluttering-card
+              template: "mini_media_player_popup"
+              variables:
+                - name: HomePod Mini
+                - entity_id: media_player.homepod_mini
             # Living Room
-            - type: custom:mini-media-player
-              name: Wohnzimmer
-              entity: media_player.forked_daapd_output_pi_zero_iot_home_cludch_net
-              group: true
-              hide:
-                controls: true
+            - type: custom:decluttering-card
+              template: "mini_media_player_popup"
+              variables:
+                - name: Wohnzimmer
+                - entity_id: media_player.forked_daapd_output_pi_zero_iot_home_cludch_net
 
         - !include ../../cards/audio/spotify_player.yaml
-
-        - type: vertical-stack
-          cards:
-            # https://github.com/DBuit/media_player-popup-card
-            - type: custom:media_player-popup-card
-              entity: media_player.forked_daapd_output_sonos_one

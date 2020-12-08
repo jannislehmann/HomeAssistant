@@ -1,0 +1,17 @@
+mini_media_player_popup:
+  card:
+    type: custom:mini-media-player
+    name: '[[name]]'
+    entity: '[[entity_id]]'
+    group: true
+    tap_action:
+      action: call-service
+      service: browser_mod.popup
+      service_data:
+        hide_header: true
+        deviceID: this
+        card:
+          type: custom:media_player-popup-card
+          entity: '[[entity_id]]'
+    hide:
+      controls: true
