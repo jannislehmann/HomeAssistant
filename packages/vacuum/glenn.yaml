@@ -1,10 +1,5 @@
 ---
 sensor:
-  - platform: mqtt
-    state_topic: "valetudo/glenn/state"
-    json_attributes_topic: "valetudo/glenn/map_data_parsed"
-    name: xiaomi_map
-    value_template: 'OK'
   - platform: template
     sensors:
       glenn_filter_remaining:

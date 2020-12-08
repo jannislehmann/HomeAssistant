@@ -47,3 +47,9 @@
                 controls: true
 
         - !include ../../cards/audio/spotify_player.yaml
+
+        - type: vertical-stack
+          cards:
+            # https://github.com/DBuit/media_player-popup-card
+            - type: custom:media_player-popup-card
+              entity: media_player.forked_daapd_output_sonos_one
