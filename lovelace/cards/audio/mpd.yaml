@@ -9,7 +9,7 @@ entities:
       volume: true
       power: true
     shortcuts:
-      columns: 3
+      columns: 2
       buttons:
         - name: Bremen NEXT
           type: service
