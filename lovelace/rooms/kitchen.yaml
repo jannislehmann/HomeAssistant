@@ -13,5 +13,3 @@ lights:
     name: Küchenschränke
 contact_sensors:
   - entity_id: binary_sensor.contact_kitchen
-media_players:
-  - entity_id: media_player.homepod_mini
