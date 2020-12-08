@@ -32,3 +32,10 @@ entities:
             entity_id: media_player.mpd
             media_content_id: tunein:station:s189305
             media_content_type: music
+        - name: Christmas
+          type: service
+          id: media_player.play_media
+          data:
+            entity_id: media_player.mpd
+            media_content_id: tunein:station:s236606
+            media_content_type: music
