@@ -1,8 +1,3 @@
-media_player:
-  - platform: mpd
-    host: !secret host_media
-    password: !secret mopidy_password
-
 script:
   bremen_next_kitchen:
     alias: "Bremen Next Kitchen"
@@ -12,10 +7,10 @@ script:
           - media_player.forked_daapd_output_pi_zero_iot_home_cludch_net
           - media_player.forked_daapd_output_sonos_one
       - service: media_player.turn_on
-        entity_id: media_player.homepod_mini
+        entity_id: media_player.kitchen_homepod_mini
       - service: media_player.volume_set
         data:
-          entity_id: media_player.homepod_mini
+          entity_id: media_player.kitchen_homepod_mini
           volume_level: 0.1
       - service: script.play_radio
         data:
@@ -24,19 +19,20 @@ script:
     alias: "Play Radio"
     fields:
       station:
-        description: 'The TuneIn Radio station'
-        example: 'tunein:station:s105937'
+        description: 'The radio station'
+        example: 'bremen_next'
     sequence:
       - service: media_player.volume_set
         data:
           entity_id:
             - media_player.forked_daapd_server
-            - media_player.homepod_mini
+            - media_player.kitchen_homepod_mini
             - media_player.forked_daapd_output_sonos_one
             - media_player.forked_daapd_output_wohnzimmer
           volume_level: 0.1
-      - service: media_player.play_media
+      - service: media_player.select_source
         data:
-          entity_id: media_player.mpd
-          media_content_id: '{{ station }}'
-          media_content_type: music
+          entity_id: media_player.forked_daapd_server
+          source: '{{ station }}'
+      - service: media_player.media_play
+        entity_id: media_player.forked_daapd_server

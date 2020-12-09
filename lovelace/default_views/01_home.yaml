@@ -101,14 +101,14 @@
             volume: true
             source: true
 
-      # Playing mpd music
+      # Playing radio
       - type: conditional
         conditions:
-          - entity: media_player.mpd
+          - entity: media_player.forked_daapd_server
             state: playing
         card:
           type: custom:mini-media-player
-          entity: media_player.mpd
+          entity: media_player.forked_daapd_server
           icon: mdi:radio
           name: Jannis
           tap_action:

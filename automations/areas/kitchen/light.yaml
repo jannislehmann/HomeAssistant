@@ -13,7 +13,7 @@ trigger:
       - binary_sensor.presence_kitchen
       - input_boolean.motion_sensor
       - alarm_control_panel.ha_alarm
-      - media_player.homepod_mini
+      - media_player.kitchen_homepod_mini
       - media_player.forked_daapd_server
 action:
   choose:
@@ -47,7 +47,7 @@ action:
             brightness_pct: "{{ state_attr('switch.circadian_lighting_kitchen', 'brightness') | int }}"
     - conditions:
       # No more motion detected and music is not playing.
-      - "{{ is_state('media_player.homepod_mini', 'off')}}"
+      - "{{ is_state('media_player.kitchen_homepod_mini', 'off')}}"
 
       sequence:
       - service: switch.turn_off
