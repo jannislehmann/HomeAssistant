@@ -13,29 +13,23 @@ entities:
       buttons:
         - name: Bremen NEXT
           type: service
-          id: media_player.play_media
+          id: script.play_radio
           data:
             entity_id: media_player.mpd
             media_content_id: tunein:station:s105937
             media_content_type: music
         - name: Energy Bremen
           type: service
-          id: media_player.play_media
+          id: script.play_radio
           data:
-            entity_id: media_player.mpd
-            media_content_id: tunein:station:s9213
-            media_content_type: music
+            station: tunein:station:s9213
         - name: Mashup
           type: service
-          id: media_player.play_media
+          id: script.play_radio
           data:
-            entity_id: media_player.mpd
-            media_content_id: tunein:station:s189305
-            media_content_type: music
+            station: tunein:station:s189305
         - name: Christmas
           type: service
-          id: media_player.play_media
+          id: script.play_radio
           data:
-            entity_id: media_player.mpd
-            media_content_id: tunein:station:s236606
-            media_content_type: music
+            station: tunein:station:s236606

@@ -17,8 +17,26 @@ script:
         data:
           entity_id: media_player.homepod_mini
           volume_level: 0.1
+      - service: script.play_radio
+        data:
+          station: tunein:station:s105937
+  play_radio:
+    alias: "Play Radio"
+    fields:
+      station:
+        description: 'The TuneIn Radio station'
+        example: 'tunein:station:s105937'
+    sequence:
+      - service: media_player.volume_set
+        data:
+          entity_id:
+            - media_player.forked_daapd_server
+            - media_player.homepod_mini
+            - media_player.forked_daapd_output_sonos_one
+            - media_player.forked_daapd_output_wohnzimmer
+          volume_level: 0.1
       - service: media_player.play_media
         data:
           entity_id: media_player.mpd
-          media_content_id: tunein:station:s105937
+          media_content_id: '{{ station }}'
           media_content_type: music
