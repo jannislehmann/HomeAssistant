@@ -17,6 +17,8 @@
               entity: media_player.forked_daapd_server
               group: true
               source: icon
+              volume_stateless: true
+              volume_step: 5
               shortcuts:
                 columns: 2
                 buttons:
@@ -53,6 +55,10 @@
                 power: true
                 source: true
                 icon: true
+                volume_level: false
+                prev: true
+                next: true
+                icon_state: false
             # Office
             - type: custom:decluttering-card
               template: "mini_media_player_popup"
