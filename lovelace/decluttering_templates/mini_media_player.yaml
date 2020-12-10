@@ -1,12 +1,13 @@
 mini_media_player:
   card:
     type: custom:mini-media-player
-    entity: '[[entity_id]]'
+    name: '[[name]]'
     icon: 'mdi:speaker-multiple'
+    entity: '[[entity_id]]'
     group: true
+    volume_stateless: true
+    volume_step: 5
     hide:
       controls: true
-      power: true
-      power_state: true
-      source: true
-      volume: false
+      volume_level: false
+      icon_state: false

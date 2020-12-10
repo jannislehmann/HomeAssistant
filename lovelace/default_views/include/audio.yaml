@@ -42,15 +42,6 @@
                     id: script.play_radio
                     data:
                       station: ilovexmas (playlist)
-              tap_action:
-                action: call-service
-                service: browser_mod.popup
-                service_data:
-                  hide_header: true
-                  deviceID: this
-                  card:
-                    type: custom:media_player-popup-card
-                    entity: media_player.forked_daapd_server
               hide:
                 power: true
                 source: true
@@ -61,19 +52,19 @@
                 icon_state: false
             # Office
             - type: custom:decluttering-card
-              template: "mini_media_player_popup"
+              template: "mini_media_player"
               variables:
                 - name: Sonos
                 - entity_id: media_player.forked_daapd_output_sonos_one
             # HomePod Mini
             - type: custom:decluttering-card
-              template: "mini_media_player_popup"
+              template: "mini_media_player"
               variables:
                 - name: HomePod Mini
                 - entity_id: media_player.kitchen_homepod_mini
             # Living Room
             - type: custom:decluttering-card
-              template: "mini_media_player_popup"
+              template: "mini_media_player"
               variables:
                 - name: Wohnzimmer
                 - entity_id: media_player.forked_daapd_output_pi_zero_iot_home_cludch_net
