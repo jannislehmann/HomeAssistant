@@ -6,7 +6,7 @@ trigger:
   platform: sun
   event: sunset
 condition:
-  - '{{ states.cover.bed.attributes.current_position | int == 100 }}'
+  - '{{ states.cover.bed.attributes.current_position | int > 50 }}'
   - condition: state
     entity_id: binary_sensor.home
     state: 'on'

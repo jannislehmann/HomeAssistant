@@ -32,16 +32,28 @@ action:
         - service: script.alarm_clock_morning
 
       - conditions:
-          # Weekend
+          # Weekend - Training
           - condition: time
-            after: '07:15:00'
-            before: '07:16:00'
+            after: '07:25:00'
+            before: '07:26:00'
             weekday: [sat, sun]
           # No manual alarm override
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int == now().day }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] == '08:00:00' }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'message') == 'Trainieren' }}"
+        sequence:
+          service: script.alarm_clock_morning
+
+
+      - conditions:
+          # Vacation
+          - condition: time
+            after: '07:25:00'
+            before: '07:26:00'
+            weekday: [mon, tue, wed, thu, fri, sat, sun]
+          # No manual alarm override
+          - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
         sequence:
           service: script.alarm_clock_morning
 
@@ -52,6 +64,9 @@ action:
             before: '05:56:00'
             weekday: [mon, tue, wed, thu, fri]
           # No manual alarm override
+          - condition: state
+            entity_id: input_boolean.vaction_mode
+            state: 'off'
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int == now().day }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] == '07:00:00' }}"
@@ -73,6 +88,9 @@ action:
               - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int != now().day }}"
               - condition: and
                 conditions:
+                  - condition: state
+                    entity_id: input_boolean.vaction_mode
+                    state: 'off'
                   - "{{ state_attr('calendar.jannis_defu_gmail_com', 'message') != 'Trainieren' }}"
                   - "{{ (state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] != '07:00:00') }}"
           # Working today
