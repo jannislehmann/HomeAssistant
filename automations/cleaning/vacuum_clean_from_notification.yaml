@@ -17,7 +17,7 @@ action:
     - conditions:
       - condition: state
         entity_id: binary_sensor.contact_bed_room
-        state: 'off'
+        state: 'on'
       sequence:
         - service: vacuum.start
           entity_id: vacuum.glenn

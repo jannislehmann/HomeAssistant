@@ -1,0 +1,13 @@
+---
+alias: washing_machine_done
+id: df299391-717e-4b8a-ae57-30fd87931415
+description: Notifies when the washing machine is done.
+mode: restart
+trigger:
+  platform: state
+  entity_id: binary_sensor.washing_machine
+  to: 'on'
+action:
+  service: notify.telegram_group
+  data:
+    message: 👚👕 Die Waschmaschine ist fertig.

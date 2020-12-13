@@ -47,9 +47,8 @@ script:
   gaming_wake:
     alias: "Gaming - Wake"
     sequence:
-      - service: wake_on_lan.send_magic_packet
-        data:
-          mac: !secret mac_gaming
+      - service: switch.turn_on
+        entity_id: switch.computer
 
   gaming_shutdown:
     alias: "Gaming - Shutdown"

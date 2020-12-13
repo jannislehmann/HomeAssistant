@@ -11,3 +11,5 @@ sensors:
 lights:
   - entity_id: light.storage
     name: Abstellraum
+includes:
+  - ../cards/washing_machine.yaml

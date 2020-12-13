@@ -1,0 +1,26 @@
+type: vertical-stack
+cards:
+  - !include 
+    - ../includes/section.yaml
+    - title: Gaming PC
+
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: mini_graph
+        variables:
+          - entity_id: sensor.washing_machine_measurement
+          - color: green
+          - name: Stromverbrauch
+      - type: custom:decluttering-card
+        template: mini_graph
+        variables:
+          - entity_id: sensor.washing_machine_energy_daily
+          - color: orange
+          - name: Täglicher Stromverbrauch
+      - type: custom:decluttering-card
+        template: mini_graph
+        variables:
+          - entity_id: sensor.washing_machine_energy_monthly
+          - color: red
+          - name: Montalicher Stromverbrauch

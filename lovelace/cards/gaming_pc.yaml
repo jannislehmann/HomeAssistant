@@ -28,3 +28,23 @@ cards:
                       - entity_id: sensor.gaming_ram_usage
                       - color: purple
                       - name: RAM
+              - type: horizontal-stack
+                cards:
+                  - type: custom:decluttering-card
+                    template: mini_graph
+                    variables:
+                      - entity_id: sensor.computer_measurement
+                      - color: green
+                      - name: Stromverbrauch
+                  - type: custom:decluttering-card
+                    template: mini_graph
+                    variables:
+                      - entity_id: sensor.gaming_energy_daily
+                      - color: orange
+                      - name: Täglicher Stromverbrauch
+                  - type: custom:decluttering-card
+                    template: mini_graph
+                    variables:
+                      - entity_id: sensor.gaming_energy_monthly
+                      - color: red
+                      - name: Monatlicher Stromverbrauch
