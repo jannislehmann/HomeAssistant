@@ -6,8 +6,7 @@ mode: restart
 trigger:
   platform: state
   entity_id: binary_sensor.washing_machine
+  from: 'off'
   to: 'on'
 action:
-  service: notify.telegram_group
-  data:
-    message: 👚👕 Die Waschmaschine ist fertig.
+  service: script.washing_machine_notification

@@ -12,13 +12,55 @@ utility_meter:
     source: sensor.washing_machine_measurement
     cycle: monthly
 
+# Taken from: https://github.com/basnijholt/home-assistant-config/blob/c54c97912b7a5c527df0e5503e5e36eaa8bfb774/scripts.yaml#L479
+script:
+  washing_machine_notification:
+    mode: parallel
+    max: 20
+    variables:
+      name: washing_machine
+      measurement: "{{ 'sensor.{}_measurement'.format(name) }}"
+      binary_sensor: "{{ 'binary_sensor.{}'.format(name) }}"
+    sequence:
+      - variables:
+          start_time: "{{ as_timestamp(now()) }}"
+          start_kwh: "{{ states(measurement) }}"
+      - wait_for_trigger:
+          platform: template
+          value_template: "{{ is_state(binary_sensor, 'off') }}"
+        timeout: "04:00:00"
+        continue_on_timeout: false
+      - variables:
+          end_time: "{{ as_timestamp(now()) }}"
+          end_kwh: "{{ states(measurement) }}"
+      - variables:
+          total_time: "{{ (end_time - start_time) }}"
+          total_kwh: "{{ end_kwh - start_kwh }}"
+      - variables:
+          minutes: "{{ (total_time / 60) | round(0) }}"
+          total_kwh_rounded: "{{ (total_kwh) | round(2) }}"
+      - service: notify.telegram_group
+        data:
+          message: "👚👕 Die Waschmaschine ist nach {{ minutes }} Minuten fertig und hat {{ total_kwh_rounded }} kWh verbraucht"
+
+input_datetime:
+  washing_machine_on:
+    name: Washing machine last started
+    has_date: true
+    has_time: true
+
+  washing_machine_off:
+    name: Washing machine last done
+    has_date: true
+    has_time: true
+
 binary_sensor:
   - platform: template
     sensors:
       washing_machine:
         friendly_name: Washing machine
         value_template: >
-          {{ states("sensor.washing_machine_watts") | float(0) > 3 }}
+          {{ states("sensor.washing_machine_measurement") | float(0) > 3 }}
         delay_off: "00:05:00"
         icon_template: >
           {% if is_state("binary_sensor.washing_machine", "on") %}
