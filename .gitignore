@@ -17,6 +17,7 @@ deps
 custom_components/*
 themes/*
 www/**/
+blueprints/*
 
 # Specific file ignores
 .config_entries.json

@@ -53,7 +53,7 @@ action:
             before: '07:26:00'
             weekday: [mon, tue, wed, thu, fri, sat, sun]
           # No manual alarm override
-          - "{{ states('input_datetime.vacation_mode') == 'on' }}"
+          - "{{ states('input_boolean.vacation_mode') == 'on' }}"
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
         sequence:
           service: script.alarm_clock_morning
@@ -65,7 +65,7 @@ action:
             before: '05:56:00'
             weekday: [mon, tue, wed, thu, fri]
           # No manual alarm override
-          - "{{ states('input_datetime.vacation_mode') == 'off' }}"
+          - "{{ states('input_boolean.vacation_mode') == 'off' }}"
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int == now().day }}"
           - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] == '07:00:00' }}"
@@ -81,16 +81,13 @@ action:
             weekday: [mon, tue, wed, thu, fri]
           # No manual alarm override
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
-          - "{{ states('input_datetime.vacation_mode') == 'off' }}"
+          - "{{ states('input_boolean.vacation_mode') == 'off' }}"
           # Not training today
           - condition: or
             conditions:
               - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int != now().day }}"
               - condition: and
                 conditions:
-                  - condition: state
-                    entity_id: input_boolean.vaction_mode
-                    state: 'off'
                   - "{{ state_attr('calendar.jannis_defu_gmail_com', 'message') != 'Trainieren' }}"
                   - "{{ (state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] != '07:00:00') }}"
           # Working today
