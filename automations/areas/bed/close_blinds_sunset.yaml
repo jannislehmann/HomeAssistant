@@ -3,8 +3,10 @@ alias: Ask to close the blinds at sunset if this open at 100%
 id: c1663eb4-3248-476e-9f48-be50b94e2e47
 mode: single
 trigger:
-  - platform: sun
-    event: sunset
+  - platform: numeric_state
+    entity_id: sun.sun
+    attribute: elevation
+    below: 3.0
   - platform: state
     entity_id: binary_sensor.home
     from: 'off'
@@ -14,9 +16,10 @@ condition:
   - condition: state
     entity_id: binary_sensor.home
     state: 'on'
-  - condition: state  # from sunset until sunrise
+  - condition: numeric_state
     entity_id: sun.sun
-    state: 'below_horizon'
+    attribute: elevation
+    below: 3.0
 action:
   - service: notify.mobile_app_iphone_von_jannis
     data:
