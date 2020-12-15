@@ -1,7 +1,6 @@
 # Personal stuff
 zones/*
 known_devices.yaml
-google_calendars.yaml
 secrets.yaml
 .shopping_list.json
 

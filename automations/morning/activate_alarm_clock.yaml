@@ -39,9 +39,9 @@ action:
             weekday: [sat, sun]
           # No manual alarm override
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
-          - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int == now().day }}"
-          - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] == '08:00:00' }}"
-          - "{{ state_attr('calendar.jannis_defu_gmail_com', 'message') == 'Trainieren' }}"
+          - "{{ state_attr('calendar.abfallkalender', 'start_time').split(' ')[0].split('-')[2] | int == now().day }}"
+          - "{{ state_attr('calendar.abfallkalender', 'start_time').split(' ')[1] == '08:00:00' }}"
+          - "{{ state_attr('calendar.abfallkalender', 'message') == 'Trainieren' }}"
         sequence:
           service: script.alarm_clock_morning
 
@@ -67,9 +67,9 @@ action:
           # No manual alarm override
           - "{{ states('input_boolean.vacation_mode') == 'off' }}"
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
-          - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int == now().day }}"
-          - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] == '07:00:00' }}"
-          - "{{ state_attr('calendar.jannis_defu_gmail_com', 'message') == 'Trainieren' }}"
+          - "{{ state_attr('calendar.abfallkalender', 'start_time').split(' ')[0].split('-')[2] | int == now().day }}"
+          - "{{ state_attr('calendar.abfallkalender', 'start_time').split(' ')[1] == '07:00:00' }}"
+          - "{{ state_attr('calendar.abfallkalender', 'message') == 'Trainieren' }}"
         sequence:
           service: script.alarm_clock_morning
 
@@ -85,11 +85,11 @@ action:
           # Not training today
           - condition: or
             conditions:
-              - "{{ state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[0].split('-')[2] | int != now().day }}"
+              - "{{ state_attr('calendar.abfallkalender', 'start_time').split(' ')[0].split('-')[2] | int != now().day }}"
               - condition: and
                 conditions:
-                  - "{{ state_attr('calendar.jannis_defu_gmail_com', 'message') != 'Trainieren' }}"
-                  - "{{ (state_attr('calendar.jannis_defu_gmail_com', 'start_time').split(' ')[1] != '07:00:00') }}"
+                  - "{{ state_attr('calendar.abfallkalender', 'message') != 'Trainieren' }}"
+                  - "{{ (state_attr('calendar.abfallkalender', 'start_time').split(' ')[1] != '07:00:00') }}"
           # Working today
         sequence:
           service: script.alarm_clock_morning

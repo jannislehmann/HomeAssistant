@@ -4,7 +4,7 @@ script:
     sequence:
       - service: media_player.turn_off
         entity_id:
-          - media_player.forked_daapd_output_pi_zero_iot_home_cludch_net
+          - media_player.forked_daapd_output_wohnzimmer
           - media_player.forked_daapd_output_sonos_one
       - service: media_player.turn_on
         entity_id: media_player.kitchen_homepod_mini

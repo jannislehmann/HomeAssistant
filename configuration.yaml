@@ -47,11 +47,6 @@ recorder:
 hacs:
   token: !secret github_hacs_token
 
-# For google calendar integration
-google:
-  client_id: !secret google_calendar_client_id
-  client_secret: !secret google_calendar_client_secret
-
 default_config:
 
 ios:
@@ -74,11 +69,11 @@ logger:
     aiohttp.access: critical
     aiohttp.server: critical
     homeassistant.core: error
+    homeassistant.loader: warn
     homeassistant.config_entries: error
     homeassistant.components.androidtv.media_player: critical
     homeassistant.components.automation: warn
     homeassistant.components.binary_sensor: error
-    homeassistant.components.calendar: critical
     homeassistant.components.cert_expiry: critical
     homeassistant.components.device_tracker: error
     homeassistant.components.snmp.device_tracker: critical
