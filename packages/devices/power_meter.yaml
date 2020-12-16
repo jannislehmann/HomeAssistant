@@ -1,10 +1,4 @@
 utility_meter:
-  gaming_energy_daily:
-    source: sensor.computer_measurement
-    cycle: daily
-  gaming_energy_monthly:
-    source: sensor.computer_measurement
-    cycle: monthly
   washing_machine_energy_daily:
     source: sensor.washing_machine_measurement
     cycle: daily

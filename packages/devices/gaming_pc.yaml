@@ -47,6 +47,7 @@ script:
   gaming_wake:
     alias: "Gaming - Wake"
     sequence:
+      # Not working for now
       - service: switch.turn_on
         entity_id: switch.computer
 
