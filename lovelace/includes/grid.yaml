@@ -1,6 +1,9 @@
 # lovelace_gen
 
+
 type: grid
+square: false
+columns: 4
 cards:
 {% for button in entities %}
   - type: custom:decluttering-card
