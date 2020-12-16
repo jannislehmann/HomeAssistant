@@ -1,4 +1,3 @@
-# lovelace_gen
 hk_person:
   card:
     type: custom:button-card
