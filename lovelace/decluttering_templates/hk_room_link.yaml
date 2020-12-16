@@ -6,12 +6,22 @@ hk_room_link:
     name: "[[name]]"
     icon: "[[icon]]"
     show_state: true
+    color_type: 'icon'
+    color: >
+      [[[ return "rgb(28, 128, 199)"]]]
     aspect_ratio: "[[aspect_ratio]]"
     tap_action:
       action: navigate
       navigation_path: "[[path]]"
+    double_tap_action:
+      action: call-service
+      service: light.turn_off
+      service_data:
+        entity_id: "[[lights]]"
+      haptic: success
     variables:
       contact_sensors: "[[contact_sensors]]"
+      lights: "[[lights]]"
     styles:
       grid:
         - grid-template-areas: > 
@@ -28,6 +38,19 @@ hk_room_link:
         - grid-template-rows: 2fr 1fr
       img_cell:
         - width: 76px
+        - color: >
+            [[[
+              if (variables.lights === "[[lights]]" || variables.lights.length === 0) {
+                return "";
+              }
+
+              for (let i = 0; i < variables.lights.length; i++) {
+                const light = variables.lights[i];
+                if (states[light].state === 'on') {
+                  return "yellow";
+                }
+              }
+            ]]]
       name:
         - justify-self: start
         - font-weight: bold
@@ -70,3 +93,6 @@ hk_room_link:
           style="width: 15px; height: 15px; margin-bottom: 3px;">
           </ha-icon><span>${retString}</span>`
         ]]]
+
+# ToDo: Color icon yellow if light is on
+# Some way to turn off light

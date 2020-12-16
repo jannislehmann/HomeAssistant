@@ -166,6 +166,13 @@
                       - name: {{ room.name }}
                       - icon: {{ room.icon }}
                       - temperature_sensor: {{room.sensors[0].entity_id }}
+                      {% if room.lights %}
+                      - lights:
+                        {% for light in room.lights %}
+                        - {{ light.entity_id }}
+                        {% endfor %}
+                      {% endif %}
+                      
                       {% if room.contact_sensors %}
                       - contact_sensors:
                         {% for contact_sensor in room.contact_sensors %}
