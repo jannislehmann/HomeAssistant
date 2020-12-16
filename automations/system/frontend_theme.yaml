@@ -18,6 +18,9 @@ action:
         - condition: state
           entity_id: weather.openweathermap
           state: snowy
+        - condition: state
+          entity_id: weather.openweathermap
+          state: rainy
         - condition: numeric_state
           entity_id: sun.sun
           attribute: elevation

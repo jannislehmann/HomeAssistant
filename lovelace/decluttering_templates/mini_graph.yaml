@@ -6,7 +6,7 @@ mini_graph:
     line_color: '[[color]]'
     line_width: 8
     font_size: 75
-    name: "[[name]]"
+    name: '[[name]]'
     align_icon: left
     align_header: left
     show:

@@ -2,3 +2,9 @@ type: vertical-stack
 cards:
   - type: custom:decluttering-card
     template: "snow"
+    variables:
+      - weather: rainy
+  - type: custom:decluttering-card
+    template: "snow"
+    variables:
+      - weather: snowy

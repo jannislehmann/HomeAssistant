@@ -3,28 +3,26 @@ snow:
     type: conditional
     conditions:
       - entity: weather.openweathermap
-        state: snowy
-      - entity: weather.openweathermap
-        state: rainy
+        state: '[[weather]]'
     card:
       type: 'custom:html-card'
       content: >
         <iframe class="iframe-snow" src="/local/snow.html"/>
       style: |
         ha-card {
-        position: absolute;
-        padding: 0 !important;
-        margin: 0;
-        top: -10px;
-        left: -10px;
-        bottom: 0;
-        right: 0;
-        z-index: -1;
-        overflow: hidden;
-        border-radius: 0;
+          position: absolute;
+          padding: 0 !important;
+          margin: 0;
+          top: -10px;
+          left: -10px;
+          bottom: 0;
+          right: 0;
+          z-index: -1;
+          overflow: hidden;
+          border-radius: 0;
         }
         .iframe-snow {
-        border: none;
-        width: calc(100vw + 10px);
-        height: calc(100vh + 10px);
+          border: none;
+          width: calc(100vw + 10px);
+          height: calc(100vh + 10px);
         }
