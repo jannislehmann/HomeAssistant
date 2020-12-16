@@ -93,6 +93,7 @@ logger:
     homeassistant.components.zha: warn
     homeassistant.helpers.script: info
     homeassistant.helpers.entity: critical
+    homeassistant.components.command_line.switch: warn
     homeassistant.setup: error
     homeassistant.bootstrap: warn
     homeassistant.exceptions: info

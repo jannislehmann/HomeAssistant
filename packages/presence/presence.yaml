@@ -1,7 +1,6 @@
 ---
 input_boolean:
-  vaction_mode:
-    initial: false
+  vacation_mode:
     icon: mdi:palm-tree
   motion_sensor:
     icon: mdi:walk

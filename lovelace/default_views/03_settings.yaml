@@ -35,7 +35,7 @@
                     name: Wecker
                   - entity_id: input_boolean.motion_sensor
                     name: Bewegungsmelder
-                  - entity_id: input_boolean.vaction_mode
+                  - entity_id: input_boolean.vacation_mode
                     name: Urlaub
 
         - type: vertical-stack
