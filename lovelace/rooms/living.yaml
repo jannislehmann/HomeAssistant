@@ -9,6 +9,8 @@ sensors:
     name: Luftfeuchtigkeit
     color: purple
 lights:
+  - entity_id: switch.christmas_tree
+    name: Tannenbaum
   - entity_id: light.iris
     name: Iris
   - entity_id: light.lightstrip
