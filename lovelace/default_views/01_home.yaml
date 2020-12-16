@@ -43,6 +43,8 @@
                       return "#00FF7F";
                     else if (entity.state == 'armed_away')
                       return "orange";
+                    else if (entity.state == 'armed_home')
+                      return "gold";
                     else if (entity.state == 'triggered')
                       return "red";
                     else
