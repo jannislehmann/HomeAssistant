@@ -93,6 +93,3 @@ hk_room_link:
           style="width: 15px; height: 15px; margin-bottom: 3px;">
           </ha-icon><span>${retString}</span>`
         ]]]
-
-# ToDo: Color icon yellow if light is on
-# Some way to turn off light
