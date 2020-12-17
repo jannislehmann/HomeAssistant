@@ -6,7 +6,7 @@ trigger:
   - platform: numeric_state
     entity_id: sun.sun
     attribute: elevation
-    below: 3.0
+    below: 0.0
   - platform: state
     entity_id: binary_sensor.home
     from: 'off'
@@ -19,7 +19,7 @@ condition:
   - condition: numeric_state
     entity_id: sun.sun
     attribute: elevation
-    below: 3.0
+    below: 0.0
 action:
   - service: notify.mobile_app_iphone_von_jannis
     data:
