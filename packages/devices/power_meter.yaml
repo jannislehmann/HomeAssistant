@@ -13,7 +13,7 @@ script:
     max: 20
     variables:
       name: washing_machine
-      measurement: "{{ 'sensor.{}_measurement'.format(name) }}"
+      measurement: "{{ 'sensor.{}_energy_daily'.format(name) }}"
       binary_sensor: "{{ 'binary_sensor.{}'.format(name) }}"
     sequence:
       - variables:
