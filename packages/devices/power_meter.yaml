@@ -13,12 +13,10 @@ script:
     max: 20
     variables:
       name: washing_machine
-      measurement: "{{ 'sensor.{}_energy_daily'.format(name) }}"
       binary_sensor: "{{ 'binary_sensor.{}'.format(name) }}"
     sequence:
       - variables:
           start_time: "{{ as_timestamp(now()) }}"
-          start_kwh: "{{ states(measurement) }}"
       - wait_for_trigger:
           platform: template
           value_template: "{{ is_state(binary_sensor, 'off') }}"
@@ -26,16 +24,13 @@ script:
         continue_on_timeout: false
       - variables:
           end_time: "{{ as_timestamp(now()) }}"
-          end_kwh: "{{ states(measurement) }}"
       - variables:
           total_time: "{{ (end_time - start_time) }}"
-          total_kwh: "{{ end_kwh - start_kwh }}"
       - variables:
           minutes: "{{ (total_time / 60) | round(0) }}"
-          total_kwh_rounded: "{{ (total_kwh) | round(2) }}"
       - service: notify.telegram_group
         data:
-          message: "👚👕 Die Waschmaschine ist nach {{ minutes }} Minuten fertig und hat {{ total_kwh_rounded }} kWh verbraucht"
+          message: "👚👕 Die Waschmaschine ist nach {{ minutes }} Minuten fertig."
 
 input_datetime:
   washing_machine_on:
