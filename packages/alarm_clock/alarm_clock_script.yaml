@@ -27,7 +27,7 @@ script:
           minutes: 1
       - service: script.open_cover
       - delay:
-          minutes: 30
+          minutes: 60
       - service: input_boolean.turn_off
         entity_id: input_boolean.alarm_clock_on
       - service: light.turn_off

@@ -49,9 +49,8 @@ action:
       - conditions:
           # Vacation
           - condition: time
-            after: '07:25:00'
-            before: '07:26:00'
-            weekday: [mon, tue, wed, thu, fri, sat, sun]
+            after: '07:50:00'
+            before: '07:51:00'
           # No manual alarm override
           - "{{ states('input_boolean.vacation_mode') == 'on' }}"
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
