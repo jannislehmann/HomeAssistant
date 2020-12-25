@@ -6,5 +6,5 @@ sonos:
 
 media_player:
   - platform: androidtv
-    name: Fernseher Schlafzimmer
-    host: !secret mi_tv_host
+    name: Bed Fernseher
+    host: !secret bed_tv_host
