@@ -91,6 +91,7 @@ logger:
     homeassistant.components.mqtt: warn
     homeassistant.components.esphome: warn
     homeassistant.components.zha: warn
+    homeassistant.components.frontend: warn
     homeassistant.helpers.script: info
     homeassistant.helpers.entity: critical
     homeassistant.components.command_line.switch: warn

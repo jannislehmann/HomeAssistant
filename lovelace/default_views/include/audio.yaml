@@ -20,7 +20,7 @@
               volume_stateless: true
               volume_step: 5
               shortcuts:
-                columns: 2
+                columns: 3
                 buttons:
                   - name: Bremen NEXT
                     type: service
@@ -37,11 +37,6 @@
                     id: script.play_radio
                     data:
                       station: ilovemashup (playlist)
-                  - name: Christmas
-                    type: service
-                    id: script.play_radio
-                    data:
-                      station: ilovexmas (playlist)
               hide:
                 power: true
                 source: true
