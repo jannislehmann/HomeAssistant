@@ -108,6 +108,8 @@ logger:
     custom_components.display: error
     custom_components.alexa_media: warn
     homeassistant.components.automation.toggle_ambilight_hue: fatal
+    custom_components.mikettle.sensor: debug
+    mikettle: debug
 
 lovelace: !include lovelace/configuration.yaml
 

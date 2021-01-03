@@ -15,12 +15,6 @@ action:
       sequence:
         - service: light.toggle
           entity_id: light.living_floor_light
-    # Both Single Click
-    - conditions:
-      - "{{ trigger.event.data.command == 'both_single' }}"
-      sequence:
-        - service: switch.toggle
-          entity_id: switch.christmas_tree
     # Double Click
     - conditions:
       - "{{ trigger.event.data.command == 'right_single' }}"

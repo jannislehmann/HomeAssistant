@@ -1,0 +1,12 @@
+---
+#sensor:
+#  - platform: mikettle
+#    mac: !secret mac_mikettle
+#    product_id: 275
+#    monitored_conditions:
+#      - action
+#      - mode
+#      - set temperature
+#      - current temperature
+#      - keep warm type
+#      - keep warm time
