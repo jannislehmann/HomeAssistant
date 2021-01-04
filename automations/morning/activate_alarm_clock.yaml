@@ -75,8 +75,8 @@ action:
       - conditions:
           # Workday - Work
           - condition: time
-            after: '06:10:00'
-            before: '06:11:00'
+            after: '05:55:00'
+            before: '05:56:00'
             weekday: [mon, tue, wed, thu, fri]
           # No manual alarm override
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
@@ -84,6 +84,7 @@ action:
           # Not training today
           - condition: or
             conditions:
+              - "{{ is_state('calendar.privat', 'off') }}"
               - "{{ state_attr('calendar.privat', 'start_time').split(' ')[0].split('-')[2] | int != now().day }}"
               - condition: and
                 conditions:
