@@ -3,14 +3,15 @@ script:
     alias: "Bremen Next Kitchen"
     sequence:
       - service: media_player.turn_off
-        entity_id:
-          - media_player.forked_daapd_output_wohnzimmer
-          - media_player.forked_daapd_output_sonos_one
+        entity_id: media_player.forked_daapd_output_wohnzimmer
+          
       - service: media_player.turn_on
         entity_id: media_player.kitchen_homepod_mini
       - service: media_player.volume_set
         data:
-          entity_id: media_player.kitchen_homepod_mini
+          entity_id:
+            - media_player.kitchen_homepod_mini
+            - media_player.forked_daapd_output_sonos_one
           volume_level: 0.1
       - service: script.play_radio
         data:

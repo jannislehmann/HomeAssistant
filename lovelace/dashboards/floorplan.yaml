@@ -5,8 +5,14 @@ views:
       - type: custom:floorplan-card
         title: Floorplan
         config:
-          image: /local/floorplan/floorplan.svg?v=1.0.0
-          stylesheet: /local/floorplan/floorplan.css?v=1.0.0
+          image: /local/floorplan/floorplan.svg?v=1.1.0
+          stylesheet: /local/floorplan/floorplan.css?v=1.1.0
+
+          hover_action:
+            action: hover-info
+          tap_action:
+            action: more-info
+
           rules:
             - entities:
                 - sensor.temperature_bath
@@ -16,16 +22,6 @@ views:
                 - sensor.temperature_living
                 - sensor.temperature_office
                 - sensor.temperature_storage
-              text_template: '${entity.state ? entity.state + "°C" : "unknown"}'
-              class_template: '
-                const temp = parseFloat(entity.state.replace("°", ""));
-                if (temp < 10)
-                return "temp-low";
-                else if (temp <= 23)
-                return "temp-medium";
-                else
-                return "temp-high";
-                '
             - entities:
                 - light.fado_desk
                 - light.flur
