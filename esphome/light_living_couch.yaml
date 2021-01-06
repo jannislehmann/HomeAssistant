@@ -1,10 +1,11 @@
 ---
 substitutions:
-  name: Kleiderschrank
+  name: Couch
   device: light_living_couch
-  pin: D2
+  pin: GPIO3
   num_leds: '108'
-  mac: '50:02:91:78:d5:a0'
+  # MAC TBD
+  mac: '50:02:91:78:d5:a1'
 
 packages:
   diyhue_base: !include common/diyhue_base.yaml

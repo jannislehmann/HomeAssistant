@@ -68,8 +68,6 @@ logger:
     androidtv.adb_manager.adb_manager_async: critical
     aiohttp.access: critical
     aiohttp.server: critical
-    homeassistant.components.forked_daapd: debug
-    pyforked-daapd: debug
     homeassistant.core: error
     homeassistant.config_entries: error
     homeassistant.components.androidtv.media_player: critical

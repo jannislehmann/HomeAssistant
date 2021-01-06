@@ -49,3 +49,7 @@
                 {% for entity in home_feed_entities %}
                 - {{ entity }}
                 {% endfor %}
+
+        - type: custom:grocy-chores-card
+          entity: sensor.grocy_chores
+          title: Aufgaben
