@@ -3,15 +3,15 @@ views:
   - panel: true
     cards:
       - type: custom:floorplan-card
-        title: Floorplan
         config:
-          image: /local/floorplan/floorplan.svg?v=1.1.0
-          stylesheet: /local/floorplan/floorplan.css?v=1.1.0
+          image: /local/floorplan/floorplan.svg
+          stylesheet: /local/floorplan/floorplan.css
 
-          hover_action:
-            action: hover-info
-          tap_action:
-            action: more-info
+          log_level: info
+          console_log_level: info
+          defaults:
+            hover_action: hover-info
+            tap_action: more-info
 
           rules:
             - entities:
@@ -22,6 +22,9 @@ views:
                 - sensor.temperature_living
                 - sensor.temperature_office
                 - sensor.temperature_storage
+              state_action:
+                - service: floorplan.text_set
+                  service_data: '${entity.state ? entity.state + "°C" : "unknown"}'
             - entities:
                 - light.fado_desk
                 - light.flur
@@ -36,5 +39,4 @@ views:
                   class: "light-on"
                 - state: "off"
                   class: "light-off"
-              action:
-                service: homeassistant.toggle
+              tap_action: toggle
