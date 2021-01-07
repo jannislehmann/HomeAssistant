@@ -7,8 +7,7 @@ views:
           image: /local/floorplan/floorplan.svg
           stylesheet: /local/floorplan/floorplan.css
 
-          log_level: info
-          console_log_level: info
+          # log_level: info
           defaults:
             hover_action: hover-info
             tap_action: more-info
@@ -33,10 +32,11 @@ views:
                 - light.kitchen_cabinets
                 - light.office_desk
                 - light.living_floor_light
+                - entity: light.living_couch_ceiling
+                  element: light.living_ceiling
                 - light.storage
-              states:
-                - state: "on"
-                  class: "light-on"
-                - state: "off"
-                  class: "light-off"
+              state_action:
+                action: call-service
+                service: floorplan.class_set
+                service_data: 'light-${entity.state}'
               tap_action: toggle
