@@ -1,0 +1,18 @@
+---
+# This script reminds us to GTFO of bed
+script:
+  alarm_clock_gtfo_bed:
+    sequence:
+      - condition: state
+        entity_id: input_boolean.alarm_clock_on
+        state: 'on'
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.bed_dot
+          volume_level: 0.25
+      - service: notify.alexa_media_dot_schlafzimmer
+        data:
+          message: Aufstehen!
+          data: 
+            type: tts
+          target: media_player.bed_dot

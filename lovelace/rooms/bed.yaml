@@ -13,8 +13,7 @@ lights:
     name: Go
 media_players:
   - entity_id: media_player.bed_dot
-  # _2 is the adb one
-  - entity_id: media_player.bed_tv
+  - entity_id: media_player.bed_fernseher
 contact_sensors:
   - entity_id: binary_sensor.contact_bed
 covers:
