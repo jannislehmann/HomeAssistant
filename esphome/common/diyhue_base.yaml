@@ -2,7 +2,7 @@
 esphome:
   name: ${device}
   platform: ESP8266
-  board: d1_mini_lite
+  board: ${board}
   includes:
     - libraries/diyhueasyncudp.h
   libraries:
@@ -10,7 +10,7 @@ esphome:
 
 status_led:
   pin:
-    number: D4
+    number: GPIO2
     inverted: True
 
 text_sensor:

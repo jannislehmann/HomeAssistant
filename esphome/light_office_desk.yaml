@@ -1,5 +1,6 @@
 ---
 substitutions:
+  board: d1_mini_lite
   name: Schreibtisch
   device: light_office_desk
   pin: GPIO3

@@ -1,8 +1,9 @@
 ---
 substitutions:
+  board: d1_mini_lite
   name: Kleiderschrank
   device: light_office_closet
-  pin: D4
+  pin: GPIO2
   num_leds: '200'
   mac: 'bc:dd:c2:7a:d7:d6'
 
