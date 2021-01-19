@@ -47,6 +47,8 @@ recorder:
 hacs:
   token: !secret github_hacs_token
 
+python_script:
+
 default_config:
 
 ios:

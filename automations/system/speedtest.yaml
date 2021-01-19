@@ -1,5 +1,5 @@
 ---
-alias: speedtest
+alias: Speedtest
 id: 6bfc5074-8144-4285-94d7-c574bc7e0819
 description: Runs a speedtest when the main pc is turned off.
 mode: single

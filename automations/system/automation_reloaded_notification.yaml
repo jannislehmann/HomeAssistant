@@ -1,6 +1,6 @@
 ---
 description: Send notification when automations are reloaded
-alias: system_automation_reloaded_notification
+alias: System automation reloaded notification
 id: 41f7aec4-17f1-480d-969d-14789cf501f5
 mode: single
 trigger:

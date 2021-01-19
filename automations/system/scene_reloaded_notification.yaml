@@ -1,6 +1,6 @@
 ---
 description: Send notification when scenes are reloaded
-alias: system_scene_reloaded_notification
+alias: Systeme scene reloaded notification
 id: c8dffcdc-6d66-4bcf-b823-19a0bc2b1a97
 mode: single
 trigger:

@@ -1,6 +1,6 @@
 ---
 description: Send notification on Home Assistant start
-alias: system_start_notification
+alias: System start notification
 id: 104463f6-7524-48d9-bbe5-2bb09017e946
 mode: single
 trigger:

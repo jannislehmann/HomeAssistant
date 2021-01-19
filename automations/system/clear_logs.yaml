@@ -1,5 +1,5 @@
 ---
-alias: clear_logs
+alias: Clear logs
 description: Clears the home assistant logs every sunday.
 id: ea3754a8-9dc6-4ef8-81eb-29f751071dd4
 mode: single

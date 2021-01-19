@@ -1,0 +1,20 @@
+id: 0fb6cd8c-70a6-4081-b6f0-b7baf7cbb0fb
+alias: Shellies Discovery
+mode: queued
+max: 999
+trigger:
+  platform: mqtt
+  topic: shellies/announce
+action:
+  service: python_script.shellies_discovery
+  data_template:
+    id: '{{ trigger.payload_json.id }}'
+    mac: '{{ trigger.payload_json.mac }}'
+    fw_ver: '{{ trigger.payload_json.fw_ver }}'
+    model: '{{ trigger.payload_json.model }}'
+    shellyswitch25-68C63AF98D6C:
+      mode: "roller"
+      roller-0-name: "Schlafzimmer"
+      roller-0-class: "shutter" # oder blind
+      position_template: "{{ '{% if value | float < 30 %}0{% else %}{{ value }}{% endif %}' }}"
+      set_position_template: "{{ '{%if position | float < 30 %}0{% else %}{{ position }}{% endif %}' }}"

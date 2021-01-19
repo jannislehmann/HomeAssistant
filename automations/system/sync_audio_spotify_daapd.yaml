@@ -1,6 +1,6 @@
 ---
 description: Syncs the audio from spotify connect to the daapd server.
-alias: sync_spotify_volume_daapd
+alias: Sync Spotify volume DAAPD
 id: a528d04d-3583-4398-bdb6-dd7803f9822c
 mode: queued
 trigger:
