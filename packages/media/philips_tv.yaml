@@ -22,6 +22,7 @@ switch:
 
 input_boolean:
   automatic_ambilight_hue:
+    initial: true
     icon: mdi:spotlight
 
 script:
@@ -33,6 +34,6 @@ script:
   
   toggle_ambilight_hue:
     sequence:
-      - service: switch.toggle
+      - service: input_boolean.toggle
         data:
-          entity_id: switch.ambilight_hue
+          entity_id: input_boolean.automatic_ambilight_hue

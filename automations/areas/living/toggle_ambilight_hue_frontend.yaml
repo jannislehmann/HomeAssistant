@@ -1,0 +1,28 @@
+---
+alias: Toggle Ambilight+Hue through frontend
+id: 216f2ee6-768e-4cdc-9d5e-b2124fee1e01
+description: Toggle Ambilight+Hue through the frontend
+mode: queued
+trigger:
+  platform: state
+  entity_id: input_boolean.automatic_ambilight_hue
+condition:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: media_player.android_tv
+      state: unavailable
+action:
+  choose:
+    # Turn on
+    - conditions:
+      - condition: state
+        entity_id: input_boolean.automatic_ambilight_hue
+        state: 'on'
+      sequence:
+        - service: switch.turn_on
+          entity_id: switch.ambilight_hue
+  # Turn off
+  default:
+    service: switch.turn_off
+    entity_id: switch.ambilight_hue

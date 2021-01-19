@@ -19,4 +19,5 @@ action:
     - conditions:
       - "{{ trigger.event.data.command == 'right_single' }}"
       sequence:
-        - service: script.toggle_ambilight_hue
+        - service: input_boolean.toggle
+          entity_id: input_boolean.automatic_ambilight_hue

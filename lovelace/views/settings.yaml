@@ -15,10 +15,7 @@
               - title: Funktionen
             - !include
               - ../includes/grid.yaml
-              - entities: 
-                  - entity_id: automation.toggle_ambilight_hue
-                    name: Ambi+Hue
-                    icon: mdi:wardrobe-outline
+              - entities:
                   - entity_id: input_boolean.alarm_clock_open_cover
                     name: Shutter-Automatisierung
                   - entity_id: automation.morning_background_light

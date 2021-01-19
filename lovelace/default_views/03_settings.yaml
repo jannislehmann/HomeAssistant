@@ -37,6 +37,9 @@
                     name: Bewegungsmelder
                   - entity_id: input_boolean.vacation_mode
                     name: Urlaub
+                  - entity_id: input_boolean.automatic_ambilight_hue
+                    name: Ambi+Hue
+                    icon: mdi:light-switch
 
         - type: vertical-stack
           cards:

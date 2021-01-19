@@ -1,0 +1,11 @@
+---
+alias: Reset Automatic Ambilight+Hue
+description: Reactivates the automatic ambilight+hue automation daily.
+id: 66748e10-80a2-4b60-a4c5-386ae416d173
+mode: single
+trigger:
+  platform: time
+  at: '04:00:00'
+action:
+  service: input_boolean.turn_on
+  entity_id: input_boolean.automatic_ambilight_hue

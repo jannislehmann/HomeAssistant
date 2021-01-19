@@ -7,9 +7,14 @@ trigger:
   platform: time_pattern
   minutes: "/2"
 condition:
-  condition: state
-  entity_id: media_player.android_tv
-  state: playing
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: media_player.android_tv
+      state: unavailable
+  - condition: state
+    entity_id: input_boolean.automatic_ambilight_hue
+    state: 'on'
 action:
   choose:
     # Dark outside.
