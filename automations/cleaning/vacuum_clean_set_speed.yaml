@@ -1,6 +1,6 @@
 ---
+alias: Vacuum set speed
 description: Vacuum cleaning started -> set speed
-alias: vacuum_set_speed
 id: fbbbbd4c-63e6-4f29-8aa8-3894f59a036f
 mode: single
 trigger:

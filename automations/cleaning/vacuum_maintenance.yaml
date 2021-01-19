@@ -1,6 +1,6 @@
 ---
+alias: Vacuum maintenance checks
 description: Vacuum maintenance checks
-alias: vacuum_maintenance_checks
 id: be74aead-ac55-4b5f-8005-6941a41c273c
 mode: single
 trigger:

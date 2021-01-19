@@ -1,6 +1,6 @@
 ---
+alias: Vacuum cleaning error
 description: Vacuum cleaning error
-alias: vacuum_cleaning_error
 id: 7ceaf2ba-a0ec-4cbf-8ed2-35d93bd096be
 mode: single
 trigger:

@@ -1,5 +1,5 @@
 ---
-alias: morning_music_kitchen
+alias: Morning music kitchen
 description: Turns off the music in the bed room in the morning when there is motion in the hall.
 id: bdd8c935-07b1-4a67-9e99-d8b99882cbcb
 mode: single

@@ -16,9 +16,9 @@ action:
         - service: light.toggle
           data:
             entity_id: light.go
-            transition: 3
-            kelvin: "{{ state_attr('sensor.circadian_values', 'colortemp') | int }}"
-            brightness_pct: "{{ state_attr('switch.circadian_lighting_hall', 'brightness') | int }}"
+            transition: 5
+            color_name: orange
+            brightness: 75
     # Double Click
     - conditions:
       - "{{ trigger.event.data.args.click_type == 'double' }}"

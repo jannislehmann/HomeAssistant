@@ -1,6 +1,6 @@
 script:
   bremen_next_kitchen:
-    alias: "Bremen Next Kitchen"
+    alias: Bremen Next Kitchen
     sequence:
       - service: media_player.turn_off
         entity_id: media_player.forked_daapd_output_wohnzimmer
@@ -17,7 +17,7 @@ script:
         data:
           station: tunein:station:s105937
   play_radio:
-    alias: "Play Radio"
+    alias: Play Radio
     fields:
       station:
         description: 'The radio station'

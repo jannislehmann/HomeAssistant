@@ -2,9 +2,9 @@
 sonos:
   media_player:
     hosts:
-      - !secret host_sonos
+      - !secret sonos_one
 
 media_player:
   - platform: androidtv
     name: Bed Fernseher
-    host: !secret bed_tv_host
+    host: !secret bed_tv

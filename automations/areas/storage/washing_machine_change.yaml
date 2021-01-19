@@ -1,5 +1,5 @@
 ---
-alias: "washing_machine_changed"
+alias: Washing Machine Changed
 id: acc9d99d-b549-4250-bbc0-56c051aaaf8f
 mode: restart
 description: Washing machine or dishwasher started or finished

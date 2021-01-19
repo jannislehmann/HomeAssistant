@@ -1,5 +1,5 @@
 ---
-alias: motion_hall_music_off
+alias: Motion hall music off
 description: Turns off the music in the bed room in the morning when there is motion in the hall.
 id: c62fbc9d-c695-4ed1-8257-fe9ff0635978
 mode: single

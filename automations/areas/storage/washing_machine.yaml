@@ -1,5 +1,5 @@
 ---
-alias: washing_machine_done
+alias: Washing Machine Done
 id: df299391-717e-4b8a-ae57-30fd87931415
 description: Notifies when the washing machine is done.
 mode: restart

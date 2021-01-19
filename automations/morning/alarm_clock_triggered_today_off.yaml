@@ -1,5 +1,5 @@
 ---
-alias: alarm_clock_triggered_today_off_at_midnight
+alias: Alarm clock triggered today off at midnight
 description: Turns off the toggle which is used to check whether the alarm clock has been triggered today.
 id: d29a9e75-247d-4031-a132-b7c32cbe3a99
 mode: single

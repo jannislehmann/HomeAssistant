@@ -1,6 +1,6 @@
 ---
+alias: Vacuum cleaning done
 description: Vacuum cleaning done
-alias: vacuum_cleaning_done
 id: afff179f-e1d9-4e22-9f4b-0a50aa86c693
 mode: single
 trigger:

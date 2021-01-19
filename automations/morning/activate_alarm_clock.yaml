@@ -1,5 +1,5 @@
 ---
-alias: activate_alarm_clock
+alias: Activate alarm clock
 description: Activates the alarm clock.
 id: 321b7fa1-9003-4295-84de-2b3b5c2b6531
 mode: single
