@@ -1,0 +1,7 @@
+---
+notify:
+  - platform: group
+    name: apple
+    services:
+      - service: mobile_app_iphone_von_jannis
+      - service: mobile_app_jannis_macbook

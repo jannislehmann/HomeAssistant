@@ -21,7 +21,7 @@ condition:
     attribute: elevation
     below: 0.0
 action:
-  - service: notify.mobile_app_iphone_von_jannis
+  - service: notify.apple
     data:
       title: Jalousien
       message: "Sollen die Jalousien geschlossen werden?"

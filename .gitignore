@@ -53,3 +53,7 @@ edgeos.key
 
 # diyHue
 addons/diyHue/rootfs
+
+# Emulated Hue
+*.pem
+emulated_hue.*

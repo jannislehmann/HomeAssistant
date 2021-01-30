@@ -39,7 +39,7 @@ switch:
 
   - platform: circadian_lighting
     name: office_ceiling
-    min_brightness: 50
-    max_brightness: 80
+    min_brightness: 30
+    max_brightness: 60
     lights_brightness:
       - light.office_ceiling

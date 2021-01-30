@@ -8,7 +8,7 @@ trigger:
   event_data:
     actionName: Licht
 action:
-  - service: notify.mobile_app_iphone_von_jannis
+  - service: notify.apple
     data:
       message: "Apple Watch: set lights"
       data:

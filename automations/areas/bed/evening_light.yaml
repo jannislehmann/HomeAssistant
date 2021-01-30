@@ -21,5 +21,9 @@ action:
         entity_id: light.go
 
   default:
-    service: light.turn_on
-    entity_id: light.go
+    - service: switch.turn_on
+      entity_id: switch.circadian_lighting_bed_go
+    - service: light.turn_on
+      entity_id: light.go
+    - service: switch.turn_off
+      entity_id: switch.circadian_lighting_bed_go

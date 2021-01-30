@@ -7,11 +7,9 @@ trigger:
   platform: state
   entity_id: input_boolean.automatic_ambilight_hue
 condition:
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: media_player.android_tv
-      state: unavailable
+  - condition: state
+    entity_id: media_player.android_tv
+    state: playing
 action:
   choose:
     # Turn on
