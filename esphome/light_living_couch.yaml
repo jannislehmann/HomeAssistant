@@ -5,7 +5,7 @@ substitutions:
   device: light_living_couch
   pin: GPIO3
   num_leds: '108'
-  mac: '70:03:9f:e0:70:ba'
+  mac: '70:03:9f:e0:96:03'
 
 packages:
   diyhue_base: !include common/diyhue_base.yaml

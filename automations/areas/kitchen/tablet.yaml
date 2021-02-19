@@ -8,5 +8,5 @@ trigger:
   entity_id: binary_sensor.presence_kitchen
   to: 'on'
 action:
-  service: switch.turn_on
-  entity_id: switch.kitchen_screen
+  service: light.turn_on
+  entity_id: light.kitchen_screen
