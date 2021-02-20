@@ -1,0 +1,19 @@
+---
+substitutions:
+  board: esp01_1m
+  name: Couch
+  device: light_living_couch
+  pin: GPIO3
+  num_leds: '108'
+  mac: '70:03:9f:e0:96:03'
+
+packages:
+  diyhue_base: !include common/diyhue_base.yaml
+  main_base: !include common/main_base.yaml
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: 1
+      inverted: True
+    name: "RGB Power Switch"

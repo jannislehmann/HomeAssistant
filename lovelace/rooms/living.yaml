@@ -17,6 +17,8 @@ lights:
     name: Stehlampe
   - entity_id: light.living_couch_ceiling
     name: Deckenlampe Couch
+  - entity_id: light.living_couch
+    name: Couch
 media_players:
   - entity_id: media_player.android_tv
     shortcuts:

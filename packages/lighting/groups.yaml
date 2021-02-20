@@ -10,6 +10,7 @@ light:
       - light.living_floor_light
       - light.lightstrip
       - light.office_desk
+      - light.living_couch
       - light.living_couch_ceiling
       - light.office_closet
 
