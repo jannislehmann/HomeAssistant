@@ -17,7 +17,6 @@ include_entities:
   - light.lightstrip
   - light.living_floor_light
   - light.living_couch_ceiling
-  - light.living_couch
   - light.office_ceiling
   # Temperature
   - sensor.temperature_bath
