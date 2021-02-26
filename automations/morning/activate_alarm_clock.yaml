@@ -45,7 +45,6 @@ action:
         sequence:
           service: script.alarm_clock_morning
 
-
       - conditions:
           # Vacation
           - condition: time
@@ -75,8 +74,8 @@ action:
       - conditions:
           # Workday - Work
           - condition: time
-            after: '05:55:00'
-            before: '05:56:00'
+            after: '05:50:00'
+            before: '05:51:00'
             weekday: [mon, tue, wed, thu, fri]
           # No manual alarm override
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
