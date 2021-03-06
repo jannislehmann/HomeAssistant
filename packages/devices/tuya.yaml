@@ -1,10 +1,36 @@
 localtuya:
   - host: 10.0.20.52
-    device_id: !secret tuya_id
-    local_key: !secret tuya_key
+    device_id: !secret tuya_1_id
+    local_key: !secret tuya_1_key
     friendly_name: Plug 1
     protocol_version: "3.3"
     entities:
       - platform: switch
         friendly_name: Plug
         id: 1
+
+  - host: 10.0.20.54
+    device_id: !secret tuya_2_id
+    local_key: !secret tuya_2_key
+    friendly_name: Plug 2
+    protocol_version: "3.3"
+    entities:   
+      - platform: switch
+        friendly_name: Plug
+        id: 1
+        current: 18
+        current_consumption: 19
+        voltage: 20
+
+  - host: 10.0.20.56
+    device_id: !secret tuya_3_id
+    local_key: !secret tuya_3_key
+    friendly_name: Plug 3
+    protocol_version: "3.3"
+    entities:   
+      - platform: switch
+        friendly_name: Plug
+        id: 1
+        current: 18
+        current_consumption: 19
+        voltage: 20
