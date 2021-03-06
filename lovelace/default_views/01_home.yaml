@@ -123,12 +123,13 @@
             next: true
             name: true
             progress: true
-          style: |
-            ha-card {
-              --ha-card-background: gray;
-              --secondary-text-color: white;
-              --mmp-icon-color: white;
-            }
+          card_mod:
+            style: |
+              ha-card {
+                --ha-card-background: gray;
+                --secondary-text-color: white;
+                --mmp-icon-color: white;
+              }
 
       # Personen
       - type: horizontal-stack
@@ -151,10 +152,11 @@
             - ../includes/section.yaml
             - title: Räume
           - type: custom:mod-card
-            style: |
-              ha-card {
-                margin: -8px;
-              }
+            card_mod:
+              style: |
+                ha-card {
+                  margin: -8px;
+                }
             card:
               type: grid
               columns: 2
@@ -191,10 +193,11 @@
             - title: Sonstiges
           
           - type: custom:mod-card
-            style: |
-              ha-card {
-                margin: -8px;
-              }
+            card_mod:
+              style: |
+                ha-card {
+                  margin: -8px;
+                }
             card:
               type: grid
               columns: 2

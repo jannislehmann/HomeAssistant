@@ -19,8 +19,9 @@ cards:
             name: Täglicher Stromverbrauch
           - entity: sensor.washing_machine_energy_monthly
             name: Monatlicher Stromverbrauch
-        style: |
-          ha-card {
-            text-align: center;
-            margin: 0px -8px;
-          } 
+        card_mod:
+          style: |
+            ha-card {
+              text-align: center;
+              margin: 0px -8px;
+            } 

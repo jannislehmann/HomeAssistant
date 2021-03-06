@@ -11,8 +11,9 @@ entities:
   - entity: sensor.hacs
     icon: 'mdi:download-network'
     name: HACS Updates
-style: |
-  ha-card {
-    text-align: center;
-    margin: 0px -8px;
-  } 
+card_mod:
+  style: |
+    ha-card {
+      text-align: center;
+      margin: 0px -8px;
+    } 

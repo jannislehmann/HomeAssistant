@@ -15,10 +15,11 @@
           - ../includes/section.yaml
           - title: {{ room.name }}
         - type: custom:mod-card
-          style: |
-            ha-card {
-              margin: -8px;
-            }
+          card_mod:
+            style: |
+              ha-card {
+                margin: -8px;
+              }
           card:
             type: grid
             columns: 2
