@@ -6,9 +6,5 @@ mode: single
 trigger:
   platform: time_pattern
   minutes: '/5'
-condition:
-  condition: state
-  entity_id: binary_sensor.gaming_connected
-  state: 'off'
 action:
   service: speedtestdotnet.speedtest
