@@ -34,3 +34,11 @@ localtuya:
         current: 18
         current_consumption: 19
         voltage: 20
+
+sensor:
+  - platform: template
+    sensors:
+      gaming_current_consumption:
+        value_template: >-
+          {{ states.switch.gaming_plug.attributes.current_consumption }}
+        unit_of_measurement: 'W'

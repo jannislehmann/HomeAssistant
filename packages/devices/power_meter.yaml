@@ -5,6 +5,12 @@ utility_meter:
   washing_machine_energy_monthly:
     source: sensor.washing_machine_measurement
     cycle: monthly
+  gaming_energy_daily:
+    source: sensor.gaming_current_consumption
+    cycle: daily
+  gaming_energy_monthly:
+    source: sensor.gaming_current_consumption
+    cycle: monthly
 
 # Taken from: https://github.com/basnijholt/home-assistant-config/blob/c54c97912b7a5c527df0e5503e5e36eaa8bfb774/scripts.yaml#L479
 script:
