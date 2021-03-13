@@ -9,8 +9,8 @@ trigger:
   to: 'on'
 condition:
   - condition: state
-    entity_id: input_boolean.alarm_clock_on
+    entity_id: input_boolean.alarm_clock_left_bed
     state: 'on'
-  - "{{ not is_state('media_player.kitchen_dot', 'playing') }}"
+  - "{{ not is_state('media_player.kitchen_homepod_mini', 'on') }}"
 action:
   service: script.bremen_next_kitchen

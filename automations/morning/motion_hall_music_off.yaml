@@ -18,3 +18,10 @@ action:
       transition: 5
   - service: media_player.media_stop
     entity_id: media_player.bed_dot
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.alarm_clock_on
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.alarm_left_bed
+  - delay: 01:00:00
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.alarm_left_bed
