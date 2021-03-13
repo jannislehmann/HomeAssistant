@@ -15,7 +15,7 @@
           entities:
             - type: custom:mini-media-player
               entity: media_player.forked_daapd_server
-                name: Server
+              name: Server
               group: true
               source: icon
               volume_stateless: true
