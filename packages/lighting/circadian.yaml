@@ -17,6 +17,12 @@ switch:
       - light.fado_desk
       - light.office_closet
       - light.office_desk
+
+  - platform: circadian_lighting
+    name: office_hannah
+    min_brightness: 50
+    max_brightness: 80
+    lights_rgb:
       - light.office_hannah
   
   - platform: circadian_lighting
