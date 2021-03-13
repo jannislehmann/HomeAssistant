@@ -15,6 +15,7 @@
           entities:
             - type: custom:mini-media-player
               entity: media_player.forked_daapd_server
+                name: Server
               group: true
               source: icon
               volume_stateless: true
@@ -51,17 +52,35 @@
               variables:
                 - name: Sonos
                 - entity_id: media_player.forked_daapd_output_sonos_one
-            # HomePod Mini
+            # Kitchen HomePod Mini
             - type: custom:decluttering-card
               template: "mini_media_player"
               variables:
-                - name: HomePod Mini
+                - name: Küche
                 - entity_id: media_player.kitchen_homepod_mini
-            # Living Room
+            # Bed HomePod Mini
+            - type: custom:decluttering-card
+              template: "mini_media_player"
+              variables:
+                - name: Schlafzimmer
+                - entity_id: media_player.bed_homepod_mini
+            # Bath HomePod Mini
+            - type: custom:decluttering-card
+              template: "mini_media_player"
+              variables:
+                - name: Badezimmer
+                - entity_id: media_player.bath_homepod_mini
+            # Living HomePod Mini
             - type: custom:decluttering-card
               template: "mini_media_player"
               variables:
                 - name: Wohnzimmer
+                - entity_id: media_player.living_homepod_mini
+            # Living Room
+            - type: custom:decluttering-card
+              template: "mini_media_player"
+              variables:
+                - name: Soundbar
                 - entity_id: media_player.forked_daapd_output_wohnzimmer
 
         - !include ../../cards/audio/spotify_player.yaml

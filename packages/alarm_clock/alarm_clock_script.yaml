@@ -14,29 +14,20 @@ script:
           transition: 60
       - delay:
           minutes: 1
-      - service: media_player.volume_set
-        data:
-          entity_id: media_player.bed_dot
-          volume_level: 0.1
-      - service: media_player.play_media
-        data:
-          entity_id: media_player.bed_dot
-          media_content_id: ENERGY Bremen
-          media_content_type: TUNEIN
+      - service: script.bremen_next_bed
       - delay:
           minutes: 1
       - service: script.open_cover
       - delay:
           minutes: 30
-      - service: script.alarm_clock_gtfo_bed
       - service: input_boolean.turn_off
         entity_id: input_boolean.alarm_clock_on
+      - service: script.alarm_clock_gtfo_bed
       - delay:
           minutes: 1
       - service: light.turn_off
         data:
           entity_id: light.go
           transition: 5
-      - service: media_player.media_stop
-        entity_id: media_player.bed_dot
-      
+      - service: media_player.turn_off
+        entity_id: media_player.bed_homepod_mini

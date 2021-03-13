@@ -8,5 +8,7 @@ sensors:
   - entity_id: sensor.humidity_bath
     name: Luftfeuchtigkeit
     color: purple
+media_players:
+  - entity_id: media_player.bath_homepod_mini
 contact_sensors:
   - entity_id: binary_sensor.contact_bath

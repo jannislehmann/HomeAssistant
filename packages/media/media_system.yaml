@@ -2,17 +2,16 @@ script:
   bremen_next_kitchen:
     alias: Bremen Next Kitchen
     sequence:
-      - service: media_player.turn_off
-        entity_id: media_player.forked_daapd_output_wohnzimmer
-          
       - service: media_player.turn_on
         entity_id: media_player.kitchen_homepod_mini
-      - service: media_player.volume_set
+      - service: script.play_radio
         data:
-          entity_id:
-            - media_player.kitchen_homepod_mini
-            - media_player.forked_daapd_output_sonos_one
-          volume_level: 0.1
+          station: tunein:station:s105937
+  bremen_next_bed:
+    alias: Bremen Next Bed
+    sequence:
+      - service: media_player.turn_on
+        entity_id: media_player.bed_homepod_mini
       - service: script.play_radio
         data:
           station: tunein:station:s105937
@@ -28,6 +27,9 @@ script:
           entity_id:
             - media_player.forked_daapd_server
             - media_player.kitchen_homepod_mini
+            - media_player.bed_homepod_mini
+            - media_player.bath_homepod_mini
+            - media_player.living_homepod_mini
             - media_player.forked_daapd_output_sonos_one
             - media_player.forked_daapd_output_wohnzimmer
           volume_level: 0.1
