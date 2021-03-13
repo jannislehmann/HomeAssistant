@@ -41,7 +41,6 @@ pyton_scripts/*.py
 
 # Addons
 node-red/
-alexa_media.*
 esphome/**/
 !esphome/common
 !esphome/libraries
