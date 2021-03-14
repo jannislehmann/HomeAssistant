@@ -15,6 +15,10 @@ script:
       - service: script.play_radio
         data:
           station: tunein:station:s105937
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.bed_homepod_mini
+          volume_level: 0.2
   play_radio:
     alias: Play Radio
     fields:
@@ -30,6 +34,10 @@ script:
             - media_player.bed_homepod_mini
             - media_player.bath_homepod_mini
             - media_player.living_homepod_mini
+          volume_level: 0.15
+      - service: media_player.volume_set
+        data:
+          entity_id:
             - media_player.forked_daapd_output_sonos_one
             - media_player.forked_daapd_output_wohnzimmer
           volume_level: 0.1
