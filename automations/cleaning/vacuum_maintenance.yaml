@@ -6,7 +6,7 @@ mode: single
 trigger:
   platform: state
   entity_id: vacuum.glenn
-  to: idle
+  to: docked
 action:
   choose:
   - conditions:
