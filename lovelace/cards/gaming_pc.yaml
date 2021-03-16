@@ -8,8 +8,13 @@ cards:
     cards:
       - type: custom:button-card
         entity: switch.gaming
+        hold_action:
+          action: call-service
+          service: switch.turn_on
+          service_data:
+            entity_id: switch.gaming_restart
       - type: custom:state-switch
-        entity: binary_sensor.gaming_connected
+        entity: switch.gaming
         states:
           "on":
             type: vertical-stack
@@ -19,13 +24,13 @@ cards:
                   - type: custom:decluttering-card
                     template: mini_graph
                     variables:
-                      - entity_id: sensor.gaming_cpu_usage
+                      - entity_id: sensor.gaming_cpu
                       - color: red
                       - name: CPU
                   - type: custom:decluttering-card
                     template: mini_graph
                     variables:
-                      - entity_id: sensor.gaming_ram_usage
+                      - entity_id: sensor.gaming_memory
                       - color: purple
                       - name: RAM
               - type: custom:decluttering-card

@@ -5,7 +5,7 @@ id: c1664cb0-4015-44a2-a6b4-05d9b6380229
 mode: queued
 trigger:
   platform: state
-  entity_id: binary_sensor.gaming_connected
+  entity_id: switch.gaming
   from: "off"
   to: "on"
   for: "00:15:00"

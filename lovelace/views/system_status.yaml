@@ -26,12 +26,5 @@
           cards:
             - !include 
               - ../includes/section.yaml
-              - title: Internet
-            - !include ../cards/system/speedtest.yaml
-
-        - type: vertical-stack
-          cards:
-            - !include 
-              - ../includes/section.yaml
               - title: Systemauslastung
             - !include ../cards/system/hardware.yaml
