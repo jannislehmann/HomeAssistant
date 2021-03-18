@@ -5,7 +5,7 @@ script:
     sequence:
       - condition: state
         entity_id: input_boolean.alarm_clock_left_bed
-        state: 'on'
+        state: 'off'
       - service: script.bremen_next_bed
       - service: media_player.volume_set
         data:
