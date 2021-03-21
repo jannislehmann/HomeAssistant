@@ -1,0 +1,16 @@
+---
+alias: Storage Smoke
+id: 0f96fe64-1909-4d54-96e3-cd649a9e466e
+description: Notifies when a smoke is detected in the storage room.
+mode: restart
+trigger:
+  platform: state
+  entity_id: binary_sensor.storage_smoke_sensor
+  to: 'on'
+action:
+  - service: notify.telegram_group
+    data:
+      message: ⚠️ Rauch im Abstellraum erkannt!
+  - service: notify.apple
+    data:
+      message: ⚠️ Rauch im Abstellraum erkannt!
