@@ -7,7 +7,7 @@
   icon: {{ room.icon | default("mdi:home") }}
   cards:
     # Snow
-    - !include ../cards/snow.yaml
+    # - !include ../cards/snow.yaml
     
     - type: vertical-stack
       cards:

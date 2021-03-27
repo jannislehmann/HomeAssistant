@@ -6,6 +6,8 @@ script:
       - condition: state
         entity_id: input_boolean.alarm_clock_left_bed
         state: 'off'
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.alarm_clock_on
       - service: script.bremen_next_bed
       - service: media_player.volume_set
         data:
