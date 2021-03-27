@@ -113,6 +113,12 @@ logger:
     custom_components.mikettle.sensor: warn
     mikettle_local: debug
     custom_components.localtuya: critical
+    pyhap.hap_protocol: warn
+    homeassistant.components.python_script: warn
+    homeassistant.components.utility_meter.sensor: error
+    homeassistant.components.automation.tablet_kitchen: critical
+    zigpy_deconz: error
+    asyncio: error
 
 lovelace: !include lovelace/configuration.yaml
 
