@@ -6,7 +6,7 @@ script:
         entity_id: media_player.kitchen_homepod_mini
       - service: script.play_radio
         data:
-          station: tunein:station:s105937
+          station: bremen_next (playlist)
   bremen_next_bed:
     alias: Bremen Next Bed
     sequence:
@@ -14,7 +14,7 @@ script:
         entity_id: media_player.bed_homepod_mini
       - service: script.play_radio
         data:
-          station: tunein:station:s105937
+          station: bremen_next (playlist)
       - service: media_player.volume_set
         data:
           entity_id: media_player.bed_homepod_mini
@@ -24,7 +24,7 @@ script:
     fields:
       station:
         description: 'The radio station'
-        example: 'bremen_next'
+        example: 'bremen_next (playlist)'
     sequence:
       - service: media_player.volume_set
         data:
