@@ -18,7 +18,7 @@ script:
       - service: media_player.volume_set
         data:
           entity_id: media_player.bed_homepod_mini
-          volume_level: 0.2
+          volume_level: 0.25
   play_radio:
     alias: Play Radio
     fields:
