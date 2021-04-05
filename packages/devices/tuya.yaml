@@ -22,7 +22,7 @@ localtuya:
         current_consumption: 19
         voltage: 20
 
-  - host: 10.0.20.56
+  - host: 10.0.20.55
     device_id: !secret tuya_3_id
     local_key: !secret tuya_3_key
     friendly_name: Plug 3
@@ -41,4 +41,10 @@ sensor:
       gaming_current_consumption:
         value_template: >-
           {{ states.switch.gaming_plug.attributes.current_consumption }}
+        unit_of_measurement: 'W'
+  - platform: template
+    sensors:
+      ender3_v2_current_consumption:
+        value_template: >-
+          {{ states.switch.ender3_v2.attributes.current_consumption }}
         unit_of_measurement: 'W'

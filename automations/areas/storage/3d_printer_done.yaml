@@ -1,0 +1,15 @@
+---
+alias: 3D Printer Done
+mode: queued
+id: a15c30f7-804f-43d7-aca4-f0e48eaa735f
+description: Send a notice when 3D print is done
+trigger:
+  - platform: state
+    entity_id: binary_sensor.ender_3_printing
+    to: "off"
+    from: "on"
+action:
+  - service: notify.telegram_jannis
+    data:
+      message: "Your 3D print is complete"
+      title: "Print Complete"

@@ -221,3 +221,9 @@
                     - path: firefly
                     - name: Firefly
                     - icon: mdi:cash
+                - type: custom:decluttering-card
+                  template: hk_simple_link
+                  variables:
+                    - path: 3d_printer
+                    - name: Ender 3 V2
+                    - icon: mdi:printer-3d

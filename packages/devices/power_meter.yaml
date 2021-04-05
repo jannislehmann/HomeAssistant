@@ -11,6 +11,12 @@ utility_meter:
   gaming_energy_monthly:
     source: sensor.gaming_current_consumption
     cycle: monthly
+  ender3_v2_energy_daily:
+    source: sensor.ender3_v2_current_consumption
+    cycle: daily
+  ender3_v2_energy_monthly:
+    source: sensor.ender3_v2_current_consumption
+    cycle: monthly
 
 # Taken from: https://github.com/basnijholt/home-assistant-config/blob/c54c97912b7a5c527df0e5503e5e36eaa8bfb774/scripts.yaml#L479
 script:
