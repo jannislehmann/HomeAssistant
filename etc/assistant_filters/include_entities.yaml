@@ -19,6 +19,7 @@ include_entities:
   - light.living_couch_ceiling
   - light.living_couch
   - light.office_ceiling
+  - light.playbar
   # Temperature
   - sensor.temperature_bath
   - sensor.temperature_bed

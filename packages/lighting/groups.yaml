@@ -13,12 +13,19 @@ light:
       - light.living_couch
       - light.living_couch_ceiling
       - light.office_closet
+      - light.play
 
   - platform: group
     name: living_couch_ceiling
     entities:
       - light.living_couch_ceiling_1
       - light.living_couch_ceiling_2
+
+  - platform: group
+    name: playbar
+    entities:
+      - light.hue_play_1
+      - light.hue_play_2
 
   - platform: group
     name: flur

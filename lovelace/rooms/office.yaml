@@ -13,6 +13,8 @@ lights:
     name: Deckenlampe
   - entity_id: light.fado_desk
     name: FADO
+  - entity_id: light.playbar
+    name: Hue Play
   - entity_id: light.office_desk
     name: Schreibtisch
   - entity_id: light.office_hannah
