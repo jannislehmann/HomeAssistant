@@ -14,7 +14,7 @@
         - type: vertical-stack
           cards:
             - type: custom:threedy-card
-              base_entity: 'sensor.ender_3_v2'
+              base_entity: 'sensor.octoprint'
               name: 'Ender 3 V2'
               printer_type: I3
               monitored:
