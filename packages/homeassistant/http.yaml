@@ -1,0 +1,9 @@
+http:
+  server_port: !secret http_port
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 10.0.1.11
+  ip_ban_enabled: true
+  login_attempts_threshold: 3

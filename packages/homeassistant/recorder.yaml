@@ -1,0 +1,7 @@
+---
+recorder:
+  purge_keep_days: 14
+  db_url: !secret recorder_db_url
+  exclude: !include ../../etc/exclude_recorder.yaml
+  # Disable auto purging, I'm doing this using automations instead
+  auto_purge: false

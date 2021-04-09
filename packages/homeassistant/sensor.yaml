@@ -1,0 +1,21 @@
+---
+sensor:
+  - platform: version
+    name: version_current
+  - platform: version
+    name: version_available
+    source: hassio
+    image: raspberrypi4
+  - platform: uptime
+  - platform: command_line
+    name: CPU Temperature
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001) | round(1) }}'
+  - platform: systemmonitor
+    resources:
+      - type: processor_use
+      - type: memory_use_percent
+  - platform: cert_expiry
+    host: !secret internal_url
+    port: !secret http_port

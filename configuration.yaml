@@ -1,51 +1,11 @@
 ---
 homeassistant:
-  name: Home
-
-  internal_url: !secret internal_url_http
-  external_url: !secret external_url_http
-
-  # Localization and zone configuration
-  latitude: !secret zone_home_latitude
-  longitude: !secret zone_home_longitude
-  unit_system: metric
-  time_zone: Europe/Berlin
-
   packages: !include_dir_named packages
 
-  auth_providers:
-    - type: trusted_networks
-      trusted_networks:
-        - 127.0.0.1
-        - 10.0.5.0/24
-        - 10.1.5.0/24
-        - 10.0.10.0/24
-      trusted_users:
-        10.0.5.31: !secret jannis_id
-        10.0.5.32: !secret jannis_id
-        10.0.5.41: !secret jannis_id
-        10.0.5.43: !secret jannis_id
-        10.0.5.35: !secret hannah_id
-        10.0.5.62: !secret hannah_id
-        10.0.20.31: !secret kitchenpanel_id
-      allow_bypass_login: true
-    - type: homeassistant
-
 frontend:
-  # HACS
   themes: !include_dir_merge_named themes
 
 automation split: !include_dir_list automations
-
-recorder:
-  purge_keep_days: 14
-  db_url: !secret recorder_db_url
-  exclude: !include etc/exclude_recorder.yaml
-  # Disable auto purging, I'm doing this using automations instead
-  auto_purge: false
-
-hacs:
-  token: !secret github_hacs_token
 
 python_script:
 
@@ -53,17 +13,6 @@ default_config:
 
 ios:
 
-http:
-  server_port: !secret http_port
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
-  use_x_forwarded_for: true
-  trusted_proxies:
-    - 10.0.1.11
-  ip_ban_enabled: true
-  login_attempts_threshold: 3
-
-# AndroidTV and media player are unavailable unless the TV is actually on.
 logger:
   default: info
   logs:
@@ -119,17 +68,11 @@ logger:
     homeassistant.components.automation.tablet_kitchen: critical
     zigpy_deconz: error
     asyncio: error
+    homeassistant.components.octoprint: critical
 
 lovelace: !include lovelace/configuration.yaml
-
-mqtt:
-  broker: !secret mqtt_broker
-  username: !secret mqtt_username
-  password: !secret mqtt_password
 
 browser_mod:
 
 lovelace_gen:
   rooms: !include_dir_list lovelace/rooms
-
-intent:

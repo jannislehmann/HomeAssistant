@@ -8,10 +8,10 @@ script:
         entity_id:
           - input_boolean.alarm_clock_triggered_today
           - input_boolean.alarm_clock_on
-      #- service: light.turn_on
-      #  data:
-      #    entity_id: light.go
-      #    transition: 60
+      - service: light.turn_on
+        data:
+          entity_id: light.go
+          transition: 60
       - delay:
           minutes: 1
       - service: script.bremen_next_bed

@@ -1,21 +1,29 @@
----
-sensor:
-  - platform: version
-    name: version_current
-  - platform: version
-    name: version_available
-    source: hassio
-    image: raspberrypi4
-  - platform: uptime
-  - platform: command_line
-    name: CPU Temperature
-    command: "cat /sys/class/thermal/thermal_zone0/temp"
-    unit_of_measurement: "°C"
-    value_template: '{{ value | multiply(0.001) | round(1) }}'
-  - platform: systemmonitor
-    resources:
-      - type: processor_use
-      - type: memory_use_percent
-  - platform: cert_expiry
-    host: !secret internal_url
-    port: !secret http_port
+homeassistant:
+  name: Home
+
+  internal_url: !secret internal_url_http
+  external_url: !secret external_url_http
+
+  # Localization and zone configuration
+  latitude: !secret zone_home_latitude
+  longitude: !secret zone_home_longitude
+  unit_system: metric
+  time_zone: Europe/Berlin
+
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 127.0.0.1
+        - 10.0.5.0/24
+        - 10.1.5.0/24
+        - 10.0.10.0/24
+      trusted_users:
+        10.0.5.31: !secret jannis_id
+        10.0.5.32: !secret jannis_id
+        10.0.5.41: !secret jannis_id
+        10.0.5.43: !secret jannis_id
+        10.0.5.35: !secret hannah_id
+        10.0.5.62: !secret hannah_id
+        10.0.20.31: !secret kitchenpanel_id
+      allow_bypass_login: true
+    - type: homeassistant
