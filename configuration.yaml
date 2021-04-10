@@ -32,7 +32,7 @@ logger:
     homeassistant.components.http: warn
     homeassistant.loader: error
     homeassistant.components.media_player: critical
-    homeassistant.components.sensor: warn
+    homeassistant.components.sensor: error
     homeassistant.components.sensor.rest: critical
     homeassistant.components.switch: error
     homeassistant.components.rest.sensor: critical
