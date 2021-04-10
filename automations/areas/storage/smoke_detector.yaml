@@ -1,6 +1,6 @@
 ---
 alias: Storage Smoke
-id: 0f96fe64-1909-4d54-96e3-cd649a9e466e
+id: 66b85a6c-b8a4-4f91-80b1-c12a9b3bc398
 description: Notifies when a smoke is detected in the storage room.
 mode: restart
 trigger:
