@@ -40,11 +40,11 @@ sensor:
     sensors:
       gaming_current_consumption:
         value_template: >-
-          {{ states.switch.gaming_plug.attributes.current_consumption }}
+          {{ states.switch.gaming_plug.attributes.current_consumption | default(0) }}
         unit_of_measurement: 'W'
   - platform: template
     sensors:
       ender3_v2_current_consumption:
         value_template: >-
-          {{ states.switch.ender3_v2.attributes.current_consumption }}
+          {{ states.switch.ender3_v2.attributes.current_consumption | default(0) }}
         unit_of_measurement: 'W'
