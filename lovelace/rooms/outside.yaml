@@ -1,0 +1,12 @@
+---
+name: Terrasse
+icon: mdi:shower-head
+sensors:
+  - entity_id: sensor.temperature_outside
+    name: Temperatur
+    color: red
+  - entity_id: sensor.humidity_outside
+    name: Luftfeuchtigkeit
+    color: purple
+contact_sensors:
+  - entity_id: binary_sensor.contact_living_door
