@@ -39,9 +39,23 @@ action:
             weekday: [sat, sun]
           # No manual alarm override
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
-          - "{{ state_attr('calendar.privat', 'start_time').split(' ')[0].split('-')[2] | int == now().day }}"
+          # Workaround to fix that the value is only set if an event is scheduled for today
+          - "{% set start_time = state_attr('calendar.privat', 'start_time') %}{% if start_time | string == 'None' %}{% set start_time = '1970-00-00' %}{% endif %}"
+          - "{{ start_time.split(' ')[0].split('-')[2] | int == now().day }}"
           - "{{ state_attr('calendar.privat', 'start_time').split(' ')[1] == '08:00:00' }}"
           - "{{ state_attr('calendar.privat', 'message') == 'Trainieren' }}"
+        sequence:
+          service: script.alarm_clock_morning
+
+      - conditions:
+          # Weekend - Basic
+          - condition: time
+            after: '08:25:00'
+            before: '08:26:00'
+            weekday: [sat, sun]
+          # No manual alarm override
+          # If the training conditions applies, the alarm is triggered before this
+          - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
         sequence:
           service: script.alarm_clock_morning
 
@@ -65,7 +79,9 @@ action:
           # No manual alarm override
           - "{{ states('input_boolean.vacation_mode') == 'off' }}"
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
-          - "{{ state_attr('calendar.privat', 'start_time').split(' ')[0].split('-')[2] | int == now().day }}"
+          # Workaround to fix that the value is only set if an event is scheduled for today
+          - "{% set start_time = state_attr('calendar.privat', 'start_time') %}{% if start_time | string == 'None' %}{% set start_time = '1970-00-00' %}{% endif %}"
+          - "{{ start_time.split(' ')[0].split('-')[2] | int == now().day }}"
           - "{{ state_attr('calendar.privat', 'start_time').split(' ')[1] == '07:00:00' }}"
           - "{{ state_attr('calendar.privat', 'message') == 'Trainieren' }}"
         sequence:
@@ -84,7 +100,10 @@ action:
           - condition: or
             conditions:
               - "{{ is_state('calendar.privat', 'off') }}"
-              - "{{ state_attr('calendar.privat', 'start_time').split(' ')[0].split('-')[2] | int != now().day }}"
+              - "{{ state_attr('calendar.privat', 'start_time') != false }}"
+              # Workaround to fix that the value is only set if an event is scheduled for today
+              - "{% set start_time = state_attr('calendar.privat', 'start_time') %}{% if start_time | string == 'None' %}{% set start_time = '1970-00-00' %}{% endif %}"
+              - "{{ start_time.split(' ')[0].split('-')[2] | int == now().day }}"
               - condition: and
                 conditions:
                   - "{{ state_attr('calendar.privat', 'message') != 'Trainieren' }}"
