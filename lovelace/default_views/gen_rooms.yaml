@@ -94,6 +94,18 @@
               {% endfor %}
       {% endif %}
 
+      {% if room.plants %}
+        - type: vertical-stack
+          cards:
+            - !include 
+              - ../includes/section.yaml
+              - title: Pflanzen
+            {% for plant in room.plants %}
+            - type: custom:flower-card
+              entity: {{ plant.entity_id }}
+            {% endfor %}
+      {% endif %}
+
       {% if room.includes %}
         {% for include in room.includes %}
         - !include {{ include }}

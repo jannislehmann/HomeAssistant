@@ -1,0 +1,20 @@
+---
+sensor:
+  - platform: miflora
+    mac: !secret miflora_1
+
+# https://github.com/Olen/homeassistant-plant
+plant:
+  openplantbook:
+    client_id: !secret plantbook_client_id
+    secret: !secret plantbook_secret
+
+  ficus:
+    species: ficus
+    name: ficus benjamini
+    sensors:
+      moisture: sensor.mi_flora_moisture
+      battery: sensor.mi_flora_battery
+      temperature: sensor.mi_flora_temperature
+      conductivity: sensor.mi_flora_conductivity
+      brightness: sensor.mi_flora_light_intensity
