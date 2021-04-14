@@ -41,7 +41,8 @@ logger:
     homeassistant.components.light: warn
     homeassistant.components.websocket_api: critical
     homeassistant.components.mqtt: warn
-    homeassistant.components.esphome: warn
+    # Some devices can be offline and we do require reporting for those.
+    homeassistant.components.esphome: critical
     homeassistant.components.zha: warn
     homeassistant.components.frontend: warn
     homeassistant.helpers.script: info
