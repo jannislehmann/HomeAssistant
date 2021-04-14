@@ -1,0 +1,14 @@
+---
+alias: Turn off DAAPD
+description: Turns off the music system, when all outputs have been turned off for a minute.
+id: a0835b1b-bc91-46cb-ab59-e98358d15050
+mode: single
+trigger:
+  platform: state
+  entity_id: media_player.daapd_outputs
+  to: 'off'
+  for:
+    minutes: 1
+action:
+  - service: media_player.turn_off
+    entity_id: media_player.forked_daapd_server

@@ -47,3 +47,14 @@ script:
           source: '{{ station }}'
       - service: media_player.media_play
         entity_id: media_player.forked_daapd_server
+
+media_player:
+  - platform: universal
+    name: DAAPD Outputs
+    children:
+      - media_player.bed_homepod_mini
+      - media_player.kitchen_homepod_mini
+      - media_player.bath_homepod_mini
+      - media_player.living_homepod_mini
+      - media_player.forked_daapd_output_wohnzimmer
+      - media_player.forked_daapd_output_sonos_one
