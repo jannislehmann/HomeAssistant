@@ -1,0 +1,17 @@
+---
+alias: Magic Cube
+id: 56406b3b-b55d-4f5d-b6ea-126dbf70b774
+mode: queued
+trigger:
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_ieee: "00:15:8d:00:05:c1:99:40"
+action:
+  choose:
+    # Shake
+    - conditions:
+      - "{{ trigger.event.data.command == 'shake' }}"
+      sequence:
+        - service: light.toggle
+          entity_id: light.playbar
