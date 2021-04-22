@@ -1,0 +1,13 @@
+---
+alias: Mail
+id: 164b27a0-9ee6-11eb-a8b3-0242ac130003
+description: Notifies when something arrives in our mailbox
+mode: restart
+trigger:
+  platform: state
+  entity_id: binary_sensor.vibration
+  to: 'on'
+action:
+  - service: notify.telegram_group
+    data:
+      message: ✉️ Die Post ist da.

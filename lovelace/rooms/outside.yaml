@@ -1,6 +1,6 @@
 ---
 name: Terrasse
-icon: mdi:shower-head
+icon: mdi:grill
 sensors:
   - entity_id: sensor.temperature_outside
     name: Temperatur
