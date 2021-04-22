@@ -13,7 +13,7 @@ light:
       - light.living_couch
       - light.living_couch_ceiling
       - light.office_closet
-      - light.play
+      - light.playbar
 
   - platform: group
     name: living_couch_ceiling
