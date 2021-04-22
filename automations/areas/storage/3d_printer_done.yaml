@@ -9,7 +9,23 @@ trigger:
     to: "off"
     from: "on"
 action:
-  - service: notify.telegram_jannis
-    data:
-      message: "Your 3D print is complete"
-      title: "Print Complete"
+  choose:
+    - conditions:
+        - condition: state
+          entity_id: input_boolean.ender3_v2_automatic_power_off
+          state: 'on'
+      sequence:
+        - service: switch.turn_off
+          entity_id: switch.ender3_v2
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.ender3_v2_automatic_power_off
+        - service: notify.telegram_jannis
+          data:
+            message: "Your 3D print is complete"
+            title: "Print Complete"
+  default:
+    - service: notify.telegram_jannis
+      data:
+        message: "Your 3D print is complete"
+        title: "Print Complete"
+  

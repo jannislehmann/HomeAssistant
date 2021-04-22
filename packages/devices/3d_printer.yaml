@@ -6,3 +6,6 @@ octoprint:
   ssl: true
   number_of_tools: 1
   bed: true
+
+input_boolean:
+  ender3_v2_automatic_power_off:
