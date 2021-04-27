@@ -10,7 +10,6 @@ include_entities:
   - light.fado_desk
   - light.office_desk
   - light.office_closet
-  - light.ambilight
   - light.living_ceiling_light
   - light.kitchen_cabinets
   - light.storage

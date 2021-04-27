@@ -7,5 +7,11 @@ octoprint:
   number_of_tools: 1
   bed: true
 
+camera:
+  - platform: mjpeg
+    name: Ender 3 V2
+    still_image_url: !secret octoprint_snapshot
+    mjpeg_url: !secret octoprint_webcam
+
 input_boolean:
   ender3_v2_automatic_power_off:

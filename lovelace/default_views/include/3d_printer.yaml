@@ -17,6 +17,7 @@
               base_entity: 'sensor.octoprint'
               name: 'Ender 3 V2'
               printer_type: I3
+              camera_entity: camera.ender_3_v2
               monitored:
                 - Status
                 - ETA
@@ -45,3 +46,6 @@
                 text-align: center;
                 margin: 0px -8px;
               } 
+        - type: picture-entity
+          entity: camera.ender_3_v2
+          camera_view: live
