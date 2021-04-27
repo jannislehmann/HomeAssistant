@@ -273,6 +273,13 @@
 ################################################
 homeassistant:
   customize:
+    # Disable iPhone and MacBook
+    sensor.iphone_von_jannis_battery_level:
+      battery_alert_disabled: true
+
+    sensor.jannis_macbook_internal_battery_level:
+      battery_alert_disabled: true
+
     ################################################
     ## Node Anchors
     ################################################
