@@ -58,18 +58,18 @@
               variables:
                 - name: Küche
                 - entity_id: media_player.kitchen_homepod_mini
-            # Bed HomePod Mini
-            - type: custom:decluttering-card
-              template: "mini_media_player"
-              variables:
-                - name: Schlafzimmer
-                - entity_id: media_player.bed_homepod_mini
             # Bath HomePod Mini
             - type: custom:decluttering-card
               template: "mini_media_player"
               variables:
                 - name: Badezimmer
                 - entity_id: media_player.bath_homepod_mini
+            # Bed HomePod Mini
+            - type: custom:decluttering-card
+              template: "mini_media_player"
+              variables:
+                - name: Schlafzimmer
+                - entity_id: media_player.bed_homepod_mini
             # Living HomePod Mini
             - type: custom:decluttering-card
               template: "mini_media_player"

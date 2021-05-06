@@ -18,6 +18,8 @@ switch:
     host: !secret philips_host
     username: !secret philips_username
     password: !secret philips_password
+    # id: 2131230774
+    # secured_transport: true
     scan_interval: 5
 
 input_boolean:
