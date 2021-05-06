@@ -38,7 +38,7 @@ logger:
     homeassistant.components.rest.sensor: critical
     homeassistant.components.recorder: error
     homeassistant.components.scene: warn
-    homeassistant.components.light: warn
+    homeassistant.components.light: error
     homeassistant.components.websocket_api: critical
     homeassistant.components.mqtt: warn
     # Some devices can be offline and we do require reporting for those.
@@ -52,6 +52,7 @@ logger:
     homeassistant.bootstrap: warn
     homeassistant.exceptions: info
     googleapiclient.discovery: warn
+    homeassistant.helpers.template: error
     py.warnings: error
     pyhap.hap_server: warn
     pychromecast: critical
@@ -70,6 +71,7 @@ logger:
     zigpy_deconz: error
     asyncio: error
     homeassistant.components.octoprint: critical
+    custom_components.plant: critical
 
 lovelace: !include lovelace/configuration.yaml
 

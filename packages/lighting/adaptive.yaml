@@ -1,0 +1,39 @@
+---
+adaptive_lighting:
+  - name: hall
+    max_brightness: 50
+    take_over_control: true
+    lights:
+      - light.flur
+
+  - name: office
+    min_brightness: 75
+    max_brightness: 90
+    lights:
+      - light.fado_desk
+      - light.office_closet
+      - light.office_desk
+
+  - name: kitchen
+    min_brightness: 100
+    take_over_control: true
+    lights:
+      - light.kitchen_cabinets
+
+  - name: living_floor_light
+    min_brightness: 25
+    lights:
+      - light.living_floor_light
+
+  - name: bed_go
+    min_brightness: 25
+    max_brightness: 70
+    lights:
+      - light.go
+
+  - name: office_ceiling
+    min_brightness: 30
+    max_brightness: 60
+    take_over_control: true
+    lights:
+      - light.office_ceiling

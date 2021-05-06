@@ -37,21 +37,14 @@ action:
           before: sunrise
           before_offset: "+00:30:00"
       sequence:
-        - service: switch.turn_on
-          entity_id: switch.circadian_lighting_kitchen
         - service: light.turn_on
           data:
             entity_id: light.kitchen_cabinets
-            transition: 2
-            kelvin: "{{ state_attr('sensor.circadian_values', 'colortemp') | int }}"
-            brightness_pct: "{{ state_attr('switch.circadian_lighting_kitchen', 'brightness') | int }}"
     - conditions:
       # No more motion detected and music is not playing.
       - "{{ not is_state('media_player.kitchen_homepod_mini', 'on')}}"
 
       sequence:
-      - service: switch.turn_off
-        entity_id: switch.circadian_lighting_kitchen
       - service: light.turn_off
         data:
           entity_id: light.kitchen_cabinets
