@@ -1,49 +1,7 @@
 ---
 ios:
-  push:
-    categories:
-      - name: Jalousie
-        identifier: close_blinds_question
-        actions: 
-          - identifier: CLOSE_BLINDS
-            title: Schließen
-            destructive: true
-            authenticationRequired: true
-
-      - name: Alarm
-        identifier: alarm_notification
-        actions: 
-          - identifier: SILENCE_ALARM
-            title: Deaktivieren
-            destructive: true
-            authenticationRequired: true
-
-      - name: Licht
-        identifier: set_lights
-        actions:
-          - identifier: BEDROOM
-            title: Schlafzimmer
-          - identifier: LIVING_ROOM
-            title: Wohnzimmer
-          - identifier: HALL
-            title: Flur
-          - identifier: OFFICE
-            title: Büro
-          - identifier: KITCHEN
-            title: Küche
-
-      - name: Glenn
-        identifier: vacuum
-        actions:
-          - identifier: VACUUM
-            title: Saugen
-          - identifier: MOP
-            title: Wischen
-          - identifier: STOP
-            title: Stop
-
   actions:
-  - name: Licht
+  - name: LIGHT
     background_color: "#000000"
     label:
       text: Licht
@@ -52,7 +10,7 @@ ios:
       icon: lamp
       color: "#ffffff"
 
-  - name: Vacuum
+  - name: VACUUM
     background_color: "#000000"
     label:
       text: Vacuum

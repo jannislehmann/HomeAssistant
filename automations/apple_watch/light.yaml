@@ -1,24 +1,31 @@
-alias: Apple Watch Lights
+alias: Actionable Notification Lights
 id: 10893faa-a543-45c5-a212-2169e97a319f
 mode: parallel
-description: Apple Watch Lights
+description: Actionable Notification Lights
 trigger:
   platform: event
   event_type: ios.action_fired
   event_data:
-    actionName: Licht
+    actionName: LIGHT
 action:
   - service: notify.apple
     data:
-      message: "Apple Watch: set lights"
+      message: In welchem Raum soll das Licht geschaltet werden?
       data:
-        push:
-          category: set_lights
+        actions:
+          - action: BEDROOM
+            title: Schlafzimmer
+          - action: LIVING_ROOM
+            title: Wohnzimmer
+          - action: HALL
+            title: Flur
+          - action: OFFICE
+            title: Büro
+          - action: KITCHEN
+            title: Küche
   - wait_for_trigger:
       platform: event
-      event_type: ios.notification_action_fired
-      event_data:
-        categoryName: set_lights
+      event_type: mobile_app_notification_action
     timeout: "00:00:20"
     continue_on_timeout: false
   - variables:
@@ -30,7 +37,7 @@ action:
             'HALL': 'light.flur',
             'BEDROOM': 'light.go',
             'KITCHEN': 'light.kitchen_cabinets',
-          }[wait.trigger.event.data.actionName] }}
+          }[wait.trigger.event.data.action] }}
   - service: light.toggle
     data:
       entity_id: "{{ light }}"

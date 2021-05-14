@@ -5,3 +5,9 @@ notify:
     services:
       - service: mobile_app_iphone_von_jannis
       - service: mobile_app_jannis_macbook
+
+  - platform: group
+    name: all_devices
+    services:
+      - service: apple
+      - service: mobile_app_eml_l29

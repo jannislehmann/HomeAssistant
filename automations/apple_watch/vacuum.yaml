@@ -6,23 +6,26 @@ trigger:
   platform: event
   event_type: ios.action_fired
   event_data:
-    actionName: Vacuum
+    actionName: VACUUM
 action:
   - service: notify.apple
     data:
-      message: "Apple Watch: Staubsauger"
+      message: "Staubsauger"
       data:
-        push:
-          category: vacuum
+        actions:
+          - action: VACUUM
+            title: Saugen
+          - action: MOP
+            title: Wischen
+          - action: STOP
+            title: Stop
   - wait_for_trigger:
       platform: event
-      event_type: ios.notification_action_fired
-      event_data:
-        categoryName: vacuum
+      event_type: mobile_app_notification_action
     timeout: "00:00:20"
     continue_on_timeout: false
   - variables:
-      option: "{{ wait.trigger.event.data.actionName }}"
+      option: "{{ wait.trigger.event.data.action }}"
   - choose:
     - conditions: "{{ option == 'VACUUM' }}"
       sequence:

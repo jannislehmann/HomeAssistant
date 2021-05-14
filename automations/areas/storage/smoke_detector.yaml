@@ -11,6 +11,6 @@ action:
   - service: notify.telegram_group
     data:
       message: ⚠️ Rauch im Abstellraum erkannt!
-  - service: notify.apple
+  - service: notify.all_devices
     data:
       message: ⚠️ Rauch im Abstellraum erkannt!
