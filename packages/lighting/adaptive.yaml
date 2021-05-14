@@ -3,6 +3,7 @@ adaptive_lighting:
   - name: hall
     max_brightness: 50
     take_over_control: true
+    initial_transition: 5
     lights:
       - light.flur
 
