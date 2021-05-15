@@ -1,24 +1,4 @@
 ---
-sensor:
-  - platform: template
-    sensors:
-      glenn_filter_remaining:
-        unit_of_measurement: 'hrs'
-        value_template: "{{state_attr('vacuum.glenn', 'filter')}}"
-      glenn_side_brush_remaining:
-        unit_of_measurement: 'hrs'
-        value_template: "{{state_attr('vacuum.glenn', 'sideBrush')}}"
-      glenn_main_brush_remaining:
-        unit_of_measurement: 'hrs'
-        value_template: "{{state_attr('vacuum.glenn', 'mainBrush')}}"
-      glenn_sensors_remaining:
-        unit_of_measurement: 'hrs'
-        value_template: "{{state_attr('vacuum.glenn', 'sensor')}}"
-      glenn_last_bin_out:
-        value_template: "{{state_attr('vacuum.glenn', 'last_bin_out')}}"
-      glenn_last_bin_full:
-        value_template: "{{state_attr('vacuum.glenn', 'last_bin_full')}}"
-
 input_boolean:
   cleaned_today:
     icon: mdi:robot-vacuum
@@ -52,60 +32,46 @@ script:
   # Zoned Clean
   glenn_clean_storage:
     sequence:
-      - service: vacuum.send_command
+      - service: mqtt.publish
         data:
-          entity_id: vacuum.glenn
-          command: 'zoned_cleanup'
-          params:
-            'zone_ids': ['Storage']
+          topic: valetudo/glenn/MapSegmentationCapability/clean/set
+          payload: '21'
   glenn_clean_bathroom:
     sequence:
-      - service: vacuum.send_command
+      - service: mqtt.publish
         data:
-          entity_id: vacuum.glenn
-          command: 'zoned_cleanup'
-          params:
-            'zone_ids': ['Bath']
+          topic: valetudo/glenn/MapSegmentationCapability/clean/set
+          payload: '20'
   glenn_clean_office:
     sequence:
-      - service: vacuum.send_command
+      - service: mqtt.publish
         data:
-          entity_id: vacuum.glenn
-          command: 'zoned_cleanup'
-          params:
-            'zone_ids': ['Office']
+          topic: valetudo/glenn/MapSegmentationCapability/clean/set
+          payload: '19'
   glenn_clean_hall:
     sequence:
-      - service: vacuum.send_command
+      - service: mqtt.publish
         data:
-          entity_id: vacuum.glenn
-          command: 'zoned_cleanup'
-          params:
-            'zone_ids': ['Hall']
+          topic: valetudo/glenn/MapSegmentationCapability/clean/set
+          payload: '22'
   glenn_clean_kitchen:
     sequence:
-      - service: vacuum.send_command
+      - service: mqtt.publish
         data:
-          entity_id: vacuum.glenn
-          command: 'zoned_cleanup'
-          params:
-            'zone_ids': ['Kitchen']
+          topic: valetudo/glenn/MapSegmentationCapability/clean/set
+          payload: '18'
   glenn_clean_bed:
     sequence:
-      - service: vacuum.send_command
+      - service: mqtt.publish
         data:
-          entity_id: vacuum.glenn
-          command: 'zoned_cleanup'
-          params:
-            'zone_ids': ['Bed']
+          topic: valetudo/glenn/MapSegmentationCapability/clean/set
+          payload: '16'
   glenn_clean_living:
     sequence:
-      - service: vacuum.send_command
+      - service: mqtt.publish
         data:
-          entity_id: vacuum.glenn
-          command: 'zoned_cleanup'
-          params:
-            'zone_ids': ['Living']
+          topic: valetudo/glenn/MapSegmentationCapability/clean/set
+          payload: '17'
 
 switch:
   - platform: template

@@ -11,7 +11,7 @@ action:
   choose:
   - conditions:
     - condition: numeric_state
-      entity_id: sensor.glenn_main_brush_remaining
+      entity_id: sensor.glenn_main_brush
       below: 10
     sequence:
       service: notify.telegram_group
@@ -19,7 +19,7 @@ action:
         message: 🔧 Glenns Hauptbrüste muss bald getauscht werden.
   - conditions:
     - condition: numeric_state
-      entity_id: sensor.glenn_side_brush_remaining
+      entity_id: sensor.glenn_side_brush
       below: 10
     sequence:
       service: notify.telegram_group
@@ -27,7 +27,7 @@ action:
         message: 🔧 Glenns Seitenbürste müssen bald getauscht werden.
   - conditions:
     - condition: numeric_state
-      entity_id: sensor.glenn_filter_remaining
+      entity_id: sensor.glenn_filter
       below: 10
     sequence:
       service: notify.telegram_group
@@ -35,18 +35,9 @@ action:
         message: 🔧 Glenns Filter muss bald getauscht werden.
   - conditions:
     - condition: numeric_state
-      entity_id: sensor.glenn_sensors_remaining
+      entity_id: sensor.glenn_sensors
       below: 10
     sequence:
       service: notify.telegram_group
       data:
         message: 🔧 Glenns Sensoren müssen bald gereinigt werden.
-  - conditions:
-    # Bin is full since today
-    - "{{ states.sensor.glenn_last_bin_full.state | multiply(0.001) | timestamp_custom('%Y/%m/%d') == (as_timestamp(now()) | timestamp_custom('%Y/%m/%d')) }}"
-    # Not emptied today
-    - "{{ states.sensor.glenn_last_bin_out.state | multiply(0.001) | timestamp_custom('%Y/%m/%d') != (as_timestamp(now()) | timestamp_custom('%Y/%m/%d')) }}"
-    sequence:
-      service: notify.telegram_group
-      data:
-        message: 🔧 Glenns Staubbehälter muss geleert werden.
