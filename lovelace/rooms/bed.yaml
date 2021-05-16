@@ -11,6 +11,7 @@ sensors:
 lights:
   - entity_id: light.go
     name: Go
+    icon: phu:go
 media_players:
   - entity_id: media_player.bed_homepod_mini
   - entity_id: media_player.bed_fernseher

@@ -11,5 +11,6 @@ sensors:
 lights:
   - entity_id: light.storage
     name: Abstellraum
+    icon: phu:CeilingRound
 includes:
   - ../cards/washing_machine.yaml

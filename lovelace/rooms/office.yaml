@@ -11,16 +11,22 @@ sensors:
 lights:
   - entity_id: light.office_ceiling
     name: Deckenlampe
+    icon: phu:DoubleSpot
   - entity_id: light.fado_desk
     name: FADO
+    icon: phu:bulbsSultan
   - entity_id: light.playbar
     name: Hue Play
+    icon: phu:play
   - entity_id: light.office_desk
     name: Schreibtisch
+    icon: phu:Lightstrip
   - entity_id: light.office_hannah
     name: Hannah
+    icon: phu:bulbsSultan
   - entity_id: light.office_closet
     name: Kleiderschrank
+    icon: phu:Lightstrip
 media_players:
   - entity_id: media_player.sonos_one
 contact_sensors:

@@ -41,6 +41,9 @@
                   {% for s in room.lights %}
                     - entity_id: {{ s.entity_id }}
                       name: {{ s.name }}
+                    {% if s.icon %}
+                      icon: {{ s.icon }}
+                    {% endif %}
                   {% endfor %}
       {% endif %}
 

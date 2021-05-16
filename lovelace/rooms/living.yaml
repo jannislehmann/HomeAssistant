@@ -11,14 +11,19 @@ sensors:
 lights:
   - entity_id: light.iris
     name: Iris
+    icon: phu:Iris
   - entity_id: light.lightstrip
     name: Lightstrip
+    icon: phu:Lightstrip
   - entity_id: light.living_floor_light
     name: Stehlampe
+    icon: phu:FloorShade
   - entity_id: light.living_couch_ceiling
     name: Deckenlampe Couch
+    icon: phu:CeilingRound
   - entity_id: light.living_couch
     name: Couch
+    icon: phu:Lightstrip
 media_players:
   - entity_id: media_player.android_tv
     shortcuts:
