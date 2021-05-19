@@ -7,9 +7,14 @@ script:
         description: 'Der gesprochene Satz'
         example: 'Hallo'
     sequence:
-      - condition: time
-        after: "06:00:00"
-        before: "22:00:00" 
+      - condition: and
+        conditions:
+          - condition: time
+            after: "06:00:00"
+            before: "22:00:00"
+          - condition: state
+            entity_id: binary_sensor.home
+            state: "on"
       - service: tts.google_translate_say
         data:
           entity_id: media_player.forked_daapd_server
