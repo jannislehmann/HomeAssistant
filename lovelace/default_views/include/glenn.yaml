@@ -14,25 +14,18 @@
           map: camera.glenn_rendered_map
           stats:
             default:
-              - attribute: filter
+              - entity: sensor.glenn_filter
                 unit: hours
                 subtitle: Filter
-              - attribute: sideBrush
+              - entity: sensor.glenn_side_brush
                 unit: hours
                 subtitle: Side brush
-              - attribute: mainBrush
+              - entity: sensor.glenn_main_brush
                 unit: hours
                 subtitle: Main brush
-              - attribute: sensor
+              - entity: sensor.glenn_sensors
                 unit: hours
                 subtitle: Sensors
-            cleaning:
-              - attribute: currentCleanArea
-                unit: m2
-                subtitle: Cleaning area
-              - attribute: currentCleanTime
-                unit: minutes
-                subtitle: Cleaning time
           actions:
             - service: script.glenn_go_home
               icon: mdi:home
