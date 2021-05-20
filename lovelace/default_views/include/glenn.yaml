@@ -11,7 +11,7 @@
 
         - type: custom:vacuum-card
           entity: vacuum.glenn
-          map: camera.glenn_map
+          map: camera.glenn_rendered_map
           stats:
             default:
               - attribute: filter

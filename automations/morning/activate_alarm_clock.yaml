@@ -62,8 +62,8 @@ action:
       - conditions:
           # Vacation
           - condition: time
-            after: '07:50:00'
-            before: '07:51:00'
+            after: '08:10:00'
+            before: '08:11:00'
           # No manual alarm override
           - "{{ states('input_boolean.vacation_mode') == 'on' }}"
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
