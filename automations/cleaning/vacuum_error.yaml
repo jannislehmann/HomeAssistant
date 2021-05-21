@@ -3,6 +3,8 @@ alias: Vacuum cleaning error
 description: Vacuum cleaning error
 id: 7ceaf2ba-a0ec-4cbf-8ed2-35d93bd096be
 mode: single
+variables:
+  message: "😢 Glenn hat ein Problem"
 trigger:
   platform: state
   entity_id: vacuum.glenn
@@ -11,4 +13,7 @@ trigger:
 action:
   - service: notify.telegram_group
     data:
-      message: 😢 Glenn hat ein Problem 
+      message: "{{ message }}"
+  - service: notify.all_devices
+    data:
+      message: "{{ message }}"
