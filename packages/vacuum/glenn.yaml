@@ -14,7 +14,7 @@ script:
       - service: vacuum.set_fan_speed
         data:
           entity_id: vacuum.glenn
-          fan_speed: mop
+          fan_speed: 'off'
   # Go To
   glenn_go_home:
     sequence:
