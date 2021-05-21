@@ -26,7 +26,6 @@ script:
     variables:
       name: washing_machine
       binary_sensor: "{{ 'binary_sensor.{}'.format(name) }}"
-      sentence: "Die Waschmaschine ist nach {{ minutes }} Minuten fertig."
     sequence:
       - variables:
           start_time: "{{ as_timestamp(now()) }}"
@@ -41,6 +40,8 @@ script:
           total_time: "{{ (end_time - start_time) }}"
       - variables:
           minutes: "{{ (total_time / 60) | round(0) }}"
+      - variables:
+          minutes: "Die Waschmaschine ist nach {{ minutes }} Minuten fertig."
       - service: notify.telegram_group
         data:
           message: "👚👕 {{ sentence }}"
