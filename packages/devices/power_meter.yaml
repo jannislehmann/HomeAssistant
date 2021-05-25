@@ -41,7 +41,7 @@ script:
       - variables:
           minutes: "{{ (total_time / 60) | round(0) }}"
       - variables:
-          minutes: "Die Waschmaschine ist nach {{ minutes }} Minuten fertig."
+          sentence: "Die Waschmaschine ist nach {{ minutes }} Minuten fertig."
       - service: notify.telegram_group
         data:
           message: "👚👕 {{ sentence }}"

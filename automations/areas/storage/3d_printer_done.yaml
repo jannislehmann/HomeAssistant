@@ -24,7 +24,7 @@ action:
           entity_id: input_boolean.ender3_v2_automatic_power_off
         - service: notify.telegram_jannis
           data:
-            message: "{{ message }}"
+              message: "{{ message }}"
   default:
     - service: notify.telegram_jannis
       data:
