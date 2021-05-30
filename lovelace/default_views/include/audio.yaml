@@ -82,5 +82,3 @@
               variables:
                 - name: Soundbar
                 - entity_id: media_player.forked_daapd_output_wohnzimmer
-
-        - !include ../../cards/audio/spotify_player.yaml
