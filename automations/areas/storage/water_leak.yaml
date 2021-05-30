@@ -16,3 +16,8 @@ action:
   - service: notify.all_devices
     data:
       message: "{{ message }}"
+      push:
+        sound:
+          name: "default"
+          critical: 1
+          volume: 1.0

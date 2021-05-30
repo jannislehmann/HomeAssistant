@@ -14,3 +14,8 @@ action:
   - service: notify.all_devices
     data:
       message: ⚠️ Rauch im Abstellraum erkannt!
+      push:
+        sound:
+          name: "default"
+          critical: 1
+          volume: 1.0
