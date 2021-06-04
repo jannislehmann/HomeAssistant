@@ -7,8 +7,6 @@ frontend:
 
 automation split: !include_dir_list automations
 
-python_script:
-
 default_config:
 
 ios:
@@ -72,6 +70,7 @@ logger:
     asyncio: error
     homeassistant.components.octoprint: critical
     custom_components.plant: critical
+    zeroconf: error
 
 lovelace: !include lovelace/configuration.yaml
 

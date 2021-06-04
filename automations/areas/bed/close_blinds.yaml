@@ -8,11 +8,6 @@ trigger:
     event_data:
       action: CLOSE_BLINDS
 action:
-  # Workaround: The first call closes the cover entirely. The second call respects the position.
-  - service: cover.set_cover_position
-    data:
-      entity_id: cover.bed
-      position: 15
   - service: cover.set_cover_position
     data:
       entity_id: cover.bed
