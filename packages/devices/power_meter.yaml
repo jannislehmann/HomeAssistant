@@ -45,9 +45,6 @@ script:
       - service: notify.telegram_group
         data:
           message: "👚👕 {{ sentence }} {{ minutes }}"
-      - service: script.tts
-        data:
-          message: "{{ sentence }}"
 
 input_datetime:
   washing_machine_on:

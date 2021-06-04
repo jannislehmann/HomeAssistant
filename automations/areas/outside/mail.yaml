@@ -13,6 +13,3 @@ action:
   - service: notify.telegram_group
     data:
       message: "✉️ {{ sentence }}"
-  - service: script.tts
-    data:
-      message: "{{ sentence }}"
