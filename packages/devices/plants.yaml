@@ -1,7 +1,7 @@
 ---
 sensor:
   - platform: miflora
-    mac: !secret miflora_1
+    mac: !secret mac_miflora_1
 
 # https://github.com/Olen/homeassistant-plant
 plant:
