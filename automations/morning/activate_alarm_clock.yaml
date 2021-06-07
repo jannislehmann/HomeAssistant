@@ -25,11 +25,14 @@ action:
           before: input_datetime.alarm_time
         - "{{ states('input_datetime.alarm_time') != '00:00:00' }}"
         sequence:
-        - service: input_datetime.set_datetime
+        #- service: input_datetime.set_datetime
+        #  data:
+        #    entity_id: input_datetime.alarm_time
+        #    time: "00:00:00"
+        #- service: script.alarm_clock_morning
+        - service: notify.telegram_jannis
           data:
-            entity_id: input_datetime.alarm_time
-            time: "00:00:00"
-        - service: script.alarm_clock_morning
+            message: Wecker manuell getriggert
 
       - conditions:
           # Weekend - Training
