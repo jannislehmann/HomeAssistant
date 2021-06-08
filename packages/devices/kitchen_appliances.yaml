@@ -1,6 +1,6 @@
 ---
 ble_monitor:
-  discovery: false
+  discovery: true
   devices:
     - mac: !secret mac_mikettle
       name: Wasserkocher
