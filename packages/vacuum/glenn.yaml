@@ -1,7 +1,7 @@
 ---
 input_boolean:
   cleaned_today:
-    icon: mdi:robot-vacuum
+    icon: phu:roborock
 
 script:
   # Mopping

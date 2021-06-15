@@ -36,11 +36,11 @@
             - service: script.glenn_clean_bathroom
               icon: mdi:shower-head
             - service: script.glenn_clean_office
-              icon: mdi:desk
+              icon: phu:rooms-office
             - service: script.glenn_clean_hall
-              icon: mdi:floor-plan
+              icon: phu:rooms-hallway
             - service: script.glenn_clean_kitchen
-              icon: mdi:silverware-fork-knife
+              icon: mdi:chef-hat
             - service: script.glenn_clean_bed
               icon: mdi:bed-empty
             - service: script.glenn_clean_living

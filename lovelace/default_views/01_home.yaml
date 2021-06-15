@@ -176,7 +176,7 @@
                   variables:
                     - path: glenn
                     - name: Glenn
-                    - icon: mdi:robot-vacuum
+                    - icon: phu:roborock
                 - type: custom:decluttering-card
                   template: hk_simple_link
                   variables:

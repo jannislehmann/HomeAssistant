@@ -1,6 +1,6 @@
 ---
 name: Badezimmer
-icon: mdi:shower-head
+icon: phu:rooms-toilet
 sensors:
   - entity_id: sensor.temperature_bath
     name: Temperatur

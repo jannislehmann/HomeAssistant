@@ -1,6 +1,6 @@
 ---
 name: Flur
-icon: mdi:door-open
+icon: phu:rooms-hallway
 sensors:
   - entity_id: sensor.temperature_hall
     name: Temperatur
@@ -11,6 +11,6 @@ sensors:
 lights:
   - entity_id: light.flur
     name: Deckenlampe
-    icon: phu:DoubleSpot
+    icon: phu:double-spot
 contact_sensors:
   - entity_id: binary_sensor.contact_door

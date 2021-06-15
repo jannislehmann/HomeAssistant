@@ -1,6 +1,6 @@
 ---
 name: Abstellraum
-icon: mdi:broom
+icon: phu:rooms-storage
 sensors:
   - entity_id: sensor.temperature_storage
     name: Temperatur
@@ -11,6 +11,6 @@ sensors:
 lights:
   - entity_id: light.storage
     name: Abstellraum
-    icon: phu:CeilingRound
+    icon: phu:ceiling-round
 includes:
   - ../cards/washing_machine.yaml

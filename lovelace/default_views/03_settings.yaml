@@ -45,7 +45,7 @@
                     icon: mdi:printer-3d
                   - entity_id: automation.vacuum_clean_daily
                     name: Glenn
-                    icon: mdi:robot-vacuum
+                    icon: phu:roborock
 
 
         - type: vertical-stack

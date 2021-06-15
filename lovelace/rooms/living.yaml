@@ -1,6 +1,6 @@
 ---
 name: Wohnzimmer
-icon: mdi:television
+icon: phu:rooms-living
 sensors:
   - entity_id: sensor.temperature_living
     name: Temperatur
@@ -11,19 +11,19 @@ sensors:
 lights:
   - entity_id: light.iris
     name: Iris
-    icon: phu:Iris
+    icon: phu:iris
   - entity_id: light.lightstrip
     name: Lightstrip
-    icon: phu:Lightstrip
+    icon: phu:light-strip
   - entity_id: light.living_floor_light
     name: Stehlampe
-    icon: phu:FloorShade
+    icon: phu:floor-shade
   - entity_id: light.living_couch_ceiling
     name: Deckenlampe Couch
-    icon: phu:CeilingRound
+    icon: phu:ceiling-round
   - entity_id: light.living_couch
     name: Couch
-    icon: phu:Lightstrip
+    icon: phu:light-strip
 media_players:
   - entity_id: media_player.android_tv
     shortcuts:
