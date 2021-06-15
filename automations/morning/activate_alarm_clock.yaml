@@ -9,7 +9,7 @@ trigger:
 condition:
   - condition: state
     entity_id: input_boolean.alarm_clock_triggered_today
-    state: "off"
+    state: 'off'
   - condition: state
     entity_id: input_boolean.alarm_clock
     state: 'on'
@@ -20,19 +20,14 @@ action:
   - choose:
       - conditions:
         # Manual time
-        - condition: time
-          after: input_datetime.alarm_time
-          before: input_datetime.alarm_time
+        - "{{ states('input_datetime.alarm_time')[0:5] == states('sensor.time') }}"
         - "{{ states('input_datetime.alarm_time') != '00:00:00' }}"
         sequence:
-        #- service: input_datetime.set_datetime
-        #  data:
-        #    entity_id: input_datetime.alarm_time
-        #    time: "00:00:00"
-        #- service: script.alarm_clock_morning
-        - service: notify.telegram_jannis
+        - service: input_datetime.set_datetime
           data:
-            message: Wecker manuell getriggert
+            entity_id: input_datetime.alarm_time
+            time: "00:00:00"
+        - service: script.alarm_clock_morning
 
       - conditions:
           # Weekend - Training
