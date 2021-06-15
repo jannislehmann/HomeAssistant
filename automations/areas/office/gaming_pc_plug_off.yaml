@@ -8,7 +8,7 @@ trigger:
   entity_id: switch.gaming
   from: "off"
   to: "on"
-  for: "00:15:00"
+  for: "00:10:00"
 action:
   service: switch.turn_off
   entity_id: switch.gaming_plug
