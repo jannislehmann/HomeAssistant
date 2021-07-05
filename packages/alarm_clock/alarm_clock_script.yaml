@@ -24,11 +24,3 @@ script:
       - service: input_boolean.turn_off
         entity_id: input_boolean.alarm_clock_on
       - service: script.alarm_clock_gtfo_bed
-      - delay:
-          minutes: 1
-      - service: light.turn_off
-        data:
-          entity_id: light.go
-          transition: 5
-      - service: media_player.turn_off
-        entity_id: media_player.bed_homepod_mini
