@@ -6,8 +6,8 @@ mode: queued
 trigger:
   platform: state
   entity_id: switch.gaming
-  from: "off"
-  to: "on"
+  from: "on"
+  to: "off"
   for: "00:10:00"
 action:
   service: switch.turn_off
