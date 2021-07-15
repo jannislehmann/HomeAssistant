@@ -19,6 +19,8 @@ action:
     - conditions:
         - condition: or
           conditions:
+            - condition: time
+              after: '21:30:00'
             - condition: sun
               after: sunset
             - condition: sun
