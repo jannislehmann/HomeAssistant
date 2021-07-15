@@ -17,7 +17,7 @@ rest_command:
             "description": "{{ states('input_text.firefly_description') }}",
             "category_id": 3,
             "source_id": 93,
-            "destination_id": 68
+            "destination_id": 104
           }
         ]
       }
