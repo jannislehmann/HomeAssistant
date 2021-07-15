@@ -14,3 +14,5 @@ lights:
     icon: phu:light-strip
 contact_sensors:
   - entity_id: binary_sensor.contact_kitchen
+includes:
+  - ../cards/fridge.yaml

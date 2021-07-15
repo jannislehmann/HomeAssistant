@@ -1,0 +1,32 @@
+---
+alias: Fridge Temperature
+id: 8efc42e9-6fe4-4134-93cb-10bd68862aee
+description: Notifies when the fridge is too hot or too cold
+mode: restart
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.fridge_temperature
+    id: "hot"
+    above: 9
+    for: "00:05:00"
+  - platform: numeric_state
+    entity_id: sensor.fridge_temperature
+    id: "cold"
+    below: 7
+    for: "00:05:00"
+action:
+  choose:
+  - conditions:
+      - condition: trigger
+        id: "hot"
+    sequence:
+      - service: notify.telegram_group
+        data:
+          message: ❄️ Der Kühlschrank ist über 9°C!
+  - conditions:
+    - condition: trigger
+      id: "cold"
+    sequence:
+      - service: notify.telegram_group
+        data:
+          message: ❄️ Der Kühlschrank ist unter 7°C!
