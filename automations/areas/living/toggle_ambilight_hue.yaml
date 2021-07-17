@@ -8,7 +8,7 @@ trigger:
   minutes: "/2"
 condition:
   - condition: state
-    entity_id: media_player.android_tv
+    entity_id: media_player.apple_tv
     state: playing
   - condition: state
     entity_id: input_boolean.automatic_ambilight_hue
