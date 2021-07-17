@@ -1,6 +1,6 @@
 ---
 alias: Fridge Temperature
-id: 8efc42e9-6fe4-4134-93cb-10bd68862aee
+id: f4eff4f5-5699-4860-b455-f119b3927140
 description: Notifies when the fridge is too hot or too cold
 mode: restart
 trigger:
