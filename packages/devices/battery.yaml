@@ -389,7 +389,7 @@ input_number:
     mode: slider
     min: -1
     max: 100
-    initial: 30
+    initial: 20
 
   battery_alert_threshold_min:
     name: "Min Alert Threshold"

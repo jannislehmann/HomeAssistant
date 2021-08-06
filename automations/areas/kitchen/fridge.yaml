@@ -8,12 +8,12 @@ trigger:
     entity_id: sensor.fridge_temperature
     id: "hot"
     above: 9
-    for: "00:05:00"
+    for: "00:30:00"
   - platform: numeric_state
     entity_id: sensor.fridge_temperature
     id: "cold"
-    below: 7
-    for: "00:05:00"
+    below: 5
+    for: "00:30:00"
 action:
   choose:
   - conditions:
@@ -29,4 +29,4 @@ action:
     sequence:
       - service: notify.telegram_group
         data:
-          message: ❄️ Der Kühlschrank ist unter 7°C!
+          message: ❄️ Der Kühlschrank ist unter 5°C!
