@@ -72,16 +72,3 @@ script:
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
           payload: '20'
-
-switch:
-  - platform: template
-    switches:
-      glenn:
-        friendly_name: Glenn
-        value_template: "{{ is_state('vacuum.glenn', 'on') }}"
-        turn_on:
-          service: vacuum.start
-          entity_id: vacuum.glenn
-        turn_off:
-          service: vacuum.return_to_base
-          entity_id: vacuum.glenn
