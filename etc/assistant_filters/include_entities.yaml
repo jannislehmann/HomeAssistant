@@ -1,8 +1,7 @@
 ---
 # Provides a list of entities to include in HomeKit.
 include_entities:
-  # Cover
-  - cover.bed
+  - alarm_control_panel.ha_alarm
   # Light
   - light.flur
   - light.iris
@@ -19,13 +18,5 @@ include_entities:
   - light.living_couch
   - light.office_ceiling
   - light.playbar
-  # Temperature
-  - sensor.temperature_bath
-  - sensor.temperature_bed
-  - sensor.temperature_hall
-  - sensor.temperature_living
-  - sensor.temperature_kitchen
-  - sensor.temperature_office
-  - sensor.temperature_storage
   # Vacuum
   - switch.glenn

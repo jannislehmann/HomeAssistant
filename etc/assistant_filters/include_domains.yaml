@@ -1,0 +1,6 @@
+---
+# Provides a list of domains to include in HomeKit.
+include_domains:
+  - cover
+  - vacuum
+  - person

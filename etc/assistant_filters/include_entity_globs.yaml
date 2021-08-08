@@ -1,0 +1,4 @@
+include_entity_globs:
+  - sensor.temperature_*
+  - binary_sensor.presence_*
+  - binary_sensor.contact_*
