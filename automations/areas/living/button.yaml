@@ -15,6 +15,14 @@ action:
       sequence:
         - service: light.toggle
           entity_id: light.living_floor_light
+    # Left Double Click
+    - conditions:
+      - "{{ trigger.event.data.command == 'left_double' }}"
+      sequence:
+        - service: media_player.select_source
+          data:
+            entity_id: media_player.philips_tv
+            source: 'HDMI 4'
     # Right Click
     - conditions:
       - "{{ trigger.event.data.command == 'right_single' }}"
