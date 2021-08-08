@@ -6,9 +6,8 @@ trigger:
   platform: time
   at: '04:00:00'
 condition:
-  condition: numeric_state
-  entity_id: sensor.cert_expiry_ha_iot_home_cludch_net_8123
-  below: 14
+  condition: template
+  value_template: "{{as_timestamp(states('sensor.cert_expiry_timestamp')) - as_timestamp(now()) < 30 * 24 * 60 * 60}}"
 action:
   - service: hassio.addon_restart
     data:
