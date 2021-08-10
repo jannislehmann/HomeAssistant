@@ -45,6 +45,7 @@ node-red/
 esphome/**/
 !esphome/common
 !esphome/libraries
+python-zeroconf/
 
 # Rhasspy (WiP)
 rhasspy/
