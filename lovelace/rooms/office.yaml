@@ -8,6 +8,9 @@ sensors:
   - entity_id: sensor.humidity_office
     name: Luftfeuchtigkeit
     color: purple
+  - entity_id: sensor.office_particulate_matter_2_5um
+    name: Luftqualität
+    color: green
 lights:
   - entity_id: light.office_ceiling
     name: Deckenlampe

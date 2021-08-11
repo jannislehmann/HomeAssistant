@@ -1,0 +1,22 @@
+---
+substitutions:
+  name: Luftsensor
+  device: air_office
+  mac: 'bc:dd:c2:7b:1a:db'
+
+esphome:
+  name: ${device}
+  platform: ESP8266
+  board: d1_mini_lite
+
+packages:
+  main_base: !include common/main_base.yaml
+
+uart:
+  rx_pin: D2
+  baud_rate: 9600
+
+sensor:
+  - platform: pm1006
+    pm_2_5:
+      name: "Particulate Matter <2.5µm"
