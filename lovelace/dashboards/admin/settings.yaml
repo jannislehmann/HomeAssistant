@@ -4,17 +4,17 @@
   cards:
     - type: vertical-stack
       cards:
-        - !include 
-          - ../includes/header.yaml
-          - title: Einstellungen
+        - template: title
+          name: Einstellungen
+          type: 'custom:button-card'
 
         - type: vertical-stack
           cards:
-            - !include 
-              - ../includes/section.yaml
-              - title: Funktionen
+            - template: title
+              name: Funktionen
+              type: 'custom:button-card'
             - !include
-              - ../includes/grid.yaml
+              - ../../includes/grid.yaml
               - entities:
                   - entity_id: input_boolean.alarm_clock_open_cover
                     name: Shutter-Automatisierung

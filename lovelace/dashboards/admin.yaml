@@ -1,4 +1,5 @@
 title: Administration
+button_card_templates: !include /config/lovelace/button_card_templates.yaml
 decluttering_templates: !include_dir_merge_named /config/lovelace/decluttering_templates
 visible: false
-views: !include_dir_merge_list /config/lovelace/views
+views: !include_dir_merge_list /config/lovelace/dashboards/admin

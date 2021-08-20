@@ -23,9 +23,9 @@
 
         - type: vertical-stack
           cards:
-            - !include 
-              - ../includes/section.yaml
-              - title: Funktionen
+            - template: title
+              name: Funktionen
+              type: 'custom:button-card'
             - type: custom:time-picker-card
               entity: input_datetime.alarm_time
             - !include
@@ -47,12 +47,11 @@
                     name: Glenn
                     icon: phu:roborock
 
-
         - type: vertical-stack
           cards:
-            - !include 
-              - ../includes/section.yaml
-              - title: Home Feed
+            - template: title
+              name: Home Feed
+              type: 'custom:button-card'
             - type: logbook
               title: " "
               entities:
