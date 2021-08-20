@@ -7,6 +7,10 @@ script:
       - service: script.play_radio
         data:
           station: bremen_next (playlist)
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.bed_homepod_mini
+          volume_level: 0.25
   bremen_next_bed:
     alias: Bremen Next Bed
     sequence:
@@ -18,7 +22,7 @@ script:
       - service: media_player.volume_set
         data:
           entity_id: media_player.bed_homepod_mini
-          volume_level: 0.25
+          volume_level: 0.2
   play_radio:
     alias: Play Radio
     fields:
