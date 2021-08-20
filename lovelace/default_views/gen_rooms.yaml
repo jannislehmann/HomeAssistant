@@ -1,20 +1,16 @@
 # lovelace_gen
-
 {% for room in _global.rooms %}
 - title: {{ room.name }}
   visible: false
   path: {{ room.name | lower | replace(" ", "_") }}
   icon: {{ room.icon | default("mdi:home") }}
   cards:
-    # Snow
-    # - !include ../cards/snow.yaml
-    
     - type: vertical-stack
       cards:
         - !include 
           - ../includes/header.yaml
           - title: "{{ room.name }}"
-            navigation_path: "lovelace/home"
+            navigation_path: "/lovelace/home"
 
       {% if room.sensors %}
         - type: horizontal-stack
@@ -32,9 +28,9 @@
       {% if room.lights %}
         - type: vertical-stack
           cards:
-            - !include 
-                - ../includes/section.yaml
-                - title: Lights
+            - template: title
+              name: Lampen
+              type: 'custom:button-card'
             - !include
                 - ../includes/grid.yaml
                 - entities: 
@@ -47,27 +43,12 @@
                   {% endfor %}
       {% endif %}
 
-      {% if room.switches %}
-        - type: vertical-stack
-          cards:
-            - !include 
-                - ../includes/section.yaml
-                - title: Switches
-            - !include
-                - ../includes/grid.yaml
-                - entities: 
-                  {% for s in room.switches %}
-                    - entity_id: {{ s.entity_id }}
-                      name: {{ s.name }}
-                  {% endfor %}
-      {% endif %}
-
       {% if room.media_players %}
         - type: vertical-stack
           cards:
-            - !include 
-              - ../includes/section.yaml
-              - title: Media
+            - template: title
+              name: Media
+              type: 'custom:button-card'
           {% for media_player in room.media_players %}
             - type: custom:mini-media-player
               artwork: cover
@@ -87,22 +68,24 @@
       {% if room.covers %}
         - type: vertical-stack
           cards:
-            - !include 
-              - ../includes/section.yaml
-              - title: Cover
-            - type: custom:shutter-card
-              entities:
-              {% for cover in room.covers %}
-                - {{ cover.entity_id }}
-              {% endfor %}
+            - template: title
+              name: Cover
+              type: 'custom:button-card'
+
+            {% for cover in room.covers %}
+            - template: cover_buttons
+              variables:
+                entity: {{ cover.entity_id }}
+              type: 'custom:button-card'
+            {% endfor %}
       {% endif %}
 
       {% if room.plants %}
         - type: vertical-stack
           cards:
-            - !include 
-              - ../includes/section.yaml
-              - title: Pflanzen
+            - template: title
+              name: Pflanzen
+              type: 'custom:button-card'
             {% for plant in room.plants %}
             - type: custom:flower-card
               entity: {{ plant.entity_id }}
@@ -118,9 +101,9 @@
       {% if room.additional_buttons or room.additional_switches %}
         - type: vertical-stack
           cards:
-            - !include 
-              - ../includes/section.yaml
-              - title: More
+            - template: title
+              name: Sonstiges
+              type: 'custom:button-card'
             - type: entities
               entities:
               {% if room.additional_buttons %}
@@ -134,5 +117,5 @@
               {% endfor %}
               {% endif %}
       {% endif %}
-  
+
 {% endfor %}

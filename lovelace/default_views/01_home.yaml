@@ -3,9 +3,6 @@
   icon: mdi:home
   path: home
   cards:
-    # Snow
-    # - !include ../cards/snow.yaml
-
     - type: vertical-stack
       cards:
       - !include 
@@ -110,9 +107,9 @@
       # Rooms
       - type: vertical-stack
         cards:
-          - !include 
-            - ../includes/section.yaml
-            - title: Räume
+          - template: title
+            name: 'Räume'
+            type: 'custom:button-card'
           - type: custom:mod-card
             card_mod:
               style: |
@@ -150,9 +147,9 @@
       # Audio, Glenn, Firefly
       - type: vertical-stack
         cards:
-          - !include 
-            - ../includes/section.yaml
-            - title: Sonstiges
+          - template: title
+            name: Sonstiges
+            type: 'custom:button-card'
           
           - type: custom:mod-card
             card_mod:

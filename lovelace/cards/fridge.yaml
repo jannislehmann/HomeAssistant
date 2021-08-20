@@ -1,8 +1,8 @@
 type: vertical-stack
 cards:
-  - !include 
-    - ../includes/section.yaml
-    - title: Kühlschrank
+  - template: title
+    name: Kühlschrank
+    type: 'custom:button-card'
 
   - type: vertical-stack
     cards:
