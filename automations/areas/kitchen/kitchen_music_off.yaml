@@ -1,0 +1,15 @@
+---
+alias: Turn off kitchen music
+description: Turns off the music output in the kitchen when there is no more movement
+id: 3d20240e-56b1-4ed2-9a9b-929017899472
+mode: single
+trigger:
+  - platform: state
+    entity_id: binary_sensor.presence_kitchen
+    to: 'off'
+    for:
+      minutes: 5
+action:
+  - service: media_player.turn_off
+    entity_id:
+      - media_player.kitchen_homepod_mini
