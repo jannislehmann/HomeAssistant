@@ -1,7 +1,7 @@
 ---
 substitutions:
   name: Luftsensor
-  device: air_office
+  device: air-office
   mac: 'bc:dd:c2:7b:1a:db'
 
 esphome:

@@ -11,8 +11,7 @@ adaptive_lighting:
     max_brightness: 90
     lights:
       - light.fado_desk
-      - light.office_closet
-      - light.office_desk
+      - light.playbar
 
   - name: kitchen
     min_brightness: 100

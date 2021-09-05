@@ -1,6 +1,6 @@
 ---
 substitutions:
-  device: light_kitchen_cabinets
+  device: light-kitchen-cabinets
 
 packages:
   esphome_base: !include common/esphome_base.yaml

@@ -2,7 +2,7 @@
 substitutions:
   board: esp01_1m
   name: Couch
-  device: light_living_couch
+  device: light-living-couch
   pin: GPIO3
   num_leds: '108'
   mac: '70:03:9f:e0:96:03'

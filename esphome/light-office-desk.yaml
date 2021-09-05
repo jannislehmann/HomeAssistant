@@ -2,7 +2,7 @@
 substitutions:
   board: d1_mini_lite
   name: Schreibtisch
-  device: light_office_desk
+  device: light-office-desk
   pin: GPIO3
   num_leds: '139'
   mac: '50:02:91:79:49:0d'
