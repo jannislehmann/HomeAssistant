@@ -46,39 +46,43 @@
                 prev: true
                 next: true
                 icon_state: false
-            # Office
+
+        - type: grid
+          square: false
+          columns: 2
+          cards:
             - type: custom:decluttering-card
-              template: "mini_media_player"
+              template: media_player_output
               variables:
-                - name: Sonos
                 - entity_id: media_player.forked_daapd_output_sonos_one
-            # Kitchen HomePod Mini
+                - name: Sonos
+
             - type: custom:decluttering-card
-              template: "mini_media_player"
+              template: media_player_output
               variables:
-                - name: Küche
                 - entity_id: media_player.kitchen_homepod_mini
-            # Bath HomePod Mini
+                - name: Küche
+
             - type: custom:decluttering-card
-              template: "mini_media_player"
+              template: media_player_output
               variables:
-                - name: Badezimmer
                 - entity_id: media_player.bath_homepod_mini
-            # Bed HomePod Mini
+                - name: Badezimmer
+
             - type: custom:decluttering-card
-              template: "mini_media_player"
+              template: media_player_output
               variables:
-                - name: Schlafzimmer
                 - entity_id: media_player.bed_homepod_mini
-            # Living HomePod Mini
+                - name: Schlafzimmer
+
             - type: custom:decluttering-card
-              template: "mini_media_player"
+              template: media_player_output
               variables:
-                - name: Wohnzimmer
                 - entity_id: media_player.living_homepod_mini
-            # Living Room
+                - name: Wohnzimmer
+
             - type: custom:decluttering-card
-              template: "mini_media_player"
+              template: media_player_output
               variables:
-                - name: Soundbar
                 - entity_id: media_player.forked_daapd_output_wohnzimmer
+                - name: Soundbar
