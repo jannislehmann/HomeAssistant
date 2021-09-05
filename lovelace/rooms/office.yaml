@@ -21,15 +21,9 @@ lights:
   - entity_id: light.playbar
     name: Hue Play
     icon: phu:play
-  - entity_id: light.office_desk
-    name: Schreibtisch
-    icon: phu:light-strip
   - entity_id: light.office_hannah
     name: Hannah
     icon: phu:bulbs-sultan
-  - entity_id: light.office_closet
-    name: Kleiderschrank
-    icon: phu:light-strip
 media_players:
   - entity_id: media_player.sonos_one
 contact_sensors:
