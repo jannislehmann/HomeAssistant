@@ -13,7 +13,7 @@ trigger:
     entity_id: media_player.forked_daapd_server
     to: 'paused'
     for:
-      minutes: 1
+      seconds: 30
 action:
   - service: media_player.turn_off
     entity_id:
