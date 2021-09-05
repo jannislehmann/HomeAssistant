@@ -18,6 +18,3 @@
               - entities:
                   - entity_id: input_boolean.alarm_clock_open_cover
                     name: Shutter-Automatisierung
-                  - entity_id: automation.morning_background_light
-                    name: Bürolicht
-                    icon: mdi:wardrobe-outline
