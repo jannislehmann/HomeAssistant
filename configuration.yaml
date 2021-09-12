@@ -3,7 +3,11 @@ homeassistant:
   packages: !include_dir_named packages
 
 frontend:
-  themes: !include_dir_merge_named themes
+  # themes: !include_dir_merge_named themes
+  themes:
+    main: !include themes/main.yaml
+    ios: !include themes/ios.yaml
+    google: !include themes/google.yaml
 
 automation split: !include_dir_list automations
 
