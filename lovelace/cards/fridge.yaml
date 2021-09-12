@@ -8,22 +8,21 @@ cards:
     cards:
       - type: horizontal-stack
         cards:
-        - type: custom:decluttering-card
-          template: mini_graph
+        - type: custom:button-card
+          template: graph
           variables:
-            - entity_id: sensor.fridge_temperature
-            - color: "#00FFFF"
-            - name: Temperatur
-        - type: custom:decluttering-card
-          template: mini_graph
+            entity: sensor.fridge_temperature
+            color: "var(--google-red)"
+            name: Temperatur
+        - type: custom:button-card
+          template: graph
           variables:
-            - entity_id: sensor.fridge_humidity
-            - color: blue
-            - name: Luftfeuchtigkeit
-
-      - type: custom:decluttering-card
-        template: mini_graph
+            entity: sensor.fridge_humidity
+            color: "var(--google-blue)"
+            name: Luftfeuchtigkeit
+      - type: custom:button-card
+        template: graph
         variables:
-          - entity_id: sensor.fridge_pressure
-          - color: gray
-          - name: Luftdruck
+          entity: sensor.fridge_pressure
+          color: "var(--google-gray)"
+          name: Luftdruck

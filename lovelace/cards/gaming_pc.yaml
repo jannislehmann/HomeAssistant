@@ -21,24 +21,24 @@ cards:
             cards:
               - type: horizontal-stack
                 cards:
-                  - type: custom:decluttering-card
-                    template: mini_graph
+                  - type: custom:button-card
+                    template: graph
                     variables:
-                      - entity_id: sensor.gaming_cpu
-                      - color: red
-                      - name: CPU
-                  - type: custom:decluttering-card
-                    template: mini_graph
+                      entity: sensor.gaming_cpu
+                      color: "var(--google-red)"
+                      name: CPU
+                  - type: custom:button-card
+                    template: graph
                     variables:
-                      - entity_id: sensor.gaming_memory
-                      - color: purple
-                      - name: RAM
-              - type: custom:decluttering-card
-                template: mini_graph
+                      entity: sensor.gaming_memory
+                      color: "var(--google-purple)"
+                      name: RAM
+              - type: custom:button-card
+                template: graph
                 variables:
-                  - entity_id: sensor.gaming_current_consumption
-                  - color: green
-                  - name: Stromverbrauch
+                  entity: sensor.gaming_current_consumption
+                  color: "var(--google-green)"
+                  name: Stromverbrauch
               - type: glance
                 title: false
                 entities:
