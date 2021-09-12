@@ -16,12 +16,12 @@
         - type: horizontal-stack
           cards:
           {% for sensor in room.sensors %}
-            - type: custom:decluttering-card
-              template: mini_graph
+            - type: custom:button-card
+              template: graph
               variables:
-                - entity_id: {{ sensor.entity_id }}
-                - color: {{ sensor.color }}
-                - name: {{ sensor.name }} 
+                entity: {{ sensor.entity_id }}
+                color: "var(--google-{{ sensor.color }})"
+                name: {{ sensor.name }}
           {% endfor %}
       {% endif %}
 
@@ -31,16 +31,27 @@
             - template: title
               name: Lampen
               type: 'custom:button-card'
-            - !include
-                - ../includes/grid.yaml
-                - entities: 
-                  {% for s in room.lights %}
-                    - entity_id: {{ s.entity_id }}
-                      name: {{ s.name }}
+            - template: edge
+              type: 'custom:button-card'
+            - type: grid
+              columns: 2
+              square: false
+              cards:
+                {% for s in room.lights %}
+                - entity: {{ s.entity_id }}
+                  {% if s.icon %}
+                  icon: {{ s.icon }}
+                  {% endif %}
+                  variables:
+                    entity: {{ s.entity_id }}
+                    name: {{ s.name }}
+                    # TODO: Icon
                     {% if s.icon %}
-                      icon: {{ s.icon }}
+                    icon: {{ s.icon }}
                     {% endif %}
-                  {% endfor %}
+                  template: light_slider
+                  type: 'custom:button-card'
+                {% endfor %}
       {% endif %}
 
       {% if room.media_players %}

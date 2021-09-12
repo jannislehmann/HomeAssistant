@@ -1,8 +1,7 @@
-########################################################################################################
-#                                                                                                      #
-#                                            Design System                                             #
-#                                                                                                      #
-########################################################################################################
+edge:
+  styles:
+    card:
+      - width: 0px
 
 icon:
   color: var(--google-grey)
@@ -568,7 +567,7 @@ light:
             return (bri ? bri : '0') + '%'; 
           }
         }else{
-          return "Indisponible";
+          return "Offline";
         }
     ]]]
   template: 
@@ -621,7 +620,7 @@ light_slider:
         mainSliderColorOff: rgba(var(--color-theme),0.05)
         secondarySliderColorOff: rgba(var(--color-theme),0.05)
         thumbHorizontalPadding: '0px'
-        thumbVerticalPadding: '0px'   
+        thumbVerticalPadding: '0px'
         thumbWidth: 0px
         card_mod:
         style: |
