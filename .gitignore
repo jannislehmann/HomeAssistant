@@ -6,7 +6,7 @@ secrets.yaml
 tts/
 
 # Extension ignores
-*.log
+*.log*
 *.db*
 *.pyc
 
