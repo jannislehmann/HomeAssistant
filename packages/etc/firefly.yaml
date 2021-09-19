@@ -7,6 +7,7 @@ rest_command:
     method: post
     headers:
       Authorization: !secret firefly_secret
+      Accept: 'application/json'
     payload: > 
       {
         "transactions": [
@@ -21,7 +22,7 @@ rest_command:
           }
         ]
       }
-    content_type: 'application/json; charset=utf-8'
+    content_type: 'application/json'
 
 input_text:
   firefly_description:
