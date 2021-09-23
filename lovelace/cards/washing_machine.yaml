@@ -6,7 +6,8 @@ cards:
 
   - type: vertical-stack
     cards:
-      - template: graph
+      - type: custom:button-card
+        template: graph
         variables:
           entity: sensor.washing_machine_measurement
           color: "var(--google-green)"
