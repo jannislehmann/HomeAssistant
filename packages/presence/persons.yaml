@@ -7,7 +7,7 @@ person:
       # Wifi
       - device_tracker.iphone_von_jannis
       # App
-      - device_tracker.iphone_von_jannis_2
+      - device_tracker.iphone_13_pro
   - name: Hannah
     id: hannah
     user_id: !secret hannah_id

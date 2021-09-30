@@ -278,7 +278,9 @@ homeassistant:
       battery_alert_disabled: true
 
     # Disable iPhone
-    device_tracker.iphone_von_jannis_2:
+    device_tracker.iphone_13_pro:
+      battery_alert_disabled: true
+    sensor.iphone_13_pro_battery_level:
       battery_alert_disabled: true
 
     ################################################
