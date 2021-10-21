@@ -13,12 +13,10 @@ script:
         data:
           entity_id: light.go
           transition: 60
+      - service: script.open_cover
       - delay:
           minutes: 1
       - service: script.bremen_next_bed
-      - delay:
-          minutes: 1
-      - service: script.open_cover
       - delay:
           minutes: 30
       - service: input_boolean.turn_off

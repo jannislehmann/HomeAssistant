@@ -8,8 +8,7 @@ script:
         state: 'off'
       - service: input_boolean.turn_on
         entity_id: input_boolean.alarm_clock_on
-      - service: script.bremen_next_bed
       - service: media_player.volume_set
         data:
           entity_id: media_player.bed_homepod_mini
-          volume_level: 0.4
+          volume_level: 0.35
