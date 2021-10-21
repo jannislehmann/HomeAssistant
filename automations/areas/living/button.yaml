@@ -22,6 +22,14 @@ action:
         - service: media_player.select_source
           data:
             entity_id: media_player.philips_tv
+            source: 'HDMI 1'
+    # Left Long Click
+    - conditions:
+      - "{{ trigger.event.data.command == 'left_long press' }}"
+      sequence:
+        - service: media_player.select_source
+          data:
+            entity_id: media_player.philips_tv
             source: 'HDMI 4'
     # Right Click
     - conditions:
