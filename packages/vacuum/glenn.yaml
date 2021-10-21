@@ -3,6 +3,20 @@ input_boolean:
   cleaned_today:
     icon: phu:roborock
 
+input_select:
+  glenn_room:
+    name: Choose a room to clean
+    options:
+      - Select Room
+      - Abstellraum
+      - Badezimmer
+      - Kuche
+      - Wohnzimmer
+      - Buro
+      - Flur
+      - Schlafzimmer
+      - Wischen
+
 script:
   # Mopping
   glenn_mop:

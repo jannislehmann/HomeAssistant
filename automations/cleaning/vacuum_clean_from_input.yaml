@@ -1,0 +1,34 @@
+---
+alias: Start Cleaning Selected Room
+id: bd0a351d-b872-4088-b8cf-61e496cb1da2
+mode: single
+trigger:
+- platform: state
+  entity_id: input_select.glenn_room
+  from: 'Select Room'
+action:
+- service: script.turn_on
+  data_template:
+    entity_id: >
+      {% if is_state("input_select.glenn_room", "Abstellraum") %}
+        script.glenn_clean_storage
+      {% elif is_state("input_select.glenn_room", "Badezimmer") %}
+        script.glenn_clean_bathroom
+      {% elif is_state("input_select.glenn_room", "Kuche") %}
+        script.glenn_clean_kitchen
+      {% elif is_state("input_select.glenn_room", "Wohnzimmer") %}
+        script.glenn_clean_living
+      {% elif is_state("input_select.glenn_room", "Buro") %}
+        script.glenn_clean_office
+      {% elif is_state("input_select.glenn_room", "Flur") %}
+        script.glenn_clean_hall
+      {% elif is_state("input_select.glenn_room", "Schlafzimmer") %}
+        script.glenn_clean_bed
+      {% elif is_state("input_select.glenn_room", "Wischen") %}
+        script.glenn_mop
+      {% else %}
+      {% endif %}
+- service: input_select.select_option
+  data:
+    entity_id: input_select.glenn_room
+    option: "Select Room"
