@@ -33,6 +33,7 @@ options.xml
 .pip_progress
 .HA_VERSION
 pyton_scripts/*.py
+automations.yaml
 
 # Some other generic stuff
 .vscode
