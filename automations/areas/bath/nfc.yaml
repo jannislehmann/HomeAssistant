@@ -1,0 +1,13 @@
+---
+alias: NFC Bathroom
+id: e16ac61f-910f-4f56-b379-1e5ba15771cf
+mode: single
+trigger:
+  - platform: tag
+    tag_id: a19b18ea-47f4-49a7-ba11-7cd3d6c02049
+action:
+  - service: script.play_radio
+    data:
+      station: bremen_next (playlist)
+  - service: media_player.turn_on
+    entity_id: media_player.bath_homepod_mini
