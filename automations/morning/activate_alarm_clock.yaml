@@ -71,7 +71,7 @@ action:
           # Workday - Training
           - condition: time
             after: '06:30:00'
-            before: '06:35:00'
+            before: '06:31:00'
             weekday: [mon, tue, wed, thu, fri]
           # No manual alarm override
           - "{{ states('input_boolean.vacation_mode') == 'off' }}"
@@ -86,8 +86,8 @@ action:
       - conditions:
           # Workday - Work
           - condition: time
-            after: '06:30:00'
-            before: '06:35:00'
+            after: '06:25:00'
+            before: '06:26:00'
             weekday: [mon, tue, wed, thu, fri]
           # No manual alarm override
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
@@ -100,5 +100,13 @@ action:
               - "{{ start_time.split(' ')[0].split('-')[2] | int != now().day }}"
               - "{{ start_time.split(' ')[1] != '07:00:00' }}"
               - "{{ state_attr('calendar.privat', 'message') != 'Trainieren' }}"
+          - condition: template
+            value_template: >-
+                {% set start_time = state_attr('calendar.privat', 'start_time') %}{% if start_time | string == 'None' %}{% set start_time = '1970-00-00' %}{% endif %}
+                {% if (start_time.split(' ')[0].split('-')[2] | int != now().day) or start_time.split(' ')[1] != '07:00:00' or state_attr('calendar.privat', 'message') != 'Trainieren' %}
+                  true
+                {% else %}
+                  false
+                {% endif %}
         sequence:
           service: script.alarm_clock_morning
