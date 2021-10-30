@@ -17,7 +17,6 @@ deps
 custom_components/*
 themes/*
 www/**/
-!www/floorplan/*.css
 blueprints/*
 
 # Specific file ignores

@@ -47,7 +47,6 @@ The issue tracker is mainly my to-do list for bigger ideas. I try to document th
 Everyone above in the credits handles their issues in a similar way.
 They help me to combine my different lists where I had stored tasks and ideas.
 
-* https://github.com/ExperienceLovelace/ha-floorplan
 * https://github.com/klaasnicolaas/Smarthome-homeassistant-config
 * https://github.com/CCOSTAN/Home-AssistantConfig
 * https://github.com/geekofweek/homeassistant
