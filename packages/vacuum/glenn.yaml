@@ -61,7 +61,7 @@ script:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '21'
+          payload: '19'
   glenn_clean_hall:
     sequence:
       - service: mqtt.publish
@@ -79,7 +79,7 @@ script:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '19'
+          payload: '21'
   glenn_clean_living:
     sequence:
       - service: mqtt.publish
