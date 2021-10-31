@@ -7,4 +7,4 @@ script:
         entity_id: input_boolean.alarm_clock_open_cover
         state: 'on'
       - service: cover.open_cover
-        entity_id: cover.bed
+        entity_id: cover.office

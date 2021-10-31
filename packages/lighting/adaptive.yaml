@@ -30,9 +30,9 @@ adaptive_lighting:
     lights:
       - light.go
 
-  - name: office_ceiling
+  - name: bed_ceiling
     min_brightness: 30
     max_brightness: 60
     take_over_control: true
     lights:
-      - light.office_ceiling
+      - light.bed_ceiling

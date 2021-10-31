@@ -12,21 +12,17 @@ sensors:
     name: Luftqualität
     color: green
 lights:
-  - entity_id: light.office_ceiling
-    name: Deckenlampe
-    icon: phu:double-spot
   - entity_id: light.fado_desk
     name: FADO
     icon: phu:bulbs-sultan
   - entity_id: light.playbar
     name: Hue Play
     icon: phu:play
-  - entity_id: light.office_hannah
-    name: Hannah
-    icon: phu:bulbs-sultan
 media_players:
   - entity_id: media_player.sonos_one
 contact_sensors:
   - entity_id: binary_sensor.contact_office
+covers:
+  - entity_id: cover.office
 includes:
   - ../cards/gaming_pc.yaml

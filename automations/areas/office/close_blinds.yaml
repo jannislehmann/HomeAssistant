@@ -10,6 +10,5 @@ trigger:
 action:
   - service: cover.set_cover_position
     data:
-      entity_id: cover.bed
+      entity_id: cover.office
       position: 25
-  

@@ -7,7 +7,6 @@ include_entities:
   - light.iris
   - light.go
   - light.fado_desk
-  - light.office_desk
   - light.living_ceiling_light
   - light.kitchen_cabinets
   - light.storage
@@ -15,7 +14,7 @@ include_entities:
   - light.living_floor_light
   - light.living_couch_ceiling
   - light.living_couch
-  - light.office_ceiling
+  - light.bed_ceiling
   - light.playbar
   # Vacuum
   - vacuum.glenn

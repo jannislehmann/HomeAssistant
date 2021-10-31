@@ -21,5 +21,5 @@ action:
       sequence:
         - service: light.toggle
           entity_id:
-            - light.office_desk
             - light.fado_desk
+            - light.playbar

@@ -14,7 +14,7 @@ trigger:
     from: 'off'
     to: 'on'
 condition:
-  - '{{ states.cover.bed.attributes.current_position | int > 80 }}'
+  - '{{ states.cover.office.attributes.current_position | int > 80 }}'
   - condition: state
     entity_id: binary_sensor.home
     state: 'on'
@@ -25,9 +25,9 @@ condition:
         attribute: elevation
         below: 0.0
       - condition: time
-        after: " 21:30:00"
+        after: "21:30:00"
 action:
-  - service: notify.all_devices
+  - service: notify.mobile_app_iphone_13_pro
     data:
       title: Jalousien
       message: "Sollen die Jalousien geschlossen werden?"
