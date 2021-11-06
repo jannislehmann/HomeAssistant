@@ -1,0 +1,15 @@
+---
+alias: Doorbell
+id: 41c72cdc-4342-47f0-972f-68c9408fd4e4
+description: Notifies when rings the door bell
+mode: restart
+variables:
+  sentence: Es hat geklingelt
+trigger:
+  platform: state
+  entity_id: binary_sensor.sound
+  to: 'on'
+action:
+  - service: notify.apple
+    data:
+      message: "🚪 {{ sentence }}"
