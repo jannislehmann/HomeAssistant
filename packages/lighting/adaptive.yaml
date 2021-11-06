@@ -29,10 +29,3 @@ adaptive_lighting:
     max_brightness: 70
     lights:
       - light.go
-
-  - name: bed_ceiling
-    min_brightness: 30
-    max_brightness: 60
-    take_over_control: true
-    lights:
-      - light.bed_ceiling

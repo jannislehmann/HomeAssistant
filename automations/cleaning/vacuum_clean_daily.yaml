@@ -11,7 +11,7 @@ trigger:
     to: 'off'
 condition:
   - condition: time
-    after: '9:00'
+    after: '09:00'
     before: '20:00'
   - condition: not
     conditions:

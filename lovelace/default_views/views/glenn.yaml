@@ -26,7 +26,7 @@
               - entity: sensor.glenn_sensors
                 unit: hours
                 subtitle: Sensors
-          actions:
+          shortcuts:
             - service: script.glenn_go_home
               icon: mdi:home
             - service: script.glenn_go_trash

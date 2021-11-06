@@ -12,9 +12,6 @@ lights:
   - entity_id: light.go
     name: Go
     icon: phu:go
-  - entity_id: light.bed_ceiling
-    name: Deckenlampe
-    icon: phu:double-spot
   - entity_id: light.bed_hannah
     name: Hannah
     icon: phu:bulbs-sultan
