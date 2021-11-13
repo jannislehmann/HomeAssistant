@@ -21,7 +21,7 @@
               volume_stateless: true
               volume_step: 5
               shortcuts:
-                columns: 3
+                columns: 2
                 buttons:
                   - name: Bremen NEXT
                     type: service
@@ -38,6 +38,11 @@
                     id: script.play_radio
                     data:
                       station: ilovemashup (playlist)
+                  - name: XMAS
+                    type: service
+                    id: script.play_radio
+                    data:
+                      station: ilovexmas (playlist)
               hide:
                 power: true
                 source: true
@@ -54,8 +59,8 @@
             - type: custom:decluttering-card
               template: media_player_output
               variables:
-                - entity_id: media_player.forked_daapd_output_sonos_one
-                - name: Sonos
+                - entity_id: media_player.office_homepod
+                - name: Büro
 
             - type: custom:decluttering-card
               template: media_player_output

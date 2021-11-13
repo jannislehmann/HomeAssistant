@@ -1,9 +1,4 @@
 ---
-sonos:
-  media_player:
-    hosts:
-      - !secret sonos_one
-
 media_player:
   - platform: androidtv
     name: Bed Fernseher

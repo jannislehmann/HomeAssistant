@@ -42,7 +42,7 @@ script:
       - service: media_player.volume_set
         data:
           entity_id:
-            - media_player.forked_daapd_output_sonos_one
+            - media_player.office_homepod
             - media_player.forked_daapd_output_wohnzimmer
           volume_level: 0.1
       - service: media_player.select_source
@@ -61,7 +61,7 @@ media_player:
       - media_player.bath_homepod_mini
       - media_player.living_homepod_mini
       - media_player.forked_daapd_output_wohnzimmer
-      - media_player.forked_daapd_output_sonos_one
+      - media_player.office_homepod
 
 tts:
   - platform: google_translate
