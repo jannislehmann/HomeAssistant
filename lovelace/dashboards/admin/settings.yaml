@@ -16,11 +16,6 @@
             - !include
               - ../../includes/grid.yaml
               - entities:
-                  - entity_id: input_boolean.alarm_clock_open_cover
-                    name: Shutter-Automatisierung
-
                   - entity_id: automation.turn_off_light_in_bedroom_when_playing_media
                     name: Fernseher Bettlicht
 
-                  - entity_id: automation.doorbell
-                    name: Klingel
