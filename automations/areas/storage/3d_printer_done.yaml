@@ -6,7 +6,6 @@ description: Send a notice when 3D print is done
 trigger:
   - platform: state
     entity_id: binary_sensor.octoprint_printing
-    to: "off"
     from: "on"
     for: "00:10:00"
 variables:
