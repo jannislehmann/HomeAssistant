@@ -14,7 +14,7 @@ localtuya:
     local_key: !secret tuya_2_key
     friendly_name: Plug 2
     protocol_version: "3.3"
-    entities:   
+    entities:
       - platform: switch
         friendly_name: Plug
         id: 1
@@ -27,7 +27,7 @@ localtuya:
     local_key: !secret tuya_3_key
     friendly_name: Plug 3
     protocol_version: "3.3"
-    entities:   
+    entities:
       - platform: switch
         friendly_name: Plug
         id: 1
