@@ -93,13 +93,6 @@ action:
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
           - "{{ states('input_boolean.vacation_mode') == 'off' }}"
           # Not training today
-          - condition: or
-            conditions:
-              # Workaround to fix that the value is only set if an event is scheduled for today
-              - "{% set start_time = state_attr('calendar.privat', 'start_time') %}{% if start_time | string == 'None' %}{% set start_time = '1970-00-00' %}{% endif %}"
-              - "{{ start_time.split(' ')[0].split('-')[2] | int != now().day }}"
-              - "{{ start_time.split(' ')[1] != '07:00:00' }}"
-              - "{{ state_attr('calendar.privat', 'message') != 'Trainieren' }}"
           - condition: template
             value_template: >-
                 {% set start_time = state_attr('calendar.privat', 'start_time') %}{% if start_time | string == 'None' %}{% set start_time = '1970-00-00' %}{% endif %}
