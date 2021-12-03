@@ -12,6 +12,8 @@ action:
     entity_id: >
       {% if is_state("input_select.glenn_room", "Abstellraum") %}
         script.glenn_clean_storage
+      {% elif is_state("input_select.glenn_room", "Wohung") %}
+        script.glenn_clean_all
       {% elif is_state("input_select.glenn_room", "Badezimmer") %}
         script.glenn_clean_bathroom
       {% elif is_state("input_select.glenn_room", "Küche") %}

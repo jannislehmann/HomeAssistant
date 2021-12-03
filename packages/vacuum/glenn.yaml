@@ -8,6 +8,7 @@ input_select:
     name: Choose a room to clean
     options:
       - Select Room
+      - Wohnung
       - Abstellraum
       - Badezimmer
       - Küche
@@ -43,6 +44,10 @@ script:
           command: 'go_to'
           params:
             'spot_id': 'Garbage'
+  glenn_clean_all:
+    sequence:
+      - service: vacuum.start
+        entity_id: vacuum.glenn
   # Zoned Clean
   glenn_clean_storage:
     sequence:
