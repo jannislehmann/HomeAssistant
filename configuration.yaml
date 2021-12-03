@@ -8,6 +8,8 @@ frontend:
     main: !include themes/main.yaml
     ios: !include themes/ios.yaml
     google: !include themes/google.yaml
+  extra_module_url:
+    - /local/card-mod.js
 
 automation split: !include_dir_list automations
 
