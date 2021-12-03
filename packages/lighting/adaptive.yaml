@@ -26,6 +26,6 @@ adaptive_lighting:
 
   - name: bed_go
     min_brightness: 25
-    max_brightness: 70
+    max_brightness: 50
     lights:
       - light.go
