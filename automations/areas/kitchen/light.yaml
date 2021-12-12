@@ -42,10 +42,8 @@ action:
             entity_id: light.kitchen_cabinets
     - conditions:
       # No more motion detected and music is not playing.
-      - condition: or
-        conditions:
-          - "{{ not is_state('media_player.kitchen_homepod_mini', 'on')}}"
-          - "{{ not is_state('media_player.kitchen_homepod_mini_native', 'on')}}"
+      - "{{ not is_state('media_player.kitchen_homepod_mini', 'on')}}"
+      - "{{ not is_state('media_player.kitchen_homepod_mini_native', 'on')}}"
 
       sequence:
       - service: light.turn_off
