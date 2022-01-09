@@ -2,7 +2,6 @@
 zones/*
 known_devices.yaml
 secrets.yaml
-.shopping_list.json
 tts/
 
 # Extension ignores

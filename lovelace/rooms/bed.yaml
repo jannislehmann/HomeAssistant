@@ -12,9 +12,6 @@ lights:
   - entity_id: light.go
     name: Go
     icon: phu:go
-  - entity_id: light.bed_hannah
-    name: Hannah
-    icon: phu:bulbs-sultan
 media_players:
   - entity_id: media_player.bed_homepod_mini
   - entity_id: media_player.bed_fernseher

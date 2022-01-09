@@ -12,6 +12,9 @@ sensors:
     name: Luftqualität
     color: green
 lights:
+  - entity_id: light.office_ceiling
+    name: Deckenlampe
+    icon: phu:bulbs-sultan
   - entity_id: light.fado_desk
     name: FADO
     icon: phu:bulbs-sultan

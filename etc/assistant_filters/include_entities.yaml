@@ -15,6 +15,7 @@ include_entities:
   - light.living_couch_ceiling
   - light.living_couch
   - light.playbar
+  - light.office_ceiling
   # Switches
   - switch.gaming
   # Vacuum
