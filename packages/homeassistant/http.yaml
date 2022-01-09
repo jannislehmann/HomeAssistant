@@ -6,4 +6,4 @@ http:
   trusted_proxies:
     - 10.0.1.11
   ip_ban_enabled: true
-  login_attempts_threshold: 3
+  login_attempts_threshold: 5
