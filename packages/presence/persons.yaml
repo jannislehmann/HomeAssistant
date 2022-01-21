@@ -13,9 +13,9 @@ person:
     user_id: !secret hannah_id
     device_trackers:
       # Wifi
-      - device_tracker.p20_von_hannah
+      - device_tracker.iphone_von_hannah
       # App
-      # - device_tracker.handy_hannah
+      - device_tracker.iphone_von_hannah_2
 
 # Anyone home?
 binary_sensor:
