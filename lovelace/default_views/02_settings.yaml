@@ -40,9 +40,6 @@
                   - entity_id: input_boolean.automatic_ambilight_hue
                     name: Ambi+Hue
                     icon: mdi:light-switch
-                  - entity_id: input_boolean.ender3_v2_automatic_power_off
-                    name: 3D Ausschalten
-                    icon: mdi:printer-3d
                   - entity_id: automation.vacuum_clean_daily
                     name: Glenn
                     icon: phu:roborock
