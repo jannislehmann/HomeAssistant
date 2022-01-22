@@ -117,7 +117,7 @@
               type: 'custom:button-card'
             - type: entities
               entities:
-              {% if room.additional_buttons %}
+              {% if room.additional_switches %}
               {% for switch in room.additional_switches %}
                 - {{ switch.entity_id }}
               {% endfor %}
