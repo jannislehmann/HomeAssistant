@@ -1,10 +1,4 @@
 ---
-# This uses a Pi Zero directly attached to the TV, which is running adb.
-media_player:
-  - platform: androidtv
-    name: Fernseher
-    host: !secret philips_host
-
 light:
   - platform: philips_ambilight
     name: Ambilight

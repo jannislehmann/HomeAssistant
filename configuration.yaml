@@ -51,7 +51,6 @@ ios:
 logger:
   default: info
   logs:
-    androidtv.adb_manager.adb_manager_async: critical
     aiohttp.access: critical
     aiohttp.server: critical
     homeassistant.core: error
@@ -105,7 +104,6 @@ logger:
     homeassistant.components.automation.tablet_kitchen: critical
     zigpy_deconz: error
     asyncio: error
-    homeassistant.components.octoprint: critical
     custom_components.plant: critical
     zeroconf: error
 
