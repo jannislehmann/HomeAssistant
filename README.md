@@ -10,7 +10,6 @@ which is not required as it is bright enough.
 * Check Home Assistant configuration
 * ESPHome
 * Emulated Hue
-* Grocy (only for trying out chores)
 * Home Assistant Google Drive Backup
 * Let's Encrypt (for HTTPS and maybe sometime MQTT encryption)
 * MariaDB
