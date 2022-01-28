@@ -19,6 +19,7 @@ action:
         - service: light.turn_on
           data:
             entity_id: light.flur
+            transition: 3
             brightness_pct: 80
     # Step up
     - conditions:
