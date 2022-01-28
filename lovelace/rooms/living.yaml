@@ -25,7 +25,7 @@ lights:
     name: Couch
     icon: phu:light-strip
 media_players:
-  - entity_id: media_player.android_tv
+  - entity_id: media_player.philips_tv
     shortcuts:
       - name: Ambilight
         entity_id: script.toggle_ambilight

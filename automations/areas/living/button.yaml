@@ -30,7 +30,7 @@ action:
         - service: media_player.select_source
           data:
             entity_id: media_player.philips_tv
-            source: 'HDMI 4'
+            source: 'HDMI 3'
     # Right Click
     - conditions:
       - "{{ trigger.event.data.command == 'right_single' }}"
@@ -42,7 +42,7 @@ action:
       - "{{ trigger.event.data.command == 'right_double' }}"
       sequence:
         - service: switch.toggle
-          entity_id: switch.ambilight_hue_3
+          entity_id: switch.ambilighthue
     # Both Single Click
     - conditions:
       - "{{ trigger.event.data.command == 'both_single' }}"
