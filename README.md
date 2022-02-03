@@ -30,7 +30,6 @@ I use ESPHome for a few diyHue lights and generic LED RGB stripes.
 * Xiaomi buttons
 * WS2812b LED stripes and RGBWW stripes connected to Wemos D1 minis
 * Hue Lights
-* Amazon Fire Tablet (7" 2015 generation)
 
 ## Bigger Projects
 

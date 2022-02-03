@@ -10,4 +10,4 @@ notify:
     name: all_devices
     services:
       - service: apple
-      - service: mobile_app_eml_l29
+      - service: mobile_app_iphone_von_hannah

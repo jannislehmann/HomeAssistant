@@ -28,7 +28,6 @@ homeassistant:
         10.0.5.61: !secret hannah_id
         10.0.5.62: !secret hannah_id
         10.0.5.63: !secret hannah_id
-        10.0.20.31: !secret kitchenpanel_id
       allow_bypass_login: true
     - type: homeassistant
 
@@ -108,8 +107,6 @@ logger:
     zeroconf: error
 
 lovelace: !include lovelace/configuration.yaml
-
-browser_mod:
 
 lovelace_gen:
   rooms: !include_dir_list lovelace/rooms
