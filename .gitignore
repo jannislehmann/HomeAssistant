@@ -22,12 +22,10 @@ blueprints/*
 .config_entries.json
 .homekit.state
 .ios.conf
-.spotify-token-cache
 .uuid
 core
 ip_bans.yaml
 options.xml
-.google.token
 .pip_progress
 .HA_VERSION
 pyton_scripts/*.py

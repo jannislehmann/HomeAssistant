@@ -6,50 +6,39 @@ cards:
 
   - type: vertical-stack
     cards:
-      - type: custom:button-card
-        entity: switch.gaming
-        hold_action:
-          action: call-service
-          service: switch.turn_on
-          service_data:
-            entity_id: switch.gaming_restart
-      - type: custom:state-switch
-        entity: switch.gaming
-        states:
-          "on":
-            type: vertical-stack
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
             cards:
-              - type: horizontal-stack
-                cards:
-                  - type: custom:button-card
-                    template: graph
-                    variables:
-                      entity: sensor.gaming_cpu
-                      color: "var(--google-red)"
-                      name: CPU
-                  - type: custom:button-card
-                    template: graph
-                    variables:
-                      entity: sensor.gaming_memory
-                      color: "var(--google-purple)"
-                      name: RAM
               - type: custom:button-card
                 template: graph
                 variables:
-                  entity: sensor.gaming_current_consumption
-                  color: "var(--google-green)"
-                  name: Stromverbrauch
-              - type: glance
-                title: false
-                entities:
-                  - entity: sensor.gaming_energy_daily
-                    name: Täglicher Stromverbrauch
-                  - entity: sensor.gaming_energy_monthly
-                    name: Monatlicher Stromverbrauch
-                card_mod:
-                  style: |
-                    ha-card {
-                      text-align: center;
-                      margin: 0px -8px;
-                    } 
+                  entity: sensor.gaming_cpu
+                  color: "var(--google-red)"
+                  name: CPU
+              - type: custom:button-card
+                template: graph
+                variables:
+                  entity: sensor.gaming_memory
+                  color: "var(--google-purple)"
+                  name: RAM
+          - type: custom:button-card
+            template: graph
+            variables:
+              entity: sensor.gaming_current_consumption
+              color: "var(--google-green)"
+              name: Stromverbrauch
+          - type: glance
+            title: false
+            entities:
+              - entity: sensor.gaming_energy_daily
+                name: Täglicher Stromverbrauch
+              - entity: sensor.gaming_energy_monthly
+                name: Monatlicher Stromverbrauch
+            card_mod:
+              style: |
+                ha-card {
+                  text-align: center;
+                  margin: 0px -8px;
+                } 
 
