@@ -12,18 +12,12 @@ lights:
   - entity_id: light.iris
     name: Iris
     icon: phu:iris
-  - entity_id: light.lightstrip
-    name: Lightstrip
-    icon: phu:light-strip
   - entity_id: light.living_floor_light
     name: Stehlampe
     icon: phu:floor-shade
   - entity_id: light.living_couch_ceiling
     name: Deckenlampe Couch
     icon: phu:ceiling-round
-  - entity_id: light.living_couch
-    name: Couch
-    icon: phu:light-strip
 media_players:
   - entity_id: media_player.philips_tv
     shortcuts:
