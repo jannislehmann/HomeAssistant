@@ -38,13 +38,7 @@ localtuya:
 sensor:
   - platform: template
     sensors:
-      gaming_current_consumption:
+      victoria_current_consumption:
         value_template: >-
-          {{ states.switch.gaming_plug.attributes.current_consumption | default(0) }}
-        unit_of_measurement: 'W'
-  - platform: template
-    sensors:
-      ender3_v2_current_consumption:
-        value_template: >-
-          {{ states.switch.ender3_v2.attributes.current_consumption | default(0) }}
+          {{ states.switch.victoria.attributes.current_consumption | default(0) }}
         unit_of_measurement: 'W'
