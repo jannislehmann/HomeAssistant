@@ -1,5 +1,0 @@
----
-media_player:
-  - platform: androidtv
-    name: Bed Fernseher
-    host: !secret bed_tv
