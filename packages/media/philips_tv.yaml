@@ -8,11 +8,9 @@ light:
 
 switch:
   - platform: philips_ambilight+hue
-    name: AmbilightHue
     host: !secret philips_host
     username: !secret philips_username
     password: !secret philips_password
-    scan_interval: 5
 
 input_boolean:
   automatic_ambilight_hue:
@@ -30,4 +28,4 @@ script:
     sequence:
       - service: switch.toggle
         data:
-          entity_id: switch.ambilighthue
+          entity_id: switch.ambilight_hue_7

@@ -24,4 +24,4 @@ cards:
             ha-card {
               text-align: center;
               margin: 0px -8px;
-            } 
+            }

@@ -27,8 +27,8 @@ action:
               before: sunrise
       sequence:
         - service: switch.turn_on
-          entity_id: switch.ambilighthue_4
+          entity_id: switch.ambilight_hue_7
   # Somewhat bright outside.
   default:
     service: switch.turn_off
-    entity_id: switch.ambilighthue_4
+    entity_id: switch.ambilight_hue_7
