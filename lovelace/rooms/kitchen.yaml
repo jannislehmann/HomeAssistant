@@ -1,5 +1,5 @@
 ---
-name: Küche
+name: Kueche
 icon: mdi:chef-hat
 sensors:
   - entity_id: sensor.temperature_kitchen
@@ -15,4 +15,6 @@ lights:
 contact_sensors:
   - entity_id: binary_sensor.contact_kitchen
 includes:
+  - ../cards/victoria.yaml
   - ../cards/fridge.yaml
+  

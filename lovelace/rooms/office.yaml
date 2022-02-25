@@ -1,5 +1,5 @@
 ---
-name: Büro
+name: Buero
 icon: phu:rooms-office
 sensors:
   - entity_id: sensor.temperature_office
