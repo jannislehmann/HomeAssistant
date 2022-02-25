@@ -1,6 +1,5 @@
 ---
 sensor:
-  - platform: version
   # Sensor to track available updates for supervisor & addons
   - platform: command_line
     name: Supervisor updates

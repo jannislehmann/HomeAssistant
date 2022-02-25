@@ -4,7 +4,7 @@ type: glance
 entities:
   - entity: sensor.uptime
     name: Uptime
-  - entity: sensor.version_current
+  - entity: sensor.current_version
     name: Installierte Version
   - entity: sensor.version_available
     name: Version

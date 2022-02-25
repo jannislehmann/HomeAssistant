@@ -1,11 +1,5 @@
 ---
 sensor:
-  - platform: version
-    name: version_current
-  - platform: version
-    name: version_available
-    source: hassio
-    image: raspberrypi4
   - platform: uptime
   - platform: command_line
     name: CPU Temperature
