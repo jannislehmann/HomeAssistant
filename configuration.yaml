@@ -36,8 +36,6 @@ frontend:
   # themes: !include_dir_merge_named themes
   themes:
     main: !include themes/main.yaml
-    ios: !include themes/ios.yaml
-    google: !include themes/google.yaml
   extra_module_url:
     - /local/card-mod.js
 
