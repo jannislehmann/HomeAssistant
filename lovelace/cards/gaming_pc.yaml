@@ -4,9 +4,11 @@ cards:
     name: Gaming PC
     type: 'custom:button-card'
 
-  - type: vertical-stack
-    cards:
-      - type: vertical-stack
+  - type: custom:state-switch
+    entity: sensor.gaming_state
+    states:
+      "InUse":
+        type: vertical-stack
         cards:
           - type: horizontal-stack
             cards:
@@ -41,4 +43,3 @@ cards:
                   text-align: center;
                   margin: 0px -8px;
                 } 
-
