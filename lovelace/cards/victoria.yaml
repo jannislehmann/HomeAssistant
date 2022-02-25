@@ -1,0 +1,40 @@
+type: vertical-stack
+cards:
+  - template: title
+    name: Victoria
+    type: 'custom:button-card'
+
+  - type: vertical-stack
+    cards:
+      - type: custom:button-card
+        entity: switch.victoria
+        hold_action:
+          action: call-service
+          service: switch.toggle
+          service_data:
+            entity_id: switch.victoria
+      - type: custom:state-switch
+        entity: switch.victoria
+        states:
+          "on":
+            type: vertical-stack
+            cards:
+              - type: custom:button-card
+                template: graph
+                variables:
+                  entity: sensor.victoria_current_consumption
+                  color: "var(--google-green)"
+                  name: Stromverbrauch
+              - type: glance
+                title: false
+                entities:
+                  - entity: sensor.victoria_energy_daily
+                    name: Täglicher Stromverbrauch
+                  - entity: sensor.victoria_energy_monthly
+                    name: Monatlicher Stromverbrauch
+                card_mod:
+                  style: |
+                    ha-card {
+                      text-align: center;
+                      margin: 0px -8px;
+                    }

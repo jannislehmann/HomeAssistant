@@ -16,6 +16,8 @@ include_entities:
   - light.living_couch
   - light.playbar
   - light.office_ceiling
+  # Switches
+  - switch.victoria
   # Vacuum
   - vacuum.glenn
   - input_select.glenn_room
