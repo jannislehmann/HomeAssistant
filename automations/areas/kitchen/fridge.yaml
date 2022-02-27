@@ -11,11 +11,26 @@ trigger:
     for: "00:30:00"
   - platform: numeric_state
     entity_id: sensor.fridge_temperature
+    id: "very_hot"
+    above: 11
+    for: "00:30:00"
+  - platform: numeric_state
+    entity_id: sensor.fridge_temperature
     id: "cold"
     below: 5
     for: "00:30:00"
 action:
   choose:
+  - conditions:
+    - condition: trigger
+      id: "very_hot"
+    sequence:
+      - service: notify.telegram_group
+        data:
+          message: ❄️ Der Kühlschrank ist über 11°C!
+      - service: notify.all_devices
+        data:
+          message: ❄️ Der Kühlschrank ist über 11°C!
   - conditions:
       - condition: trigger
         id: "hot"
