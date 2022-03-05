@@ -9,24 +9,9 @@
             - title: Glenn
               navigation_path: lovelace/home
 
-        - type: custom:vacuum-card
-          entity: vacuum.glenn
-          map: camera.glenn_rendered_map
-          stats:
-            default:
-              - entity: sensor.glenn_filter
-                unit: hours
-                subtitle: Filter
-              - entity: sensor.glenn_side_brush
-                unit: hours
-                subtitle: Side brush
-              - entity: sensor.glenn_main_brush
-                unit: hours
-                subtitle: Main brush
-              - entity: sensor.glenn_sensors
-                unit: hours
-                subtitle: Sensors
-          shortcuts:
+        - type: custom:valetudo-map-card
+          vacuum: valetudo_glenn
+          custom_buttons:
             - service: script.glenn_go_home
               icon: mdi:home
             - service: script.glenn_go_trash
@@ -46,11 +31,3 @@
             - service: script.glenn_clean_living
               icon: mdi:television
 
-        - type: vertical-stack
-          cards:
-          - type: custom:button-card
-            icon: mdi:water
-            name: Wischen
-            tap_action:
-              action: call-service
-              service: script.glenn_mop

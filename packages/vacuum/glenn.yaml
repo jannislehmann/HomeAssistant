@@ -23,71 +23,71 @@ script:
   glenn_mop:
     sequence:
       - service: vacuum.start
-        entity_id: vacuum.glenn
+        entity_id: vacuum.valetudo_glenn
       - delay:
           minutes: 1
       - service: vacuum.set_fan_speed
         data:
-          entity_id: vacuum.glenn
+          entity_id: vacuum.valetudo_glenn
           fan_speed: 'off'
   # Go To
   glenn_go_home:
     sequence:
       - service: vacuum.return_to_base
         data:
-          entity_id: vacuum.glenn
+          entity_id: vacuum.valetudo_glenn
   glenn_go_trash:
     sequence:
       - service: vacuum.send_command
         data:
-          entity_id: vacuum.glenn
+          entity_id: vacuum.valetudo_glenn
           command: 'go_to'
           params:
             'spot_id': 'Garbage'
   glenn_clean_all:
     sequence:
       - service: vacuum.start
-        entity_id: vacuum.glenn
+        entity_id: vacuum.valetudo_glenn
   # Zoned Clean
   glenn_clean_storage:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '17'
+          payload: '{"segment_ids": ["17"]}'
   glenn_clean_bathroom:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '16'
+          payload: '{"segment_ids": ["16"]}'
   glenn_clean_office:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '19'
+          payload: '{"segment_ids": ["19"]}'
   glenn_clean_hall:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '18'
+          payload: '{"segment_ids": ["18"]}'
   glenn_clean_kitchen:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '22'
+          payload: '{"segment_ids": ["22"]}'
   glenn_clean_bed:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '21'
+          payload: '{"segment_ids": ["21"]}'
   glenn_clean_living:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '20'
+          payload: '{"segment_ids": ["20"]}'

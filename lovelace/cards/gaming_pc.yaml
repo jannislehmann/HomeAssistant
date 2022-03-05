@@ -1,15 +1,14 @@
 type: vertical-stack
 cards:
-  - template: title
-    name: Gaming PC
-    type: 'custom:button-card'
-
   - type: custom:state-switch
     entity: sensor.gaming_state
     states:
       "InUse":
         type: vertical-stack
         cards:
+          - template: title
+            name: Gaming PC
+            type: 'custom:button-card'
           - type: horizontal-stack
             cards:
               - type: custom:button-card

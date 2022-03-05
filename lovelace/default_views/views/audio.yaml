@@ -85,9 +85,3 @@
               variables:
                 - entity_id: media_player.living_homepod_mini
                 - name: Wohnzimmer
-
-            - type: custom:decluttering-card
-              template: media_player_output
-              variables:
-                - entity_id: media_player.forked_daapd_output_wohnzimmer
-                - name: Soundbar

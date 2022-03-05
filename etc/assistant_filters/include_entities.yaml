@@ -19,5 +19,5 @@ include_entities:
   # Switches
   - switch.victoria
   # Vacuum
-  - vacuum.glenn
+  - vacuum.valetudo_glenn
   - input_select.glenn_room
