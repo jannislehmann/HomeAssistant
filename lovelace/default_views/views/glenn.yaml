@@ -11,6 +11,7 @@
 
         - type: custom:valetudo-map-card
           vacuum: valetudo_glenn
+          title: ''
           custom_buttons:
             - service: script.glenn_go_home
               icon: mdi:home
