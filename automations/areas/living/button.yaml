@@ -43,9 +43,3 @@ action:
       sequence:
         - service: switch.toggle
           entity_id: switch.ambilight_hue
-    # Both Single Click
-    - conditions:
-      - "{{ trigger.event.data.command == 'both_single' }}"
-      sequence:
-        - service: light.toggle
-          entity_id: light.living_couch_ceiling

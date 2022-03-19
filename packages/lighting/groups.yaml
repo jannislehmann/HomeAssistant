@@ -9,15 +9,7 @@ light:
       - light.fado_desk
       - light.living_floor_light
       - light.lightstrip
-      - light.living_couch
-      - light.living_couch_ceiling
       - light.playbar
-
-  - platform: group
-    name: living_couch_ceiling
-    entities:
-      - light.living_couch_ceiling_1
-      - light.living_couch_ceiling_2
 
   - platform: group
     name: playbar
