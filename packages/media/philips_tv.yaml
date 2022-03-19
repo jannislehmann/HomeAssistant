@@ -6,12 +6,6 @@ light:
     username: !secret philips_username
     password: !secret philips_password
 
-switch:
-  - platform: philips_ambilight+hue
-    host: !secret philips_host
-    username: !secret philips_username
-    password: !secret philips_password
-
 input_boolean:
   automatic_ambilight_hue:
     initial: true
@@ -28,4 +22,4 @@ script:
     sequence:
       - service: switch.toggle
         data:
-          entity_id: switch.ambilight_hue_7
+          entity_id: switch.ambilight_hue

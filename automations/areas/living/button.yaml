@@ -42,7 +42,7 @@ action:
       - "{{ trigger.event.data.command == 'right_double' }}"
       sequence:
         - service: switch.toggle
-          entity_id: switch.ambilight_hue_7
+          entity_id: switch.ambilight_hue
     # Both Single Click
     - conditions:
       - "{{ trigger.event.data.command == 'both_single' }}"

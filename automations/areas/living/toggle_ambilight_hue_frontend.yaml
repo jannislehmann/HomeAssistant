@@ -19,8 +19,8 @@ action:
         state: 'on'
       sequence:
         - service: switch.turn_on
-          entity_id: switch.ambilight_hue_7
+          entity_id: switch.ambilight_hue
   # Turn off
   default:
     service: switch.turn_off
-    entity_id: switch.ambilight_hue_7
+    entity_id: switch.ambilight_hue
