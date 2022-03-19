@@ -14,6 +14,7 @@ localtuya:
     local_key: !secret tuya_2_key
     friendly_name: Plug 2
     protocol_version: "3.3"
+    scan_interval: 30
     entities:
       - platform: switch
         friendly_name: Plug
@@ -27,6 +28,7 @@ localtuya:
     local_key: !secret tuya_3_key
     friendly_name: Plug 3
     protocol_version: "3.3"
+    scan_interval: 30
     entities:
       - platform: switch
         friendly_name: Plug
@@ -38,7 +40,15 @@ localtuya:
 sensor:
   - platform: template
     sensors:
+      victoria_voltage:
+        value_template: >-
+          {{ states.switch.victoria.attributes.voltage }}
+        unit_of_measurement: 'V'
+      victoria_current:
+        value_template: >-
+          {{ states.switch.victoria.attributes.current }}
+        unit_of_measurement: 'mA'
       victoria_current_consumption:
         value_template: >-
-          {{ states.switch.victoria.attributes.current_consumption | default(0) }}
+          {{ states.switch.victoria.attributes.current_consumption }}
         unit_of_measurement: 'W'
