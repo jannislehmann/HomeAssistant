@@ -36,10 +36,10 @@ action:
       - "{{ trigger.event.data.command == 'right_single' }}"
       sequence:
         - service: input_boolean.toggle
-          entity_id: input_boolean.automatic_ambilight_hue
+          entity_id: input_boolean.automatic_ambilight
     # Right Double Click
     - conditions:
       - "{{ trigger.event.data.command == 'right_double' }}"
       sequence:
-        - service: switch.toggle
-          entity_id: switch.ambilight_hue
+        - service: light.toggle
+          entity_id: light.ambilight

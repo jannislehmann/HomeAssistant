@@ -90,7 +90,7 @@ logger:
     requests.packages.urllib3.connectionpool: critical
     urllib3.connectionpool: error
     custom_components.display: error
-    homeassistant.components.automation.toggle_ambilight_hue: fatal
+    homeassistant.components.automation.toggle_ambilight: fatal
     custom_components.mikettle.sensor: warn
     mikettle_local: debug
     custom_components.localtuya: critical

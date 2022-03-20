@@ -1,13 +1,6 @@
 ---
-light:
-  - platform: philips_ambilight
-    name: Ambilight
-    host: !secret philips_host
-    username: !secret philips_username
-    password: !secret philips_password
-
 input_boolean:
-  automatic_ambilight_hue:
+  automatic_ambilight:
     initial: true
     icon: mdi:spotlight
 
@@ -17,9 +10,3 @@ script:
       - service: light.toggle
         data:
           entity_id: light.ambilight
-
-  toggle_ambilight_hue:
-    sequence:
-      - service: switch.toggle
-        data:
-          entity_id: switch.ambilight_hue

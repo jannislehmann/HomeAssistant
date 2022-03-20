@@ -37,8 +37,8 @@
                     name: Bewegungsmelder
                   - entity_id: input_boolean.vacation_mode
                     name: Urlaub
-                  - entity_id: input_boolean.automatic_ambilight_hue
-                    name: Ambi+Hue
+                  - entity_id: input_boolean.automatic_ambilight
+                    name: Ambilight
                     icon: mdi:light-switch
                   - entity_id: automation.vacuum_clean_daily
                     name: Glenn

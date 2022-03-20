@@ -1,7 +1,7 @@
 ---
 alias: Toggle Ambilight+Hue
 id: 7564e411-05b1-40a3-a675-fec358c81b1a
-description: Toggle Ambilight+Hue depending on the sun level.
+description: Toggle Ambilight depending on the sun level.
 mode: queued
 trigger:
   platform: time_pattern
@@ -11,7 +11,7 @@ condition:
     entity_id: media_player.apple_tv
     state: playing
   - condition: state
-    entity_id: input_boolean.automatic_ambilight_hue
+    entity_id: input_boolean.automatic_ambilight
     state: 'on'
 action:
   choose:
@@ -26,9 +26,9 @@ action:
             - condition: sun
               before: sunrise
       sequence:
-        - service: switch.turn_on
-          entity_id: switch.ambilight_hue
+        - service: light.turn_on
+          entity_id: light.ambilight
   # Somewhat bright outside.
   default:
-    service: switch.turn_off
-    entity_id: switch.ambilight_hue
+    service: light.turn_off
+    entity_id: light.ambilight
