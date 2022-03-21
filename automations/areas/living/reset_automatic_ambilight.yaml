@@ -1,5 +1,5 @@
 ---
-alias: Reset Automatic Ambilight+Hue
+alias: Reset Automatic Ambilight
 description: Reactivates the automatic ambilight automation daily.
 id: 66748e10-80a2-4b60-a4c5-386ae416d173
 mode: single
