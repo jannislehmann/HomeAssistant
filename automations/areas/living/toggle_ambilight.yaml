@@ -1,5 +1,5 @@
 ---
-alias: Toggle Ambilight+Hue
+alias: Toggle Ambilight
 id: 7564e411-05b1-40a3-a675-fec358c81b1a
 description: Toggle Ambilight depending on the sun level.
 mode: queued
