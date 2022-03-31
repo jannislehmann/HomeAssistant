@@ -9,7 +9,4 @@ entity_globs:
   - "*energy*"
 entities:
   - sun.sun
-  - sensor.last_boot
   - sensor.date
-  - sensor.cpu_temp
-  - sensor.xiaomi_map

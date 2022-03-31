@@ -8,7 +8,6 @@ light:
       - light.kitchen_cabinets
       - light.fado_desk
       - light.living_floor_light
-      - light.lightstrip
       - light.playbar
 
   - platform: group

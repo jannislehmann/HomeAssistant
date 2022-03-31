@@ -23,22 +23,3 @@ cards:
                   entity: sensor.gaming_memory
                   color: "var(--google-purple)"
                   name: RAM
-          - type: custom:button-card
-            template: graph
-            variables:
-              entity: sensor.gaming_current_consumption
-              color: "var(--google-green)"
-              name: Stromverbrauch
-          - type: glance
-            title: false
-            entities:
-              - entity: sensor.gaming_energy_daily
-                name: Täglicher Stromverbrauch
-              - entity: sensor.gaming_energy_monthly
-                name: Monatlicher Stromverbrauch
-            card_mod:
-              style: |
-                ha-card {
-                  text-align: center;
-                  margin: 0px -8px;
-                } 

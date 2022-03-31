@@ -1,0 +1,10 @@
+---
+alias: Watchman Report
+description: Generate the watchman report.
+id: e0dd3158-2a57-4a4a-accc-d4ecd2e08943
+mode: single
+trigger:
+  platform: time
+  at: '04:00:00'
+action:
+  service: watchman.report

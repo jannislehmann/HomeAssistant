@@ -17,4 +17,3 @@ contact_sensors:
 includes:
   - ../cards/victoria.yaml
   - ../cards/fridge.yaml
-  

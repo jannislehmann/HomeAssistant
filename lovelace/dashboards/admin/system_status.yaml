@@ -28,3 +28,10 @@
               name: Systemauslastung
               type: 'custom:button-card'
             - !include ../../cards/system/hardware.yaml
+
+        - type: vertical-stack
+          cards:
+            - template: title
+              name: Watchman
+              type: 'custom:button-card'
+            - !include ../../cards/system/watchman.yaml

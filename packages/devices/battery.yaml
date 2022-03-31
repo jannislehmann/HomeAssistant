@@ -273,10 +273,6 @@
 ################################################
 homeassistant:
   customize:
-    # Disable MacBook
-    sensor.jannis_macbook_internal_battery_level:
-      battery_alert_disabled: true
-
     # Disable iPhone
     device_tracker.iphone_13_pro:
       battery_alert_disabled: true

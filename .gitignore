@@ -30,6 +30,8 @@ options.xml
 .HA_VERSION
 pyton_scripts/*.py
 automations.yaml
+# Watchman
+report.txt
 
 # Some other generic stuff
 .vscode
@@ -44,13 +46,7 @@ esphome/**/
 !esphome/libraries
 python-zeroconf/
 
-# Rhasspy (WiP)
-rhasspy/
-
 edgeos.key
-
-# diyHue
-addons/diyHue/rootfs
 
 # Emulated Hue
 *.pem

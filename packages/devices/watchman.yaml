@@ -1,0 +1,19 @@
+watchman:
+  ignored_files:
+    - /config/esphome/*
+    - /config/blueprints/*
+    - /config/custom_components/*
+    - /config/www/*
+    - /config/lovelace/default_views/gen_rooms.yaml
+    - /config/lovelace/button_card_templates.yaml
+    - /config/lovelace/includes/grid.yaml
+    - /config/lovelace/default_views/01_home.yaml
+  service: notify.telegram_jannis
+  data:
+    parse_mode: html
+  report_path: /config/report.txt
+  chunk_size: 2000
+  ignored_items:
+    - "sensor.gaming_*" # only available when turned on
+  ignored_states:
+    - unknown
