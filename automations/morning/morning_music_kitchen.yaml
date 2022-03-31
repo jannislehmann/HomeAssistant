@@ -12,6 +12,5 @@ condition:
     entity_id: input_boolean.alarm_clock_left_bed
     state: 'on'
   - "{{ not is_state('media_player.kitchen_homepod_mini', 'on') }}"
-  - "{{ not is_state('media_player.kitchen_homepod_mini_native', 'on') }}"
 action:
   service: script.bremen_next_kitchen
