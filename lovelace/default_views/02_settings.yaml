@@ -35,6 +35,9 @@
                     name: Wecker
                   - entity_id: input_boolean.motion_sensor
                     name: Bewegungsmelder
+                  - entity_id: automation.light_storage
+                    name: Abstellraum
+                    icon: lightbulb-outline
                   - entity_id: input_boolean.vacation_mode
                     name: Urlaub
                   - entity_id: input_boolean.automatic_ambilight
