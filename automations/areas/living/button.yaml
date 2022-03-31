@@ -41,5 +41,4 @@ action:
     - conditions:
       - "{{ trigger.event.data.command == 'right_double' }}"
       sequence:
-        - service: light.toggle
-          entity_id: light.ambilight
+        - service: script.toggle_ambilight

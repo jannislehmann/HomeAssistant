@@ -17,9 +17,14 @@ action:
       - condition: state
         entity_id: input_boolean.automatic_ambilight
         state: 'on'
+      - condition: state
+        entity_id: light.ambilight
+        state: 'off'
       sequence:
         - service: light.turn_on
-          entity_id: light.ambilight
+          data:
+            entity_id: light.ambilight
+            effect: Standard
   # Turn off
   default:
     service: light.turn_off

@@ -17,3 +17,4 @@ script:
       - service: light.toggle
         data:
           entity_id: light.ambilight
+          effect: Standard

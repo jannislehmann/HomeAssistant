@@ -27,7 +27,9 @@ action:
               before: sunrise
       sequence:
         - service: light.turn_on
-          entity_id: light.ambilight
+          data:
+            entity_id: light.ambilight
+            effect: Standard
   # Somewhat bright outside.
   default:
     service: light.turn_off
