@@ -801,3 +801,20 @@ yellow:
         label:
           - color: 'rgba(var(--color-yellow-text),1)'
       value: 'on'
+
+### Card Power Outlet ###
+card_power_outlet:
+  template:
+    - "icon_info_bg"
+    - "yellow"
+  variables:
+    power_outlet_consumption_sensor:
+  triggers_update: "all"
+  label: |-
+    [[[
+      if (entity.state === "on" && variables.power_outlet_consumption_sensor !== null) {
+        return  "On • " + states[variables.power_outlet_consumption_sensor].state + "W";
+      } else {
+        return entity.state;
+      }
+    ]]]
