@@ -9,7 +9,7 @@ cards:
       - type: custom:button-card
         template: graph
         variables:
-          entity: sensor.washing_machine_measurement
+          entity: sensor.washing_machine_current_consumption
           color: "var(--google-green)"
           name: Stromverbrauch
       - type: glance

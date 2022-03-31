@@ -1,9 +1,9 @@
 utility_meter:
   washing_machine_energy_daily:
-    source: sensor.washing_machine_measurement
+    source: sensor.washing_machine_current_consumption
     cycle: daily
   washing_machine_energy_monthly:
-    source: sensor.washing_machine_measurement
+    source: sensor.washing_machine_current_consumption
     cycle: monthly
   victoria_energy_daily:
     source: sensor.victoria_current_consumption
@@ -11,6 +11,12 @@ utility_meter:
   victoria_energy_monthly:
     source: sensor.victoria_current_consumption
     cycle: monthly
+
+sensor:
+  - platform: integration
+    source: sensor.washing_machine_current_consumption
+    name: washing_machine_energy
+    round: 2
 
 # Taken from: https://github.com/basnijholt/home-assistant-config/blob/c54c97912b7a5c527df0e5503e5e36eaa8bfb774/scripts.yaml#L479
 script:
@@ -55,11 +61,18 @@ binary_sensor:
       washing_machine:
         friendly_name: Washing machine
         value_template: >
-          {{ states("sensor.washing_machine_measurement")|default(0) | float(0) > 3 }}
-        delay_off: "00:02:30"
+          {{ states("sensor.washing_machine_current_consumption") | default(0) | float(0) > 5 }}
+        delay_off: "00:02:00"
         icon_template: >
           {% if is_state("binary_sensor.washing_machine", "on") %}
             mdi:washing-machine
           {% else %}
             mdi:washing-machine-off
           {% endif %}
+
+homeassistant:
+  customize_glob:
+    sensor.*_energy:
+      last_reset: '1970-01-01T00:00:00+00:00'
+      device_class: energy
+      state_class: measurement
