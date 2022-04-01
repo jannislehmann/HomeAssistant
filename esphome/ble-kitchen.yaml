@@ -1,0 +1,55 @@
+---
+substitutions:
+  name: BLE
+  device: ble-kitchen
+  mac: '0c:dc:7e:63:62:d0'
+
+esphome:
+  name: ${device}
+  
+esp32:
+  board: nodemcu-32s
+
+packages:
+  main_base: !include common/main_base.yaml
+
+sensor:
+  - platform: xiaomi_hhccjcy01
+    mac_address: !secret mac_mi_flora_1
+    temperature:
+      name: "Mi Flora Temperature"
+    moisture:
+      name: "Mi Flora Moisture"
+    illuminance:
+      name: "Mi Flora Illuminance"
+    conductivity:
+      name: "Mi Flora Soil Conductivity"
+    battery_level:
+      name: "Mi Flora Battery Level"
+  - platform: template
+    id: kettle_temp
+    name: "Kettle Temp"
+    unit_of_measurement: '°C'
+    accuracy_decimals: 0
+    icon: "mdi:thermometer"
+
+esp32_ble_tracker:
+  scan_parameters:
+    duration: 10s
+    active: false
+  on_ble_service_data_advertise:
+    - mac_address: !secret mac_mi_kettle
+      service_uuid: FE95
+      then:
+        - lambda: |-
+            id(kettle_temp).publish_state(float(x[16]));
+            if(x[15] == 01) {
+              id(kettle_mode).publish_state(true);
+            } else {
+              id(kettle_mode).publish_state(false);
+            }
+
+binary_sensor:
+  - platform: template
+    id: kettle_mode
+    name: "Kettle Mode"

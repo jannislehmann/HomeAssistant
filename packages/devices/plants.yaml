@@ -10,7 +10,7 @@ plant:
     name: ficus benjamini
     sensors:
       moisture: sensor.mi_flora_moisture
-      battery: sensor.mi_flora_battery
+      battery: sensor.mi_flora_battery_level
       temperature: sensor.mi_flora_temperature
-      conductivity: sensor.mi_flora_conductivity
-      brightness: sensor.mi_flora_light_intensity
+      conductivity: sensor.mi_flora_soil_conductivity
+      brightness: sensor.mi_flora_light_illuminance
