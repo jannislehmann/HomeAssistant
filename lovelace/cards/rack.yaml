@@ -1,0 +1,22 @@
+type: vertical-stack
+cards:
+  - template: title
+    name: Rack
+    type: 'custom:button-card'
+
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+        - type: custom:button-card
+          template: graph
+          variables:
+            entity: sensor.rack_temperature
+            color: "var(--google-red)"
+            name: Temperatur
+        - type: custom:button-card
+          template: graph
+          variables:
+            entity: sensor.rack_humidity
+            color: "var(--google-blue)"
+            name: Luftfeuchtigkeit

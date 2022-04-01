@@ -14,3 +14,4 @@ lights:
     icon: phu:ceiling-round
 includes:
   - ../cards/washing_machine.yaml
+  - ../cards/rack.yaml
