@@ -12,4 +12,4 @@ plant:
       moisture: sensor.mi_flora_moisture
       temperature: sensor.mi_flora_temperature
       conductivity: sensor.mi_flora_soil_conductivity
-      brightness: sensor.mi_flora_light_illuminance
+      brightness: sensor.mi_flora_illuminance
