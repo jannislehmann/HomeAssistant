@@ -278,6 +278,8 @@ homeassistant:
       battery_alert_disabled: true
     sensor.iphone_13_pro_battery_level:
       battery_alert_disabled: true
+    sensor.iphone_von_hannah_battery_level:
+      battery_alert_disabled: true
 
     ################################################
     ## Node Anchors
