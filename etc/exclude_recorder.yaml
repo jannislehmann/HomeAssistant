@@ -1,12 +1,17 @@
 domains:
   - updater
   - automation
+  - script
   - device_tracker
   - group
   - scene
+  - camera
 entity_globs:
-  - sensor.weather_*
+  - sensor.openweathermap_*
   - "*energy*"
+  - "*battery*"
+  - binary_sensor.entertainment_*
+  - switch.adaptive_lighting_*
 entities:
   - sun.sun
   - sensor.date
