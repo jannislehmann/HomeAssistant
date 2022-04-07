@@ -1,5 +1,5 @@
 domains:
-  - updater
+  - update
   - automation
   - script
   - device_tracker
