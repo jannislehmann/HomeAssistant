@@ -11,13 +11,13 @@ cards:
         - type: custom:button-card
           template: graph
           variables:
-            entity: sensor.fridge_temperature
+            entity: sensor.temperature_fridge
             color: "var(--google-red)"
             name: Temperatur
         - type: custom:button-card
           template: graph
           variables:
-            entity: sensor.fridge_humidity
+            entity: sensor.humidity_fridge
             color: "var(--google-blue)"
             name: Luftfeuchtigkeit
       - type: custom:button-card

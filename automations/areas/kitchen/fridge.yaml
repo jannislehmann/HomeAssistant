@@ -5,17 +5,17 @@ description: Notifies when the fridge is too hot or too cold
 mode: restart
 trigger:
   - platform: numeric_state
-    entity_id: sensor.fridge_temperature
+    entity_id: sensor.temperature_fridge
     id: "hot"
     above: 9
     for: "00:30:00"
   - platform: numeric_state
-    entity_id: sensor.fridge_temperature
+    entity_id: sensor.temperature_fridge
     id: "very_hot"
     above: 11
     for: "00:30:00"
   - platform: numeric_state
-    entity_id: sensor.fridge_temperature
+    entity_id: sensor.temperature_fridge
     id: "cold"
     below: 5
     for: "00:30:00"
