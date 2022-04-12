@@ -38,11 +38,6 @@
                     id: script.play_radio
                     data:
                       station: ilovemashup (playlist)
-                  - name: XMAS
-                    type: service
-                    id: script.play_radio
-                    data:
-                      station: ilovexmas (playlist)
               hide:
                 power: true
                 source: true
