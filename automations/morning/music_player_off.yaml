@@ -18,4 +18,3 @@ action:
   - service: media_player.turn_off
     entity_id:
       - media_player.forked_daapd_server
-      - media_player.daapd_outputs
