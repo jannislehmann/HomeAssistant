@@ -69,6 +69,13 @@ binary_sensor:
           {% else %}
             mdi:washing-machine-off
           {% endif %}
+  - platform: template
+    sensors:
+      water_kettle:
+        friendly_name: Water Kettle
+        value_template: >
+          {{ states("sensor.kettle_temp") | default(0) | float(0) > 30 }}
+        delay_off: "00:01:00"
 
 homeassistant:
   customize_glob:

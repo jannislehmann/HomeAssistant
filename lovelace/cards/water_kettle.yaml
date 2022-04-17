@@ -1,0 +1,21 @@
+type: vertical-stack
+cards:
+  - type: custom:state-switch
+    entity: binary_sensor.water_kettle
+    states:
+      "on":
+        type: vertical-stack
+        cards:
+          - template: title
+            name: Wasserkocher
+            type: custom:button-card
+          - type: custom:button-card
+            template: graph
+            variables:
+              entity: sensor.kettle_temp
+              color: "var(--google-red)"
+              name: Temperatur
+      "off":
+        template: title
+        name: Wasserkocher ist kalt
+        type: custom:button-card
