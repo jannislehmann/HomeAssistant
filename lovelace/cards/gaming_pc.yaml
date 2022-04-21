@@ -11,13 +11,13 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:decluttering-card
-                template: "mini_graph"
+                template: mini_graph
                 variables:
                   - entity_id: sensor.gaming_cpu
                   - color: "var(--google-red)"
                   - name: CPU
               - type: custom:decluttering-card
-                template: "mini_graph"
+                template: mini_graph
                 variables:
                   - entity_id: sensor.gaming_memory
                   - color: "var(--google-purple)"

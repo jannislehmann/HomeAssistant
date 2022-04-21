@@ -8,13 +8,13 @@ cards:
       - type: horizontal-stack
         cards:
         - type: custom:decluttering-card
-          template: "mini_graph"
+          template: mini_graph
           variables:
             - entity_id: sensor.temperature_rack
             - color: "var(--google-red)"
             - name: Temperatur
         - type: custom:decluttering-card
-          template: "mini_graph"
+          template: mini_graph
           variables:
             - entity_id: sensor.humidity_rack
             - color: "var(--google-blue)"

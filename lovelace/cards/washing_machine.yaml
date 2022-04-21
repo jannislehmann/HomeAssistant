@@ -9,7 +9,7 @@ cards:
           - title: Waschmaschine
             type: custom:mushroom-title-card
           - type: custom:decluttering-card
-            template: "mini_graph"
+            template: mini_graph
             variables:
               - entity_id: sensor.washing_machine_current_consumption
               - color: "var(--google-green)"
