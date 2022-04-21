@@ -23,46 +23,34 @@
           - precipitation_probability
         backdrop: true
 
-      # Alarm
-      - type: custom:button-card
-        name: Alarm
-        entity: alarm_control_panel.ha_alarm
+      - type: custom:mushroom-template-card
         icon: mdi:alarm-light
-        show_state: true
+        icon_color: black
+        entity: alarm_control_panel.ha_alarm
         tap_action:
           action: more-info
-        color_type: icon
-        styles:
-          card:
-            - height: 74px
-            - color: white
-            - background-color: >
-                [[[
-                    if (entity.state == 'disarmed')
-                      return "#00FF7F";
-                    else if (entity.state == 'armed_away')
-                      return "orange";
-                    else if (entity.state == 'armed_home')
-                      return "gold";
-                    else if (entity.state == 'triggered')
-                      return "red";
-                    else
-                      return "gray";
-                ]]]
-          grid:
-            - grid-template-areas: > 
-                "i n" 
-                "i s"
-            - grid-template-columns: min-content 1fr
-            - grid-template-rows: 2fr 1fr
-          img_cell:
-            - width: 76px
-          name:
-            - justify-self: start
-            - font-weight: bold
-          state:
-            - justify-self: start
-            - font-size: 15px
+        primary: Alarm
+        {% raw %}
+        secondary: "{{ states('alarm_control_panel.ha_alarm') }}"
+        card_mod:
+          style: |
+            ha-card {
+              --primary-text-color: white;
+              --secondary-text-color: white;
+              background:
+                {% if is_state('alarm_control_panel.ha_alarm', 'disarmed') %}
+                  #00FF7F
+                {% elif is_state('alarm_control_panel.ha_alarm', 'armed_away') %}
+                  orange
+                {% elif is_state('alarm_control_panel.ha_alarm', 'armed_home') %}
+                  gold
+                {% elif is_state('alarm_control_panel.ha_alarm', 'triggered') %}
+                  red
+                {% else %}
+                  gray
+                {% endif %}
+                ;
+        {% endraw %}
 
       # Playing radio
       - type: conditional
@@ -92,93 +80,77 @@
                 --mmp-icon-color: white;
               }
 
-      # Personen
+      # Person
       - type: horizontal-stack
         cards:
-          - type: custom:decluttering-card
-            template: "hk_person"
-            variables:
-              - name: "Jannis"
-              - person: "person.jannis"
-          - type: custom:decluttering-card
-            template: "hk_person"
-            variables:
-              - name: "Hannah"
-              - person: "person.hannah"
+          - type: custom:mushroom-entity-card
+            entity: person.jannis
+          - type: custom:mushroom-entity-card
+            entity: person.hannah
 
       # Rooms
       - type: vertical-stack
         cards:
-          - template: title
-            name: 'Räume'
-            type: 'custom:button-card'
-          - type: custom:mod-card
-            card_mod:
-              style: |
-                ha-card {
-                  margin: -8px;
-                }
-            card:
-              type: grid
-              columns: 2
-              square: false
-              cards:
-                {% for room in _global.rooms %}
-                  - type: custom:decluttering-card
-                    template: "hk_room_link"
-                    variables:
-                      - path: {{ room.name | lower | replace(" ", "_") }}
-                      - name: {{ room.name }}
-                      - icon: {{ room.icon }}
-                      - temperature_sensor: {{room.sensors[0].entity_id }}
-                      {% if room.lights %}
-                      - lights:
-                        {% for light in room.lights %}
-                        - {{ light.entity_id }}
-                        {% endfor %}
-                      {% endif %}
-                      
-                      {% if room.contact_sensors %}
-                      - contact_sensors:
-                        {% for contact_sensor in room.contact_sensors %}
-                        - {{ contact_sensor.entity_id }}
-                        {% endfor %}
-                      {% endif %}
-                {% endfor %}
+          - title: 'Räume'
+            type: custom:mushroom-title-card
+          - type: grid
+            columns: 2
+            square: false
+            cards:
+              {% for room in _global.rooms %}
+                - type: custom:mushroom-template-card
+                  primary: {{ room.name }}
+                  secondary: |-
+                    {% raw %}{{{% endraw %} states('{{ room.sensors[0].entity_id }}') {% raw %}}}{% endraw %} °C
+                    {% if room.contact_sensors %}{% raw %}{% if (states.binary_sensor 
+                      | selectattr('entity_id', 'in', {% endraw %} {{ room.contact_sensors | map(attribute='entity_id') | list }} {% raw %})
+                      | selectattr('state', 'in', ('on', 'unavailable'))
+                      | list
+                      | count) == 0%} • Geschlossen{% else %} • Offen{% endif %}{% endraw %}{% endif %}
+                  icon: {{ room.icon }}
+                  icon_color: |-
+                    {% if room.lights %}{% raw %}{% if (states.light 
+                      | selectattr('entity_id', 'in', {% endraw %} {{ room.lights | map(attribute='entity_id') | list }} {% raw %})
+                      | selectattr('state', 'in', ('on'))
+                      | list
+                      | count) != 0%}orange{% endif %}{% endraw %}{% endif %}
+                  multiline_secondary: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: {{ room.name | lower | replace(" ", "_") }}
+                  double_tap_action:
+                    action: call-service
+                    service: light.turn_off
+                    service_data:
+                      entity_id: {{ room.lights | map(attribute='entity_id') | list }}
+                    haptic: success
+              {% endfor %}
       
       # Audio, Glenn, Firefly
       - type: vertical-stack
         cards:
-          - template: title
-            name: Sonstiges
-            type: 'custom:button-card'
+          - title: Sonstiges
+            type: custom:mushroom-title-card
           
-          - type: custom:mod-card
-            card_mod:
-              style: |
-                ha-card {
-                  margin: -8px;
-                }
-            card:
-              type: grid
-              columns: 2
-              square: false
-              cards:
-                - type: custom:decluttering-card
-                  template: hk_simple_link
-                  variables:
-                    - path: audio
-                    - name: Audio
-                    - icon: mdi:speaker-multiple
-                - type: custom:decluttering-card
-                  template: hk_simple_link
-                  variables:
-                    - path: glenn
-                    - name: Glenn
-                    - icon: phu:roborock
-                - type: custom:decluttering-card
-                  template: hk_simple_link
-                  variables:
-                    - path: firefly
-                    - name: Firefly
-                    - icon: mdi:cash
+          - type: grid
+            columns: 2
+            square: false
+            cards:
+              - type: custom:mushroom-template-card
+                primary: Glenn
+                icon: phu:roborock
+                tap_action:
+                  action: navigate
+                  navigation_path: glenn
+              - type: custom:mushroom-template-card
+                primary: Audio
+                icon: mdi:speaker-multiple
+                tap_action:
+                  action: navigate
+                  navigation_path: audio
+              - type: custom:mushroom-template-card
+                primary: Firefly
+                icon: mdi:cash
+                tap_action:
+                  action: navigate
+                  navigation_path: firefly

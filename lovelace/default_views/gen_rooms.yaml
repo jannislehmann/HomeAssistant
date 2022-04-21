@@ -9,94 +9,89 @@
       cards:
         - !include 
           - ../includes/header.yaml
-          - title: "{{ room.name }}"
-            navigation_path: "/lovelace/home"
+          - title: {{ room.name }}
 
       {% if room.sensors %}
         - type: horizontal-stack
           cards:
           {% for sensor in room.sensors %}
-            - type: custom:button-card
-              template: graph
+            - type: custom:decluttering-card
+              template: "mini_graph"
               variables:
-                entity: {{ sensor.entity_id }}
-                color: "var(--google-{{ sensor.color }})"
-                name: {{ sensor.name }}
+                - entity_id: {{ sensor.entity_id }}
+                - color: "var(--google-{{ sensor.color }})"
+                - name: {{ sensor.name }}
           {% endfor %}
       {% endif %}
 
       {% if room.lights %}
         - type: vertical-stack
           cards:
-            - template: title
-              name: Lampen
-              type: 'custom:button-card'
-            - template: edge
-              type: 'custom:button-card'
+            - title: Licht
+              type: custom:mushroom-title-card
             - type: grid
               columns: 2
               square: false
               cards:
                 {% for s in room.lights %}
-                - entity: {{ s.entity_id }}
-                  {% if s.icon %}
-                  icon: {{ s.icon }}
-                  {% endif %}
-                  variables:
-                    entity: {{ s.entity_id }}
-                    name: {{ s.name }}
-                    # TODO: Icon
-                    {% if s.icon %}
-                    icon: {{ s.icon }}
-                    {% endif %}
-                  template: light_slider
-                  type: 'custom:button-card'
+                - type: custom:state-switch
+                  entity: {{ s.entity_id }}
+                  states:
+                    "on":
+                      type: custom:mushroom-light-card
+                      entity: {{ s.entity_id }}
+                      name: {{ s.name }}
+                      show_brightness_control: true
+                      use_light_color: true
+                      show_color_temp_control: true
+                      show_color_control: true
+                      {% if s.icon %}
+                      icon: {{ s.icon }}
+                      {% endif %}
+                    "off":
+                      type: custom:mushroom-light-card
+                      entity: {{ s.entity_id }}
+                      name: {{ s.name }}
+                      {% if s.icon %}
+                      icon: {{ s.icon }}
+                      {% endif %}
                 {% endfor %}
       {% endif %}
 
       {% if room.media_players %}
         - type: vertical-stack
           cards:
-            - template: title
-              name: Media
-              type: 'custom:button-card'
+            - title: Media
+              type: custom:mushroom-title-card
           {% for media_player in room.media_players %}
-            - type: custom:mini-media-player
-              artwork: cover
+            - type: custom:mushroom-media-player-card
               entity: {{ media_player.entity_id }}
-            {% if media_player.shortcuts %}
-              shortcuts:
-                buttons:
-                {% for shortcut in media_player.shortcuts %}
-                  - name: {{ shortcut.name }}
-                    type: script
-                    id: {{ shortcut.entity_id }}
-                {% endfor %}
-            {% endif %}
+              media_controls:
+                - on_off
+                - play_pause_stop
+              volume_controls: []
+              use_media_info: true
+              use_media_artwork: true
           {% endfor %}
       {% endif %}
 
       {% if room.covers %}
         - type: vertical-stack
           cards:
-            - template: title
-              name: Cover
-              type: 'custom:button-card'
+            - title: Cover
+              type: custom:mushroom-title-card
 
             {% for cover in room.covers %}
-            - template: cover_buttons
-              variables:
-                entity: {{ cover.entity_id }}
-              type: 'custom:button-card'
+            - type: custom:mushroom-cover-card
+              entity: {{ cover.entity_id }}
             {% endfor %}
       {% endif %}
 
       {% if room.plants %}
         - type: vertical-stack
           cards:
-            - template: title
-              name: Pflanzen
-              type: 'custom:button-card'
+            - title: Pflanzen
+              type: custom:mushroom-title-card
             {% for plant in room.plants %}
             - type: custom:flower-card
               entity: {{ plant.entity_id }}
@@ -112,21 +107,20 @@
       {% if room.additional_buttons or room.additional_switches %}
         - type: vertical-stack
           cards:
-            - template: title
-              name: Sonstiges
-              type: 'custom:button-card'
-            - type: entities
-              entities:
-              {% if room.additional_switches %}
-              {% for switch in room.additional_switches %}
-                - {{ switch.entity_id }}
-              {% endfor %}
-              {% endif %}
-              {% if room.additional_buttons %}
-              {% for button in room.additional_buttons %}
-                - {{ button.entity_id }}
-              {% endfor %}
-              {% endif %}
+            - title: Sonstiges
+              type: custom:mushroom-title-card
+            {% if room.additional_switches %}
+            {% for switch in room.additional_switches %}
+            - type: custom:mushroom-entity-card
+              entity: {{ switch.entity_id }}
+            {% endfor %}
+            {% endif %}
+            {% if room.additional_buttons %}
+            {% for button in room.additional_buttons %}
+            - type: custom:mushroom-entity-card
+              entity: {{ switch.entity_id }}
+            {% endfor %}
+            {% endif %}
       {% endif %}
 
 {% endfor %}

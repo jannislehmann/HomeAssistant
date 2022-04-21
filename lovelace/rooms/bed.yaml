@@ -13,7 +13,6 @@ lights:
     name: Go
     icon: phu:go
 media_players:
-  - entity_id: media_player.bed_homepod_mini
   - entity_id: media_player.bed_fernseher
 contact_sensors:
   - entity_id: binary_sensor.contact_bed

@@ -1,22 +1,21 @@
 type: vertical-stack
 cards:
-  - template: title
-    name: Rack
-    type: 'custom:button-card'
+  - title: Rack
+    type: custom:mushroom-title-card
 
   - type: vertical-stack
     cards:
       - type: horizontal-stack
         cards:
-        - type: custom:button-card
-          template: graph
+        - type: custom:decluttering-card
+          template: "mini_graph"
           variables:
-            entity: sensor.temperature_rack
-            color: "var(--google-red)"
-            name: Temperatur
-        - type: custom:button-card
-          template: graph
+            - entity_id: sensor.temperature_rack
+            - color: "var(--google-red)"
+            - name: Temperatur
+        - type: custom:decluttering-card
+          template: "mini_graph"
           variables:
-            entity: sensor.humidity_rack
-            color: "var(--google-blue)"
-            name: Luftfeuchtigkeit
+            - entity_id: sensor.humidity_rack
+            - color: "var(--google-blue)"
+            - name: Luftfeuchtigkeit

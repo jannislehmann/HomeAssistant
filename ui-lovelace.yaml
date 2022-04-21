@@ -1,5 +1,4 @@
 ---
 title: Home
 decluttering_templates: !include_dir_merge_named lovelace/decluttering_templates
-button_card_templates: !include /config/lovelace/button_card_templates.yaml
 views: !include_dir_merge_list lovelace/default_views

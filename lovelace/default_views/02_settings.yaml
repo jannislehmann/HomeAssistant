@@ -1,16 +1,3 @@
-# lovelace_gen
-{% set home_feed_entities = [
-'alarm_control_panel.ha_alarm',
-'binary_sensor.presence_kitchen',
-'binary_sensor.presence_hall',
-'binary_sensor.contact_office',
-'binary_sensor.contact_kitchen',
-'binary_sensor.contact_bed',
-'binary_sensor.contact_bath',
-'binary_sensor.contact_door',
-'binary_sensor.contact_living_door',
-'binary_sensor.contact_living_window',
-] %}
 - title: Einstellungen
   icon: mdi:cog
   path: settings
@@ -23,38 +10,50 @@
 
         - type: vertical-stack
           cards:
-            - template: title
-              name: Funktionen
+            - title: Funktionen
               type: 'custom:button-card'
             - type: custom:time-picker-card
               entity: input_datetime.alarm_time
-            - !include
-              - ../includes/grid.yaml
-              - entities: 
-                  - entity_id: input_boolean.alarm_clock
-                    name: Wecker
-                  - entity_id: input_boolean.motion_sensor
-                    name: Bewegungsmelder
-                  - entity_id: automation.light_storage
-                    name: Abstellraum
-                    icon: mdi:lightbulb-outline
-                  - entity_id: input_boolean.vacation_mode
-                    name: Urlaub
-                  - entity_id: input_boolean.automatic_ambilight
-                    name: Ambilight
-                    icon: mdi:light-switch
-                  - entity_id: automation.vacuum_clean_daily
-                    name: Glenn
-                    icon: phu:roborock
+            - type: grid
+              columns: 2
+              square: false
+              cards:
+                - type: custom:mushroom-entity-card
+                  entity: input_boolean.alarm_clock
+                  name: Wecker
+                - type: custom:mushroom-entity-card
+                  entity: input_boolean.motion_sensor
+                  name: Bewegungsmelder
+                - type: custom:mushroom-entity-card
+                  entity: automation.light_storage
+                  name: Abstellraum
+                  icon: mdi:lightbulb-outline
+                - type: custom:mushroom-entity-card
+                  entity: input_boolean.vacation_mode
+                  name: Urlaub
+                - type: custom:mushroom-entity-card
+                  entity: input_boolean.automatic_ambilight
+                  name: Ambilight
+                  icon: mdi:light-switch
+                - type: custom:mushroom-entity-card
+                  entity: automation.vacuum_clean_daily
+                  name: Glenn
+                  icon: phu:roborock
 
         - type: vertical-stack
           cards:
-            - template: title
-              name: Home Feed
-              type: 'custom:button-card'
+            - title: Home Feed
+              type: custom:mushroom-title-card
             - type: logbook
               title: " "
               entities:
-                {% for entity in home_feed_entities %}
-                - {{ entity }}
-                {% endfor %}
+                - alarm_control_panel.ha_alarm
+                - binary_sensor.presence_kitchen
+                - binary_sensor.presence_hall
+                - binary_sensor.contact_office
+                - binary_sensor.contact_kitchen
+                - binary_sensor.contact_bed
+                - binary_sensor.contact_bath
+                - binary_sensor.contact_door
+                - binary_sensor.contact_living_door
+                - binary_sensor.contact_living_window

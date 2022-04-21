@@ -6,20 +6,19 @@ cards:
       "InUse":
         type: vertical-stack
         cards:
-          - template: title
-            name: Gaming PC
-            type: 'custom:button-card'
+          - title: Gaming PC
+            type: custom:mushroom-title-card
           - type: horizontal-stack
             cards:
-              - type: custom:button-card
-                template: graph
+              - type: custom:decluttering-card
+                template: "mini_graph"
                 variables:
-                  entity: sensor.gaming_cpu
-                  color: "var(--google-red)"
-                  name: CPU
-              - type: custom:button-card
-                template: graph
+                  - entity_id: sensor.gaming_cpu
+                  - color: "var(--google-red)"
+                  - name: CPU
+              - type: custom:decluttering-card
+                template: "mini_graph"
                 variables:
-                  entity: sensor.gaming_memory
-                  color: "var(--google-purple)"
-                  name: RAM
+                  - entity_id: sensor.gaming_memory
+                  - color: "var(--google-purple)"
+                  - name: RAM

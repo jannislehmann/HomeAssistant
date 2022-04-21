@@ -4,34 +4,29 @@
   cards:
     - type: vertical-stack
       cards:
-        - template: title
-          name: Systemstatus
-          type: 'custom:button-card'
+        - title: Systemstatus
+          type: custom:mushroom-title-card
 
         - type: vertical-stack
           cards:
-            - template: title
-              name: Updates
-              type: 'custom:button-card'
+            - title: Updates
+              type: custom:mushroom-title-card
             - !include ../../cards/system/updates.yaml
 
         - type: vertical-stack
           cards:
-            - template: title
-              name: Restart
-              type: 'custom:button-card'
+            - title: Restart
+              type: custom:mushroom-title-card
             - !include ../../cards/system/restart.yaml
 
         - type: vertical-stack
           cards:
-            - template: title
-              name: Systemauslastung
-              type: 'custom:button-card'
+            - title: Systemauslastung
+              type: custom:mushroom-title-card
             - !include ../../cards/system/hardware.yaml
 
         - type: vertical-stack
           cards:
-            - template: title
-              name: Watchman
-              type: 'custom:button-card'
+            - title: Watchman
+              type: custom:mushroom-title-card
             - !include ../../cards/system/watchman.yaml

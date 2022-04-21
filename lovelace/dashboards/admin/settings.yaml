@@ -4,18 +4,17 @@
   cards:
     - type: vertical-stack
       cards:
-        - template: title
-          name: Einstellungen
-          type: 'custom:button-card'
+        - title: Einstellungen
+          type: custom:mushroom-title-card
 
         - type: vertical-stack
           cards:
-            - template: title
-              name: Funktionen
-              type: 'custom:button-card'
-            - !include
-              - ../../includes/grid.yaml
-              - entities:
-                  - entity_id: automation.turn_off_light_in_bedroom_when_playing_media
-                    name: Fernseher Bettlicht
-
+            - title: Funktionen
+              type: custom:mushroom-title-card
+            - type: grid
+              square: false
+              columns: 2
+              cards:
+                - type: custom:mushroom-entity-card
+                  entity: automation.turn_off_light_in_bedroom_when_playing_media
+                  name: Fernseher Bettlicht

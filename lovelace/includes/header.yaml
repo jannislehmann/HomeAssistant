@@ -1,12 +1,8 @@
-# lovelace_gen
 type: horizontal-stack
 cards:
-- template: chips_return
-  {% if navigation_path %}
-  variables:
-    navigation_path: {{ navigation_path }}
-  {% endif %}
-  type: 'custom:button-card'
-- template: title
-  name: {{ title }}
-  type: 'custom:button-card'
+- type: custom:mushroom-chips-card
+  chips:
+    - type: back
+    - type: weather
+      entity: weather.openweathermap
+      show_temperature: true

@@ -22,9 +22,3 @@ entities:
     tap_action:
       action: call-service
       service: script.reload
-card_mod:
-  style: |
-    ha-card {
-      text-align: center;
-      margin: 0px -8px;
-    }

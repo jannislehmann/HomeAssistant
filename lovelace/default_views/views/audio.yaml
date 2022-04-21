@@ -9,7 +9,6 @@
         - !include
             - ../../includes/header.yaml
             - title: Audio
-              navigation_path: lovelace/home
 
         - type: entities
           entities:

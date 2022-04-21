@@ -7,7 +7,6 @@
         - !include 
             - ../../includes/header.yaml
             - title: Glenn
-              navigation_path: lovelace/home
 
         - type: custom:valetudo-map-card
           vacuum: valetudo_glenn

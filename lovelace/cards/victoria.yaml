@@ -1,14 +1,23 @@
 type: vertical-stack
 cards:
-  - template: title
-    name: Victoria
-    type: 'custom:button-card'
+  - title: Victoria
+    type: custom:mushroom-title-card
 
   - type: vertical-stack
     cards:
-      - type: 'custom:button-card'
-        template: card_power_outlet
-        variables:
-          power_outlet_consumption_sensor: sensor.victoria_current_consumption
+      - type: custom:mushroom-template-card
         entity: switch.victoria
-        name: Victoria
+        primary: Victoria
+        secondary: |-
+          {% if is_state('switch.victoria', 'on') %}
+          On - {{ states('sensor.victoria_current_consumption' ) | int(0) }} W
+          {%else%}
+          Off
+          {% endif %}
+        icon: mdi:coffee
+        icon_color: |-
+          {% if is_state('switch.victoria', 'on') %}
+          orange
+          {%else%}
+          grey
+          {% endif %}

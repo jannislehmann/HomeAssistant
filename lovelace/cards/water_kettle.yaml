@@ -6,16 +6,14 @@ cards:
       "on":
         type: vertical-stack
         cards:
-          - template: title
-            name: Wasserkocher
-            type: custom:button-card
-          - type: custom:button-card
-            template: graph
+          - title: Wasserkocher
+            type: custom:mushroom-title-card
+          - type: custom:decluttering-card
+            template: "mini_graph"
             variables:
-              entity: sensor.kettle_temp
-              color: "var(--google-red)"
-              name: Temperatur
+              - entity_id: sensor.kettle_temp
+              - color: "var(--google-red)"
+              - name: Temperatur
       "off":
-        template: title
-        name: Wasserkocher ist kalt
-        type: custom:button-card
+        title: Wasserkocher ist kalt
+        type: custom:mushroom-title-card

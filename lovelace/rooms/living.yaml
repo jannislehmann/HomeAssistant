@@ -21,7 +21,6 @@ media_players:
       - name: Ambilight
         entity_id: script.toggle_ambilight
   - entity_id: media_player.apple_tv
-  - entity_id: media_player.living_homepod_mini
 contact_sensors:
   - entity_id: binary_sensor.contact_living_door
   - entity_id: binary_sensor.contact_living_window

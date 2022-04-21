@@ -6,15 +6,14 @@ cards:
       "on":
         type: vertical-stack
         cards:
-          - template: title
-            name: Waschmaschine
-            type: custom:button-card
-          - type: custom:button-card
-            template: graph
+          - title: Waschmaschine
+            type: custom:mushroom-title-card
+          - type: custom:decluttering-card
+            template: "mini_graph"
             variables:
-              entity: sensor.washing_machine_current_consumption
-              color: "var(--google-green)"
-              name: Stromverbrauch
+              - entity_id: sensor.washing_machine_current_consumption
+              - color: "var(--google-green)"
+              - name: Stromverbrauch
           - type: glance
             title: false
             entities:
@@ -22,13 +21,6 @@ cards:
                 name: Täglicher Stromverbrauch
               - entity: sensor.washing_machine_energy_monthly
                 name: Monatlicher Stromverbrauch
-            card_mod:
-              style: |
-                ha-card {
-                  text-align: center;
-                  margin: 0px -8px;
-                }
       "off":
-        template: title
-        name: Waschmaschine ist ausgeschaltet
-        type: custom:button-card
+        title: Waschmaschine ist ausgeschaltet
+        type: custom:mushroom-title-card

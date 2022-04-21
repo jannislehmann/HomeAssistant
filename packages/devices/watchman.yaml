@@ -5,7 +5,6 @@ watchman:
     - /config/custom_components/*
     - /config/www/*
     - /config/lovelace/default_views/gen_rooms.yaml
-    - /config/lovelace/button_card_templates.yaml
     - /config/lovelace/includes/grid.yaml
     - /config/lovelace/default_views/01_home.yaml
   service: notify.telegram_jannis
