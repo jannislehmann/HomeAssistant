@@ -6,7 +6,7 @@ trigger:
   platform: event
   event_type: ios.action_fired
   event_data:
-    actionName: VACUUM
+    actionName: Vacuum
 action:
   - service: notify.apple
     data:

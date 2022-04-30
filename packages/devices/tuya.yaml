@@ -57,3 +57,4 @@ sensor:
     source: sensor.victoria_current_consumption
     name: victoria_energy
     round: 2
+    unit_prefix: k

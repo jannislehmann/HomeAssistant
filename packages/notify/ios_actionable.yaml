@@ -16,5 +16,5 @@ ios:
       text: Vacuum
       color: "#ff0000"
     icon:
-      icon: phu:roborock
+      icon: mdi:robot-vacuum
       color: "#ffffff"

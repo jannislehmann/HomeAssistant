@@ -17,6 +17,7 @@ sensor:
     source: sensor.washing_machine_current_consumption
     name: washing_machine_energy
     round: 2
+    unit_prefix: k
 
 # Taken from: https://github.com/basnijholt/home-assistant-config/blob/c54c97912b7a5c527df0e5503e5e36eaa8bfb774/scripts.yaml#L479
 script:
@@ -76,9 +77,3 @@ binary_sensor:
         value_template: >
           {{ states("sensor.kettle_temp") | default(0) | float(0) > 30 }}
         delay_off: "00:01:00"
-
-homeassistant:
-  customize_glob:
-    sensor.*_energy:
-      last_reset: '1970-01-01T00:00:00+00:00'
-      state_class: measurement
