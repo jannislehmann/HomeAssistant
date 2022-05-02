@@ -34,27 +34,17 @@
               square: false
               cards:
                 {% for s in room.lights %}
-                - type: custom:state-switch
+                - type: custom:mushroom-light-card
                   entity: {{ s.entity_id }}
-                  states:
-                    "on":
-                      type: custom:mushroom-light-card
-                      entity: {{ s.entity_id }}
-                      name: {{ s.name }}
-                      show_brightness_control: true
-                      use_light_color: true
-                      show_color_temp_control: true
-                      show_color_control: true
-                      {% if s.icon %}
-                      icon: {{ s.icon }}
-                      {% endif %}
-                    "off":
-                      type: custom:mushroom-light-card
-                      entity: {{ s.entity_id }}
-                      name: {{ s.name }}
-                      {% if s.icon %}
-                      icon: {{ s.icon }}
-                      {% endif %}
+                  name: {{ s.name }}
+                  show_brightness_control: true
+                  use_light_color: true
+                  show_color_temp_control: true
+                  show_color_control: true
+                  collapsible_controls: true
+                  {% if s.icon %}
+                  icon: {{ s.icon }}
+                  {% endif %}
                 {% endfor %}
       {% endif %}
 
