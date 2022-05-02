@@ -14,6 +14,7 @@ include_entities:
   - light.office_ceiling
   # Switches
   - switch.victoria
+  - switch.outside_water
   # Vacuum
   - vacuum.valetudo_glenn
   - input_select.glenn_room
