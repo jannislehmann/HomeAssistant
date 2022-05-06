@@ -1,5 +1,5 @@
 localtuya:
-  - host: 10.0.20.52
+  - host: 10.0.20.51
     device_id: !secret tuya_1_id
     local_key: !secret tuya_1_key
     friendly_name: Plug 1
@@ -9,7 +9,7 @@ localtuya:
         friendly_name: Plug
         id: 1
 
-  - host: 10.0.20.54
+  - host: 10.0.20.52
     device_id: !secret tuya_2_id
     local_key: !secret tuya_2_key
     friendly_name: Plug 2
@@ -23,7 +23,7 @@ localtuya:
         current_consumption: 19
         voltage: 20
 
-  - host: 10.0.20.55
+  - host: 10.0.20.53
     device_id: !secret tuya_3_id
     local_key: !secret tuya_3_key
     friendly_name: Plug 3
