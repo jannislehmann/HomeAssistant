@@ -51,6 +51,7 @@ logger:
   logs:
     aiohttp.access: critical
     aiohttp.server: critical
+    custom_components.watchman: warn
     homeassistant.core: error
     homeassistant.config_entries: error
     homeassistant.components.androidtv.media_player: critical
