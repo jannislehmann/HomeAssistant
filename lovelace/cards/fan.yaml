@@ -1,0 +1,12 @@
+type: vertical-stack
+cards:
+  - title: Fan
+    type: custom:mushroom-title-card
+
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+        - type: custom:fan-xiaomi
+          entity_id: fan.fan
+          platform: xiaomi_miio_fan
