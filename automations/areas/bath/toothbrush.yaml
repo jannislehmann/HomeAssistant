@@ -1,0 +1,13 @@
+---
+alias: Toothbrush Battery
+id: 3f4e36f2-dd22-4291-80c1-16b370bd61b4
+description: Notifies when the toothbrust battery is running low
+mode: single
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.oclean_battery
+    below: 25
+action:
+  - service: notify.mobile_app_iphone_13_pro
+    data:
+      message: 🔋 Die Zahnbürste ist fast leer!

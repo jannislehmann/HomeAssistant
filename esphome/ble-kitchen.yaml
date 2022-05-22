@@ -33,6 +33,18 @@ sensor:
     accuracy_decimals: 0
     icon: "mdi:thermometer"
 
+  - platform: ble_client
+    ble_client_id: oclean
+    name: "Oclean Battery"
+    service_uuid: '180f'
+    characteristic_uuid: '2a19'
+    icon: 'mdi:battery'
+    unit_of_measurement: '%'
+
+ble_client:
+    mac_address: !secret mac_oclean
+    id: oclean
+
 esp32_ble_tracker:
   scan_parameters:
     duration: 10s
