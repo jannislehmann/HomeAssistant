@@ -22,6 +22,6 @@ action:
     entity_id: input_boolean.alarm_clock_on
   - service: input_boolean.turn_on
     entity_id: input_boolean.alarm_clock_left_bed
-  - delay: 01:15:00
+  - delay: 00:45:00
   - service: input_boolean.turn_off
     entity_id: input_boolean.alarm_clock_left_bed
