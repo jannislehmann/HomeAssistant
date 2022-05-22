@@ -1,0 +1,13 @@
+---
+alias: Turn off light in bedroom when turning off tv
+id: 5cfae609-1223-432c-b84e-6497d672f07f
+mode: queued
+trigger:
+  - platform: state
+    entity_id: media_player.bed_fernseher
+    from: playing
+    to: idle
+    for: "00:01:00"
+action:
+  - service: light.turn_off
+    entity_id: light.go
