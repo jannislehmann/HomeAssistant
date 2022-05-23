@@ -8,5 +8,5 @@ cards:
       - type: horizontal-stack
         cards:
         - type: custom:fan-xiaomi
-          entity_id: fan.fan
+          entity: fan.xiaomi_smart_fan
           platform: xiaomi_miio_fan
