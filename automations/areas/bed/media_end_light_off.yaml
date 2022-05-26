@@ -10,4 +10,6 @@ trigger:
     for: "00:01:00"
 action:
   - service: light.turn_off
-    entity_id: light.go
+    data:
+      entity_id: light.go
+      transition: 3
