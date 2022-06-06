@@ -13,6 +13,7 @@ include_entities:
   - light.playbar
   - light.office_ceiling
   # Switches
+  - switch.monitor
   - switch.victoria
   - switch.outside_water
   # Vacuum

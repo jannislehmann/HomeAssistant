@@ -16,3 +16,5 @@ media_players:
   - entity_id: media_player.bed_fernseher
 contact_sensors:
   - entity_id: binary_sensor.contact_bed
+additional_switches:
+  - entity_id: switch.monitor
