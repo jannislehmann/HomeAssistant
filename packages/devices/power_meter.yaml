@@ -1,17 +1,3 @@
-utility_meter:
-  washing_machine_energy_daily:
-    source: sensor.washing_machine_current_consumption
-    cycle: daily
-  washing_machine_energy_monthly:
-    source: sensor.washing_machine_current_consumption
-    cycle: monthly
-  victoria_energy_daily:
-    source: sensor.victoria_current_consumption
-    cycle: daily
-  victoria_energy_monthly:
-    source: sensor.victoria_current_consumption
-    cycle: monthly
-
 sensor:
   - platform: integration
     source: sensor.washing_machine_current_consumption

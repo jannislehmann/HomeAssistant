@@ -52,6 +52,7 @@ sensor:
         value_template: >-
           {{ states.switch.victoria.attributes.current_consumption }}
         unit_of_measurement: 'W'
+        device_class: 'power'
 
   - platform: integration
     source: sensor.victoria_current_consumption

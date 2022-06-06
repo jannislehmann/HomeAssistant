@@ -14,13 +14,6 @@ cards:
               - entity_id: sensor.washing_machine_current_consumption
               - color: "var(--google-green)"
               - name: Stromverbrauch
-          - type: glance
-            title: false
-            entities:
-              - entity: sensor.washing_machine_energy_daily
-                name: Täglicher Stromverbrauch
-              - entity: sensor.washing_machine_energy_monthly
-                name: Monatlicher Stromverbrauch
       "off":
         title: Waschmaschine ist ausgeschaltet
         type: custom:mushroom-title-card
