@@ -11,7 +11,7 @@
         - type: vertical-stack
           cards:
             - title: Funktionen
-              type: 'custom:button-card'
+              type: custom:mushroom-title-card
             - type: custom:time-picker-card
               entity: input_datetime.alarm_time
             - type: grid
