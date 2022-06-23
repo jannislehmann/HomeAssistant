@@ -112,7 +112,8 @@
                       | selectattr('entity_id', 'in', {% endraw %} {{ room.contact_sensors | map(attribute='entity_id') | list }} {% raw %})
                       | selectattr('state', 'in', ('on', 'unavailable'))
                       | list
-                      | count) == 0%}mdi:door-closed{% else %}mdi:door-open{% endif %}{% endraw %}{% endif %}
+                      | count) != 0%}mdi:door-open{% endif %}{% endraw %}{% endif %}
+                  badge_color: red
                   icon: {{ room.icon }}
                   icon_color: |-
                     {% if room.lights %}{% raw %}{% if (states.light 
