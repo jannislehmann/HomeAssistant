@@ -280,6 +280,8 @@ homeassistant:
       battery_alert_disabled: true
     sensor.iphone_von_hannah_battery_level:
       battery_alert_disabled: true
+    sensor.jannis_macbook_internal_battery_state_2:
+      battery_alert_disabled: true
 
     ################################################
     ## Node Anchors
