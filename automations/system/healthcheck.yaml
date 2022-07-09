@@ -1,0 +1,10 @@
+---
+id: c8413188-45e6-4c65-bebc-e3376b2b9ad8
+alias: Healthcheck Connection
+description: Send a ping to Healthcheck every minute
+mode: single
+trigger:
+  platform: time_pattern
+  minutes: /1
+action:
+  - service: rest_command.healthcheck
