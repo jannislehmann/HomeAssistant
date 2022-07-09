@@ -5,6 +5,28 @@ sensor:
     round: 2
     unit_prefix: k
 
+  - platform: template
+    sensors:
+      victoria_voltage:
+        value_template: >-
+          {{ states.switch.victoria.attributes.voltage }}
+        unit_of_measurement: 'V'
+      victoria_current:
+        value_template: >-
+          {{ states.switch.victoria.attributes.current }}
+        unit_of_measurement: 'mA'
+      victoria_current_consumption:
+        value_template: >-
+          {{ states.switch.victoria.attributes.current_consumption }}
+        unit_of_measurement: 'W'
+        device_class: 'power'
+
+  - platform: integration
+    source: sensor.victoria_current_consumption
+    name: victoria_energy
+    round: 2
+    unit_prefix: k
+
 # Taken from: https://github.com/basnijholt/home-assistant-config/blob/c54c97912b7a5c527df0e5503e5e36eaa8bfb774/scripts.yaml#L479
 script:
   washing_machine_notification:
