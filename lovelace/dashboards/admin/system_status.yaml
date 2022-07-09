@@ -18,6 +18,17 @@
             - title: Restart
               type: custom:mushroom-title-card
             - !include ../../cards/system/restart.yaml
+        
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - group: group.chores
+                options:
+                  type: 'custom:button-card'
+                  template: chore_card
+          card:
+            type: entities
+            title: Chores
 
         - type: vertical-stack
           cards:

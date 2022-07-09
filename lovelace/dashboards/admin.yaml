@@ -2,3 +2,4 @@ title: Administration
 decluttering_templates: !include_dir_merge_named /config/lovelace/decluttering_templates
 visible: false
 views: !include_dir_merge_list /config/lovelace/dashboards/admin
+button_card_templates: !include_dir_merge_named /config/lovelace/button_card_templates
