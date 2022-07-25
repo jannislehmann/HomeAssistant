@@ -25,5 +25,4 @@ contact_sensors:
   - entity_id: binary_sensor.contact_office
 includes:
   - ../cards/victoria.yaml
-  - ../cards/fan.yaml
   - ../cards/gaming_pc.yaml
