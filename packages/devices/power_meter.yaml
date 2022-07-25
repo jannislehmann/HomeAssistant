@@ -1,7 +1,8 @@
 sensor:
   - platform: integration
     source: sensor.washing_machine_current_consumption
-    name: washing_machine_energy
+    unique_id: washing_machine_energy
+    name: Waschmaschine Stromverbrauch
     round: 2
     unit_prefix: k
 
@@ -23,7 +24,8 @@ sensor:
 
   - platform: integration
     source: sensor.victoria_current_consumption
-    name: victoria_energy
+    unique_id: victoria_energy
+    name: Victoria Stromverbrauch
     round: 2
     unit_prefix: k
 
