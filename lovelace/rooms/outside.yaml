@@ -10,3 +10,5 @@ sensors:
     color: purple
 contact_sensors:
   - entity_id: binary_sensor.contact_living_door
+additional_switches:
+  - entity_id: switch.outside_water
