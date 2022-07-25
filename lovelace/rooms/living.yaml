@@ -17,12 +17,11 @@ lights:
     icon: phu:floor-shade
 media_players:
   - entity_id: media_player.philips_tv
-    shortcuts:
-      - name: Ambilight
-        entity_id: script.toggle_ambilight
   - entity_id: media_player.apple_tv
   - entity_id: media_player.avr
 contact_sensors:
   - entity_id: binary_sensor.contact_living_window
 plants:
   - entity_id: plant.ficus
+additional_switches:
+  - entity_id: script.toggle_ambilight
