@@ -1,0 +1,9 @@
+---
+input_text:
+  chore_change_bed:
+    name: Bettwäsche wechseln
+
+input_button:
+  chore_change_bed:
+    name: Bettwäsche wechseln
+    icon: mdi:bed
