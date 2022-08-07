@@ -2,30 +2,30 @@ sensor:
   - platform: integration
     source: sensor.washing_machine_current_consumption
     unique_id: washing_machine_energy
-    name: Waschmaschine Stromverbrauch
+    name: Waschmaschine
     round: 2
     unit_prefix: k
 
   - platform: template
     sensors:
-      victoria_voltage:
+      hannah_desk_voltage:
         value_template: >-
-          {{ states.switch.victoria.attributes.voltage }}
+          {{ states.switch.bed_hannah_desk.attributes.voltage }}
         unit_of_measurement: 'V'
-      victoria_current:
+      hannah_desk_current:
         value_template: >-
-          {{ states.switch.victoria.attributes.current }}
+          {{ states.switch.bed_hannah_desk.attributes.current }}
         unit_of_measurement: 'mA'
-      victoria_current_consumption:
+      hannah_desk_current_consumption:
         value_template: >-
-          {{ states.switch.victoria.attributes.current_consumption }}
+          {{ states.switch.bed_hannah_desk.attributes.current_consumption }}
         unit_of_measurement: 'W'
         device_class: 'power'
 
   - platform: integration
-    source: sensor.victoria_current_consumption
-    unique_id: victoria_energy
-    name: Victoria Stromverbrauch
+    source: sensor.hannah_desk_current_consumption
+    unique_id: hannah_desk_energy
+    name: Hannah Schreibtisch
     round: 2
     unit_prefix: k
 

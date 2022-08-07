@@ -3,7 +3,6 @@ light:
   - platform: group
     name: color
     entities:
-      - light.iris
       - light.go
       - light.kitchen_cabinets
       - light.fado_desk
