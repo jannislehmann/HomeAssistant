@@ -9,9 +9,6 @@ sensors:
     name: Luftfeuchtigkeit
     color: purple
 lights:
-  - entity_id: light.iris
-    name: Iris
-    icon: phu:iris
   - entity_id: light.living_floor_light
     name: Stehlampe
     icon: phu:floor-shade

@@ -4,7 +4,6 @@ include_entities:
   - alarm_control_panel.ha_alarm
   # Light
   - light.flur
-  - light.iris
   - light.go
   - light.fado_desk
   - light.kitchen_cabinets
