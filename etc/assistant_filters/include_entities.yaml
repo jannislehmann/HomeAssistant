@@ -13,7 +13,7 @@ include_entities:
   - light.office_ceiling
   # Switches
   - switch.monitor
-  - switch.victoria
+  - switch.coffee
   - switch.outside_water
   # Vacuum
   - vacuum.valetudo_glenn
