@@ -102,7 +102,6 @@ logger:
     homeassistant.components.automation.tablet_kitchen: critical
     zigpy_deconz: error
     asyncio: error
-    custom_components.plant: critical
     zeroconf: error
 
 lovelace: !include lovelace/configuration.yaml
