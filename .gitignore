@@ -45,6 +45,8 @@ esphome/**/
 !esphome/common
 !esphome/libraries
 python-zeroconf/
+ps5-mqtt/
+prometheus-node-exporter/
 
 edgeos.key
 
