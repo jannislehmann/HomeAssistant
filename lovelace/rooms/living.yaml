@@ -20,5 +20,3 @@ contact_sensors:
   - entity_id: binary_sensor.contact_living_window
 plants:
   - entity_id: plant.ficus
-additional_switches:
-  - entity_id: script.toggle_ambilight
