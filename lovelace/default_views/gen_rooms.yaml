@@ -85,6 +85,13 @@
             {% for plant in room.plants %}
             - type: custom:flower-card
               entity: {{ plant.entity_id }}
+              show_bars:
+                - brigthness
+                - humidity
+                - moisture
+                - conductivity
+                - temperature
+                - dli
             {% endfor %}
       {% endif %}
 
