@@ -7,13 +7,13 @@ variables:
   message: "😢 Glenn hat ein Problem: "
 trigger:
   platform: state
-  entity_id: vacuum.valetudo_glenn
+  entity_id: vacuum.glenn
   from: cleaning
   to: error
 action:
   - service: notify.telegram_group
     data:
-      message: "{{ message }} {{ states('sensor.valetudo_glenn_error_description') }}"
+      message: "{{ message }} {{ states('sensor.glenn_error_description') }}"
   - service: notify.all_devices
     data:
-      message: "{{ message }} {{ states('sensor.valetudo_glenn_error_description') }}"
+      message: "{{ message }} {{ states('sensor.glenn_error_description') }}"

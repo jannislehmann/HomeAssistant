@@ -16,5 +16,5 @@ include_entities:
   - switch.coffee
   - switch.outside_water
   # Vacuum
-  - vacuum.valetudo_glenn
+  - vacuum.glenn
   - input_select.glenn_room

@@ -9,7 +9,7 @@
             - title: Glenn
 
         - type: custom:valetudo-map-card
-          vacuum: valetudo_glenn
+          vacuum: glenn
           title: ''
           custom_buttons:
             - service: script.glenn_go_home

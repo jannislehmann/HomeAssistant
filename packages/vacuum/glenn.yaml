@@ -23,31 +23,31 @@ script:
   glenn_mop:
     sequence:
       - service: vacuum.start
-        entity_id: vacuum.valetudo_glenn
+        entity_id: vacuum.glenn
       - delay:
           minutes: 1
       - service: vacuum.set_fan_speed
         data:
-          entity_id: vacuum.valetudo_glenn
+          entity_id: vacuum.glenn
           fan_speed: 'off'
   # Go To
   glenn_go_home:
     sequence:
       - service: vacuum.return_to_base
         data:
-          entity_id: vacuum.valetudo_glenn
+          entity_id: vacuum.glenn
   glenn_go_trash:
     sequence:
       - service: vacuum.send_command
         data:
-          entity_id: vacuum.valetudo_glenn
+          entity_id: vacuum.glenn
           command: 'go_to'
           params:
             'spot_id': 'Garbage'
   glenn_clean_all:
     sequence:
       - service: vacuum.start
-        entity_id: vacuum.valetudo_glenn
+        entity_id: vacuum.glenn
   # Zoned Clean
   glenn_clean_storage:
     sequence:

@@ -11,13 +11,13 @@ cards:
         secondary: |-
           {% if is_state('switch.coffee', 'on') %}
           On - {{ states('sensor.coffee_current_consumption' ) | int(0) }} W
-          {%else%}
+          {% else %}
           Off
           {% endif %}
         icon: mdi:coffee
         icon_color: |-
           {% if is_state('switch.coffee', 'on') %}
           orange
-          {%else%}
+          {% else %}
           grey
           {% endif %}
