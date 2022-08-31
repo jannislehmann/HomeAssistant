@@ -14,5 +14,6 @@ watchman:
   chunk_size: 2000
   ignored_items:
     - "sensor.gaming_*" # only available when turned on
+    - "sensor.ps5_*" # only available when turned on
   ignored_states:
     - unknown
