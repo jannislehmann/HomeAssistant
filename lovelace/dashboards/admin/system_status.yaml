@@ -38,6 +38,12 @@
 
         - type: vertical-stack
           cards:
+            - title: Router
+              type: custom:mushroom-title-card
+            - !include ../../cards/system/router.yaml
+
+        - type: vertical-stack
+          cards:
             - title: Watchman
               type: custom:mushroom-title-card
             - !include ../../cards/system/watchman.yaml
