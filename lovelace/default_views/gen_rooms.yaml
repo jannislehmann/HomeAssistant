@@ -77,6 +77,12 @@
             {% endfor %}
       {% endif %}
 
+      {% if room.includes %}
+        {% for include in room.includes %}
+        - !include {{ include }}
+        {% endfor %}
+      {% endif %}
+
       {% if room.plants %}
         - type: vertical-stack
           cards:
@@ -93,12 +99,6 @@
                 - temperature
                 - dli
             {% endfor %}
-      {% endif %}
-
-      {% if room.includes %}
-        {% for include in room.includes %}
-        - !include {{ include }}
-        {% endfor %}
       {% endif %}
 
       {% if room.additional_buttons or room.additional_switches %}

@@ -20,3 +20,5 @@ contact_sensors:
   - entity_id: binary_sensor.contact_living_window
 plants:
   - entity_id: plant.ficus
+includes:
+  - ../cards/playstation.yaml
