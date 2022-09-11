@@ -6,7 +6,7 @@ substitutions:
 
 esphome:
   name: ${device}
-  
+
 esp32:
   board: nodemcu-32s
 
@@ -47,8 +47,9 @@ ble_client:
 
 esp32_ble_tracker:
   scan_parameters:
-    duration: 10s
-    active: false
+    interval: 1100ms
+    window: 1100ms
+    active: true
   on_ble_service_data_advertise:
     - mac_address: !secret mac_mi_kettle
       service_uuid: FE95
@@ -60,6 +61,8 @@ esp32_ble_tracker:
             } else {
               id(kettle_mode).publish_state(false);
             }
+
+bluetooth_proxy:
 
 binary_sensor:
   - platform: template
