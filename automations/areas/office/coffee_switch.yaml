@@ -1,0 +1,13 @@
+---
+alias: Coffee Plug Off
+id: c83f5dd8-a460-4ccf-aa83-f16528acb1ad
+description: Turns off the power for coffee devices when not using any power.
+mode: single
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.coffee_current_consumption
+    below: 1
+    for: "00:05:00"
+action:
+  - service: switch.turn_off
+    entity_id: switch.coffee
