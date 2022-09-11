@@ -5,7 +5,7 @@ id: bdd8c935-07b1-4a67-9e99-d8b99882cbcb
 mode: single
 trigger:
   platform: state
-  entity_id: binary_sensor.presence_kitchen
+  entity_id: binary_sensor.kitchen_occupancy
   to: 'on'
 condition:
   - condition: state
