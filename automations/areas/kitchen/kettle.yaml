@@ -8,6 +8,6 @@ trigger:
   from: 'on'
   to: 'off'
 action:
-  service: notify.mobile_app_iphone_13_pro
+  service: notify.mobile_app_iphone
   data:
     message: Der Wasserkocher ist fertig
