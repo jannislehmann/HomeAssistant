@@ -5,7 +5,7 @@ id: 3626c548-e8ae-41eb-af6d-27260a4995eb
 mode: single
 trigger:
   platform: state
-  entity_id: binary_sensor.snapshots_stale
+  entity_id: binary_sensor.backups_stale
   to: 'on'
 action:
   service: notify.telegram_jannis
