@@ -14,7 +14,9 @@ action:
       - "{{ trigger.event.data.command == 'left_single' }}"
       sequence:
         - service: light.toggle
-          entity_id: light.living_floor_light
+          data:
+            entity_id: light.living_floor_light
+            transition: 5
     # Left Double Click
     - conditions:
       - "{{ trigger.event.data.command == 'left_double' }}"
