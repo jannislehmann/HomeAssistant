@@ -10,6 +10,14 @@ condition:
   - condition: state
     entity_id: media_player.philips_tv
     state: 'on'
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: remote.apple_tv
+        state: 'on'
+      - condition: state
+        entity_id: media_player.avr
+        state: 'on'
   - condition: state
     entity_id: input_boolean.automatic_ambilight
     state: 'on'
