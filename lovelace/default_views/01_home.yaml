@@ -108,19 +108,19 @@
                       | list
                       | count) == 0%} • Geschlossen{% else %} • Offen{% endif %}{% endraw %}{% endif %}
                   badge_icon: |-
-                    {% if room.contact_sensors %}{% raw %}{% if (states.binary_sensor 
+                    {% raw %}{% if (states.binary_sensor 
                       | selectattr('entity_id', 'in', {% endraw %} {{ room.contact_sensors | map(attribute='entity_id') | list }} {% raw %})
                       | selectattr('state', 'in', ('on', 'unavailable'))
                       | list
-                      | count) != 0%}mdi:door-open{% endif %}{% endraw %}{% endif %}
+                      | count) != 0%}mdi:door-open{% endif %}{% endraw %}
                   badge_color: red
                   icon: {{ room.icon }}
                   icon_color: |-
-                    {% if room.lights %}{% raw %}{% if (states.light 
+                    {% raw %}{% if (states.light 
                       | selectattr('entity_id', 'in', {% endraw %} {{ room.lights | map(attribute='entity_id') | list }} {% raw %})
                       | selectattr('state', 'in', ('on'))
                       | list
-                      | count) != 0%}orange{% endif %}{% endraw %}{% endif %}
+                      | count) != 0%}orange{% endif %}{% endraw %}
                   multiline_secondary: false
                   tap_action:
                     action: navigate
