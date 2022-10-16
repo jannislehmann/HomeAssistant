@@ -8,6 +8,6 @@ trigger:
     entity_id: sensor.oclean_battery
     below: 25
 action:
-  - service: notify.mobile_app_iphone
+  - service: notify.mobile_app_iphone_14_pro
     data:
       message: 🔋 Die Zahnbürste ist fast leer!
