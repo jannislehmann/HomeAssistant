@@ -1,5 +1,6 @@
 - title: Firefly
   visible: false
+  subview: true
   path: firefly
   cards:
     - type: vertical-stack

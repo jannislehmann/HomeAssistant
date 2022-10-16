@@ -1,6 +1,7 @@
 - title: audio
   id: audio
   visible: false
+  subview: true
   path: audio
   icon: mdi:speaker-multiple
   cards:

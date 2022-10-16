@@ -1,5 +1,6 @@
 - title: Glenn
   visible: false
+  subview: true
   path: glenn
   cards:
     - type: vertical-stack

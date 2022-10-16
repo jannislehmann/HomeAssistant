@@ -2,7 +2,6 @@ type: horizontal-stack
 cards:
 - type: custom:mushroom-chips-card
   chips:
-    - type: back
     - type: weather
       entity: weather.openweathermap
       show_temperature: true
