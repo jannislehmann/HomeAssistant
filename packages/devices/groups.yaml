@@ -1,0 +1,7 @@
+---
+binary_sensor:
+  - platform: group
+    name: contact_living
+    entities:
+      - binary_sensor.contact_living_door
+      - binary_sensor.contact_living_window

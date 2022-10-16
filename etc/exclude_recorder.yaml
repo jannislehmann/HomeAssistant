@@ -3,7 +3,6 @@ domains:
   - automation
   - script
   - device_tracker
-  - group
   - scene
   - camera
 entity_globs:

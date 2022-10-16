@@ -1,6 +1,12 @@
 ---
 light:
   - platform: group
+    name: playbar
+    entities:
+      - light.hue_play_1
+      - light.hue_play_2
+
+  - platform: group
     name: color
     entities:
       - light.go
@@ -10,13 +16,12 @@ light:
       - light.playbar
 
   - platform: group
-    name: playbar
-    entities:
-      - light.hue_play_1
-      - light.hue_play_2
-
-  - platform: group
     name: flur
     entities:
       - light.flur_1
       - light.flur_2
+
+  - platform: group
+    name: room_office
+    entities:
+      - light.playbar
