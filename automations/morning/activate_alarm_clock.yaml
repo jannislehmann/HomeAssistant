@@ -58,6 +58,9 @@ action:
             after: '06:40:00'
             before: '06:41:00'
             weekday: [mon, tue, wed, thu, fri]
+          - condition: state
+            entity_id: binary_sensor.workday_sensor
+            state: "on"
           # No manual alarm override
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
           - "{{ states('input_boolean.vacation_mode') == 'off' }}"
