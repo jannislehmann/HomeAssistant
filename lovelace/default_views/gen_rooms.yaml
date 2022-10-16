@@ -2,6 +2,7 @@
 {% for room in _global.rooms %}
 - title: {{ room.name }}
   visible: false
+  subview: true
   path: {{ room.name | lower | replace(" ", "_") }}
   icon: {{ room.icon | default("mdi:home") }}
   cards:
