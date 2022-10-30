@@ -1,0 +1,14 @@
+---
+description: Send notification when Owntone server is unavailable
+alias: Owntone unavailable notification
+id: ad2ec062-10c2-43b0-8f6a-b7150bebd64d
+mode: single
+trigger:
+  platform: state
+  entity_id: media_player.forked_daapd_server
+  to: unavailable
+  for: 00:15:00
+action:
+  service: notify.telegram_jannis
+  data:
+    message: ⚠️ Owntone unavailable
