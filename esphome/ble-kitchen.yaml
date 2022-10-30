@@ -40,10 +40,11 @@ sensor:
     characteristic_uuid: '2a19'
     icon: 'mdi:battery'
     unit_of_measurement: '%'
+    type: characteristic
 
 ble_client:
-    mac_address: !secret mac_oclean
-    id: oclean
+  mac_address: !secret mac_oclean
+  id: oclean
 
 esp32_ble_tracker:
   scan_parameters:
