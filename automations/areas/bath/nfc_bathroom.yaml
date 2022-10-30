@@ -1,10 +1,10 @@
 ---
 alias: NFC Bathroom
-id: e16ac61f-910f-4f56-b379-1e5ba15771cf
+id: e9841d07-7572-445f-a227-aa2089a1acb8
 mode: single
 trigger:
   - platform: tag
-    tag_id: a19b18ea-47f4-49a7-ba11-7cd3d6c02049
+    tag_id: e9841d07-7572-445f-a227-aa2089a1acb8
 action:
   - service: script.play_radio
     data:

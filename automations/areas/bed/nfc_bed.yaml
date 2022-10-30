@@ -1,0 +1,14 @@
+---
+alias: NFC Bed
+id: 32ed5830-426e-4135-bb5e-b15a43cb22e0
+mode: single
+trigger:
+  - platform: tag
+    tag_id: 32ed5830-426e-4135-bb5e-b15a43cb22e0
+action:
+  - service: input_button.press
+    data:
+      entity_id: input_button.chore_change_bed
+  - service: notify.telegram_group
+    data:
+      message: 🛏 Das Bett wurde gewechselt

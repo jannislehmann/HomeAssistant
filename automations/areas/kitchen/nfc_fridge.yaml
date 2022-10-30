@@ -1,0 +1,14 @@
+---
+alias: NFC Fridge
+id: efea4cb0-c6ed-48ed-a3a5-d3a4d215a194
+mode: single
+trigger:
+  - platform: tag
+    tag_id: efea4cb0-c6ed-48ed-a3a5-d3a4d215a194
+action:
+  - service: input_button.press
+    data:
+      entity_id: input_button.chore_clean_fridge
+  - service: notify.telegram_group
+    data:
+      message: 🛏 Der Kühlschrank wurde gereinigt
