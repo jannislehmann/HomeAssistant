@@ -29,6 +29,7 @@ cards:
                     transform-origin: 50% 100%;
                   }
           - type: custom:mushroom-template-card
+            entity: switch.coffee
             icon: mdi:pot-steam
             icon_color: |-
               {% if is_state('switch.coffee', 'on') %}
