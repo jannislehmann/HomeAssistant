@@ -133,7 +133,7 @@
                     haptic: success
               {% endfor %}     
       
-      # Audio, Glenn, Firefly
+      # Audio, Glenn
       - type: vertical-stack
         cards:
           - title: Sonstiges
@@ -175,12 +175,13 @@
                         33% { transform: scale(1.25); }
                         60% { transform: scale(1); }
                       }
+
               - type: custom:mushroom-template-card
-                primary: Firefly
-                icon: mdi:cash
+                primary: Aufgaben
+                icon: mdi:calendar-check
                 tap_action:
                   action: navigate
-                  navigation_path: firefly
+                  navigation_path: chores
 
               - type: custom:mushroom-template-card
                 primary: Büro
