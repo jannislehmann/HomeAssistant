@@ -47,7 +47,6 @@ default_config:
 ios:
 
 logger:
-  default: info
   logs:
     androidtv.adb_manager.adb_manager_async: critical
     aiohttp.access: critical
