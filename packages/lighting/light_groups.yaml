@@ -22,6 +22,33 @@ light:
       - light.flur_2
 
   - platform: group
+    name: room_bed
+    entities:
+      - light.go
+
+  - platform: group
+    name: room_hall
+    entities:
+      - light.flur
+
+  - platform: group
+    name: room_kitchen
+    entities:
+      - light.kitchen_cabinets
+
+  - platform: group
+    name: room_living
+    entities:
+      - light.living_floor_light
+
+  - platform: group
     name: room_office
     entities:
       - light.playbar
+      - light.fado_desk
+      - light.office_ceiling
+
+  - platform: group
+    name: room_storage
+    entities:
+      - light.storage
