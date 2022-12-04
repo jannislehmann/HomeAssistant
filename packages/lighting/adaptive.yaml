@@ -7,7 +7,8 @@ adaptive_lighting:
       - light.flur
 
   - name: office
-    min_brightness: 85
+    min_color_temp: 3000
+    min_brightness: 90
     max_brightness: 100
     lights:
       - light.fado_desk
