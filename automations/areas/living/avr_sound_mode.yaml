@@ -1,0 +1,42 @@
+---
+alias: AVR Set Sound Mode
+id: 82e30320-0a53-44c3-adb8-f74ec6dabef9
+description: Sets the AVR sound mode depending on the input source
+mode: queued
+trigger:
+  platform: time_pattern
+  minutes: "/1"
+condition:
+  - condition: state
+    entity_id: media_player.avr
+    state: 'on'
+action:
+  choose:
+    # Music via HEOS
+    - conditions:
+      - condition: state
+        entity_id: media_player.denon_avr_x1700h
+        state: playing
+      sequence:
+        - service: media_player.select_sound_mode
+          data:
+            sound_mode: MUSIC
+          target:
+            entity_id: media_player.avr
+    # PlayStation is being used.
+    - conditions:
+        - condition: state
+          entity_id: switch.ps5_power
+          state: "on"
+      sequence:
+        - service: media_player.select_sound_mode
+          data:
+            sound_mode: GAME
+          target:
+            entity_id: media_player.avr
+  default:
+    service: media_player.select_sound_mode
+    data:
+      sound_mode: PURE DIRECT
+    target:
+      entity_id: media_player.avr
