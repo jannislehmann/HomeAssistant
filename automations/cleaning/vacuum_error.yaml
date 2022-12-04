@@ -12,7 +12,7 @@ trigger:
   to: error
 action:
   - service: notify.telegram_group
-    data:
+    data_template:
       message: "{{ message }} {{ states('sensor.glenn_error_description') }}"
   - service: notify.all_devices
     data:
