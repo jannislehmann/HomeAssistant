@@ -7,6 +7,7 @@ script:
       - service: script.play_radio
         data:
           station: bremen_next (playlist)
+      - delay: '00:00:05'
       - service: media_player.volume_set
         data:
           entity_id: media_player.kitchen_homepod_mini
@@ -19,6 +20,7 @@ script:
       - service: script.play_radio
         data:
           station: bremen_next (playlist)
+      - delay: '00:00:05'
       - service: media_player.volume_set
         data:
           entity_id: media_player.bed_homepod_mini
