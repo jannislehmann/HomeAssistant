@@ -1,0 +1,20 @@
+---
+alias: AVR Turn Off when Idle
+id: 4ba47def-0a50-4156-9b4f-97062eb42421
+description: Turns off the AVR when its detected to sit idle and consume power
+mode: queued
+trigger:
+  platform: time_pattern
+  minutes: "/5"
+condition:
+  # TV is off
+  - condition: state
+    entity_id: media_player.philips_tv
+    state: 'off'
+  # No music playing on AVR
+  - condition: state
+    entity_id: media_player.denon
+    state: "idle"
+action:
+  service: media_player.turn_off
+  entity_id: media_player.avr
