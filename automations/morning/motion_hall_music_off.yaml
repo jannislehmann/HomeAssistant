@@ -1,5 +1,5 @@
 ---
-alias: Motion hall music off
+alias: Motion hall alarm clock off
 description: Turns off the music in the bed room in the morning when there is motion in the hall.
 id: c62fbc9d-c695-4ed1-8257-fe9ff0635978
 mode: single
@@ -16,6 +16,8 @@ action:
     data:
       entity_id: light.go
       transition: 5
+  - service: switch.turn_on
+    entity_id: switch.living_access_point
   - service: media_player.turn_off
     entity_id: media_player.bed_homepod_mini
   - service: input_boolean.turn_off

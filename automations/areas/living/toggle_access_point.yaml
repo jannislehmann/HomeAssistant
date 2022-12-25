@@ -1,0 +1,24 @@
+---
+alias: Toggle Living Room Access Point
+id: 7e3fc7bf-137e-43f5-b3e8-2a5911402279
+description: Toggles the living room access point to turn off during night.
+mode: single
+trigger:
+  - platform: time_pattern
+    minutes: "/15"
+action:
+  choose:
+    - conditions:
+      - condition: time
+        after: "10:00:00"
+        before: "11:00:00"
+      sequence:
+        - service: switch.turn_on
+          entity_id: switch.living_access_point
+    - conditions:
+      - condition: time
+        after: "01:00:00"
+        before: "02:00:00"
+      sequence:
+        - service: switch.turn_off
+          entity_id: switch.living_access_point
