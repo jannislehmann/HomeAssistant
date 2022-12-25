@@ -11,4 +11,4 @@ action:
       entity_id: input_button.chore_clean_fridge
   - service: notify.telegram_group
     data:
-      message: 🛏 Der Kühlschrank wurde gereinigt
+      message: ❄️ Der Kühlschrank wurde gereinigt
