@@ -24,15 +24,8 @@ cards:
         icon_color: disabled
         layout: vertical
       - type: custom:mushroom-entity-card
-        entity: sensor.home_system_load_average_fifteen_minute
+        entity: sensor.router_gateway_load
         name: CPU-Auslastung
-        primary_info: state
-        secondary_info: name
-        icon_color: disabled
-        layout: vertical
-      - type: custom:mushroom-entity-card
-        entity: sensor.home_memory_used_percentage
-        name: RAM-Auslastung
         primary_info: state
         secondary_info: name
         icon_color: disabled
