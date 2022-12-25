@@ -1,0 +1,34 @@
+---
+alias: Light Hall Home
+id: 9180ed16-c040-4ce2-ab8e-bdbb4a607ae1
+description: Turn on the light in the hall when coming home.
+mode: restart
+trigger:
+  - platform: state
+    entity_id: binary_sensor.home
+    to: "on"
+condition:
+  - condition: state
+    entity_id: sun.sun
+    state: "below_horizon"
+action:
+  - wait_for_trigger:
+      - platform: state
+        entity_id: binary_sensor.contact_door
+        from: 'off'
+        to: 'on'
+    timeout: '00:05:00'
+    continue_on_timeout: false
+  - service: automation.turn_off
+    entity_id: automation.light_hall
+  - service: light.turn_on
+    data:
+      entity_id: light.flur
+      transition: 3
+      brightness_pct: 80
+  - delay: '00:05:00'
+  - service: automation.turn_on
+    entity_id: automation.light_hall
+  - delay: '00:00:15'
+  - service: light.turn_off
+    entity_id: light.flur
