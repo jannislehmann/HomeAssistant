@@ -22,7 +22,7 @@ adaptive_lighting:
       - light.kitchen_cabinets
 
   - name: living_floor_light
-    min_brightness: 50
+    min_brightness: 75
     lights:
       - light.living_floor_light
 
