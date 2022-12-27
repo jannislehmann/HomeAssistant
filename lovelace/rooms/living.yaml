@@ -12,6 +12,9 @@ lights:
   - entity_id: light.living_floor_light
     name: Stehlampe
     icon: phu:floor-shade
+  - entity_id: light.twinkly
+    name: Tannenbaum
+    icon: mdi:string-lights
 media_players:
   - entity_id: media_player.philips_tv
   - entity_id: media_player.apple_tv
