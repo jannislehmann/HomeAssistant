@@ -75,17 +75,22 @@
               square: false
               cards:
                 {% for s in room.lights %}
-                - type: custom:mushroom-light-card
-                  entity: {{ s.entity_id }}
-                  name: {{ s.name }}
-                  show_brightness_control: true
-                  use_light_color: true
-                  show_color_temp_control: true
-                  show_color_control: true
-                  collapsible_controls: true
-                  {% if s.icon %}
-                  icon: {{ s.icon }}
-                  {% endif %}
+                - type: conditional
+                  conditions:
+                    - entity: {{ s.entity_id }}
+                      state_not: "unavailable"
+                  card:
+                    type: custom:mushroom-light-card
+                    entity: {{ s.entity_id }}
+                    name: {{ s.name }}
+                    show_brightness_control: true
+                    use_light_color: true
+                    show_color_temp_control: true
+                    show_color_control: true
+                    collapsible_controls: true
+                    {% if s.icon %}
+                    icon: {{ s.icon }}
+                    {% endif %}
                 {% endfor %}
       {% endif %}
 
