@@ -1,0 +1,32 @@
+---
+alias: Light Storage
+id: f3ccba95-7210-4575-b483-3247c0443e7e
+description: Turn on the light in the storage room when presence is detected or turn it off if there is no motion.
+mode: queued
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
+  - platform: state
+    entity_id:
+      - binary_sensor.presence_storage
+      - input_boolean.motion_sensor
+action:
+  choose:
+    # Motion detected
+    - conditions:
+        - condition: state
+          entity_id: binary_sensor.presence_hall
+          state: 'on'
+        - condition: state
+          entity_id: input_boolean.motion_sensor
+          state: 'on'
+      sequence:
+        - service: light.turn_on
+          data:
+            entity_id: light.storage
+  # No more motion detected
+  default:
+    - service: light.turn_off
+      entity_id: light.storage
