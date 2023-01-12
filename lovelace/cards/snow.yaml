@@ -1,10 +1,15 @@
-type: vertical-stack
-cards:
-  - type: custom:decluttering-card
-    template: "snow"
-    variables:
-      - weather: rainy
-  - type: custom:decluttering-card
-    template: "snow"
-    variables:
-      - weather: snowy
+type: conditional
+conditions:
+  - entity: input_boolean.christmas_mode
+    state: "on"
+card:
+  type: vertical-stack
+  cards:
+    - type: custom:decluttering-card
+      template: "snow"
+      variables:
+        - weather: rainy
+    - type: custom:decluttering-card
+      template: "snow"
+      variables:
+        - weather: snowy
