@@ -14,6 +14,8 @@ watchman:
   chunk_size: 2000
   ignored_items:
     - "sensor.gaming_*" # only available when turned on
-    - "sensor.ps5_*" # only available when turned on
+    - sensor.ps5_activity # only available when turned on
+    - switch.ps5_power # only available when turned on
+    - light.twinkly # only available during christmas time
   ignored_states:
     - unknown
