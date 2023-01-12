@@ -1,32 +1,16 @@
-type: vertical-stack
+type: horizontal-stack
 cards:
-  - type: horizontal-stack
-    cards:
-      - type: custom:mushroom-entity-card
-        entity: sensor.home_interface_wan_inbytes_kilobytes_per_second
-        name: Download
-        primary_info: state
-        secondary_info: name
-        icon_type: none
-      - type: custom:mushroom-entity-card
-        entity: sensor.home_interface_wan_outbytes_kilobytes_per_second
-        name: Upload
-        primary_info: state
-        secondary_info: name
-        icon_type: none
-  - type: horizontal-stack
-    cards:
-      - type: custom:mushroom-entity-card
-        entity: sensor.temperature_rack
-        name: Rack-Temperatur
-        primary_info: state
-        secondary_info: name
-        icon_color: disabled
-        layout: vertical
-      - type: custom:mushroom-entity-card
-        entity: sensor.router_gateway_load
-        name: CPU-Auslastung
-        primary_info: state
-        secondary_info: name
-        icon_color: disabled
-        layout: vertical
+  - type: custom:mushroom-entity-card
+    entity: sensor.temperature_rack
+    name: Rack-Temperatur
+    primary_info: state
+    secondary_info: name
+    icon_color: disabled
+    layout: vertical
+  - type: custom:mushroom-entity-card
+    entity: sensor.router_gateway_load
+    name: CPU-Auslastung
+    primary_info: state
+    secondary_info: name
+    icon_color: disabled
+    layout: vertical
