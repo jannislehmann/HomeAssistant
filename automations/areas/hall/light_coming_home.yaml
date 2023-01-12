@@ -14,8 +14,7 @@ condition:
 action:
   - wait_for_trigger:
       - platform: state
-        entity_id: binary_sensor.contact_door
-        from: 'off'
+        entity_id: binary_sensor.presence_hall
         to: 'on'
     timeout: '00:05:00'
     continue_on_timeout: false
