@@ -19,9 +19,3 @@ action:
             transition: 5
             color_name: orange
             brightness: 75
-    # Double Click
-    - conditions:
-      - "{{ trigger.event.data.args.click_type == 'double' }}"
-      sequence:
-        - service: media_player.media_stop
-          entity_id: media_player.bed_fernseher
