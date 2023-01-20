@@ -5,13 +5,40 @@
   path: chores
   icon: mdi:calendar-check
   cards:
-  - type: 'custom:auto-entities'
-    filter:
-      include:
-        - group: group.chores
-          options:
-            type: 'custom:button-card'
-            template: chore_card
-    card:
-      type: entities
-      title: Chores
+    - type: vertical-stack
+      cards:
+
+      - title: Aufgaben
+        type: custom:mushroom-title-card
+
+      - !include
+        - ../../cards/chore.yaml
+        - name: Bettwäsche wechseln
+          sensor_name: chore_change_bed
+          icon: mdi:bed
+          warning_before: 5
+          cycle_days: 28
+
+      - !include
+        - ../../cards/chore.yaml
+        - name: Wasserfilter wechseln
+          sensor_name: chore_change_water_filter
+          icon: mdi:air-filter
+          warning_before: 5
+          cycle_days: 35
+
+      - !include
+        - ../../cards/chore.yaml
+        - name: Kühlschrank reinigen
+          sensor_name: chore_clean_fridge
+          icon: mdi:fridge
+          warning_before: 1
+          cycle_days: 1
+
+      - !include
+        - ../../cards/chore.yaml
+        - name: Dunstabzugshaube reinigen
+          sensor_name: chore_clean_cooker_hood
+          icon: mdi:hvac
+          warning_before: 7
+          cycle_days: 180
