@@ -11,6 +11,7 @@ trigger:
   - platform: state
     entity_id:
       - binary_sensor.presence_kitchen
+      - binary_sensor.kitchen_occupancy
       - input_boolean.motion_sensor
       - alarm_control_panel.ha_alarm
       - media_player.kitchen_homepod_mini
@@ -19,15 +20,20 @@ action:
   choose:
     # Motion detected
     - conditions:
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: binary_sensor.presence_kitchen
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.kitchen_occupancy
+          state: 'on'
       - condition: state
-        entity_id: binary_sensor.presence_kitchen
+        entity_id: input_boolean.motion_sensor
         state: 'on'
       - condition: state
         entity_id: alarm_control_panel.ha_alarm
         state: disarmed
-      - condition: state
-        entity_id: input_boolean.motion_sensor
-        state: 'on'
       - condition: or
         conditions:
         - condition: sun
