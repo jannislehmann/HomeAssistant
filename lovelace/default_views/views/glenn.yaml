@@ -17,18 +17,32 @@
               icon: mdi:home
             - service: script.glenn_go_trash
               icon: mdi:delete
-            - service: script.glenn_clean_storage
+            - service: script.glenn_room_cleaning
+              service_data:
+                room: storage
               icon: mdi:washing-machine
-            - service: script.glenn_clean_bathroom
+            - service: script.glenn_room_cleaning
+              service_data:
+                room: bath
               icon: mdi:shower-head
-            - service: script.glenn_clean_office
+            - service: script.glenn_room_cleaning
+              service_data:
+                room: office
               icon: phu:rooms-office
-            - service: script.glenn_clean_hall
+            - service: script.glenn_room_cleaning
+              service_data:
+                room: hall
               icon: phu:rooms-hallway
-            - service: script.glenn_clean_kitchen
+            - service: script.glenn_room_cleaning
+              service_data:
+                room: kitchen
               icon: mdi:chef-hat
-            - service: script.glenn_clean_bed
+            - service: script.glenn_room_cleaning
+              service_data:
+                room: living
               icon: mdi:bed-empty
-            - service: script.glenn_clean_living
+            - service: script.glenn_room_cleaning
+              service_data:
+                room: living
               icon: mdi:television
 

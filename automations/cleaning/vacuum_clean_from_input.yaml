@@ -9,26 +9,28 @@ trigger:
 action:
 - service: script.turn_on
   data_template:
+    variables:
+      room: >
+        {% if is_state("input_select.glenn_room", "Abstellraum") %}
+          storage
+        {% elif is_state("input_select.glenn_room", "Badezimmer") %}
+          bath
+        {% elif is_state("input_select.glenn_room", "Küche") %}
+          kitchen
+        {% elif is_state("input_select.glenn_room", "Wohnzimmer") %}
+          living
+        {% elif is_state("input_select.glenn_room", "Büro") %}
+          office
+        {% elif is_state("input_select.glenn_room", "Flur") %}
+          hall
+        {% elif is_state("input_select.glenn_room", "Schlafzimmer") %}
+          bed
+        {% endif %}
     entity_id: >
-      {% if is_state("input_select.glenn_room", "Abstellraum") %}
-        script.glenn_clean_storage
-      {% elif is_state("input_select.glenn_room", "Wohnung") %}
-        script.glenn_clean_all
-      {% elif is_state("input_select.glenn_room", "Badezimmer") %}
-        script.glenn_clean_bathroom
-      {% elif is_state("input_select.glenn_room", "Küche") %}
-        script.glenn_clean_kitchen
-      {% elif is_state("input_select.glenn_room", "Wohnzimmer") %}
-        script.glenn_clean_living
-      {% elif is_state("input_select.glenn_room", "Büro") %}
-        script.glenn_clean_office
-      {% elif is_state("input_select.glenn_room", "Flur") %}
-        script.glenn_clean_hall
-      {% elif is_state("input_select.glenn_room", "Schlafzimmer") %}
-        script.glenn_clean_bed
-      {% elif is_state("input_select.glenn_room", "Wischen") %}
+      {% if is_state("input_select.glenn_room", "Wischen") %}
         script.glenn_mop
       {% else %}
+        script.glenn_room_cleaning
       {% endif %}
 - service: input_select.select_option
   data:

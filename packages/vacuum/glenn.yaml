@@ -8,7 +8,6 @@ input_select:
     name: Choose a room to clean
     options:
       - Select Room
-      - Wohnung
       - Abstellraum
       - Badezimmer
       - Küche
@@ -55,7 +54,7 @@ script:
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
           payload: '{"segment_ids": ["17"]}'
-  glenn_clean_bathroom:
+  glenn_clean_bath:
     sequence:
       - service: mqtt.publish
         data:
@@ -91,3 +90,80 @@ script:
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
           payload: '{"segment_ids": ["20"]}'
+  # Queued Room cleaning
+  glenn_room_cleaning:
+    mode: queued
+    alias: Glenn Room Cleaning
+    max: 10
+    fields:
+      room:
+        name: Room
+        required: true
+        example: living_room
+        selector:
+          select:
+            options:
+              - bath
+              - bed
+              - kitchen
+              - hall
+              - living
+              - office
+              - storage
+    sequence:
+      - choose:
+          - conditions:
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity_id: vacuum.glenn
+                    state: cleaning
+                  - condition: state
+                    entity_id: vacuum.glenn
+                    state: error
+            sequence:
+              - wait_for_trigger:
+                  - platform: state
+                    entity_id: vacuum.glenn
+                    to: returning
+                  - platform: state
+                    entity_id: vacuum.glenn
+                    to: docked
+                continue_on_timeout: false
+                timeout: '00:30:00'
+              - service: >
+                  script.glenn_clean_{{ room }}
+              - wait_for_trigger:
+                  - platform: state
+                    entity_id: vacuum.glenn
+                    to: returning
+                  - platform: state
+                    entity_id: vacuum.glenn
+                    to: docked
+                continue_on_timeout: false
+                timeout: '00:30:00'
+          - conditions:
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity_id: vacuum.glenn
+                    state: returning
+                  - condition: state
+                    entity_id: vacuum.glenn
+                    state: docked
+                  - condition: state
+                    entity_id: vacuum.glenn
+                    state: idle
+            sequence:
+              - service: >
+                  script.glenn_clean_{{ room }}
+              - wait_for_trigger:
+                  - platform: state
+                    entity_id: vacuum.glenn
+                    to: returning
+                  - platform: state
+                    entity_id: vacuum.glenn
+                    to: docked
+                continue_on_timeout: false
+                timeout: '00:30:00'
+        default: []
