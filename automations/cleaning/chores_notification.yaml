@@ -1,0 +1,25 @@
+---
+id: 9f043340-ce18-4fbc-9748-72a02beaa454
+alias: Notify when household tasks are due
+variables:
+  entities: "group.household_tasks"
+trigger:
+  - platform: time
+    at: "17:00:00"
+action:
+- repeat:
+    count: "{{ expand(entities) | list | count }}"
+    sequence:
+      - variables:
+          entity_id: >
+            {% set tasks = expand(entities) | map(attribute='entity_id') | list %}
+            {{ tasks[repeat.index - 1] }}
+          task_id: "{{ entity_id.split('.')[1] }}"
+          last_done_days: "{{ ((as_timestamp(now()) - (as_timestamp(states(entity_id))) | float) / 60 / 60 / 24) | int }}"
+          cycle_days: "{{ state_attr(entity_id, 'cycle_days') | int }}"
+          warn_before_days: "{{ state_attr(entity_id, 'warning_before') | int }}"
+      - condition: template
+        value_template: "{{ last_done_days|int >= (cycle_days|int - warn_before_days|int) }}"
+      - service: notify.telegram_jannis
+        data:
+          message: "{{ state_attr(entity_id, 'friendly_name') }} zuletzt vor {{ last_done_days }} Tag(en) erledigt."

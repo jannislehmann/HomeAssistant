@@ -1,19 +1,14 @@
 ---
-input_text:
-  chore_change_bed:
-    name: Bettwäsche wechseln
-  chore_clean_fridge:
-    name: Kühlschrank reinigen
-  chore_clean_cooker_hood:
-    name: Dunstabzugshaube reinigen
+group:
+  household_tasks:
+    name: Haushaltsaufgaben
+    entities:
+      - sensor.chore_change_bed_sheets
+      - sensor.chore_change_water_filter
+      - sensor.chore_clean_fridge
+      - sensor.chore_clean_cooker_hood
 
-input_button:
-  chore_change_bed:
-    name: Bettwäsche wechseln
-    icon: mdi:bed
-  chore_clean_fridge:
-    name: Kühlschrank reinigen
-    icon: mdi:fridge
-  chore_clean_cooker_hood:
-    name: Dunstabzugshaube reinigen
-    icon: mdi:hvac
+#homeassistant:
+#  customize:
+#    sensor.chore_change_bed_sheets:
+#      friendly_name: Bett machen

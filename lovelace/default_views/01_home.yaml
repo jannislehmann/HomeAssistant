@@ -388,7 +388,7 @@
                           }
 
               #
-              # BATHROOM
+              # BATH
               #
               - type: custom:vertical-stack-in-card
                 cards:
