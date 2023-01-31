@@ -3,7 +3,7 @@ id: 9f043340-ce18-4fbc-9748-72a02beaa454
 alias: Notify when household tasks are due
 trigger:
   - platform: time
-    at: "17:00:00"
+    at: "10:00:00"
 mode: single
 action:
   - variables:
