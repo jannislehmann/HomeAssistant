@@ -27,6 +27,5 @@ template:
           {% if is_state('binary_sensor.presence_kitchen', 'on') or is_state('binary_sensor.kitchen_occupancy','on') %}
             on
           {% else %}
-            {{ states('binary_sensor.kitchen_occupancy') and states('binary_sensor.kitchen_human_presence') }}
-          {% endif %}
+            {{ states('binary_sensor.kitchen_occupancy') and states('binary_sensor.presence_kitchen') }}
           {% endif %}
