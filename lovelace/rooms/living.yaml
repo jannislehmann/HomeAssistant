@@ -22,6 +22,6 @@ media_players:
 contact_sensors:
   - entity_id: binary_sensor.contact_living_window
 plants:
-  - entity_id: plant.ficus
+  - entity_id: plant.calathea
 includes:
   - ../cards/playstation.yaml
