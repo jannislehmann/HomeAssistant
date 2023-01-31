@@ -5,3 +5,28 @@ binary_sensor:
     entities:
       - binary_sensor.contact_living_door
       - binary_sensor.contact_living_window
+
+template:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.presence_kitchen #PIR Motion Sensor
+      - platform: state
+        entity_id: binary_sensor.kitchen_occupancy #Aqara FP1 Main Presence Entity
+    binary_sensor:
+      - name: Kitchen Human Presence
+        device_class: occupancy
+        delay_off:
+          seconds: 20
+        icon: >
+          {% if is_state("binary_sensor.kitchen_human_presence", "on") %}
+            mdi:motion-sensor
+          {% else %}
+            mdi:motion-sensor-off
+          {% endif %}
+        state: >
+          {% if is_state('binary_sensor.presence_kitchen', 'on') or is_state('binary_sensor.kitchen_occupancy','on') %}
+            on
+          {% else %}
+            {{ states('binary_sensor.kitchen_occupancy') and states('binary_sensor.kitchen_human_presence') }}
+          {% endif %}
+          {% endif %}

@@ -5,7 +5,7 @@ id: 3d20240e-56b1-4ed2-9a9b-929017899472
 mode: single
 trigger:
   - platform: state
-    entity_id: binary_sensor.kitchen_occupancy
+    entity_id: binary_sensor.kitchen_human_presence
     to: 'off'
 action:
   - service: media_player.turn_off

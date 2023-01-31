@@ -4,12 +4,9 @@ description: Turns off the music in the bed room in the morning when there is mo
 id: bdd8c935-07b1-4a67-9e99-d8b99882cbcb
 mode: single
 trigger:
-  - platform: state
-    entity_id: binary_sensor.kitchen_occupancy
-    to: 'on'
-  - platform: state
-    entity_id: binary_sensor.presence_kitchen
-    to: 'on'
+  platform: state
+  entity_id: binary_sensor.kitchen_human_presence
+  to: 'on'
 condition:
   - condition: state
     entity_id: input_boolean.alarm_clock_left_bed
