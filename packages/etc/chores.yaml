@@ -1,14 +1,42 @@
 ---
-group:
-  household_tasks:
-    name: Haushaltsaufgaben
-    entities:
-      - sensor.chore_change_bed_sheets
-      - sensor.chore_change_water_filter
-      - sensor.chore_clean_fridge
-      - sensor.chore_clean_cooker_hood
+input_text:
+  chore_change_bed:
+  chore_clean_fridge:
+  chore_clean_cooker_hood:
+  chore_water_indoor_plants:
+  chore_change_water_filter:
 
-#homeassistant:
-#  customize:
-#    sensor.chore_change_bed_sheets:
-#      friendly_name: Bett machen
+input_button:
+  chore_change_bed:
+    name: Bettwäsche wechseln
+    icon: mdi:bed
+  chore_clean_fridge:
+    name: Kühlschrank reinigen
+    icon: mdi:fridge
+  chore_clean_cooker_hood:
+    name: Dunstabzugshaube reinigen
+    icon: mdi:hvac
+  chore_water_indoor_plants:
+    name: Pflanzen gießen
+    icon: mdi:flower-tulip-outline
+  chore_change_water_filter:
+    name: Wasserfilter wechseln
+    icon: mdi:air-filter
+
+script:
+  chore_notify:
+    alias: "Notify on due chores"
+    fields:
+      task_id:
+        description: "The chore task id to notify if due"
+        example: "chore_change_bed"
+    sequence:
+      - variables:
+          button: "input_button.{{ task_id }}"
+          text: "input_text.{{ task_id }}"
+          next_due: "{{ states(button) | as_datetime + timedelta(days=states(text) | int) }}"
+      - condition: template
+        value_template: "{{ next_due | as_datetime < now() }}"
+      - service: notify.telegram_group
+        data:
+          message: "🧹 {{ state_attr(button, 'friendly_name') }} muss erledigt werden."
