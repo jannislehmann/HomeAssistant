@@ -11,7 +11,7 @@ cards:
           - type: custom:decluttering-card
             template: mini_graph
             variables:
-              - entity_id: sensor.kettle_temp
+              - entity_id: sensor.kettle_temperature
               - color: "var(--google-red)"
               - name: Temperatur
       "off":

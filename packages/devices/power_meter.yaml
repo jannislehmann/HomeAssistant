@@ -85,5 +85,5 @@ binary_sensor:
       water_kettle:
         friendly_name: Water Kettle
         value_template: >
-          {{ states("sensor.kettle_temp") | default(0) | float(0) > 30 }}
+          {{ states("sensor.kettle_temperature") | default(0) | float(0) > 30 }}
         delay_off: "00:01:00"
