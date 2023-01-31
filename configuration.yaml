@@ -48,11 +48,11 @@ default_config:
 ios:
 
 logger:
+  default: info
   logs:
     androidtv.adb_manager.adb_manager_async: critical
     aiohttp.access: critical
     aiohttp.server: critical
-    aioesphomeapi.connection: info
     custom_components.watchman: warn
     homeassistant.core: error
     homeassistant.config_entries: error
@@ -79,12 +79,10 @@ logger:
     homeassistant.components.esphome: critical
     homeassistant.components.zha: warn
     homeassistant.components.frontend: warn
-    homeassistant.helpers.script: info
     homeassistant.helpers.entity: critical
     homeassistant.components.command_line.switch: warn
     homeassistant.setup: error
     homeassistant.bootstrap: warn
-    homeassistant.exceptions: info
     googleapiclient.discovery: warn
     homeassistant.helpers.template: error
     py.warnings: error
@@ -102,7 +100,6 @@ logger:
     homeassistant.components.python_script: warn
     homeassistant.components.utility_meter.sensor: error
     homeassistant.components.automation.tablet_kitchen: critical
-    zigpy_deconz: error
     asyncio: error
     zeroconf: error
 
