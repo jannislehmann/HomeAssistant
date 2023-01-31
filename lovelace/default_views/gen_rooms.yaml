@@ -143,7 +143,6 @@
                 - moisture
                 - conductivity
                 - temperature
-                - dli
             {% endfor %}
       {% endif %}
 
