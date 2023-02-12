@@ -81,7 +81,7 @@
                 style: |
                   ha-card {
                     margin: 0px 12px 12px;
-                    --chip-background: rgba(var(--rgb-disabled), 0.15);
+                    --chip-background: rgba(var(--disabled), 0.15);
                     --chip-border-width: 0;
                     --chip-box-shadow: none;
                     --chip-border-radius: 12px;
