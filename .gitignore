@@ -41,9 +41,6 @@ report.txt
 
 # Addons
 node-red/
-esphome/**/
-!esphome/common
-!esphome/libraries
 python-zeroconf/
 ps5-mqtt/
 prometheus_node_exporter/
