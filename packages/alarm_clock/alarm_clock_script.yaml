@@ -13,6 +13,8 @@ script:
         data:
           entity_id: light.go
           transition: 60
+      - service: cover.open_cover
+        entity_id: cover.bed_cover
       - delay:
           minutes: 1
       - service: script.bremen_next_bed
