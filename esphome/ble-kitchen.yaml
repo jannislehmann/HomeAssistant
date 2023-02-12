@@ -14,15 +14,6 @@ packages:
   main_base: !include common/main_base.yaml
 
 sensor:
-  # XIAOMI MISCALE
-  - platform: xiaomi_miscale
-    mac_address: !secret mac_mi_scale
-    weight:
-      id: "miscale_weight"
-      name: "Jannis Weight"
-      icon: mdi:scale-bathroom
-      accuracy_decimals: 2
-
   - platform: ble_client
     ble_client_id: oclean
     name: "Oclean Battery"
