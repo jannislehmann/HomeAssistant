@@ -1,6 +1,7 @@
 ---
 api:
-  password: !secret esp_apipass
+  encryption:
+    key: !secret esp_encryption_key
 
 ota:
   password: !secret esp_otapass
