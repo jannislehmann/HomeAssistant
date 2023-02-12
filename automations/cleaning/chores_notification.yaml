@@ -6,13 +6,16 @@ trigger:
     at: "10:00:00"
 mode: single
 action:
-  - variables:
-      chores: "{{ expand(states.input_button) |map(attribute='entity_id') |select('search', 'chore') }}"
   - repeat:
-      count: "{{ chores | count }}"
+      for_each: "{{ expand(states.input_button) | map(attribute='entity_id') | select('search', 'chore') | list }}"
       sequence:
         - variables:
-            chore: '{{ chores[repeat.index - 1] }}'
-        - service: script.chore_notify
+            task_id: "{{ repeat.item | replace('input_button.', '', 1) }}"
+            button: "{{ 'input_button.' + task_id }}"
+            text: "{{ 'input_text.' + task_id }}"
+            next_due: "{{ states(button) | as_datetime + timedelta(days=(states(text) | int) - 1) }}"
+        - condition: template
+          value_template: "{{ next_due | as_datetime < now() }}"
+        - service: notify.telegram_group
           data:
-            task_id: "{{ chore }}"
+            message: "🧹 {{ state_attr(button, 'friendly_name') }} muss erledigt werden."

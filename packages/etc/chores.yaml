@@ -22,21 +22,3 @@ input_button:
   chore_change_water_filter:
     name: Wasserfilter wechseln
     icon: mdi:air-filter
-
-script:
-  chore_notify:
-    alias: "Notify on due chores"
-    fields:
-      task_id:
-        description: "The chore task id to notify if due"
-        example: "chore_change_bed"
-    sequence:
-      - variables:
-          button: "input_button.{{ task_id }}"
-          text: "input_text.{{ task_id }}"
-          next_due: "{{ states(button) | as_datetime + timedelta(days=states(text) | int) }}"
-      - condition: template
-        value_template: "{{ next_due | as_datetime < now() }}"
-      - service: notify.telegram_group
-        data:
-          message: "🧹 {{ state_attr(button, 'friendly_name') }} muss erledigt werden."

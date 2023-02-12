@@ -45,8 +45,8 @@ chore_card:
       - padding: 4px 12px
       - background-color: |
           [[[
-            if ((variables.diff < 2) && (variables.last_done.getDay() == variables.now.getDay())) { return 'rgba(var(--rgb-success-color), .33)' }
-            if ((variables.due > 0) && (variables.due < variables.diff)) { return 'rgba(var(--rgb-error-color), .33)' } else {return 'transparent'}
+            if ((variables.diff < 2) && (variables.last_done.getDay() == variables.now.getDay())) { return 'rgba(var(--success-color), .33)' }
+            if ((variables.due > 0) && (variables.due < variables.diff)) { return 'rgba(var(--error-color), .33)' } else {return 'transparent'}
           ]]]
     grid:
       - grid-template-columns: min-content 1fr min-content
