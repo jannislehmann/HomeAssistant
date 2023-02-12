@@ -4,7 +4,7 @@ description: Notifies when the smart kettle is done boiling the water.
 mode: restart
 trigger:
   platform: state
-  entity_id: binary_sensor.kettle_mode
+  entity_id: binary_sensor.water_kettle
   from: 'on'
   to: 'off'
 action:
