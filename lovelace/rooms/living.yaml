@@ -12,6 +12,9 @@ lights:
   - entity_id: light.living_floor_light
     name: Stehlampe
     icon: phu:floor-shade
+  - entity_id: light.living_dining_table
+    name: Esstisch
+    icon: mdi:table-chair
   - entity_id: light.twinkly
     name: Tannenbaum
     icon: mdi:string-lights

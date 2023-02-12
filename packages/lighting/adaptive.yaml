@@ -6,11 +6,14 @@ adaptive_lighting:
     lights:
       - light.flur
 
-  - name: office
+  - name: office_desk
     min_color_temp: 4000
     min_brightness: 100
     lights:
       - light.playbar
+
+  - name: office_ceiling
+    lights:
       - light.office_ceiling
 
   - name: office_fado
@@ -27,12 +30,12 @@ adaptive_lighting:
       - light.kitchen_cabinets
 
   - name: living_floor_light
-    min_brightness: 75
+    min_brightness: 85
     lights:
       - light.living_floor_light
 
   - name: bed_go
-    min_brightness: 30
-    max_brightness: 60
+    min_brightness: 35
+    max_brightness: 65
     lights:
       - light.go
