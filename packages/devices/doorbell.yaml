@@ -1,0 +1,19 @@
+template:
+  - trigger:
+    - platform: state
+      entity_id: input_boolean.doorbell
+      from: "off"
+      to: "on"
+    binary_sensor:
+      - name: Doorbell
+        auto_off: 3
+        state: "true"
+        device_class: occupancy
+
+input_boolean:
+  doorbell:
+    initial: false
+  open_house_door_on_ring:
+    name: "Klingel automatisch öffnen"
+    initial: false
+    icon: mdi:door-closed-lock
