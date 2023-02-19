@@ -32,8 +32,8 @@ action:
       - conditions:
           # Weekend - Basic
           - condition: time
-            after: '08:10:00'
-            before: '08:15:00'
+            after: '08:20:00'
+            before: '08:25:00'
             weekday: [sat, sun]
           # No manual alarm override
           # If the training conditions applies, the alarm is triggered before this
@@ -44,8 +44,8 @@ action:
       - conditions:
           # Vacation
           - condition: time
-            after: '08:10:00'
-            before: '08:15:00'
+            after: '08:20:00'
+            before: '08:25:00'
           # No manual alarm override
           - "{{ states('input_boolean.vacation_mode') == 'on' }}"
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
