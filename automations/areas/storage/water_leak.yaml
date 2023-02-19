@@ -13,7 +13,7 @@ action:
   - service: notify.telegram_group
     data:
       message: "{{ message }}"
-  - service: notify.all_devices
+  - service: notify.apple_all
     data:
       message: "{{ message }}"
       push:

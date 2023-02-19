@@ -14,6 +14,6 @@ action:
   - service: notify.telegram_group
     data_template:
       message: "{{ message }} {{ states('sensor.glenn_error_description') }}"
-  - service: notify.all_devices
+  - service: notify.apple_all
     data_template:
       message: "{{ message }} {{ states('sensor.glenn_error_description') }}"

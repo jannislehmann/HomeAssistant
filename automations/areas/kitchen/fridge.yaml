@@ -28,7 +28,7 @@ action:
       - service: notify.telegram_group
         data:
           message: ❄️ Der Kühlschrank ist über 11°C!
-      - service: notify.all_devices
+      - service: notify.apple_all
         data:
           message: ❄️ Der Kühlschrank ist über 11°C!
   - conditions:

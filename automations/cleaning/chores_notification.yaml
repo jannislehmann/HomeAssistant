@@ -1,6 +1,7 @@
 ---
 id: 9f043340-ce18-4fbc-9748-72a02beaa454
-alias: Notify when household tasks are due
+alias: Due Chores
+description: Notify when household tasks are due
 trigger:
   - platform: time
     at: "10:00:00"
