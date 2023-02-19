@@ -1,4 +1,20 @@
 ---
 homekit:
-  name: Home Assistant
-  filter: !include_dir_merge_named ../../etc/assistant_filters
+  - name: Home Assistant
+    filter: !include_dir_merge_named ../../etc/assistant_filters
+  - name: Home Assistant Camera
+    port: 21064
+    mode: accessory
+    filter:
+      include_entities:
+        - camera.doorbell
+    entity_config:
+      camera.doorbell:
+        name: Wohnungstür
+        linked_doorbell_sensor: binary_sensor.doorbell
+  - name: Home Assistant House Lock
+    port: 21065
+    mode: accessory
+    filter:
+      include_entities:
+        - lock.door_house

@@ -51,6 +51,10 @@
                     action: toggle
                   name: Glenn
                   icon: phu:roborock
+                - type: custom:mushroom-entity-card
+                  entity: input_boolean.open_house_door_on_ring
+                  tap_action:
+                    action: toggle
 
         - type: vertical-stack
           cards:
@@ -69,3 +73,5 @@
                 - binary_sensor.contact_door
                 - binary_sensor.contact_living_door
                 - binary_sensor.contact_living_window
+                - lock.door_house
+                - binary_sensor.doorbell
