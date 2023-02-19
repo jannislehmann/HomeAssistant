@@ -1,0 +1,19 @@
+---
+id: 0d21270f-34c3-4939-b743-706a4227779a
+alias: Plant problem
+description: Notify when a plant is not ok
+trigger:
+  - platform: time
+    at: "09:00:00"
+mode: single
+action:
+  - repeat:
+      for_each: "{{ expand(states.plant) | map(attribute='entity_id') | list }}"
+      sequence:
+        - variables:
+            plant: "{{ repeat.item }}"
+        - condition: template
+          value_template: "{{ states(plant) != 'ok' }}"
+        - service: notify.telegram_group
+          data:
+            message: "🪴 {{ state_attr(plant, 'friendly_name') }} benötigt etwas."
