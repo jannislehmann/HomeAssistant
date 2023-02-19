@@ -2,8 +2,6 @@
 # Provides a list of entities to include in HomeKit.
 include_entities:
   - alarm_control_panel.ha_alarm
-  # Cover
-  - cover.bed_cover
   # Light
   - light.flur
   - light.go
