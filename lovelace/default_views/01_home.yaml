@@ -48,6 +48,9 @@
                   gray
                 {% endif %}
 
+      - type: custom:mushroom-lock-card
+        entity: lock.door_apartment
+
       # Playing radio
       - type: conditional
         conditions:
