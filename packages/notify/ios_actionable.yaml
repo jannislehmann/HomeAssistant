@@ -5,7 +5,7 @@ ios:
     background_color: "#000000"
     label:
       text: Licht
-      color: "#ff0000"
+      color: "#ffffff"
     icon:
       icon: lamp
       color: "#ffffff"
@@ -13,8 +13,17 @@ ios:
   - name: VACUUM
     background_color: "#000000"
     label:
-      text: Vacuum
-      color: "#ff0000"
+      text: Staubsauger
+      color: "#ffffff"
     icon:
       icon: mdi:robot-vacuum
+      color: "#ffffff"
+
+  - name: HOUSE_DOOR
+    background_color: "#000000"
+    label:
+      text: Haustür
+      color: "#ffffff"
+    icon:
+      icon: mdi:door
       color: "#ffffff"
