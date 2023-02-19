@@ -13,18 +13,12 @@ esp32:
 packages:
   main_base: !include common/main_base.yaml
 
-sensor:
-  # XIAOMI MISCALE
-  - platform: xiaomi_miscale
-    mac_address: !secret mac_mi_scale
-    weight:
-      id: "miscale_weight"
-      name: "Jannis Weight"
-      icon: mdi:scale-bathroom
-      accuracy_decimals: 2
-
 esp32_ble_tracker:
   scan_parameters:
     interval: 1100ms
     window: 1100ms
     active: true
+
+# Required for SwitchBot
+bluetooth_proxy:
+  active: true
