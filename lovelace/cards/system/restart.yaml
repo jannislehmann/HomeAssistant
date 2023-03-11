@@ -11,6 +11,12 @@ entities:
       action: call-service
       service: homeassistant.restart
   - entity: zone.home
+    icon: 'mdi:reload'
+    name: Reload
+    tap_action:
+      action: call-service
+      service: homeassistant.reload_all
+  - entity: zone.home
     icon: 'mdi:cogs'
     name: Automation
     tap_action:
