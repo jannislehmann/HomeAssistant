@@ -11,3 +11,8 @@ mini_graph:
     align_header: left
     show:
       labels: true
+    card_mod:
+      style: |
+        ha-card .graph {
+          background-color: transparent;
+        }
