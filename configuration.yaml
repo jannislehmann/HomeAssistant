@@ -31,6 +31,10 @@ homeassistant:
         10.0.5.63: !secret hannah_id
       allow_bypass_login: true
     - type: homeassistant
+  
+  customize:
+    media_player.avr:
+      device_class: tv
 
     
 frontend:

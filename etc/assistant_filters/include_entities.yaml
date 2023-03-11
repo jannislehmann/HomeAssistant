@@ -11,6 +11,7 @@ include_entities:
   - light.living_floor_light
   - light.playbar
   - light.office_ceiling
+  - light.receiver_volume
   # Switches
   - switch.monitor
   - switch.coffee
