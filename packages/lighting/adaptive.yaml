@@ -7,17 +7,18 @@ adaptive_lighting:
       - light.flur
 
   - name: office_desk
-    min_color_temp: 4000
+    min_color_temp: 4500
     min_brightness: 100
     lights:
       - light.playbar
 
   - name: office_ceiling
+    min_color_temp: 4500
     lights:
       - light.office_ceiling
 
   - name: office_fado
-    min_color_temp: 2500
+    min_color_temp: 3000
     min_brightness: 70
     max_brightness: 80
     lights:
@@ -37,5 +38,6 @@ adaptive_lighting:
   - name: bed_go
     min_brightness: 35
     max_brightness: 65
+    sleep_transition: 300
     lights:
       - light.go
