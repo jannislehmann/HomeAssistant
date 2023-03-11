@@ -1,7 +1,23 @@
-type: horizontal-stack
+# lovelace_gen
+type: vertical-stack
 cards:
-- type: custom:mushroom-chips-card
-  chips:
-    - type: weather
-      entity: weather.openweathermap
-      show_temperature: true
+  - type: horizontal-stack
+    cards:
+    - type: custom:mushroom-chips-card
+      chips:
+        - type: back
+        - type: weather
+          entity: weather.openweathermap
+          show_temperature: true
+  {% if title %}
+  - type: custom:button-card
+    name: {{ title }}
+    styles:
+      card:
+        - background: none
+        - padding: 16px 0
+        - '--mdc-ripple-press-opacity': 0
+      name:
+        - font-size: 32px
+        - color: var(--contrast20)
+  {% endif %}
