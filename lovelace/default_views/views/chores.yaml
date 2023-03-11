@@ -7,20 +7,16 @@
   cards:
     - type: vertical-stack
       cards:
+        - !include
+            - ../../includes/header.yaml
+            - title: Aufgaben
 
-      - title: Aufgaben
-        type: custom:mushroom-title-card
-
-      #- type: 'custom:button-card'
-      #  template: chore_card
-      #  entity: input_button.chore_change_bed
-
-      - type: 'custom:auto-entities'
-        filter:
-          include:
-            - group: group.chores
-              options:
-                type: 'custom:button-card'
-                template: chore_card
-        card:
-          type: entities
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - group: group.chores
+                options:
+                  type: 'custom:button-card'
+                  template: chore_card
+          card:
+            type: entities
