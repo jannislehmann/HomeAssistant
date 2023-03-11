@@ -20,7 +20,7 @@
               template: mini_graph
               variables:
                 - entity_id: {{ sensor.entity_id }}
-                - color: "var(--google-{{ sensor.color }})"
+                - color: "var(--{{ sensor.color }})"
                 - name: {{ sensor.name }}
           {% endfor %}
       {% endif %}
@@ -48,10 +48,10 @@
               entities:
                 - entity: {{ room.sensors[0].entity_id }}
                   name: Temperatur
-                  color: '#00bb33'
+                  color: var(--red)
                 - entity: {{ room.sensors[1].entity_id }}
                   name: Luftfeuchtigkeit
-                  color: '#2196f3'
+                  color: var(--purple)
                   y_axis: secondary
               hours_to_show: 24
               line_width: 3
@@ -63,6 +63,12 @@
                 state: false
                 legend: false
                 fill: fade
+                labels: true
+              card_mod:
+                style: |
+                  ha-card .graph {
+                    background-color: transparent;
+                  }
       {% endif %}
 
       {% if room.lights %}
@@ -91,7 +97,7 @@
                     {% if s.icon %}
                     icon: {{ s.icon }}
                     {% endif %}
-                {% endfor %}
+                  {% endfor %}
       {% endif %}
 
       {% if room.media_players %}

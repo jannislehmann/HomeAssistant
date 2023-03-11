@@ -58,10 +58,10 @@ chore_card:
     icon:
       - color: |
           [[[
-            if ((variables.diff < 2) && (variables.last_done.getDay() == variables.now.getDay())) { return '#8BC24A' }
+            if ((variables.diff < 2) && (variables.last_done.getDay() == variables.now.getDay())) { return 'var(--green)' }
             if (variables.due > 0) {
-              if (variables.due < variables.diff) { return '#FF5252' }
-              if (variables.due < variables.diff + (variables.due / 4)) { return '#FFC107' }
+              if (variables.due < variables.diff) { return 'var(--red)' }
+              if (variables.due < variables.diff + (variables.due / 4)) { return 'var(--orange)' }
             } else { return 'var(--primary-text-color)' }
           ]]]
     name:
@@ -77,8 +77,8 @@ chore_card:
       badge:
         - background: |
             [[[
-              if ((variables.diff < 2) && (variables.last_done.getDay() == variables.now.getDay())) { return '#8BC24A' }
-              if (variables.due < variables.diff) { return '#FF5252' } else { return '#FFC107' }
+              if ((variables.diff < 2) && (variables.last_done.getDay() == variables.now.getDay())) { return 'var(--green)' }
+              if (variables.due < variables.diff) { return 'var(--red)' } else { return 'var(--orange)' }
             ]]]
         - padding: 2px
         - line-height: 1
@@ -86,7 +86,7 @@ chore_card:
         - font-weight: 900
         - text-transform: uppercase
         - border-radius: 2px
-        - color: var(--primary-color)
+        - color: var(--contrast10)
   tap_action:
     confirmation:
       text: >
@@ -111,15 +111,15 @@ chore_tile:
       - margin: 0
       - background-color: |
           [[[
-            if ((variables.diff < 2) && (variables.last_done.getDay() == variables.now.getDay())) { return '#8BC24A' }
+            if ((variables.diff < 2) && (variables.last_done.getDay() == variables.now.getDay())) { return 'var(--green)' }
             if (variables.due > 0) {
-              if (variables.due < variables.diff) { return '#FF5252' }
+              if (variables.due < variables.diff) { return 'var(--red)' }
               if (variables.due < variables.diff + (variables.due / 4)) { return 'var(--primary-color)' }
             } else { return 'var(--ha-card-background)'}
           ]]]
       - color: |
           [[[
-            if ((variables.diff < 2) && (variables.last_done.getDay() == variables.now.getDay())) { return 'white' }
+            if ((variables.diff < 2) && (variables.last_done.getDay() == variables.now.getDay())) { return 'var(--primary-text-color)' }
             if ((variables.due > 0) && (variables.due < variables.diff)) { return 'white' } else {return 'var(--disabled-text-color'}
           ]]]
     name:

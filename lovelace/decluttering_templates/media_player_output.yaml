@@ -13,6 +13,7 @@ media_player_output:
           service_data:
             entity_id: '[[entity_id]]'
         show_state: false
+        color: var(--green)
       - type: custom:state-switch
         entity: '[[entity_id]]'
         states:

@@ -41,11 +41,6 @@
                   icon: mdi:piano
                   content_info: name
                   name: Bremen NEXT
-                  card_mod: null
-                  style: |-
-                    ha-card {
-                          top: 2px;
-                        }
                 - type: entity
                   entity: media_player.forked_daapd_server
                   tap_action:
@@ -56,11 +51,6 @@
                   icon: mdi:disc-player
                   content_info: name
                   name: Energy Bremen
-                  card_mod: null
-                  style: |-
-                    ha-card {
-                          top: 2px;
-                        }
                 - type: entity
                   entity: media_player.forked_daapd_server
                   tap_action:
@@ -71,17 +61,11 @@
                   icon: mdi:radio
                   content_info: name
                   name: Mashup
-                  card_mod: null
-                  style: |-
-                    ha-card {
-                          top: 2px;
-                        }
               alignment: center
               card_mod:
                 style: |
                   ha-card {
                     margin: 0px 12px 12px;
-                    --chip-background: rgba(var(--disabled), 0.15);
                     --chip-border-width: 0;
                     --chip-box-shadow: none;
                     --chip-border-radius: 12px;
