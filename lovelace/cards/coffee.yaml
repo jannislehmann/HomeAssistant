@@ -3,60 +3,25 @@ cards:
   - title: Kaffee
     type: custom:mushroom-title-card
 
-  - type: vertical-stack
-    cards:
-      - type: custom:stack-in-card
-        cards:
-          - type: custom:mushroom-template-card
-            icon: mdi:coffee
-            icon_color: |-
-              {% if is_state('switch.coffee', 'on') %}
-              brown
-              {% endif %}
-            primary: Kaffee
-            entity: switch.coffee
-            secondary: |-
-              {% if is_state('switch.coffee', 'on') %}
-              On - {{ states('sensor.coffee_current_consumption' ) | int(0) }} W
-              {% else %}
-              Off
-              {% endif %}
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  ha-icon {
-                    transform: scaleY(0.8);
-                    transform-origin: 50% 100%;
-                  }
-          - type: custom:mushroom-template-card
-            entity: switch.coffee
-            icon: mdi:pot-steam
-            icon_color: |-
-              {% if is_state('switch.coffee', 'on') %}
-              brown
-              {% endif %}
-            card_mod:
-              style:
-                mushroom-shape-icon$: |
-                  ha-icon {
-                    --icon-animation: steam 3s ease-out infinite;
-                  }
-                  @keyframes steam {
-                    0%, 100% { clip-path: inset(37% 0 60% 0); }
-                    80% { clip-path: inset(0 0 61% 0); }
-                  }
-                  .shape {
-                    --shape-color: none;
-                    top: -2px;
-                  }
-                .: |
-                  ha-card {
-                    width: 66px;
-                    top: -66px;
-                  }
-        card_mod:
-          style: |
-            ha-card {
-              height: 66px;
-            }
-        
+  - type: custom:mushroom-template-card
+    icon: mdi:coffee
+    icon_color: |-
+      {% if is_state('switch.coffee', 'on') %}
+      brown
+      {% endif %}
+    primary: Kaffee
+    entity: switch.coffee
+    secondary: |-
+      {% if is_state('switch.coffee', 'on') %}
+      On - {{ states('sensor.coffee_current_consumption' ) | int(0) }} W
+      {% else %}
+      Off
+      {% endif %}
+    card_mod:
+      style: |
+        ha-card {
+          height: 66px;
+          {% if is_state('switch.coffee', 'on') %}
+          background-color: var(--orange);
+          {% endif %}
+        }
