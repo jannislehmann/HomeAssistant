@@ -1,6 +1,6 @@
 ---
-id: 9f043340-ce18-4fbc-9748-72a02beaa454
-alias: Due Chores
+id: 4e4f71ca-574f-4397-8e22-46e5329cd853
+alias: Chores Due Notification
 description: Notify when household tasks are due
 trigger:
   - platform: time
@@ -15,8 +15,9 @@ action:
             button: "{{ 'input_button.' + task_id }}"
             text: "{{ 'input_text.' + task_id }}"
             next_due: "{{ states(button) | as_datetime + timedelta(days=(states(text) | int) - 1) }}"
+            action_done: "{{ 'CHORE_DONE_' + task_id }}"
         - condition: template
           value_template: "{{ next_due | as_datetime < now() }}"
         - service: notify.telegram_group
-          data:
+          data_template:
             message: "🧹 {{ state_attr(button, 'friendly_name') }} muss erledigt werden."
