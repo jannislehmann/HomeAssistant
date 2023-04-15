@@ -25,6 +25,19 @@ script:
         data:
           entity_id: media_player.bed_homepod_mini
           volume_level: 0.35
+  bremen_next_office:
+    alias: Bremen Next Office
+    sequence:
+      - service: media_player.turn_on
+        entity_id: media_player.office_homepod
+      - service: script.play_radio
+        data:
+          station: bremen_next (playlist)
+      - delay: '00:00:05'
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.office_homepod
+          volume_level: 0.1
   play_radio:
     alias: Play Radio
     fields:
