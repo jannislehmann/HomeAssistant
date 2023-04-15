@@ -18,3 +18,9 @@ homekit:
     filter:
       include_entities:
         - lock.door_house
+  - name: Home Assistant Ap Lock
+    port: 21066
+    mode: accessory
+    filter:
+      include_entities:
+        - lock.door_apartment
