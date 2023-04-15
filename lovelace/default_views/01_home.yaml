@@ -2,13 +2,11 @@
   icon: mdi:home
   path: home
   cards:
-    - !include ../cards/snow.yaml
+    # - !include ../cards/snow.yaml
 
     - type: vertical-stack
       cards:
-      - !include 
-        - ../includes/header.yaml
-        - title: Home
+      - !include ../includes/header.yaml
 
       # Home Header
       - type: custom:simple-weather-card
@@ -22,31 +20,13 @@
           - precipitation_probability
         backdrop: true
 
-      - type: custom:mushroom-template-card
-        icon: mdi:alarm-light
-        icon_color: black
+      - type: tile
         entity: alarm_control_panel.ha_alarm
-        tap_action:
-          action: more-info
-        primary: Alarm
-        secondary: "{{ states('alarm_control_panel.ha_alarm') }}"
-        card_mod:
-          style: |
-            ha-card {
-              --primary-text-color: white;
-              --secondary-text-color: white;
-              background:
-                {% if is_state('alarm_control_panel.ha_alarm', 'disarmed') %}
-                  #00FF7F
-                {% elif is_state('alarm_control_panel.ha_alarm', 'armed_away') %}
-                  orange
-                {% elif is_state('alarm_control_panel.ha_alarm', 'armed_home') %}
-                  gold
-                {% elif is_state('alarm_control_panel.ha_alarm', 'triggered') %}
-                  red
-                {% else %}
-                  gray
-                {% endif %}
+        features:
+          - type: "alarm-modes"
+            modes:
+              - armed_away
+              - disarmed
 
       - type: custom:mushroom-lock-card
         entity: lock.door_apartment
@@ -116,8 +96,6 @@
                         {% if states('binary_sensor.contact_office') in ("unavailable", "on") %}mdi:door-open{% endif %}
                       badge_color: red
                       icon: phu:rooms-office
-                      icon_color: |-
-                        {% if is_state('light.room_office', 'on') %}orange{% endif %}
                       layout: horizontal
                       multiline_secondary: false
                       tap_action:
@@ -132,7 +110,7 @@
                       card_mod:
                         style: |
                           ha-card {
-                            --ha-card-border-width: 0;
+                            {% if is_state('light.room_office', 'on') %}background: var(--yellow){% endif %}
                           }
                     - type: custom:vertical-stack-in-card
                       horizontal: true
@@ -201,7 +179,7 @@
                           secondary: ''
                           layout: vertical
                           icon: phu:floor-shade
-                          entity: light.living_floor_light
+                          entity: light.living_wall
                           icon_color: |-
                             {% if is_state(config.entity, "on") %}
                               orange
@@ -347,11 +325,18 @@
                         {% if states('binary_sensor.contact_living_door') in ("unavailable", "on") %}mdi:door-open{% endif %}
                       badge_color: red
                       icon: mdi:grill
+                      icon_color: |-
+                        {% if is_state('light.room_outdoor', 'on') %}orange{% endif %}
                       layout: horizontal
                       multiline_secondary: false
                       tap_action:
                         action: navigate
                         navigation_path: terrasse
+                      double_tap_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.room_outdoor
                       card_mod:
                         style: |
                           ha-card {
@@ -444,12 +429,22 @@
                   service_data:
                     entity_id: vacuum.glenn
                   haptic: success
+                card_mod:
+                  style: |
+                    ha-card {
+                      {% if is_state('vacuum.glenn', 'cleaning') %}background: var(--green){% endif %}
+                    }
               - type: custom:mushroom-template-card
                 primary: Audio
                 icon: mdi:speaker-multiple
                 tap_action:
                   action: navigate
                   navigation_path: audio
+                card_mod:
+                  style: |
+                    ha-card {
+                      {% if is_state('media_player.forked_daapd_server', 'playing') %}background: var(--purple){% endif %}
+                    }
 
               - type: custom:mushroom-template-card
                 primary: Aufgaben
