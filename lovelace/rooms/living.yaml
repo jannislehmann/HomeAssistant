@@ -9,9 +9,9 @@ sensors:
     name: Luftfeuchtigkeit
     color: purple
 lights:
-  - entity_id: light.living_floor_light
-    name: Stehlampe
-    icon: phu:floor-shade
+  - entity_id: light.living_wall
+    name: Wandlampe
+    icon: mdi:wall-sconce-flat
   - entity_id: light.living_dining_table
     name: Esstisch
     icon: mdi:table-chair

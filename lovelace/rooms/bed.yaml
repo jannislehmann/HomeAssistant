@@ -9,6 +9,9 @@ sensors:
     name: Luftfeuchtigkeit
     color: purple
 lights:
+  - entity_id: light.bed_fado
+    name: FADO
+    icon: mdi:dome-light
   - entity_id: light.go
     name: Go
     icon: phu:go

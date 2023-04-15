@@ -11,8 +11,6 @@ light:
     entities:
       - light.go
       - light.kitchen_cabinets
-      - light.fado_desk
-      - light.living_floor_light
       - light.playbar
 
   - platform: group
@@ -24,6 +22,7 @@ light:
   - platform: group
     name: room_bed
     entities:
+      - light.bed_fado
       - light.go
 
   - platform: group
@@ -39,17 +38,21 @@ light:
   - platform: group
     name: room_living
     entities:
-      - light.living_floor_light
+      - light.living_wall
       - light.twinkly
 
   - platform: group
     name: room_office
     entities:
       - light.playbar
-      - light.fado_desk
       - light.office_ceiling
 
   - platform: group
     name: room_storage
     entities:
       - light.storage
+  
+  - platform: group
+    name: room_outdoor
+    entities:
+      - light.outdoor_light

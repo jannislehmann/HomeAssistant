@@ -1,6 +1,10 @@
 ---
 name: Terrasse
 icon: mdi:grill
+lights:
+  - entity_id: light.outdoor_light
+    name: Lichterkette
+    icon: mdi:string-lights
 sensors:
   - entity_id: sensor.temperature_outside
     name: Temperatur

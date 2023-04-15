@@ -15,7 +15,7 @@ action:
       sequence:
         - service: light.toggle
           data:
-            entity_id: light.living_floor_light
+            entity_id: light.living_wall
             transition: 5
     # Left Double Click
     - conditions:

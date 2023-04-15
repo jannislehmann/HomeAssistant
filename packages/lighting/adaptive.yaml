@@ -6,23 +6,22 @@ adaptive_lighting:
     lights:
       - light.flur
 
+  - name: living_wall
+    min_brightnes: 60
+    max_brightness: 80
+    lights:
+      - light.living_wall
+
   - name: office_desk
-    min_color_temp: 4500
+    min_color_temp: 4000
     min_brightness: 100
     lights:
       - light.playbar
 
   - name: office_ceiling
-    min_color_temp: 4500
+    min_color_temp: 4000
     lights:
       - light.office_ceiling
-
-  - name: office_fado
-    min_color_temp: 3000
-    min_brightness: 70
-    max_brightness: 80
-    lights:
-      - light.fado_desk
 
   - name: kitchen
     min_brightness: 100
@@ -30,14 +29,16 @@ adaptive_lighting:
     lights:
       - light.kitchen_cabinets
 
-  - name: living_floor_light
-    min_brightness: 85
-    lights:
-      - light.living_floor_light
-
-  - name: bed_go
+  - name: bed
     min_brightness: 35
     max_brightness: 65
-    sleep_transition: 300
+    sleep_transition: 60
+    sleep_brightness: 50
     lights:
       - light.go
+
+  - name: bed_fado
+    min_brightness: 50
+    max_brightness: 90
+    lights:
+      - light.bed_fado
