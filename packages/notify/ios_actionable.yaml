@@ -1,15 +1,6 @@
 ---
 ios:
   actions:
-  - name: LIGHT
-    background_color: "#000000"
-    label:
-      text: Licht
-      color: "#ffffff"
-    icon:
-      icon: lamp
-      color: "#ffffff"
-
   - name: VACUUM
     background_color: "#000000"
     label:
