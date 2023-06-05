@@ -10,13 +10,11 @@ script:
           - input_boolean.alarm_clock_triggered_today
           - input_boolean.alarm_clock_on
       - service: switch.turn_on
-        entity_id: switch.adaptive_lighting_sleep_mode_bed_go
+        entity_id: switch.adaptive_lighting_sleep_mode_bed
       - service: light.turn_on
         entity_id: light.go
-      - service: switch.turn_off
-        entity_id: switch.adaptive_lighting_sleep_mode_bed_go
       - delay:
-          minutes: 2
+          minutes: 1
       - service: script.bremen_next_bed
       - delay:
           minutes: 1
@@ -24,6 +22,8 @@ script:
         entity_id: cover.bed_cover
       - delay:
           minutes: 30
+      - service: switch.turn_off
+        entity_id: switch.adaptive_lighting_sleep_mode_bed
       - service: input_boolean.turn_off
         entity_id: input_boolean.alarm_clock_on
       - service: script.alarm_clock_gtfo_bed
