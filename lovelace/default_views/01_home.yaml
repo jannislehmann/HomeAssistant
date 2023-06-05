@@ -76,333 +76,242 @@
             columns: 2
             square: false
             cards:
-              # https://community.home-assistant.io/t/mushroom-inspiration/484525/4
-
               #
               # OFFICE
               #
-              - type: custom:vertical-stack-in-card
-                cards:
-                - type: custom:swipe-card
-                  parameters:
-                    spaceBetween: 8
-                  cards:
-                    - type: custom:mushroom-template-card
-                      primary: Büro
-                      secondary: |-
-                        {{ states('sensor.temperature_office') }} °C
-                        {% if states('binary_sensor.contact_office') in ("unavailable", "on")%}• Offen{% else %} • Geschlossen{% endif %}
-                      badge_icon: |-
-                        {% if states('binary_sensor.contact_office') in ("unavailable", "on") %}mdi:door-open{% endif %}
-                      badge_color: red
-                      icon: phu:rooms-office
-                      layout: horizontal
-                      multiline_secondary: false
-                      tap_action:
-                        action: navigate
-                        navigation_path: buero
-                      double_tap_action:
-                        action: call-service
-                        service: light.turn_off
-                        service_data:
-                          entity_id: light.room_office
-                        haptic: success
-                      card_mod:
-                        style: |
-                          ha-card {
-                            {% if is_state('light.room_office', 'on') %}background: var(--yellow){% endif %}
-                          }
-                    - type: custom:vertical-stack-in-card
-                      horizontal: true
-                      cards:
-                        - type: custom:mushroom-template-card
-                          primary: ''
-                          secondary: ''
-                          layout: vertical
-                          icon: mdi:coffee
-                          entity: switch.coffee
-                          icon_color: |-
-                            {% if is_state(config.entity, "on") %}
-                              brown
-                            {% else %}
-                              grey
-                            {% endif%}
-                          tap_action:
-                            action: toggle
-                      card_mod:
-                        style: |
-                          ha-card {
-                            --ha-card-border-width: 0;
-                          }
+              - type: custom:mushroom-template-card
+                primary: Büro
+                secondary: |-
+                  {{ states('sensor.temperature_office') }} °C
+                  {% if states('binary_sensor.contact_office') in ("unavailable", "on")%}• Offen{% else %} • Geschlossen{% endif %}
+                badge_icon: |-
+                  {% if states('binary_sensor.contact_office') in ("unavailable", "on") %}mdi:door-open{% endif %}
+                badge_color: red
+                icon: phu:rooms-office
+                layout: horizontal
+                multiline_secondary: false
+                tap_action:
+                  action: navigate
+                  navigation_path: buero
+                double_tap_action:
+                  action: call-service
+                  service: light.turn_off
+                  service_data:
+                    entity_id: light.room_office
+                  haptic: success
+                hold_action:
+                  action: call-service
+                  service: switch.turn_on
+                  service_data:
+                    entity_id: switch.coffee
+                card_mod:
+                  style: |
+                    ha-card {
+                      {% if is_state('light.room_office', 'on') %}background: var(--yellow){% endif %}
+                    }
 
               #
               # LIVING
               #
-              - type: custom:vertical-stack-in-card
-                cards:
-                - type: custom:swipe-card
-                  parameters:
-                    spaceBetween: 8
-                  cards:
-                    - type: custom:mushroom-template-card
-                      primary: Wohnzimmer
-                      secondary: |-
-                        {{ states('sensor.temperature_living') }} °C
-                        {% if states('binary_sensor.contact_living_window') in ("unavailable", "on")%}• Offen{% else %} • Geschlossen{% endif %}
-                      badge_icon: |-
-                        {% if states('binary_sensor.contact_living_window') in ("unavailable", "on") %}mdi:door-open{% endif %}
-                      badge_color: red
-                      icon: phu:rooms-living
-                      icon_color: |-
-                        {% if is_state('light.room_living', 'on') %}orange{% endif %}
-                      layout: horizontal
-                      multiline_secondary: false
-                      tap_action:
-                        action: navigate
-                        navigation_path: wohnzimmer
-                      double_tap_action:
-                        action: call-service
-                        service: light.turn_off
-                        service_data:
-                          entity_id: light.room_living
-                        haptic: success
-                      card_mod:
-                        style: |
-                          ha-card {
-                            --ha-card-border-width: 0;
-                          }
-                    - type: custom:vertical-stack-in-card
-                      horizontal: true
-                      cards:
-                        - type: custom:mushroom-template-card
-                          primary: ''
-                          secondary: ''
-                          layout: vertical
-                          icon: phu:floor-shade
-                          entity: light.living_wall
-                          icon_color: |-
-                            {% if is_state(config.entity, "on") %}
-                              orange
-                            {% else %}
-                              grey
-                            {% endif%}
-                          tap_action:
-                            action: toggle
-                          hold_action:
-                            action: more-info
-                      card_mod:
-                        style: |
-                          ha-card {
-                            --ha-card-border-width: 0;
-                          }
+              - type: custom:mushroom-template-card
+                primary: Wohnzimmer
+                secondary: |-
+                  {{ states('sensor.temperature_living') }} °C
+                  {% if states('binary_sensor.contact_living_window') in ("unavailable", "on")%}• Offen{% else %} • Geschlossen{% endif %}
+                badge_icon: |-
+                  {% if states('binary_sensor.contact_living_window') in ("unavailable", "on") %}mdi:door-open{% endif %}
+                badge_color: red
+                icon: phu:rooms-living
+                icon_color: |-
+                  {% if is_state('light.room_living', 'on') %}orange{% endif %}
+                layout: horizontal
+                multiline_secondary: false
+                tap_action:
+                  action: navigate
+                  navigation_path: wohnzimmer
+                double_tap_action:
+                  action: call-service
+                  service: light.turn_off
+                  service_data:
+                    entity_id: light.room_living
+                  haptic: success
+                card_mod:
+                  style: |
+                    ha-card {
+                      --ha-card-border-width: 0;
+                    }
       
               #
               # BED
               #
-              - type: custom:vertical-stack-in-card
-                cards:
-                - type: custom:swipe-card
-                  parameters:
-                    spaceBetween: 8
-                  cards:
-                    - type: custom:mushroom-template-card
-                      primary: Schlafzimmer
-                      secondary: |-
-                        {{ states('sensor.temperature_bed') }} °C
-                        {% if states('binary_sensor.contact_bed') in ("unavailable", "on")%}• Offen{% else %} • Geschlossen{% endif %}
-                      badge_icon: |-
-                        {% if states('binary_sensor.contact_bed') in ("unavailable", "on") %}mdi:door-open{% endif %}
-                      badge_color: red
-                      icon: mdi:bed-double
-                      icon_color: |-
-                        {% if is_state('light.room_bed', 'on') %}orange{% endif %}
-                      layout: horizontal
-                      multiline_secondary: false
-                      tap_action:
-                        action: navigate
-                        navigation_path: schlafzimmer
-                      double_tap_action:
-                        action: call-service
-                        service: light.turn_off
-                        service_data:
-                          entity_id: light.room_bed
-                        haptic: success
-                      card_mod:
-                        style: |
-                          ha-card {
-                            --ha-card-border-width: 0;
-                          }
+              - type: custom:mushroom-template-card
+                primary: Schlafzimmer
+                secondary: |-
+                  {{ states('sensor.temperature_bed') }} °C
+                  {% if states('binary_sensor.contact_bed') in ("unavailable", "on")%}• Offen{% else %} • Geschlossen{% endif %}
+                badge_icon: |-
+                  {% if states('binary_sensor.contact_bed') in ("unavailable", "on") %}mdi:door-open{% endif %}
+                badge_color: red
+                icon: mdi:bed-double
+                icon_color: |-
+                  {% if is_state('light.room_bed', 'on') %}orange{% endif %}
+                layout: horizontal
+                multiline_secondary: false
+                tap_action:
+                  action: navigate
+                  navigation_path: schlafzimmer
+                double_tap_action:
+                  action: call-service
+                  service: light.turn_off
+                  service_data:
+                    entity_id: light.room_bed
+                  haptic: success
+                card_mod:
+                  style: |
+                    ha-card {
+                      --ha-card-border-width: 0;
+                    }
 
               #
               # HALLWAY
               #
-              - type: custom:vertical-stack-in-card
-                cards:
-                - type: custom:swipe-card
-                  parameters:
-                    spaceBetween: 8
-                  cards:
-                    - type: custom:mushroom-template-card
-                      primary: Flur
-                      secondary: |-
-                        {{ states('sensor.temperature_hall') }} °C
-                        {% if states('binary_sensor.contact_door') in ("unavailable", "on")%}• Offen{% else %} • Geschlossen{% endif %}
-                      badge_icon: |-
-                        {% if states('binary_sensor.contact_door') in ("unavailable", "on") %}mdi:door-open{% endif %}
-                      badge_color: red
-                      icon: phu:rooms-hallway
-                      icon_color: |-
-                        {% if is_state('light.room_hall', 'on') %}orange{% endif %}
-                      layout: horizontal
-                      multiline_secondary: false
-                      tap_action:
-                        action: navigate
-                        navigation_path: flur
-                      double_tap_action:
-                        action: call-service
-                        service: light.turn_off
-                        service_data:
-                          entity_id: light.room_hall
-                        haptic: success
-                      card_mod:
-                        style: |
-                          ha-card {
-                            --ha-card-border-width: 0;
-                          }
+              - type: custom:mushroom-template-card
+                primary: Flur
+                secondary: |-
+                  {{ states('sensor.temperature_hall') }} °C
+                  {% if states('binary_sensor.contact_door') in ("unavailable", "on")%}• Offen{% else %} • Geschlossen{% endif %}
+                badge_icon: |-
+                  {% if states('binary_sensor.contact_door') in ("unavailable", "on") %}mdi:door-open{% endif %}
+                badge_color: red
+                icon: phu:rooms-hallway
+                icon_color: |-
+                  {% if is_state('light.room_hall', 'on') %}orange{% endif %}
+                layout: horizontal
+                multiline_secondary: false
+                tap_action:
+                  action: navigate
+                  navigation_path: flur
+                double_tap_action:
+                  action: call-service
+                  service: light.turn_off
+                  service_data:
+                    entity_id: light.room_hall
+                  haptic: success
+                card_mod:
+                  style: |
+                    ha-card {
+                      --ha-card-border-width: 0;
+                    }
 
               #
               # KITCHEN
               #
-              - type: custom:vertical-stack-in-card
-                cards:
-                - type: custom:swipe-card
-                  parameters:
-                    spaceBetween: 8
-                  cards:
-                    - type: custom:mushroom-template-card
-                      primary: Küche
-                      secondary: |-
-                        {{ states('sensor.temperature_kitchen') }} °C
-                        {% if states('binary_sensor.contact_kitchen') in ("unavailable", "on")%}• Offen{% else %} • Geschlossen{% endif %}
-                      badge_icon: |-
-                        {% if states('binary_sensor.contact_kitchen') in ("unavailable", "on") %}mdi:door-open{% endif %}
-                      badge_color: red
-                      icon: phu:rooms-kitchen
-                      icon_color: |-
-                        {% if is_state('light.room_kitchen', 'on') %}orange{% endif %}
-                      layout: horizontal
-                      multiline_secondary: false
-                      tap_action:
-                        action: navigate
-                        navigation_path: kueche
-                      double_tap_action:
-                        action: call-service
-                        service: light.turn_off
-                        service_data:
-                          entity_id: light.room_kitchen
-                        haptic: success
-                      card_mod:
-                        style: |
-                          ha-card {
-                            --ha-card-border-width: 0;
-                          }
+              - type: custom:mushroom-template-card
+                primary: Küche
+                secondary: |-
+                  {{ states('sensor.temperature_kitchen') }} °C
+                  {% if states('binary_sensor.contact_kitchen') in ("unavailable", "on")%}• Offen{% else %} • Geschlossen{% endif %}
+                badge_icon: |-
+                  {% if states('binary_sensor.contact_kitchen') in ("unavailable", "on") %}mdi:door-open{% endif %}
+                badge_color: red
+                icon: phu:rooms-kitchen
+                icon_color: |-
+                  {% if is_state('light.room_kitchen', 'on') %}orange{% endif %}
+                layout: horizontal
+                multiline_secondary: false
+                tap_action:
+                  action: navigate
+                  navigation_path: kueche
+                double_tap_action:
+                  action: call-service
+                  service: light.turn_off
+                  service_data:
+                    entity_id: light.room_kitchen
+                  haptic: success
+                card_mod:
+                  style: |
+                    ha-card {
+                      --ha-card-border-width: 0;
+                    }
 
               #
               # OUTSIDE
               #
-              - type: custom:vertical-stack-in-card
-                cards:
-                - type: custom:swipe-card
-                  parameters:
-                    spaceBetween: 8
-                  cards:
-                    - type: custom:mushroom-template-card
-                      primary: Terrasse
-                      secondary: |-
-                        {{ states('sensor.temperature_outside') }} °C
-                        {% if states('binary_sensor.contact_living_door') in ("unavailable", "on")%}• Offen{% else %} • Geschlossen{% endif %}
-                      badge_icon: |-
-                        {% if states('binary_sensor.contact_living_door') in ("unavailable", "on") %}mdi:door-open{% endif %}
-                      badge_color: red
-                      icon: mdi:grill
-                      icon_color: |-
-                        {% if is_state('light.room_outdoor', 'on') %}orange{% endif %}
-                      layout: horizontal
-                      multiline_secondary: false
-                      tap_action:
-                        action: navigate
-                        navigation_path: terrasse
-                      double_tap_action:
-                        action: call-service
-                        service: light.turn_off
-                        service_data:
-                          entity_id: light.room_outdoor
-                      card_mod:
-                        style: |
-                          ha-card {
-                            --ha-card-border-width: 0;
-                          }
+              - type: custom:mushroom-template-card
+                primary: Terrasse
+                secondary: |-
+                  {{ states('sensor.temperature_outside') }} °C
+                  {% if states('binary_sensor.contact_living_door') in ("unavailable", "on")%}• Offen{% else %} • Geschlossen{% endif %}
+                badge_icon: |-
+                  {% if states('binary_sensor.contact_living_door') in ("unavailable", "on") %}mdi:door-open{% endif %}
+                badge_color: red
+                icon: mdi:grill
+                icon_color: |-
+                  {% if is_state('light.room_outdoor', 'on') %}orange{% endif %}
+                layout: horizontal
+                multiline_secondary: false
+                tap_action:
+                  action: navigate
+                  navigation_path: terrasse
+                double_tap_action:
+                  action: call-service
+                  service: light.turn_off
+                  service_data:
+                    entity_id: light.room_outdoor
+                card_mod:
+                  style: |
+                    ha-card {
+                      --ha-card-border-width: 0;
+                    }
 
               #
               # STORAGE
               #
-              - type: custom:vertical-stack-in-card
-                cards:
-                - type: custom:swipe-card
-                  parameters:
-                    spaceBetween: 8
-                  cards:
-                    - type: custom:mushroom-template-card
-                      primary: Abstellraum
-                      secondary: |-
-                        {{ states('sensor.temperature_storage') }} °C
-                      icon: phu:rooms-storage
-                      icon_color: |-
-                        {% if is_state('light.room_storage', 'on') %}orange{% endif %}
-                      layout: horizontal
-                      tap_action:
-                        action: navigate
-                        navigation_path: abstellraum
-                      double_tap_action:
-                        action: call-service
-                        service: light.turn_off
-                        service_data:
-                          entity_id: light.storage
-                        haptic: success
-                      card_mod:
-                        style: |
-                          ha-card {
-                            --ha-card-border-width: 0;
-                          }
+              - type: custom:mushroom-template-card
+                primary: Abstellraum
+                secondary: |-
+                  {{ states('sensor.temperature_storage') }} °C
+                icon: phu:rooms-storage
+                icon_color: |-
+                  {% if is_state('light.room_storage', 'on') %}orange{% endif %}
+                layout: horizontal
+                tap_action:
+                  action: navigate
+                  navigation_path: abstellraum
+                double_tap_action:
+                  action: call-service
+                  service: light.turn_off
+                  service_data:
+                    entity_id: light.storage
+                  haptic: success
+                card_mod:
+                  style: |
+                    ha-card {
+                      --ha-card-border-width: 0;
+                    }
 
               #
               # BATH
               #
-              - type: custom:vertical-stack-in-card
-                cards:
-                - type: custom:swipe-card
-                  parameters:
-                    spaceBetween: 8
-                  cards:
-                    - type: custom:mushroom-template-card
-                      primary: Badezimmer
-                      secondary: |-
-                        {{ states('sensor.temperature_bath') }} °C
-                        {% if states('binary_sensor.contact_bath') in ("unavailable", "on")%}• Offen{% else %} • Geschlossen{% endif %}
-                      badge_icon: |-
-                        {% if states('binary_sensor.contact_bath') in ("unavailable", "on") %}mdi:door-open{% endif %}
-                      badge_color: red
-                      icon: phu:rooms-toilet
-                      layout: horizontal
-                      multiline_secondary: false
-                      tap_action:
-                        action: navigate
-                        navigation_path: badezimmer
-                      card_mod:
-                        style: |
-                          ha-card {
-                            --ha-card-border-width: 0;
-                          }
+              - type: custom:mushroom-template-card
+                primary: Badezimmer
+                secondary: |-
+                  {{ states('sensor.temperature_bath') }} °C
+                  {% if states('binary_sensor.contact_bath') in ("unavailable", "on")%}• Offen{% else %} • Geschlossen{% endif %}
+                badge_icon: |-
+                  {% if states('binary_sensor.contact_bath') in ("unavailable", "on") %}mdi:door-open{% endif %}
+                badge_color: red
+                icon: phu:rooms-toilet
+                layout: horizontal
+                multiline_secondary: false
+                tap_action:
+                  action: navigate
+                  navigation_path: badezimmer
+                card_mod:
+                  style: |
+                    ha-card {
+                      --ha-card-border-width: 0;
+                    }
 
       # Audio, Glenn, Tasks
       - type: vertical-stack
@@ -417,7 +326,7 @@
                 primary: Glenn
                 icon: phu:roborock
                 icon_color: |-
-                  {% if is_state('vacuum.glenn', 'cleaning') %}
+                  {% if is_state('vacuum.valetudo_glenn', 'cleaning') %}
                   green
                   {% endif %}
                 tap_action:
@@ -427,12 +336,12 @@
                   action: call-service
                   service: vacuum.start
                   service_data:
-                    entity_id: vacuum.glenn
+                    entity_id: vacuum.valetudo_glenn
                   haptic: success
                 card_mod:
                   style: |
                     ha-card {
-                      {% if is_state('vacuum.glenn', 'cleaning') %}background: var(--green){% endif %}
+                      {% if is_state('vacuum.valetudo_glenn', 'cleaning') %}background: var(--green){% endif %}
                     }
               - type: custom:mushroom-template-card
                 primary: Audio
