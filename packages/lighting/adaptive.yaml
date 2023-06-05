@@ -7,7 +7,7 @@ adaptive_lighting:
       - light.flur
 
   - name: living_wall
-    min_brightnes: 60
+    min_brightness: 60
     max_brightness: 80
     lights:
       - light.living_wall
