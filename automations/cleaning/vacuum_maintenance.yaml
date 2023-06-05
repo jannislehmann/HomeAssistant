@@ -5,13 +5,13 @@ id: be74aead-ac55-4b5f-8005-6941a41c273c
 mode: single
 trigger:
   platform: state
-  entity_id: vacuum.glenn
+  entity_id: vacuum.valetudo_glenn
   to: docked
 action:
   choose:
   - conditions:
     - condition: numeric_state
-      entity_id: sensor.glenn_main_brush
+      entity_id: sensor.valetudo_glenn_main_brush
       below: 10
     sequence:
       service: notify.telegram_group
@@ -19,7 +19,7 @@ action:
         message: 🔧 Glenns Hauptbrüste muss bald getauscht werden.
   - conditions:
     - condition: numeric_state
-      entity_id: sensor.glenn_right_brush
+      entity_id: sensor.valetudo_glenn_right_brush
       below: 10
     sequence:
       service: notify.telegram_group
@@ -27,7 +27,7 @@ action:
         message: 🔧 Glenns Seitenbürste müssen bald getauscht werden.
   - conditions:
     - condition: numeric_state
-      entity_id: sensor.glenn_main_filter
+      entity_id: sensor.valetudo_glenn_main_filter
       below: 10
     sequence:
       service: notify.telegram_group
@@ -35,7 +35,7 @@ action:
         message: 🔧 Glenns Filter muss bald getauscht werden.
   - conditions:
     - condition: numeric_state
-      entity_id: sensor.glenn_sensor_cleaning
+      entity_id: sensor.valetudo_glenn_sensor_cleaning
       below: 10
     sequence:
       service: notify.telegram_group

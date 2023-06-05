@@ -13,10 +13,6 @@ condition:
   - condition: time
     after: '09:00'
     before: '20:00'
-  - condition: not
-    conditions:
-      - condition: time
-        weekday: sun
   - condition: state
     entity_id: binary_sensor.home
     state: 'off'
@@ -25,4 +21,4 @@ condition:
     state: 'off'
 action:
   service: vacuum.start
-  entity_id: vacuum.glenn
+  entity_id: vacuum.valetudo_glenn

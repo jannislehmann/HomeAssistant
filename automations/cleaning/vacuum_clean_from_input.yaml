@@ -26,12 +26,7 @@ action:
         {% elif is_state("input_select.glenn_room", "Schlafzimmer") %}
           bed
         {% endif %}
-    entity_id: >
-      {% if is_state("input_select.glenn_room", "Wischen") %}
-        script.glenn_mop
-      {% else %}
-        script.glenn_room_cleaning
-      {% endif %}
+    entity_id: script.glenn_room_cleaning
 - service: input_select.select_option
   data:
     entity_id: input_select.glenn_room
