@@ -40,13 +40,6 @@ report.txt
 !.gitkeep
 
 # Addons
-node-red/
 python-zeroconf/
 ps5-mqtt/
-prometheus_node_exporter/
-
-edgeos.key
-
-# Emulated Hue
-*.pem
-emulated_hue.*
+addons_config/
