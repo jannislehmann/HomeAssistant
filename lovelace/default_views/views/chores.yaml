@@ -11,12 +11,12 @@
             - ../../includes/header.yaml
             - title: Aufgaben
 
-        - type: 'custom:auto-entities'
+        - type: custom:auto-entities
           filter:
             include:
               - group: group.chores
                 options:
-                  type: 'custom:button-card'
+                  type: custom:button-card
                   template: chore_card
           card:
             type: entities

@@ -1,0 +1,14 @@
+---
+alias: NFC Plants
+id: 367aec8d-6aa6-4b25-a856-eb590f90627f
+mode: single
+trigger:
+  - platform: tag
+    tag_id: 367aec8d-6aa6-4b25-a856-eb590f90627f
+action:
+  - service: input_button.press
+    data:
+      entity_id: input_button.chore_water_indoor_plants
+  - service: notify.telegram_group
+    data:
+      message: "🪴 Die Pflanzen wurden gegossen."
