@@ -15,8 +15,6 @@ action:
         actions:
           - action: VACUUM
             title: Saugen
-          - action: MOP
-            title: Wischen
           - action: STOP
             title: Stop
   - wait_for_trigger:
@@ -30,11 +28,8 @@ action:
     - conditions: "{{ option == 'VACUUM' }}"
       sequence:
         service: vacuum.start
-        entity_id: vacuum.glenn
-    - conditions: "{{ option == 'MOP' }}"
-      sequence:
-        service: script.glenn_mop
+        entity_id: vacuum.valetudo_glenn
     - conditions: "{{ option == 'STOP' }}"
       sequence:
         - service: vacuum.stop
-          entity_id: vacuum.glenn
+          entity_id: vacuum.valetudo_glenn

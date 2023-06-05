@@ -18,54 +18,35 @@ input_select:
       - Wischen
 
 script:
-  # Mopping
-  glenn_mop:
-    sequence:
-      - service: vacuum.start
-        entity_id: vacuum.glenn
-      - delay:
-          minutes: 1
-      - service: vacuum.set_fan_speed
-        data:
-          entity_id: vacuum.glenn
-          fan_speed: 'off'
   # Go To
   glenn_go_home:
     sequence:
       - service: vacuum.return_to_base
         data:
-          entity_id: vacuum.glenn
-  glenn_go_trash:
-    sequence:
-      - service: vacuum.send_command
-        data:
-          entity_id: vacuum.glenn
-          command: 'go_to'
-          params:
-            'spot_id': 'Garbage'
+          entity_id: vacuum.valetudo_glenn
   glenn_clean_all:
     sequence:
       - service: vacuum.start
-        entity_id: vacuum.glenn
+        entity_id: vacuum.valetudo_glenn
   # Zoned Clean
   glenn_clean_storage:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '{"segment_ids": ["17"]}'
+          payload: '{"segment_ids": ["20"]}'
   glenn_clean_bath:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '{"segment_ids": ["16"]}'
+          payload: '{"segment_ids": ["22"]}'
   glenn_clean_office:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '{"segment_ids": ["19"]}'
+          payload: '{"segment_ids": ["21"]}'
   glenn_clean_hall:
     sequence:
       - service: mqtt.publish
@@ -77,19 +58,19 @@ script:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '{"segment_ids": ["22"]}'
+          payload: '{"segment_ids": ["16"]}'
   glenn_clean_bed:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '{"segment_ids": ["21"]}'
+          payload: '{"segment_ids": ["19"]}'
   glenn_clean_living:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '{"segment_ids": ["20"]}'
+          payload: '{"segment_ids": ["17"]}'
   # Queued Room cleaning
   glenn_room_cleaning:
     mode: queued
@@ -99,7 +80,7 @@ script:
       room:
         name: Room
         required: true
-        example: living_room
+        example: living
         selector:
           select:
             options:
@@ -116,18 +97,18 @@ script:
               - condition: or
                 conditions:
                   - condition: state
-                    entity_id: vacuum.glenn
+                    entity_id: vacuum.valetudo_glenn
                     state: cleaning
                   - condition: state
-                    entity_id: vacuum.glenn
+                    entity_id: vacuum.valetudo_glenn
                     state: error
             sequence:
               - wait_for_trigger:
                   - platform: state
-                    entity_id: vacuum.glenn
+                    entity_id: vacuum.valetudo_glenn
                     to: returning
                   - platform: state
-                    entity_id: vacuum.glenn
+                    entity_id: vacuum.valetudo_glenn
                     to: docked
                 continue_on_timeout: false
                 timeout: '00:30:00'
@@ -135,10 +116,10 @@ script:
                   script.glenn_clean_{{ room }}
               - wait_for_trigger:
                   - platform: state
-                    entity_id: vacuum.glenn
+                    entity_id: vacuum.valetudo_glenn
                     to: returning
                   - platform: state
-                    entity_id: vacuum.glenn
+                    entity_id: vacuum.valetudo_glenn
                     to: docked
                 continue_on_timeout: false
                 timeout: '00:30:00'
@@ -146,23 +127,23 @@ script:
               - condition: or
                 conditions:
                   - condition: state
-                    entity_id: vacuum.glenn
+                    entity_id: vacuum.valetudo_glenn
                     state: returning
                   - condition: state
-                    entity_id: vacuum.glenn
+                    entity_id: vacuum.valetudo_glenn
                     state: docked
                   - condition: state
-                    entity_id: vacuum.glenn
+                    entity_id: vacuum.valetudo_glenn
                     state: idle
             sequence:
               - service: >
                   script.glenn_clean_{{ room }}
               - wait_for_trigger:
                   - platform: state
-                    entity_id: vacuum.glenn
+                    entity_id: vacuum.valetudo_glenn
                     to: returning
                   - platform: state
-                    entity_id: vacuum.glenn
+                    entity_id: vacuum.valetudo_glenn
                     to: docked
                 continue_on_timeout: false
                 timeout: '00:30:00'
