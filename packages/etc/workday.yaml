@@ -1,5 +1,0 @@
----
-binary_sensor:
-  - platform: workday
-    country: DE
-    province: NI
