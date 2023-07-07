@@ -73,7 +73,6 @@ logger:
     homeassistant.components.sensor: error
     homeassistant.components.sensor.rest: critical
     homeassistant.components.switch: error
-    homeassistant.components.rest.sensor: critical
     homeassistant.components.recorder: error
     homeassistant.components.scene: warn
     homeassistant.components.light: error
