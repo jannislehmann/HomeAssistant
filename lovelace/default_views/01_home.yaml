@@ -9,17 +9,6 @@
       - !include ../includes/header.yaml
 
       # Home Header
-      - type: custom:simple-weather-card
-        entity: weather.openweathermap
-        name: " "
-        primary_info:
-          - wind_bearing
-          - humidity
-        secondary_info:
-          - precipitation
-          - precipitation_probability
-        backdrop: true
-
       - type: tile
         entity: alarm_control_panel.ha_alarm
         features:
