@@ -1,13 +1,6 @@
 ---
 name: Flur
 icon: phu:rooms-hallway
-sensors:
-  - entity_id: sensor.temperature_hall
-    name: Temperatur
-    color: red
-  - entity_id: sensor.humidity_hall
-    name: Luftfeuchtigkeit
-    color: purple
 lights:
   - entity_id: light.flur
     name: Deckenlampe

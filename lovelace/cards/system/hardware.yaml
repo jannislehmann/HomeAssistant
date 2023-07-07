@@ -3,7 +3,7 @@ cards:
   - type: custom:decluttering-card
     template: mini_graph
     variables:
-      - entity_id: sensor.cpu_temperature
+      - entity_id: sensor.processor_temperature
       - color: "var(--google-red)"
       - name: CPU-Temperatur
   - type: custom:decluttering-card

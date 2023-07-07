@@ -16,7 +16,6 @@ include_entities:
   # Switches
   - switch.monitor
   - switch.coffee
-  - switch.outside_water
   # Vacuum
   - vacuum.valetudo_glenn
   - input_select.glenn_room
