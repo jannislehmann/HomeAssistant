@@ -36,7 +36,7 @@ chore_card:
         if ((variables.diff < 2) && (variables.last_done.getDay() == variables.now.getDay())) { return 'Erledigt' }
         if (variables.due > 0) {
           if (variables.due < variables.diff) { return 'Fällig' }
-          if (variables.due < variables.diff + (variables.due / 4)) { return 'Bald' }
+          if (variables.due < variables.diff + (variables.due / 4)) { return variables.due - variables.diff + ' Tage' }
         }
       ]]]
   styles:
@@ -136,7 +136,7 @@ chore_tile:
         if ((variables.diff < 2) && (variables.last_done.getDay() == variables.now.getDay())) { return 'Erledigt' }
         if (variables.due > 0) {
           if (variables.due < variables.diff) { return 'Fällig' }
-          if (variables.due < variables.diff + (variables.due / 4)) { return 'Bald' }
+          if (variables.due < variables.diff + (variables.due / 4)) { return variables.due - variables.diff + ' Tage' }
         }
         return ' '
       ]]]
