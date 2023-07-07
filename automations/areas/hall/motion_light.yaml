@@ -28,8 +28,14 @@ action:
           state: 'on'
       sequence:
         - service: light.turn_on
-          data:
-            entity_id: light.flur
+          data_template:
+            # Only turn on one hall light during night mode as the other shines directly into the bed.
+            entity_id: >
+              {% if is_state('binary_sensor.night', 'on') %}
+              light.hall_storage
+              {% else %}
+              light.flur
+              {% endif %}
   # No more motion detected
   default:
     - service: light.turn_off

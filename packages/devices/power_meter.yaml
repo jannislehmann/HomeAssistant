@@ -32,8 +32,7 @@ sensor:
 # Taken from: https://github.com/basnijholt/home-assistant-config/blob/c54c97912b7a5c527df0e5503e5e36eaa8bfb774/scripts.yaml#L479
 script:
   washing_machine_notification:
-    mode: parallel
-    max: 20
+    mode: single
     variables:
       name: washing_machine
       binary_sensor: "{{ 'binary_sensor.{}'.format(name) }}"

@@ -16,8 +16,8 @@ light:
   - platform: group
     name: flur
     entities:
-      - light.flur_1
-      - light.flur_2
+      - light.hall_door
+      - light.hall_storage
 
   - platform: group
     name: room_bed

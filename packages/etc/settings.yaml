@@ -1,2 +1,11 @@
 input_boolean:
   christmas_mode:
+  night_mode:
+
+binary_sensor:
+  - platform: template
+    sensors:
+      night:
+        device_class: light
+        value_template: >
+          {{ is_state('input_boolean.night_mode', 'on') or is_state('lock.door_apartment', 'locked') }}
