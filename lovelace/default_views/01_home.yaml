@@ -23,13 +23,12 @@
       # Playing radio
       - type: conditional
         conditions:
-          - entity: media_player.forked_daapd_server
+          - entity: media_player.lms_all
             state: playing
         card:
           type: custom:mini-media-player
-          entity: media_player.forked_daapd_server
+          entity: media_player.lms_all
           icon: mdi:radio
-          name: Jannis
           tap_action:
             action: navigate
             navigation_path: audio
@@ -341,7 +340,7 @@
                 card_mod:
                   style: |
                     ha-card {
-                      {% if is_state('media_player.forked_daapd_server', 'playing') %}background: var(--purple){% endif %}
+                      {% if is_state('media_player.lms_all', 'playing') %}background: var(--purple){% endif %}
                     }
 
               - type: custom:mushroom-template-card
