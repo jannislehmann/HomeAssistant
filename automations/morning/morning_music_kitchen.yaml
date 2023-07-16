@@ -11,6 +11,10 @@ condition:
   - condition: state
     entity_id: input_boolean.alarm_clock_left_bed
     state: 'on'
-  - "{{ not is_state('media_player.kitchen_homepod_mini', 'on') }}"
+  - "{{ not is_state('media_player.lms_kitchen', 'playing') }}"
 action:
-  service: script.bremen_next_kitchen
+  service: script.play_radio_lms
+  data:
+    player: media_player.lms_kitchen
+    volume_level: 25
+    station: Bremen Next

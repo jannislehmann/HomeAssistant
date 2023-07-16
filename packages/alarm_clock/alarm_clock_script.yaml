@@ -15,7 +15,11 @@ script:
         entity_id: light.go
       - delay:
           minutes: 1
-      - service: script.bremen_next_bed
+      - service: script.play_radio_lms
+        data:
+          player: media_player.lms_bed
+          volume_level: 35
+          station: Bremen Next
       - delay:
           minutes: 1
       - service: cover.open_cover
@@ -26,4 +30,3 @@ script:
         entity_id: switch.adaptive_lighting_sleep_mode_bed
       - service: input_boolean.turn_off
         entity_id: input_boolean.alarm_clock_on
-      - service: script.alarm_clock_gtfo_bed

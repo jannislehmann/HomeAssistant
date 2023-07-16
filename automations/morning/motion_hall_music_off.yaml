@@ -20,10 +20,10 @@ action:
     entity_id: switch.living_access_point
   - service: media_player.volume_set
     data:
-      entity_id: media_player.bed_homepod_mini
+      entity_id: media_player.lms_bed
       volume_level: 0.15
   - service: media_player.turn_off
-    entity_id: media_player.bed_homepod_mini
+    entity_id: media_player.lms_bed
   - service: input_boolean.turn_off
     entity_id: input_boolean.alarm_clock_on
   - service: input_boolean.turn_on

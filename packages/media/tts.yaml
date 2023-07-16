@@ -1,22 +1,3 @@
 ---
-script:
-  tts:
-    alias: Say via TTS
-    fields:
-      message:
-        description: 'Der gesprochene Satz'
-        example: 'Hallo'
-    sequence:
-      - condition: and
-        conditions:
-          - condition: time
-            after: "06:00:00"
-            before: "22:00:00"
-          - condition: state
-            entity_id: binary_sensor.home
-            state: "on"
-      - service: tts.google_translate_say
-        data:
-          entity_id: media_player.forked_daapd_server
-          message: "{{ message }}"
-          language: de
+tts:
+  - platform: google_translate

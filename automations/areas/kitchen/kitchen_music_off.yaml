@@ -10,4 +10,4 @@ trigger:
 action:
   - service: media_player.turn_off
     entity_id:
-      - media_player.kitchen_homepod_mini
+      - media_player.lms_kitchen

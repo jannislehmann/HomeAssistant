@@ -1,0 +1,85 @@
+
+script:
+  play_radio_station:
+    alias: Play Radio Station
+    fields:
+      station_id:
+        required: true
+    sequence:
+      - service: squeezebox.call_method
+        data:
+          command: favorites
+          parameters:
+            - playlist
+            - play
+            - "{{ station_id }}"
+          entity_id: media_player.lms_all
+
+  play_radio_lms:
+    alias: Play Radio
+    fields:
+      station:
+        description: The radio station
+        example: Bremen Next
+        required: true
+        selector:
+          select:
+            options:
+              - Bremen Next
+              - Energy Bremen
+              - I Love Mashup
+      player:
+        description: The player to start playing on. If not set, will just set the station.
+        required: false
+        selector:
+          entity:
+            integration: squeezebox
+      volume_level:
+        description: Sets the volume level of the specified player if both are set.
+        required: false
+        default: 10
+        selector:
+          number:
+            min: 0
+            max: 100
+    sequence:
+      - variables:
+          station_id: >
+            {% if station == 'Bremen Next' %}
+            item_id:0
+            {% elif station == 'Energy Bremen' %}
+            item_id:1
+            {% elif station == 'I Love Mashup' %}
+            item_id:2
+            {% endif %}
+      - choose:
+        - conditions:
+            - condition: template
+              value_template: "{{ player is defined and volume_level is defined }}"
+          sequence:
+            - service: media_player.turn_on
+              data_template:
+                entity_id: "{{ player }}"
+            - service: media_player.volume_set
+              data_template:
+                entity_id: "{{ player }}"
+                volume_level: "{{ volume_level / 100 }}"
+            - service: script.play_radio_station
+              data:
+                station_id: "{{ station_id }}"
+        default:
+          - service: script.play_radio_station
+            data:
+              station_id: "{{ station_id }}"
+
+
+media_player:
+  - platform: universal
+    name: LMS Outputs
+    children:
+      - media_player.lms_bed
+      - media_player.lms_kitchen
+      - media_player.lms_bath
+      - media_player.lms_living
+      - media_player.lms_office
+      - media_player.lms_denon

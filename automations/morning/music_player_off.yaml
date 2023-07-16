@@ -1,20 +1,23 @@
 ---
-alias: Turn off DAAPD
+alias: Turn off LMS music
 description: Turns off the music system, when all outputs have been turned off for a minute.
 id: a0835b1b-bc91-46cb-ab59-e98358d15050
 mode: single
 trigger:
   - platform: state
-    entity_id: media_player.daapd_outputs
+    entity_id: media_player.lms_outputs
     to: 'off'
     for:
       minutes: 1
   - platform: state
-    entity_id: media_player.forked_daapd_server
+    entity_id: media_player.lms_all
     to: 'paused'
     for:
       seconds: 30
 action:
+  - service: media_player.media_stop
+    entity_id:
+      - media_player.lms_all
   - service: media_player.turn_off
     entity_id:
-      - media_player.forked_daapd_server
+      - media_player.lms_outputs

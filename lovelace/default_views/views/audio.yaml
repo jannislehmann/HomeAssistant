@@ -14,50 +14,50 @@
         - type: entities
           entities:
             - type: custom:mini-media-player
-              entity: media_player.forked_daapd_server
-              name: Server
+              entity: media_player.lms_all
+              name: Media Server Group
               group: true
               source: icon
-              volume_stateless: true
               volume_step: 5
+              idle_view:
+                when_paused: true
               hide:
+                name: true
                 power: true
                 source: true
                 icon: true
-                volume_level: false
                 prev: true
                 next: true
-                icon_state: false
 
             - type: custom:mushroom-chips-card
               chips:
                 - type: entity
-                  entity: media_player.forked_daapd_server
+                  entity: media_player.lms_all
                   tap_action:
                     action: call-service
-                    service: script.play_radio
+                    service: script.play_radio_lms
                     data:
-                      station: bremen_next (playlist)
+                      station: Bremen Next
                   icon: mdi:piano
                   content_info: name
                   name: Bremen NEXT
                 - type: entity
-                  entity: media_player.forked_daapd_server
+                  entity: media_player.lms_all
                   tap_action:
                     action: call-service
-                    service: script.play_radio
+                    service: script.play_radio_lms
                     data:
-                      station: energy (playlist)
+                      station: I Love Mashup
                   icon: mdi:disc-player
                   content_info: name
                   name: Energy Bremen
                 - type: entity
-                  entity: media_player.forked_daapd_server
+                  entity: media_player.lms_all
                   tap_action:
                     action: call-service
-                    service: script.play_radio
+                    service: script.play_radio_lms
                     data:
-                      station: ilovemashup (playlist)
+                      station: Energy Bremen
                   icon: mdi:radio
                   content_info: name
                   name: Mashup
@@ -81,35 +81,35 @@
             - type: custom:decluttering-card
               template: media_player_output
               variables:
-                - entity_id: media_player.office_homepod
+                - entity_id: media_player.lms_office
                 - name: Büro
 
             - type: custom:decluttering-card
               template: media_player_output
               variables:
-                - entity_id: media_player.kitchen_homepod_mini
+                - entity_id: media_player.lms_kitchen
                 - name: Küche
 
             - type: custom:decluttering-card
               template: media_player_output
               variables:
-                - entity_id: media_player.bath_homepod_mini
-                - name: Badezimmer
-
-            - type: custom:decluttering-card
-              template: media_player_output
-              variables:
-                - entity_id: media_player.bed_homepod_mini
+                - entity_id: media_player.lms_bed
                 - name: Schlafzimmer
 
             - type: custom:decluttering-card
               template: media_player_output
               variables:
-                - entity_id: media_player.living_homepod_mini
-                - name: Wohnzimmer
-              
+                - entity_id: media_player.lms_bath
+                - name: Badezimmer
+                
             - type: custom:decluttering-card
               template: media_player_output
               variables:
-                - entity_id: media_player.denon
+                - entity_id: media_player.lms_living
+                - name: Wohnzimmer
+
+            - type: custom:decluttering-card
+              template: media_player_output
+              variables:
+                - entity_id: media_player.lms_denon
                 - name: Denon

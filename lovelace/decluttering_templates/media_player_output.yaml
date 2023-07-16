@@ -17,7 +17,7 @@ media_player_output:
       - type: custom:state-switch
         entity: '[[entity_id]]'
         states:
-          "on":
+          "playing":
             type: vertical-stack
             cards:
               - type: 'custom:button-card'
