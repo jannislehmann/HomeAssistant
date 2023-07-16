@@ -2,3 +2,6 @@
 <<: !include wifi.yaml
 <<: !include ota_api.yaml
 <<: !include logger.yaml
+
+esphome:
+  name: ${device}

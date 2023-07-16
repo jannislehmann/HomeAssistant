@@ -1,11 +1,9 @@
 ---
 substitutions:
-  name: Luftsensor
   device: air-office
   mac: 'bc:dd:c2:7b:1a:db'
 
 esphome:
-  name: ${device}
   platform: ESP8266
   board: d1_mini_lite
 

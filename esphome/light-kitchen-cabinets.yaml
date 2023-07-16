@@ -3,8 +3,11 @@ substitutions:
   device: light-kitchen-cabinets
 
 packages:
-  esphome_base: !include common/esphome_base.yaml
   main_base: !include common/main_base.yaml
+
+esphome:
+  platform: ESP8266
+  board: esp01_1m
 
 # RGB Warm
 output:
