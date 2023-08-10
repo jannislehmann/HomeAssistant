@@ -17,6 +17,8 @@ lights:
     icon: phu:play
 contact_sensors:
   - entity_id: binary_sensor.contact_office
+plants:
+  - entity_id: plant.ficus
 includes:
   - ../cards/coffee.yaml
   - ../cards/gaming_pc.yaml
