@@ -1,24 +1,28 @@
 ---
 substitutions:
-  name: BLE
   device: ble-bed
   mac: '0c:8b:95:a8:2b:60'
 
-esphome:
-  name: ${device}
-
 esp32:
-  board: m5stack-core-esp32
+  board: m5stack-atom
 
 packages:
   main_base: !include common/main_base.yaml
 
 esp32_ble_tracker:
-  scan_parameters:
-    interval: 1100ms
-    window: 1100ms
-    active: true
 
-# Required for SwitchBot
-bluetooth_proxy:
-  active: true
+binary_sensor:
+  - platform: ble_presence
+    mac_address: !secret mac_mi_scale
+    name: "Presence"
+
+sensor:
+  - platform: xiaomi_miscale
+    mac_address: !secret mac_mi_scale
+    weight:
+      name: "Xiaomi Mi Scale Weight"
+    impedance:
+      name: "Xiaomi Mi Scale Impedance"
+  - platform: ble_rssi
+    mac_address: !secret mac_mi_scale
+    name: "RSSI"
