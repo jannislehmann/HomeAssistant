@@ -9,16 +9,30 @@
       - !include ../includes/header.yaml
 
       # Home Header
-      - type: tile
-        entity: alarm_control_panel.ha_alarm
-        features:
-          - type: "alarm-modes"
-            modes:
-              - armed_away
-              - disarmed
+      - type: horizontal-stack
+        cards:
+        - type: tile
+          entity: alarm_control_panel.ha_alarm
+          features:
+            - type: "alarm-modes"
+              modes:
+                - armed_away
+                - disarmed
+          card_mod:
+            style: |
+              ha-card {
+                height: 125px !important;
+                width: 180px;
+              }
 
-      - type: custom:mushroom-lock-card
-        entity: lock.door_apartment
+        - type: custom:mushroom-lock-card
+          entity: lock.door_apartment
+          card_mod:
+            style: |
+              ha-card {
+                height: 125px !important;
+                width: 180px;
+              }
 
       # Playing radio
       - type: conditional
@@ -70,7 +84,7 @@
               - type: custom:mushroom-template-card
                 primary: Büro
                 secondary: |-
-                  {{ states('sensor.temperature_office') }} °C
+                  {{ states('sensor.temperature_office') | round(1) }} °C
                   {% if states('binary_sensor.contact_office') in ("unavailable", "on")%}• Offen{% else %} • Geschlossen{% endif %}
                 badge_icon: |-
                   {% if states('binary_sensor.contact_office') in ("unavailable", "on") %}mdi:door-open{% endif %}
