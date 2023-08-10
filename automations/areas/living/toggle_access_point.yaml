@@ -1,24 +1,30 @@
 ---
 alias: Toggle Living Room Access Point
 id: 7e3fc7bf-137e-43f5-b3e8-2a5911402279
-description: Toggles the living room access point to turn off during night.
+description: Toggles the living room access point to turn off during night (unless on-call).
 mode: single
 trigger:
   - platform: time_pattern
-    minutes: "/15"
+    minutes: "/5"
 action:
   choose:
     - conditions:
-      - condition: time
-        after: "10:00:00"
-        before: "11:00:00"
+      - condition: state
+        entity_id: binary_sensor.night
+        state: "off"
       sequence:
         - service: switch.turn_on
           entity_id: switch.living_access_point
     - conditions:
-      - condition: time
-        after: "01:00:00"
-        before: "02:00:00"
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: binary_sensor.night
+          state: "on"
+        # Don't turn off the access point during on-call as I will need it when getting paged.
+        - condition: state
+          entity_id: calendar.on_call
+          state: "off"
       sequence:
         - service: switch.turn_off
           entity_id: switch.living_access_point

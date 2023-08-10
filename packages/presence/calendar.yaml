@@ -1,0 +1,2 @@
+shell_command:
+  update_on_call_calendar: !secret pagerduty_calendar_curl
