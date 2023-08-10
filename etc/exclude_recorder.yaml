@@ -7,8 +7,7 @@ domains:
   - camera
 entity_globs:
   - sensor.openweathermap_*
-  - "*battery*"
-  - binary_sensor.entertainment_*
+  # - "*battery*"
   - switch.adaptive_lighting_*
 entities:
   - sun.sun
