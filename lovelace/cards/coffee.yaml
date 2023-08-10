@@ -17,11 +17,3 @@ cards:
       {% else %}
       Off
       {% endif %}
-    card_mod:
-      style: |
-        ha-card {
-          height: 66px;
-          {% if is_state('switch.coffee', 'on') %}
-          background-color: var(--orange);
-          {% endif %}
-        }
