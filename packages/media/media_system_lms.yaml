@@ -60,18 +60,19 @@ script:
             - service: media_player.turn_on
               data_template:
                 entity_id: "{{ player }}"
+            - service: script.play_radio_station
+              data:
+                station_id: "{{ station_id }}"
+            # Wait 15 seconds to ensure that player is actually playing
+            - delay: 15
             - service: media_player.volume_set
               data_template:
                 entity_id: "{{ player }}"
                 volume_level: "{{ volume_level / 100 }}"
-            - service: script.play_radio_station
-              data:
-                station_id: "{{ station_id }}"
         default:
           - service: script.play_radio_station
             data:
               station_id: "{{ station_id }}"
-
 
 media_player:
   - platform: universal
