@@ -13,7 +13,7 @@ trigger:
     entity_id: media_player.lms_all
     to: 'paused'
     for:
-      seconds: 30
+      minutes: 1
 action:
   - service: media_player.media_stop
     entity_id:

@@ -1,0 +1,99 @@
+---
+nspanel-living:
+  module: nspanel-lovelace-ui
+  class: NsPanelLovelaceUIManager
+  config:
+    panelRecvTopic: "tele/nspanel_living/RESULT"
+    panelSendTopic: "cmnd/nspanel_living/CustomSend"
+    model: eu
+    sleepTimeout: 10
+    sleepBrightness:
+      - time: "16:30:00"
+        value: 10
+      - time: "22:30:00"
+        value: 0
+    #sleepOverride:
+    #  entity: light.living_wall
+    #  brightness: 10
+    locale: "de_DE"
+    screensaver:
+      entities:
+        - entity: weather.openweathermap
+        - entity: weather.openweathermap
+          type: 0
+        - entity: weather.openweathermap
+          type: 1
+        - entity: sensor.temperature_outside
+          icon: mdi:sun-thermometer-outline
+        - entity: delete
+        - entity: sensor.temperature_living
+          icon: mdi:home-thermometer-outline
+      defaultCard: navigate.lights
+    cards:
+      - type: cardGrid
+        title: Allgemein
+        key: lights
+        entities:
+          - entity: sensor.temperature_living
+            name: Wohnzimmer
+          - entity: sensor.temperature_outside
+            name: Terrasse
+          - entity: light.go
+            name: Bett
+      - type: cardMedia
+        title: AVR
+        key: avr
+        entity: media_player.avr
+        entities:
+          - entity: service.media_player.select_source
+            icon: mdi:google-controller
+            name: TV PlayStation 5
+            data:
+              entity_id: media_player.philips_tv
+              source: 'HDMI 1'
+          - entity: service.media_player.select_source
+            icon: mdi:nintendo-game-boy
+            name: TV Nintendo Switch
+            data:
+              entity_id: media_player.philips_tv
+              source: 'HDMI 3'
+      - type: cardGrid
+        title: Lautsprecher
+        key: lights
+        entities:
+          - entity: service.script.turn_on
+            icon: text:NXT
+            name: Bremen Next
+            data:
+              entity_id: script.play_radio_lms
+              variables:
+                station: Bremen Next
+          - entity: service.script.turn_on
+            icon: mdi:heart
+            name: I Love Mashup
+            data:
+              entity_id: script.play_radio_lms
+              variables:
+                station: I Love Mashup
+          - entity: service.media_player.toggle
+            name: HomePod Mini
+            data:
+              entity_id: media_player.lms_living
+            status: media_player.lms_living
+            state_template: "{{ not is_state('media_player.lms_all', 'playing') }}"
+            color: "{{ iif(is_state('media_player.lms_living', 'playing'), '[255, 255, 0]', '[0, 255, 0]') }}"
+            icon: "mdi:speaker"
+          - entity: service.media_player.toggle
+            name: Denon
+            state_template: "{{ not is_state('media_player.lms_all', 'playing') }}"
+            status: media_player.lms_denon
+            data:
+              entity_id: media_player.lms_denon
+          - entity: delete
+          - entity: delete
+          - entity: delete
+          - entity: delete
+          - entity: delete
+          - entity: delete
+          - entity: media_player.lms_all
+            state_template: "{{ false }}"
