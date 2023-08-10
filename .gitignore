@@ -44,6 +44,7 @@ python-zeroconf/
 ps5-mqtt/
 addons_config/
 lms/
+.shopping_list.json
 
 # AppDaemon
 appdaemon/apps/*
