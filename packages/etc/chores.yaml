@@ -5,6 +5,7 @@ input_text:
   chore_clean_cooker_hood:
   chore_water_indoor_plants:
   chore_change_water_filter:
+  chore_clean_hairbrush:
 
 input_button:
   chore_change_bed:
@@ -22,3 +23,6 @@ input_button:
   chore_change_water_filter:
     name: Wasserfilter wechseln
     icon: mdi:air-filter
+  chore_clean_hairbrush:
+    name: Haarbürste reinigen
+    icon: mdi:brush
