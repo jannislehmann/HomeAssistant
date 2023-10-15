@@ -132,9 +132,3 @@ api:
 #id(ble_tracker).stop_scan();
         - lambda: |-
             id(nspanel).upload_tft(url);
-    - service: play_rtttl
-      variables:
-        song_str: string
-      then:
-        - rtttl.play:
-            rtttl: !lambda 'return song_str;'
