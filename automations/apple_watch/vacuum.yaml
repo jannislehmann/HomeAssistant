@@ -6,30 +6,7 @@ trigger:
   platform: event
   event_type: ios.action_fired
   event_data:
-    actionName: Vacuum
+    actionName: VACUUM
 action:
-  - service: notify.apple_jannis
-    data:
-      message: "Staubsauger"
-      data:
-        actions:
-          - action: VACUUM
-            title: Saugen
-          - action: STOP
-            title: Stop
-  - wait_for_trigger:
-      platform: event
-      event_type: mobile_app_notification_action
-    timeout: "00:00:20"
-    continue_on_timeout: false
-  - variables:
-      option: "{{ wait.trigger.event.data.action }}"
-  - choose:
-    - conditions: "{{ option == 'VACUUM' }}"
-      sequence:
-        service: vacuum.start
-        entity_id: vacuum.valetudo_glenn
-    - conditions: "{{ option == 'STOP' }}"
-      sequence:
-        - service: vacuum.stop
-          entity_id: vacuum.valetudo_glenn
+  - service: vacuum.start
+    entity_id: vacuum.valetudo_glenn
