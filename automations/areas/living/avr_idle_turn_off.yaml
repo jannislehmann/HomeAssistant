@@ -11,6 +11,10 @@ condition:
   - condition: state
     entity_id: media_player.philips_tv
     state: 'off'
+    # Apple TV is off
+  - condition: state
+    entity_id: media_player.apple_tv
+    state: 'standby'
   # No music playing on AVR
   - condition: not
     conditions:
