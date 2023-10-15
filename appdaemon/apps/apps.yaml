@@ -8,13 +8,13 @@ nspanel-living:
     model: eu
     sleepTimeout: 10
     sleepBrightness:
-      - time: "16:30:00"
+      - time: "17:30:00"
         value: 10
       - time: "22:30:00"
         value: 0
-    #sleepOverride:
-    #  entity: light.living_wall
-    #  brightness: 10
+    sleepOverride:
+      entity: binary_sensor.nspanel_sleep_override
+      brightness: 10
     locale: "de_DE"
     screensaver:
       entities:
@@ -28,7 +28,7 @@ nspanel-living:
         - entity: delete
         - entity: sensor.temperature_living
           icon: mdi:home-thermometer-outline
-      defaultCard: navigate.lights
+      defaultCard: navigate.avr
     cards:
       - type: cardGrid
         title: Allgemein
@@ -61,6 +61,7 @@ nspanel-living:
         title: Lautsprecher
         key: lights
         entities:
+          # Top 1
           - entity: service.script.turn_on
             icon: text:NXT
             name: Bremen Next
@@ -68,6 +69,38 @@ nspanel-living:
               entity_id: script.play_radio_lms
               variables:
                 station: Bremen Next
+          # Top 2
+          - entity: service.media_player.toggle
+            name: HomePod Mini
+            data:
+              entity_id: media_player.lms_living
+            status: media_player.lms_living
+            state_template: "{{ not is_state('media_player.lms_all', 'playing') }}"
+            color: "{{ iif(is_state('media_player.lms_living', 'playing'), '[255, 255, 0]', '[68, 115, 158]') }}"
+            icon: "mdi:speaker"
+          # Top 3
+          - entity: service.media_player.volume_down
+            name: Leiser
+            data:
+              entity_id: media_player.lms_living
+            status: media_player.lms_living
+            state_template: "{{ not is_state('media_player.lms_living', 'playing') }}"
+            icon: "mdi:volume-minus"
+          - entity: delete
+            state_template: "{{ is_state('media_player.lms_living', 'playing') }}"
+          # Top 4
+          - entity: service.media_player.volume_up
+            name: Lauter
+            data:
+              entity_id: media_player.lms_living
+            status: media_player.lms_living
+            state_template: "{{ not is_state('media_player.lms_living', 'playing') }}"
+            icon: "mdi:volume-plus"
+          - entity: delete
+            state_template: "{{ is_state('media_player.lms_living', 'playing') }}"
+          - entity: delete
+            state_template: "{{ is_state('media_player.lms_all', 'playing') }}"
+          # Bottom 1
           - entity: service.script.turn_on
             icon: mdi:heart
             name: I Love Mashup
@@ -75,22 +108,35 @@ nspanel-living:
               entity_id: script.play_radio_lms
               variables:
                 station: I Love Mashup
-          - entity: service.media_player.toggle
-            name: HomePod Mini
-            data:
-              entity_id: media_player.lms_living
-            status: media_player.lms_living
-            state_template: "{{ not is_state('media_player.lms_all', 'playing') }}"
-            color: "{{ iif(is_state('media_player.lms_living', 'playing'), '[255, 255, 0]', '[0, 255, 0]') }}"
-            icon: "mdi:speaker"
+          # Bottom 2
           - entity: service.media_player.toggle
             name: Denon
             state_template: "{{ not is_state('media_player.lms_all', 'playing') }}"
             status: media_player.lms_denon
             data:
               entity_id: media_player.lms_denon
+            color: "{{ iif(is_state('media_player.lms_denon', 'playing'), '[255, 255, 0]', '[68, 115, 158]') }}"
+            icon: "mdi:speaker"
+          # Bottom 3
+          - entity: service.media_player.volume_down
+            name: Leiser
+            data:
+              entity_id: media_player.lms_denon
+            status: media_player.lms_denon
+            state_template: "{{ not is_state('media_player.lms_denon', 'playing') }}"
+            icon: "mdi:volume-minus"
           - entity: delete
+            state_template: "{{ is_state('media_player.lms_denon', 'playing') }}"
+          # Bottom 4
+          - entity: service.media_player.volume_up
+            name: Lauter
+            data:
+              entity_id: media_player.lms_denon
+            status: media_player.lms_denon
+            state_template: "{{ not is_state('media_player.lms_denon', 'playing') }}"
+            icon: "mdi:volume-plus"
           - entity: delete
+            state_template: "{{ is_state('media_player.lms_denon', 'playing') }}"
           - entity: delete
           - entity: delete
           - entity: delete
