@@ -23,11 +23,11 @@ script:
     sequence:
       - service: vacuum.return_to_base
         data:
-          entity_id: vacuum.valetudo_glenn
+          entity_id: vacuum.glenn
   glenn_clean_all:
     sequence:
       - service: vacuum.start
-        entity_id: vacuum.valetudo_glenn
+        entity_id: vacuum.glenn
   # Zoned Clean
   glenn_clean_storage:
     sequence:
@@ -97,18 +97,18 @@ script:
               - condition: or
                 conditions:
                   - condition: state
-                    entity_id: vacuum.valetudo_glenn
+                    entity_id: vacuum.glenn
                     state: cleaning
                   - condition: state
-                    entity_id: vacuum.valetudo_glenn
+                    entity_id: vacuum.glenn
                     state: error
             sequence:
               - wait_for_trigger:
                   - platform: state
-                    entity_id: vacuum.valetudo_glenn
+                    entity_id: vacuum.glenn
                     to: returning
                   - platform: state
-                    entity_id: vacuum.valetudo_glenn
+                    entity_id: vacuum.glenn
                     to: docked
                 continue_on_timeout: false
                 timeout: '00:30:00'
@@ -116,10 +116,10 @@ script:
                   script.glenn_clean_{{ room }}
               - wait_for_trigger:
                   - platform: state
-                    entity_id: vacuum.valetudo_glenn
+                    entity_id: vacuum.glenn
                     to: returning
                   - platform: state
-                    entity_id: vacuum.valetudo_glenn
+                    entity_id: vacuum.glenn
                     to: docked
                 continue_on_timeout: false
                 timeout: '00:30:00'
@@ -127,23 +127,23 @@ script:
               - condition: or
                 conditions:
                   - condition: state
-                    entity_id: vacuum.valetudo_glenn
+                    entity_id: vacuum.glenn
                     state: returning
                   - condition: state
-                    entity_id: vacuum.valetudo_glenn
+                    entity_id: vacuum.glenn
                     state: docked
                   - condition: state
-                    entity_id: vacuum.valetudo_glenn
+                    entity_id: vacuum.glenn
                     state: idle
             sequence:
               - service: >
                   script.glenn_clean_{{ room }}
               - wait_for_trigger:
                   - platform: state
-                    entity_id: vacuum.valetudo_glenn
+                    entity_id: vacuum.glenn
                     to: returning
                   - platform: state
-                    entity_id: vacuum.valetudo_glenn
+                    entity_id: vacuum.glenn
                     to: docked
                 continue_on_timeout: false
                 timeout: '00:30:00'

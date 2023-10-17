@@ -5,11 +5,11 @@ id: fbbbbd4c-63e6-4f29-8aa8-3894f59a036f
 mode: single
 trigger:
   platform: state
-  entity_id: vacuum.valetudo_glenn
+  entity_id: vacuum.glenn
   from: docked
   to: cleaning
 action:
   - service: vacuum.set_fan_speed
     data:
-      entity_id: vacuum.valetudo_glenn
+      entity_id: vacuum.glenn
       fan_speed: high

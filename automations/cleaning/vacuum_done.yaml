@@ -5,7 +5,7 @@ id: afff179f-e1d9-4e22-9f4b-0a50aa86c693
 mode: single
 trigger:
   platform: state
-  entity_id: vacuum.valetudo_glenn
+  entity_id: vacuum.glenn
   from: cleaning
   to: returning
 action:

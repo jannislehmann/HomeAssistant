@@ -328,7 +328,7 @@
                 primary: Glenn
                 icon: phu:roborock
                 icon_color: |-
-                  {% if is_state('vacuum.valetudo_glenn', 'cleaning') %}
+                  {% if is_state('vacuum.glenn', 'cleaning') %}
                   green
                   {% endif %}
                 tap_action:
@@ -338,12 +338,12 @@
                   action: call-service
                   service: vacuum.start
                   service_data:
-                    entity_id: vacuum.valetudo_glenn
+                    entity_id: vacuum.glenn
                   haptic: success
                 card_mod:
                   style: |
                     ha-card {
-                      {% if is_state('vacuum.valetudo_glenn', 'cleaning') %}background: var(--green){% endif %}
+                      {% if is_state('vacuum.glenn', 'cleaning') %}background: var(--green){% endif %}
                     }
               - type: custom:mushroom-template-card
                 primary: Audio

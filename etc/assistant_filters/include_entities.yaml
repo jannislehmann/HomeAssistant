@@ -17,5 +17,5 @@ include_entities:
   - switch.monitor
   - switch.coffee
   # Vacuum
-  - vacuum.valetudo_glenn
+  - vacuum.glenn
   - input_select.glenn_room

@@ -21,21 +21,21 @@
           two_finger_pan: false
           tiles:
             - tile_id: status
-              entity: vacuum.valetudo_glenn
+              entity: vacuum.glenn
               label: Status
               icon: mdi:robot-vacuum
             - tile_id: battery_level
-              entity: vacuum.valetudo_glenn
+              entity: vacuum.glenn
               label: Battery
               attribute: battery_level
               icon: mdi:battery-charging-60
               unit: '%'
             - tile_id: fan_speed
-              entity: vacuum.valetudo_glenn
+              entity: vacuum.glenn
               label: Fan speed
               attribute: fan_speed
               icon: mdi:fan
-            - tile_id: water
+- tile_id: water
               entity: select.valetudo_glenn_water
               label: Water
               icon: mdi:water-pump
@@ -43,7 +43,7 @@
               label: Sensors left
               unit: h
               multiplier: 0.016666666666666666
-              entity: sensor.valetudo_glenn_sensor_cleaning
+              entity: sensor.glenn_sensor_time_left
               icon: mdi:eye-outline
               precision: 0
               hold_action:
@@ -55,7 +55,7 @@
               label: Filter left
               unit: h
               multiplier: 0.016666666666666666
-              entity: sensor.valetudo_glenn_main_filter
+              entity: sensor.glenn_filter_time_left
               icon: mdi:air-filter
               precision: 0
               hold_action:
@@ -67,7 +67,7 @@
               label: Main brush left
               unit: h
               multiplier: 0.016666666666666666
-              entity: sensor.valetudo_glenn_main_brush
+              entity: sensor.glenn_main_brush_time_left
               icon: mdi:brush
               precision: 0
               hold_action:
@@ -79,7 +79,7 @@
               label: Side brush left
               unit: h
               multiplier: 0.016666666666666666
-              entity: sensor.valetudo_glenn_right_brush
+              entity: sensor.glenn_side_brush_time_left
               icon: mdi:brush
               precision: 0
               hold_action:
@@ -90,76 +90,76 @@
           icons:
             - icon: mdi:play
               conditions:
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: cleaning
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: returning
               tooltip: Start
               tap_action:
                 action: call-service
                 service: vacuum.start
                 service_data:
-                  entity_id: vacuum.valetudo_glenn
+                  entity_id: vacuum.glenn
             - icon: mdi:pause
               conditions:
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: docked
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: idle
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: error
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: paused
               tooltip: Pause
               tap_action:
                 action: call-service
                 service: vacuum.pause
                 service_data:
-                  entity_id: vacuum.valetudo_glenn
+                  entity_id: vacuum.glenn
             - icon: mdi:stop
               conditions:
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: docked
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: idle
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: error
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: paused
               tooltip: Stop
               tap_action:
                 action: call-service
                 service: vacuum.stop
                 service_data:
-                  entity_id: vacuum.valetudo_glenn
+                  entity_id: vacuum.glenn
             - icon: mdi:home-map-marker
               conditions:
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: docked
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: returning
               tooltip: Return to base
               tap_action:
                 action: call-service
                 service: vacuum.return_to_base
                 service_data:
-                  entity_id: vacuum.valetudo_glenn
+                  entity_id: vacuum.glenn
             - icon: mdi:target-variant
               conditions:
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: docked
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: error
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: cleaning
-                - entity: vacuum.valetudo_glenn
+                - entity: vacuum.glenn
                   value_not: returning
               tooltip: Clean spot
               tap_action:
                 action: call-service
                 service: vacuum.clean_spot
                 service_data:
-                  entity_id: vacuum.valetudo_glenn
+                  entity_id: vacuum.glenn
               # Room Cleaning
             - tap_action:
                 action: call-service
@@ -203,54 +203,3 @@
                 service_data:
                   room: living
               icon: mdi:television
-          map_modes:
-            - template: vacuum_clean_segment
-            # TODO: Add rooms by getting the pin & go coords and then OL, OR, UR, UL
-              predefined_selections:
-                - id: 22
-                #
-                  outline: [[0, 0], [0, 228], [220, 228], [220, 0]]
-                  icon:
-                    name: mdi:shower
-                    x: 100
-                    y: 100
-
-            - name: Zone cleanup
-              icon: mdi:select-drag
-              run_immediately: false
-              coordinates_rounding: true
-              coordinates_to_meters_divider: 100
-              selection_type: MANUAL_RECTANGLE
-              max_selections: 5
-              repeats_type: EXTERNAL
-              max_repeats: 3
-              service_call_schema:
-                service: mqtt.publish
-                evaluate_data_as_template: true
-                service_data:
-                  topic: '[[topic]]/ZoneCleaningCapability/start/set'
-                  payload: >-
-                    {"zones": [{%for s in ('[[selection]]')|from_json %}{ "points": {"pA":
-                    { "x": {{s[0]}}, "y": {{s[1]}} }, "pB": { "x": {{s[2]}}, "y": {{s[1]}}
-                    }, "pC": { "x": {{s[2]}}, "y": {{s[3]}} }, "pD": { "x": {{s[0]}}, "y":
-                    {{s[3]}} } }, "iterations": [[repeats]]}{%if not
-                    loop.last%},{%endif%}{%endfor%}]}
-              predefined_selections: []
-              variables: {}
-            - name: Pin & Go
-              icon: mdi:map-marker-plus
-              run_immediately: false
-              coordinates_rounding: true
-              coordinates_to_meters_divider: 100
-              selection_type: MANUAL_POINT
-              max_selections: 999
-              repeats_type: NONE
-              max_repeats: 1
-              service_call_schema:
-                service: mqtt.publish
-                service_data:
-                  topic: '[[topic]]/GoToLocationCapability/go/set'
-                  payload: '{ "coordinates": { "x": [[point_x]], "y": [[point_y]] } }'
-              predefined_selections: []
-              variables: {}
-            

@@ -9,4 +9,4 @@ trigger:
     actionName: VACUUM
 action:
   - service: vacuum.start
-    entity_id: vacuum.valetudo_glenn
+    entity_id: vacuum.glenn
