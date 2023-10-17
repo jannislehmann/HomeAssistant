@@ -12,7 +12,7 @@ action:
   - conditions:
     - condition: numeric_state
       entity_id: sensor.glenn_main_brush_time_left
-      below: 10
+      below: 60
     sequence:
       service: notify.telegram_group
       data:
@@ -20,15 +20,15 @@ action:
   - conditions:
     - condition: numeric_state
       entity_id: sensor.glenn_side_brush_time_left
-      below: 10
+      below: 60
     sequence:
       service: notify.telegram_group
       data:
         message: 🔧 Glenns Seitenbürste müssen bald getauscht werden.
   - conditions:
     - condition: numeric_state
-      entity_id: sensor.glenn_filter_time_left
-      below: 10
+      entity_id: sensor.glenn_reset_main_filter_consumable
+      below: 60
     sequence:
       service: notify.telegram_group
       data:
@@ -36,7 +36,7 @@ action:
   - conditions:
     - condition: numeric_state
       entity_id: sensor.glenn_sensor_time_left
-      below: 10
+      below: 30
     sequence:
       service: notify.telegram_group
       data:
