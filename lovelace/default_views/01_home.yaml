@@ -90,6 +90,8 @@
                   {% if states('binary_sensor.contact_office') in ("unavailable", "on") %}mdi:door-open{% endif %}
                 badge_color: red
                 icon: phu:rooms-office
+                icon_color: |-
+                  {% if is_state('light.room_office', 'on') %}orange{% endif %}
                 layout: horizontal
                 multiline_secondary: false
                 tap_action:
@@ -109,7 +111,7 @@
                 card_mod:
                   style: |
                     ha-card {
-                      {% if is_state('light.room_office', 'on') %}background: var(--yellow){% endif %}
+                      --ha-card-border-width: 0;
                     }
 
               #
