@@ -8,12 +8,12 @@ trigger:
     entity_id: media_player.lms_outputs
     to: 'off'
     for:
-      minutes: 1
+      minutes: 5
   - platform: state
     entity_id: media_player.lms_all
     to: 'paused'
     for:
-      minutes: 1
+      minutes: 5
 action:
   - service: media_player.media_stop
     entity_id:
