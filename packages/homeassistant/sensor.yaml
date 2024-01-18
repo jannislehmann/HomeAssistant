@@ -1,13 +1,5 @@
 ---
 sensor:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /config
-      - type: memory_free
-      - type: processor_use
-      - type: processor_temperature
-      - type: memory_use_percent
   - platform: cert_expiry
     host: !secret internal_url
     port: !secret http_port
