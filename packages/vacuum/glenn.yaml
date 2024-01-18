@@ -34,7 +34,7 @@ script:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '{"segment_ids": ["20"]}'
+          payload: '{"segment_ids": ["17"]}'
   glenn_clean_bath:
     sequence:
       - service: mqtt.publish
@@ -46,31 +46,31 @@ script:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '{"segment_ids": ["21"]}'
+          payload: '{"segment_ids": ["18"]}'
   glenn_clean_hall:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '{"segment_ids": ["18"]}'
+          payload: '{"segment_ids": ["16"]}'
   glenn_clean_kitchen:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '{"segment_ids": ["16"]}'
+          payload: '{"segment_ids": ["20"]}'
   glenn_clean_bed:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '{"segment_ids": ["19"]}'
+          payload: '{"segment_ids": ["21"]}'
   glenn_clean_living:
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '{"segment_ids": ["17"]}'
+          payload: '{"segment_ids": ["19"]}'
   # Queued Room cleaning
   glenn_room_cleaning:
     mode: queued
