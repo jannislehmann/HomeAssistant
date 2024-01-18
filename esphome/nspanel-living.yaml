@@ -54,10 +54,10 @@ binary_sensor:
       number: 27
       inverted: true
     on_click:
-      - mqtt.publish_json:
-          topic: $panel_recv_topic
-          payload: |-
-            root["CustomRecv"] = "event,buttonPress2,navigate.cardGrid_avr,button";
+      - homeassistant.service:
+          service: media_player.media_play_pause
+          data:
+            entity_id: media_player.apple_tv
 
 sensor:
   - platform: wifi_signal
