@@ -50,7 +50,7 @@
                       station: I Love Mashup
                   icon: mdi:disc-player
                   content_info: name
-                  name: Energy Bremen
+                  name: I Love Mashup
                 - type: entity
                   entity: media_player.lms_all
                   tap_action:
@@ -60,7 +60,7 @@
                       station: Energy Bremen
                   icon: mdi:radio
                   content_info: name
-                  name: Mashup
+                  name: Energy Bremen
               alignment: center
               card_mod:
                 style: |

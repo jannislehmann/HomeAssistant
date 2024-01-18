@@ -48,9 +48,9 @@ script:
             {% if station == 'Bremen Next' %}
             item_id:0
             {% elif station == 'Energy Bremen' %}
-            item_id:1
-            {% elif station == 'I Love Mashup' %}
             item_id:2
+            {% elif station == 'I Love Mashup' %}
+            item_id:1
             {% endif %}
       - choose:
         - conditions:
