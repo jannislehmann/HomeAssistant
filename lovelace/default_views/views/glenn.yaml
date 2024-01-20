@@ -203,3 +203,6 @@
                 service_data:
                   room: living
               icon: mdi:television
+          map_modes:
+            - template: vacuum_clean_zone
+            - template: vacuum_goto
