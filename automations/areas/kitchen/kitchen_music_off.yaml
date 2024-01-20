@@ -7,6 +7,7 @@ trigger:
   - platform: state
     entity_id: binary_sensor.kitchen_human_presence
     to: 'off'
+    for: '00:02:30'
 action:
   - service: media_player.turn_off
     entity_id:

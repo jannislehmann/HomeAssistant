@@ -9,8 +9,6 @@ script:
         entity_id:
           - input_boolean.alarm_clock_triggered_today
           - input_boolean.alarm_clock_on
-      - service: switch.turn_on
-        entity_id: switch.adaptive_lighting_sleep_mode_bed
       - service: light.turn_on
         entity_id: light.go
       - delay:
@@ -18,15 +16,13 @@ script:
       - service: script.play_radio_lms
         data:
           player: media_player.lms_bed
-          volume_level: 35
-          station: Bremen Next
+          volume_level: 25
+          station: Energy Bremen
       - delay:
           minutes: 1
       - service: cover.open_cover
         entity_id: cover.bed_cover
       - delay:
           minutes: 30
-      - service: switch.turn_off
-        entity_id: switch.adaptive_lighting_sleep_mode_bed
       - service: input_boolean.turn_off
         entity_id: input_boolean.alarm_clock_on

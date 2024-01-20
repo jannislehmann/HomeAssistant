@@ -11,7 +11,7 @@ trigger:
       minutes: 5
   - platform: state
     entity_id: media_player.lms_all
-    to: 'paused'
+    to: 'idle'
     for:
       minutes: 5
 action:

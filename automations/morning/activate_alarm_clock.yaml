@@ -53,6 +53,19 @@ action:
           service: script.alarm_clock_morning
 
       - conditions:
+          # Public Holiday
+          - condition: time
+            after: '08:20:00'
+            before: '08:25:00'
+          # No manual alarm override
+          - condition: state
+            entity_id: binary_sensor.workday_sensor
+            state: "on"
+          - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
+        sequence:
+          service: script.alarm_clock_morning
+
+      - conditions:
           # Workday - Work
           - condition: time
             after: '06:40:00'

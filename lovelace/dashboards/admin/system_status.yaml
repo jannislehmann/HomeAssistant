@@ -33,6 +33,6 @@
 
         - type: vertical-stack
           cards:
-            - title: Watchman
+            - title: Missing Devices
               type: custom:mushroom-title-card
             - !include ../../cards/system/watchman.yaml
