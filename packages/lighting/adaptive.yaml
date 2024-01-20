@@ -6,34 +6,25 @@ adaptive_lighting:
     lights:
       - light.flur
 
-  - name: living_wall
-    min_brightness: 60
-    max_brightness: 80
-    lights:
-      - light.living_wall
-
   - name: office_desk
-    min_color_temp: 4000
+    min_color_temp: 3500
     min_brightness: 100
     lights:
       - light.playbar
 
   - name: office_ceiling
-    min_color_temp: 4000
+    min_color_temp: 3500
     lights:
       - light.office_ceiling
 
   - name: kitchen
     min_brightness: 100
-    take_over_control: true
     lights:
       - light.kitchen_cabinets
 
   - name: bed
     min_brightness: 35
     max_brightness: 65
-    sleep_transition: 60
-    sleep_brightness: 50
     lights:
       - light.go
 

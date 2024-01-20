@@ -5,8 +5,13 @@ description: Turn on the light in the hall when coming home.
 mode: restart
 trigger:
   - platform: state
-    entity_id: binary_sensor.home
-    to: "on"
+    entity_id: person.jannis
+    to: "home"
+    id: "jannis"
+  - platform: state
+    entity_id: person.hannah
+    to: "home"
+    id: "hannah"
 condition:
   - condition: state
     entity_id: sun.sun
@@ -14,7 +19,7 @@ condition:
 action:
   - wait_for_trigger:
       - platform: state
-        entity_id: binary_sensor.presence_hall
+        entity_id: binary_sensor.contact_door
         to: 'on'
     timeout: '00:05:00'
     continue_on_timeout: false
@@ -23,11 +28,9 @@ action:
   - service: light.turn_on
     data:
       entity_id: light.flur
-      transition: 3
-      brightness_pct: 80
+      brightness_pct: 100
   - delay: '00:05:00'
   - service: automation.turn_on
     entity_id: automation.light_hall
-  - delay: '00:00:15'
   - service: light.turn_off
     entity_id: light.flur
