@@ -105,6 +105,8 @@ logger:
     homeassistant.components.automation.tablet_kitchen: critical
     asyncio: error
     zeroconf: error
+    zigpy.topology: warn
+    zigpy.zcl: critical
 
 lovelace: !include lovelace/configuration.yaml
 
