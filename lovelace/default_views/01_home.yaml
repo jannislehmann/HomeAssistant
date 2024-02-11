@@ -276,8 +276,6 @@
                 secondary: |-
                   {{ states('sensor.temperature_storage') }} °C
                 icon: phu:rooms-storage
-                icon_color: |-
-                  {% if is_state('light.room_storage', 'on') %}orange{% endif %}
                 layout: horizontal
                 tap_action:
                   action: navigate
@@ -306,6 +304,8 @@
                   {% if states('binary_sensor.contact_bath') in ("unavailable", "on") %}mdi:door-open{% endif %}
                 badge_color: red
                 icon: phu:rooms-toilet
+                icon_color: |-
+                  {% if is_state('light.room_bath, 'on') %}orange{% endif %}
                 layout: horizontal
                 multiline_secondary: false
                 tap_action:

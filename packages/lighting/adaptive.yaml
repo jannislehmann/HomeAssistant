@@ -18,18 +18,28 @@ adaptive_lighting:
       - light.office_ceiling
 
   - name: kitchen
-    min_brightness: 100
     lights:
       - light.kitchen_cabinets
 
   - name: bed
-    min_brightness: 35
-    max_brightness: 65
+    min_brightness: 25
+    max_brightness: 75
+    take_over_control: true
     lights:
       - light.go
 
   - name: bed_fado
     min_brightness: 50
     max_brightness: 90
+    take_over_control: true
     lights:
       - light.bed_fado
+  
+  - name: bath
+    take_over_control: true
+    min_brightness: 20
+    interval: 15
+    min_sunrise_time: '06:00:00'
+    max_sunset_time: '22:00:00'
+    lights:
+      - light.bath_ceiling

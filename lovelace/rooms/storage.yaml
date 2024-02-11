@@ -8,10 +8,6 @@ sensors:
   - entity_id: sensor.humidity_storage
     name: Luftfeuchtigkeit
     color: purple
-lights:
-  - entity_id: light.storage
-    name: Abstellraum
-    icon: phu:ceiling-round
 includes:
   - ../cards/washing_machine.yaml
   - ../cards/rack.yaml

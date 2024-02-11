@@ -29,12 +29,6 @@
                     action: toggle
                   name: Bewegungsmelder
                 - type: custom:mushroom-entity-card
-                  entity: automation.light_storage
-                  tap_action:
-                    action: toggle
-                  name: Abstellraum
-                  icon: mdi:lightbulb-outline
-                - type: custom:mushroom-entity-card
                   entity: input_boolean.vacation_mode
                   tap_action:
                     action: toggle

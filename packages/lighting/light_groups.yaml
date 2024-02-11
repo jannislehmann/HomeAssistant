@@ -49,8 +49,12 @@ light:
 
   - platform: group
     name: room_storage
-    entities:
-      - light.storage
+    entities: []
+
+  - platform: group
+    name: room_bath
+    entities: 
+      - light.bath_ceiling
   
   - platform: group
     name: room_outdoor
