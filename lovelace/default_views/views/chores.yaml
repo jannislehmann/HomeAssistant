@@ -20,3 +20,7 @@
                   template: chore_card
           card:
             type: entities
+
+        - type: custom:activity-manager-card
+          header: Aufgaben
+          category: Haushalt
