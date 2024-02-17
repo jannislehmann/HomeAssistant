@@ -5,8 +5,22 @@ description: Notify when household tasks are due
 trigger:
   - platform: time
     at: "10:00:00"
+condition:
+  - condition: template
+    value_template: "{{ states | selectattr('attributes.integration', 'eq', 'activity_manager') | map(attribute='state') | map('as_datetime') | reject('>' , now()) | list | length > 0 }}"
 mode: single
 action:
+  - service: notify.telegram_group
+    data:
+      message: >-
+        {{ "Fällige Aufgaben: " }}
+        {%- set new_line = joiner("<br />") %}
+        {{ }}
+        {%- for activity in states.sensor | selectattr('attributes.integration', 'eq', 'activity_manager') -%}
+        {%- if activity.state|as_datetime < now()  -%}
+        {{ new_line() }}{{ " - "}}{{  activity.name }}
+        {%- endif -%}
+        {%- endfor %}
   - repeat:
       for_each: "{{ expand(states.input_button) | map(attribute='entity_id') | select('search', 'chore') | list }}"
       sequence:
