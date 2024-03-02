@@ -1,0 +1,11 @@
+---
+alias: Bathroom Light Switch
+id: 4d784bea-3027-44e4-99f4-f4680447c3c1
+mode: restart
+trigger:
+  - platform: state
+    entity_id: light.bath_switch
+action:
+  - service: homeassistant.turn_{{ trigger.to_state.state }}
+    target:
+      entity_id: light.bath_ceiling

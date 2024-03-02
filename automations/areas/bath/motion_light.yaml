@@ -1,0 +1,53 @@
+---
+alias: Light Motion Bath
+id: 92ba99f0-2822-4fad-9621-7d218276cedc
+description: Turn on the light in the bath when presence is detected or turn it off if there is no motion.
+mode: single
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
+  - platform: state
+    entity_id:
+      - binary_sensor.presence_bath
+      - input_boolean.motion_sensor
+      - alarm_control_panel.ha_alarm
+  - platform: state
+    entity_id: binary_sensor.presence_bath
+    to: 'off'
+    for:
+      minutes: 5
+action:
+  choose:
+    # Motion detected
+    - conditions:
+        - condition: state
+          entity_id: binary_sensor.presence_bath
+          state: 'on'
+        - condition: state
+          entity_id: alarm_control_panel.ha_alarm
+          state: disarmed
+        - condition: state
+          entity_id: input_boolean.motion_sensor
+          state: 'on'
+        - condition: numeric_state
+          entity_id: sensor.illuminance_bath
+          below: 25
+      sequence:
+        - service: light.turn_on
+          data:
+            transition: 3
+            entity_id: light.bath_ceiling
+    # No more motion detected
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.presence_bath
+        state: 'off'
+        for: '00:05:00'
+      - condition: state
+        entity_id: input_boolean.motion_sensor
+        state: 'on'
+      sequence:
+        - service: light.turn_off
+          entity_id: light.bath_ceiling
