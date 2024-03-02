@@ -103,11 +103,6 @@
                   service_data:
                     entity_id: light.room_office
                   haptic: success
-                hold_action:
-                  action: call-service
-                  service: switch.turn_on
-                  service_data:
-                    entity_id: switch.coffee
                 card_mod:
                   style: |
                     ha-card {
@@ -365,3 +360,10 @@
                 tap_action:
                   action: navigate
                   navigation_path: chores
+
+              - type: custom:mushroom-template-card
+                primary: MASS
+                icon: mdi:speaker-multiple
+                tap_action:
+                  action: navigate
+                  navigation_path: audio-mass

@@ -20,5 +20,4 @@ contact_sensors:
 plants:
   - entity_id: plant.ficus
 includes:
-  - ../cards/coffee.yaml
   - ../cards/gaming_pc.yaml
