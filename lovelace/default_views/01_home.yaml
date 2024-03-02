@@ -361,9 +361,9 @@
                   action: navigate
                   navigation_path: chores
 
-              - type: custom:mushroom-template-card
-                primary: MASS
-                icon: mdi:speaker-multiple
-                tap_action:
-                  action: navigate
-                  navigation_path: audio-mass
+              #- type: custom:mushroom-template-card
+              #  primary: MASS
+              #  icon: mdi:speaker-multiple
+              #  tap_action:
+              #    action: navigate
+              #    navigation_path: audio-mass
