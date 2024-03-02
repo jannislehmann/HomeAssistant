@@ -3,35 +3,27 @@ id: 4e4f71ca-574f-4397-8e22-46e5329cd853
 alias: Chores Due Notification
 description: Notify when household tasks are due
 trigger:
-  - platform: time
-    at: "10:00:00"
+  - platform: numeric_state
+    entity_id: sensor.chores_due
+    above: 0
+#trigger:
+#  - platform: time
+#    at: "10:00:00"
+#condition:
+#  - condition: template
+#    value_template: "{{ states | selectattr('attributes.integration', 'eq', 'activity_manager') | map(attribute='state') | map('as_datetime') | reject('>' , now()) | list | length > 0 }}"
 condition:
   - condition: template
-    value_template: "{{ states | selectattr('attributes.integration', 'eq', 'activity_manager') | map(attribute='state') | map('as_datetime') | reject('>' , now()) | list | length > 0 }}"
+    value_template: "{{ trigger.from_state.state|int < trigger.to_state.state | int }}"
 mode: single
 action:
   - service: notify.telegram_group
-    data:
-      message: >-
-        {{ "Fällige Aufgaben: " }}
-        {%- set new_line = joiner("<br />") %}
-        {{ }}
+    data_template:
+      message: |
+        Fällige Aufgaben:
         {%- for activity in states.sensor | selectattr('attributes.integration', 'eq', 'activity_manager') -%}
-        {%- if activity.state|as_datetime < now()  -%}
-        {{ new_line() }}{{ " - "}}{{  activity.name }}
+        {%- if activity.state|as_datetime < now() -%}
+        - {{ activity.name }}
+        {{ "\n" }}
         {%- endif -%}
         {%- endfor %}
-  - repeat:
-      for_each: "{{ expand(states.input_button) | map(attribute='entity_id') | select('search', 'chore') | list }}"
-      sequence:
-        - variables:
-            task_id: "{{ repeat.item | replace('input_button.', '', 1) }}"
-            button: "{{ 'input_button.' + task_id }}"
-            text: "{{ 'input_text.' + task_id }}"
-            next_due: "{{ states(button) | as_datetime + timedelta(days=(states(text) | int) - 1) }}"
-            action_done: "{{ 'CHORE_DONE_' + task_id }}"
-        - condition: template
-          value_template: "{{ next_due | as_datetime < now() }}"
-        - service: notify.telegram_group
-          data_template:
-            message: "🧹 {{ state_attr(button, 'friendly_name') }} muss erledigt werden."

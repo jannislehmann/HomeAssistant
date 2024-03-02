@@ -11,16 +11,6 @@
             - ../../includes/header.yaml
             - title: Aufgaben
 
-        - type: custom:auto-entities
-          filter:
-            include:
-              - group: group.chores
-                options:
-                  type: custom:button-card
-                  template: chore_card
-          card:
-            type: entities
-
         - type: custom:activity-manager-card
           header: Aufgaben
           category: Haushalt

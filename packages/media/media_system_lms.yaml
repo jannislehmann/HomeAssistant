@@ -1,4 +1,3 @@
-
 script:
   play_radio_station:
     alias: Play Radio Station

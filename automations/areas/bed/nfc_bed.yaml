@@ -6,9 +6,10 @@ trigger:
   - platform: tag
     tag_id: 32ed5830-426e-4135-bb5e-b15a43cb22e0
 action:
-  - service: input_button.press
+  - service: activity_manager.update_activity
     data:
-      entity_id: input_button.chore_change_bed
+      now: true
+      entity_id: sensor.haushalt_bettwasche_wechseln
   - service: notify.telegram_group
     data:
       message: 🛏 Das Bett wurde gewechselt

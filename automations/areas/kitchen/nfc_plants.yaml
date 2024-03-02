@@ -6,9 +6,10 @@ trigger:
   - platform: tag
     tag_id: 367aec8d-6aa6-4b25-a856-eb590f90627f
 action:
-  - service: input_button.press
+  - service: activity_manager.update_activity
     data:
-      entity_id: input_button.chore_water_indoor_plants
+      now: true
+      entity_id: sensor.haushalt_pflanzen_giessen
   - service: notify.telegram_group
     data:
       message: "🪴 Die Pflanzen wurden gegossen."

@@ -1,28 +1,5 @@
 ---
-input_text:
-  chore_change_bed:
-  chore_clean_fridge:
-  chore_clean_cooker_hood:
-  chore_water_indoor_plants:
-  chore_change_water_filter:
-  chore_clean_hairbrush:
-
-input_button:
-  chore_change_bed:
-    name: Bettwäsche wechseln
-    icon: mdi:bed
-  chore_clean_fridge:
-    name: Kühlschrank reinigen
-    icon: mdi:fridge
-  chore_clean_cooker_hood:
-    name: Dunstabzugshaube reinigen
-    icon: mdi:hvac
-  chore_water_indoor_plants:
-    name: Pflanzen gießen
-    icon: mdi:flower-tulip-outline
-  chore_change_water_filter:
-    name: Wasserfilter wechseln
-    icon: mdi:air-filter
-  chore_clean_hairbrush:
-    name: Haarbürste reinigen
-    icon: mdi:brush
+template:
+  - sensor:
+      - name: "Chores Due"
+        state: "{{ states | selectattr('attributes.integration', 'eq', 'activity_manager') | map(attribute='state') | map('as_datetime') | reject('>' , now()) | list | length }}"
