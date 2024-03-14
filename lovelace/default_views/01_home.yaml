@@ -360,6 +360,11 @@
                 tap_action:
                   action: navigate
                   navigation_path: chores
+                card_mod:
+                  style: |
+                    ha-card {
+                      {% if states("sensor.chores_due") | int > 0 %}background: var(--red){% endif %}
+                    }
 
               #- type: custom:mushroom-template-card
               #  primary: MASS
