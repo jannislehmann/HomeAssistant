@@ -1,11 +1,4 @@
 ---
-light:
-  - platform: philips_ambilight
-    name: Ambilight
-    host: !secret philips_host
-    username: !secret philips_username
-    password: !secret philips_password
-
 input_boolean:
   automatic_ambilight:
     initial: true
