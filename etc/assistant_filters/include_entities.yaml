@@ -11,8 +11,10 @@ include_entities:
   - light.office_ceiling
   - light.receiver_volume
   - light.outdoor_light
+  - light.bath_ceiling
   # Switches
   - switch.monitor
   # Vacuum
   - vacuum.glenn
   - input_select.glenn_room
+ 

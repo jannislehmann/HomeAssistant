@@ -33,7 +33,7 @@ action:
           state: 'on'
         - condition: numeric_state
           entity_id: sensor.illuminance_bath
-          below: 25
+          below: 30
       sequence:
         - service: light.turn_on
           data:
