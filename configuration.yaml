@@ -81,6 +81,7 @@ logger:
     # Some devices can be offline and we do require reporting for those.
     homeassistant.components.esphome: critical
     homeassistant.components.zha: warn
+    # zigpy: debug
     homeassistant.components.frontend: warn
     homeassistant.helpers.entity: critical
     homeassistant.components.command_line.switch: warn

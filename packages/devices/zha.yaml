@@ -1,4 +1,7 @@
 zha:
   zigpy_config:
     ota:
-      otau_directory: /config/zigpy_ota
+      allow_file_providers: "I understand I can *destroy* my devices by enabling OTA updates from files. Some OTA updates can be mistakenly applied to the wrong device, breaking it. I am consciously using this at my own risk."
+      otau_directory: ./zigpy_ota
+
+zha_toolkit:
