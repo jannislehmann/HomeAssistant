@@ -1,0 +1,22 @@
+---
+# Workaround for HA 2024.04
+# https://docs.nspanel.pky.eu/stable/prepare_ha/#workaround-for-homeassistant-202404
+template:
+  - trigger:
+      - platform: time_pattern
+        hours: /1
+    action:
+      - service: weather.get_forecasts
+        data:
+          type: daily
+        target:
+          entity_id: weather.openweathermap
+        response_variable: daily
+    sensor:
+      - name: Weather Forecast Daily
+        unique_id: weather_forecast_daily
+        state: "{{ states('weather.openweathermap') }}"
+        attributes:
+          temperature: "{{ state_attr('weather.openweathermap', 'temperature') }}"
+          temperature_unit: "{{ state_attr('weather.openweathermap', 'temperature_unit') }}"
+          forecast: "{{ daily['weather.openweathermap'].forecast }}"
