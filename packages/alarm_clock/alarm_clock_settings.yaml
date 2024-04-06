@@ -5,7 +5,6 @@ input_boolean:
   alarm_clock_triggered_today:
   # Is an alarm currently on?
   alarm_clock_on:
-  alarm_clock_left_bed:
   alarm_clock_open_cover:
     icon: mdi:window-shutter
 
