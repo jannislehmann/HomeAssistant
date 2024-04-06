@@ -10,4 +10,4 @@ script:
       - service: light.toggle
         data:
           entity_id: light.ambilight
-          effect: Standard
+          effect: "FOLLOW_VIDEO: STANDARD"

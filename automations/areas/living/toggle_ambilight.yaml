@@ -37,8 +37,11 @@ action:
         - service: light.turn_on
           data:
             entity_id: light.ambilight
-            effect: Standard
-  # Somewhat bright outside.
-  default:
-    service: light.turn_off
-    entity_id: light.ambilight
+            effect: "FOLLOW_VIDEO: STANDARD"
+    - conditions:
+      - condition: state
+        entity_id: light.ambilight
+        state: "on"
+      sequence:
+        - service: light.turn_off
+          entity_id: light.ambilight
