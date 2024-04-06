@@ -11,4 +11,4 @@ trigger:
 action:
   - service: media_player.turn_off
     entity_id:
-      - media_player.lms_kitchen
+      - media_player.mass_kitchen

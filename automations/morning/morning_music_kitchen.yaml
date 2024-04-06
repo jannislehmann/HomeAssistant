@@ -8,16 +8,16 @@ trigger:
     entity_id: binary_sensor.kitchen_human_presence
     to: 'on'
   - platform: state
-    entity_id: input_boolean.alarm_clock_left_bed
+    entity_id: input_boolean.alarm_clock_on
     to: 'off'
 condition:
   - condition: state
-    entity_id: input_boolean.alarm_clock_left_bed
+    entity_id: input_boolean.alarm_clock_on
     state: 'on'
-  - "{{ not is_state('media_player.lms_kitchen', 'playing') }}"
+  - "{{ not is_state('media_player.mass_kitchen', 'playing') }}"
 action:
-  service: script.play_radio_lms
+  service: script.play_radio_mass
   data:
-    player: media_player.lms_kitchen
+    player: media_player.mass_kitchen
     volume_level: 20
     station: Energy Bremen

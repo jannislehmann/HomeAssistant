@@ -37,15 +37,15 @@
       # Playing radio
       - type: conditional
         conditions:
-          - entity: media_player.lms_all
+          - entity: media_player.mass_outputs
             state: playing
         card:
           type: custom:mini-media-player
-          entity: media_player.lms_all
+          entity: media_player.mass_outputs
           icon: mdi:radio
           tap_action:
             action: navigate
-            navigation_path: audio
+            navigation_path: audio-mass
           hide:
             power: true
             volume: true
@@ -300,7 +300,7 @@
                 badge_color: red
                 icon: phu:rooms-toilet
                 icon_color: |-
-                  {% if is_state('light.room_bath, 'on') %}orange{% endif %}
+                  {% if is_state('light.room_bath', 'on') %}orange{% endif %}
                 layout: horizontal
                 multiline_secondary: false
                 tap_action:
@@ -342,17 +342,6 @@
                     ha-card {
                       {% if is_state('vacuum.glenn', 'cleaning') %}background: var(--green){% endif %}
                     }
-              - type: custom:mushroom-template-card
-                primary: Audio
-                icon: mdi:speaker-multiple
-                tap_action:
-                  action: navigate
-                  navigation_path: audio
-                card_mod:
-                  style: |
-                    ha-card {
-                      {% if is_state('media_player.lms_all', 'playing') %}background: var(--purple){% endif %}
-                    }
 
               - type: custom:mushroom-template-card
                 primary: Aufgaben
@@ -366,9 +355,14 @@
                       {% if states("sensor.chores_due") | int > 0 %}background: var(--red){% endif %}
                     }
 
-              #- type: custom:mushroom-template-card
-              #  primary: MASS
-              #  icon: mdi:speaker-multiple
-              #  tap_action:
-              #    action: navigate
-              #    navigation_path: audio-mass
+              - type: custom:mushroom-template-card
+                primary: MASS
+                icon: mdi:speaker-multiple
+                tap_action:
+                  action: navigate
+                  navigation_path: audio-mass
+                card_mod:
+                  style: |
+                    ha-card {
+                      {% if is_state('media_player.mass_outputs', 'playing') %}background: var(--purple){% endif %}
+                    }

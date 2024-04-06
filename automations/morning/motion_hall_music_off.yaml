@@ -20,17 +20,13 @@ action:
     entity_id: switch.living_access_point
   - service: media_player.volume_set
     data:
-      entity_id: media_player.lms_bed
+      entity_id: media_player.mass_bed
       volume_level: 0.15
   - service: media_player.turn_off
-    entity_id: media_player.lms_bed
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.alarm_clock_on
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.alarm_clock_left_bed
+    entity_id: media_player.mass_bed
   - delay: 00:15:00
   - service: lock.unlock
     entity_id: lock.door_apartment
-  - delay: 00:30:00
+  - delay: 00:15:00
   - service: input_boolean.turn_off
-    entity_id: input_boolean.alarm_clock_left_bed
+    entity_id: input_boolean.alarm_clock_on

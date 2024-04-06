@@ -39,3 +39,14 @@ script:
         data_template:
           entity_id: "{{ player }}"
           volume_level: "{{ volume_level / 100 }}"
+
+media_player:
+  - platform: universal
+    name: MASS Outputs
+    children:
+      - media_player.mass_bed
+      - media_player.mass_kitchen
+      - media_player.mass_bath
+      - media_player.mass_living
+      - media_player.mass_office
+      - media_player.mass_denon

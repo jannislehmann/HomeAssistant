@@ -13,7 +13,7 @@ trigger:
       - binary_sensor.kitchen_human_presence
       - input_boolean.motion_sensor
       - alarm_control_panel.ha_alarm
-      - media_player.lms_kitchen
+      - media_player.mass_kitchen
 action:
   choose:
     # Motion detected
@@ -41,7 +41,7 @@ action:
             entity_id: light.kitchen_cabinets
     - conditions:
       # No more motion detected and music is not playing.
-      - "{{ not is_state('media_player.lms_kitchen', 'playing')}}"
+      - "{{ not is_state('media_player.mass_kitchen', 'playing')}}"
 
       sequence:
       - service: light.turn_off
