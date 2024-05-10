@@ -15,8 +15,6 @@ recorder:
       - time_date
       - worldclock
     entity_globs:
-      - sensor.openweathermap_*
-      # - "*battery*"
       - switch.adaptive_lighting_*
       - sensor.clock*
       - sensor.date*

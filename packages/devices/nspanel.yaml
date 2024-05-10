@@ -10,13 +10,13 @@ template:
         data:
           type: daily
         target:
-          entity_id: weather.openweathermap
+          entity_id: weather.oldenburg
         response_variable: daily
     sensor:
       - name: Weather Forecast Daily
         unique_id: weather_forecast_daily
-        state: "{{ states('weather.openweathermap') }}"
+        state: "{{ states('weather.oldenburg') }}"
         attributes:
-          temperature: "{{ state_attr('weather.openweathermap', 'temperature') }}"
-          temperature_unit: "{{ state_attr('weather.openweathermap', 'temperature_unit') }}"
-          forecast: "{{ daily['weather.openweathermap'].forecast }}"
+          temperature: "{{ state_attr('weather.oldenburg', 'temperature') }}"
+          temperature_unit: "{{ state_attr('weather.oldenburg', 'temperature_unit') }}"
+          forecast: "{{ daily['weather.oldenburg'].forecast }}"

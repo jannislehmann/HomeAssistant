@@ -2,7 +2,7 @@ snow:
   card:
     type: conditional
     conditions:
-      - entity: weather.openweathermap
+      - entity: weather.oldenburg
         state: '[[weather]]'
     card:
       type: 'custom:html-card'
