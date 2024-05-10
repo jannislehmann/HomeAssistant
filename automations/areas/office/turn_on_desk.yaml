@@ -1,0 +1,12 @@
+---
+alias: Turn on desk
+id: 43ca2a47-3d77-46f4-81ff-4738cfabeabf
+description: Turns on my desk in the morning.
+mode: single
+trigger:
+- platform: state
+  entity_id: binary_sensor.night
+  to: "off"
+action:
+  - service: switch.turn_on
+    entity_id: switch.office_desk
