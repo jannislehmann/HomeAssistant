@@ -8,9 +8,17 @@
       cards:
       - !include ../includes/header.yaml
 
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: weather
+            entity: weather.oldenburg
+            show_temperature: true
+          - type: entity
+            entity: sensor.tibber_0100100700ff
+
       # Home Header
       - type: horizontal-stack
-        cards:
+        cards: 
         - type: tile
           entity: alarm_control_panel.ha_alarm
           features:
@@ -25,8 +33,10 @@
                 width: 180px;
               }
 
-        - type: custom:mushroom-lock-card
+        - type: tile
           entity: lock.door_apartment
+          features:
+            - type: "lock-commands"
           card_mod:
             style: |
               ha-card {

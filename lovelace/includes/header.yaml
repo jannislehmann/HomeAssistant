@@ -7,8 +7,10 @@ cards:
       chips:
         - type: back
         - type: weather
-          entity: weather.openweathermap
+          entity: weather.oldenburg
           show_temperature: true
+        - type: entity
+          entity: sensor.tibber_0100100700ff
   {% if title %}
   - type: custom:button-card
     name: {{ title }}

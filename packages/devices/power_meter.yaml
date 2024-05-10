@@ -1,34 +1,3 @@
-sensor:
-  - platform: integration
-    source: sensor.washing_machine_current_consumption
-    unique_id: washing_machine_energy
-    name: Waschmaschine
-    round: 2
-    unit_prefix: k
-
-  - platform: template
-    sensors:
-      hannah_desk_voltage:
-        value_template: >-
-          {{ states.switch.bed_hannah_desk.attributes.voltage }}
-        unit_of_measurement: 'V'
-      hannah_desk_current:
-        value_template: >-
-          {{ states.switch.bed_hannah_desk.attributes.current }}
-        unit_of_measurement: 'mA'
-      hannah_desk_current_consumption:
-        value_template: >-
-          {{ states.switch.bed_hannah_desk.attributes.current_consumption }}
-        unit_of_measurement: 'W'
-        device_class: 'power'
-
-  - platform: integration
-    source: sensor.hannah_desk_current_consumption
-    unique_id: hannah_desk_energy
-    name: Hannah Schreibtisch
-    round: 2
-    unit_prefix: k
-
 # Taken from: https://github.com/basnijholt/home-assistant-config/blob/c54c97912b7a5c527df0e5503e5e36eaa8bfb774/scripts.yaml#L479
 script:
   washing_machine_notification:
