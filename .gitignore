@@ -44,6 +44,5 @@ report.txt
 python-zeroconf/
 ps5-mqtt/
 addons_config/
-lms/
 appdaemon
 .shopping_list.json

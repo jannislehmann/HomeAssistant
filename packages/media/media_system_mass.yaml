@@ -4,14 +4,14 @@ script:
     fields:
       station:
         description: The radio station
-        example: Bremen Next
+        example: Energy Bremen
         required: true
         selector:
           select:
             options:
-              - Bremen Next
+              - Bremen NEXT
               - Energy Bremen
-              - I Love Mashup
+              - I♥MASHUP
       player:
         description: The player to start playing on.
         required: true

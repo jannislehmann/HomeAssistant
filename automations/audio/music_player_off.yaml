@@ -1,5 +1,5 @@
 ---
-alias: Turn off LMS music
+alias: Turn off music
 description: Turns off the music system, when all outputs have been turned off for a minute.
 id: a0835b1b-bc91-46cb-ab59-e98358d15050
 mode: single
