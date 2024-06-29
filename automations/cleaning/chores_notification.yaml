@@ -3,18 +3,11 @@ id: 4e4f71ca-574f-4397-8e22-46e5329cd853
 alias: Chores Due Notification
 description: Notify when household tasks are due
 trigger:
-  - platform: numeric_state
+  - platform: state
     entity_id: sensor.chores_due
-    above: 0
-#trigger:
-#  - platform: time
-#    at: "10:00:00"
-#condition:
-#  - condition: template
-#    value_template: "{{ states | selectattr('attributes.integration', 'eq', 'activity_manager') | map(attribute='state') | map('as_datetime') | reject('>' , now()) | list | length > 0 }}"
 condition:
   - condition: template
-    value_template: "{{ trigger.from_state.state|int < trigger.to_state.state | int }}"
+    value_template: "{{ trigger.from_state.state | int < trigger.to_state.state | int }}"
 mode: single
 action:
   - service: notify.telegram_group
