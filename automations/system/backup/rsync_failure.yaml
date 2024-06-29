@@ -1,0 +1,24 @@
+---
+alias: Notify RSync Failure
+id: 0ae02693-a24d-4b1b-b431-7c50ad1ac940
+trigger:
+  platform: event
+  event_type: rclone_backup.job_failed
+action:
+  service: persistent_notification.create
+  data:
+    title: "RSync Failed."
+    message: |-
+      <b>{{ trigger.event.data.name }}</b>
+
+      {% if trigger.event.data.error -%}
+        [Error] {{ trigger.event.data.error }}
+      {% endif -%}
+
+      {% if trigger.event.data.destination -%}
+        [Target] <b>{{ trigger.event.data.source }}</b> -> <b>{{ trigger.event.data.destination }}</b>
+      {% else -%}
+        [Source] <b>{{ trigger.event.data.source }}</b>
+      {% endif -%}
+
+      [Duration] <span style="color: limegreen">{{ trigger.event.data.duration }}</span>

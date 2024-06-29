@@ -1,0 +1,17 @@
+---
+alias: "AutoBackup: Weekly Backup"
+id: 3770f24f-99bd-435d-9f61-948cf8ac8d2b
+trigger:
+  platform: time
+  at: "02:30:00"
+condition:
+  condition: time
+  weekday:
+    - mon
+action:
+  service: auto_backup.backup_full
+  data:
+    name: "WeeklyBackup: {{ now().strftime('%A, %B %-d, %Y') }}"
+    # store backup for a month
+    # i.e. backup each week and store for 4 weeks
+    keep_days: 28
