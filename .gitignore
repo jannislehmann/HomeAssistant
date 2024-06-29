@@ -44,5 +44,5 @@ report.txt
 python-zeroconf/
 ps5-mqtt/
 addons_config/
-appdaemon
-.shopping_list.json
+addons_autoscripts/
+rclone.conf
