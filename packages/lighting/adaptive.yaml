@@ -37,9 +37,9 @@ adaptive_lighting:
   
   - name: bath
     take_over_control: true
-    min_brightness: 20
+    min_brightness: 15
     interval: 15
     min_sunrise_time: '06:00:00'
-    max_sunset_time: '22:00:00'
+    max_sunset_time: '20:00:00'
     lights:
       - light.bath_ceiling
