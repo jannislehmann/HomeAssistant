@@ -4,4 +4,5 @@ api:
     key: !secret esp_encryption_key
 
 ota:
+  platform: esphome
   password: !secret esp_otapass
