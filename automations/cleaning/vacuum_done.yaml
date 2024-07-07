@@ -9,5 +9,20 @@ trigger:
   from: cleaning
   to: returning
 action:
-  service: input_boolean.turn_on
-  entity_id: input_boolean.cleaned_today
+  choose:
+    # Motion detected
+    - conditions:
+        - condition: state
+          entity_id: binary_sensor.valetudo_glenn_mop_attachment
+          state: 'on'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.cleaned_today
+      - service: notify.telegram_group
+        message: "Glenn ist fertig mit dem Wischen. "
+    # No mop attachment
+    - default:
+      sequence:
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.cleaned_today
+  
