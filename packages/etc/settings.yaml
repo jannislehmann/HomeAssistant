@@ -8,7 +8,7 @@ binary_sensor:
       night:
         device_class: light
         value_template: >
-          {{ is_state('input_boolean.night_mode', 'on') or (is_state('lock.door_apartment', 'locked') and is_state('binary_sensor.home', 'on') and is_state('sun.sun', 'below_horizon') and is_state('input_boolean.alarm_clock_on', 'off')) }}
+          {{ is_state('input_boolean.night_mode', 'on') or (is_state('lock.door_apartment', 'locked') and is_state('binary_sensor.home', 'on') and (is_state('sun.sun', 'below_horizon') or now().hour > 6) and is_state('input_boolean.alarm_clock_on', 'off')) }}
       nspanel_sleep_override:
         device_class: light
         value_template: >
