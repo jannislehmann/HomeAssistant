@@ -3,6 +3,8 @@ adaptive_lighting:
   - name: hall
     max_brightness: 50
     take_over_control: true
+    min_sunrise_time: '06:00:00'
+    max_sunset_time: '21:00:00'
     lights:
       - light.flur
 
