@@ -24,7 +24,7 @@ action:
         - service: light.turn_on
           data:
             entity_id: light.ambilight
-            effect: "FOLLOW_VIDEO: STANDARD"
+            effect: "FOLLOW_VIDEO: NATURAL"
   # Turn off
   default:
     service: light.turn_off

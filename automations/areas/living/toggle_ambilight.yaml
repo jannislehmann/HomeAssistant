@@ -37,7 +37,7 @@ action:
         - service: light.turn_on
           data:
             entity_id: light.ambilight
-            effect: "FOLLOW_VIDEO: STANDARD"
+            effect: "FOLLOW_VIDEO: NATURAL"
     - conditions:
       - condition: state
         entity_id: light.ambilight

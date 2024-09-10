@@ -10,7 +10,7 @@ script:
       - service: light.toggle
         data:
           entity_id: light.ambilight
-          effect: "FOLLOW_VIDEO: STANDARD"
+          effect: "FOLLOW_VIDEO: NATURAL"
   tv_hdmi_1:
     sequence:
       - service: media_player.select_source
