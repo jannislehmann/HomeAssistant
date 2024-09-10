@@ -16,7 +16,7 @@ script:
       - service: script.play_radio_mass
         data:
           player: media_player.mass_bed
-          volume_level: 30
+          volume_level: 25
           station: Energy Bremen
       - delay:
           minutes: 2
