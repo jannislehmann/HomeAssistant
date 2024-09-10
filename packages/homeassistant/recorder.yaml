@@ -25,8 +25,5 @@ recorder:
     entities:
       - sun.sun
       - sensor.date
-      - sensor.memory_free
-      - sensor.memory_use_percent
-      - sensor.processor_use
   # Disable auto purging, I'm doing this using automations instead
   auto_purge: false
