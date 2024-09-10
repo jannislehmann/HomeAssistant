@@ -2,8 +2,8 @@
 substitutions:
   device: nspanel-living
   mac: '3c:e9:0e:85:d4:dc'
-  panel_recv_topic: "tele/nspanel_living/RESULT"
-  panel_send_topic: "cmnd/nspanel_living/CustomSend"
+  panel_recv_topic: "46d05652aeaa6278d9682a0ae574694d"
+  panel_send_topic: "nspanel_living/CustomSend"
 
 packages:
   main_base: !include common/main_base.yaml
@@ -16,7 +16,9 @@ logger:
 external_components:
   - source:
       type: git
+  #    url: https://github.com/afarago/esphome-nspanel-lovelace-ui
       url: https://github.com/sairon/esphome-nspanel-lovelace-ui
+  #    ref: use-ha-api
       ref: release/v0.2.x
     components: [nspanel_lovelace]
 
@@ -29,6 +31,7 @@ nspanel_lovelace:
   id: nspanel
   mqtt_recv_topic: $panel_recv_topic
   mqtt_send_topic: $panel_send_topic
+  # use_api: True
 
 #bluetooth_proxy:
 
@@ -47,17 +50,17 @@ binary_sensor:
       number: 14
       inverted: true
     on_click:
-      - switch.toggle: relay_1
+      - homeassistant.service:
+          service: media_player.media_play_pause
+          data:
+            entity_id: media_player.apple_tv
   - platform: gpio
     name: $device Right Button
     pin:
       number: 27
       inverted: true
     on_click:
-      - homeassistant.service:
-          service: media_player.media_play_pause
-          data:
-            entity_id: media_player.apple_tv
+      - switch.toggle: relay_1
 
 sensor:
   - platform: wifi_signal
@@ -131,4 +134,4 @@ api:
       then:
 #id(ble_tracker).stop_scan();
         - lambda: |-
-            id(nspanel).upload_tft(url);
+            id(nspanel).upload_tft("http://nspanel.pky.eu/lui.tft");
