@@ -8,6 +8,3 @@ entities:
     name: Installierte Version
   - entity: sensor.version_available
     name: Version
-  - entity: sensor.hacs
-    icon: 'mdi:download-network'
-    name: HACS Updates
