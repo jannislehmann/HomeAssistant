@@ -68,4 +68,5 @@
                 - binary_sensor.contact_living_door
                 - binary_sensor.contact_living_window
                 - lock.door_house
+                - lock.door_apartment
                 - binary_sensor.doorbell
