@@ -7,7 +7,7 @@ trigger:
   entity_id: input_select.glenn_room
   from: 'Select Room'
 action:
-- service: script.turn_on
+- action: script.turn_on
   data_template:
     variables:
       room: >
@@ -27,7 +27,7 @@ action:
           bed
         {% endif %}
     entity_id: script.glenn_room_cleaning
-- service: input_select.select_option
+- action: input_select.select_option
   data:
     entity_id: input_select.glenn_room
     option: "Select Room"

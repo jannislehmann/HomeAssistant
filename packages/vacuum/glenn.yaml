@@ -21,53 +21,53 @@ script:
   # Go To
   glenn_go_home:
     sequence:
-      - service: vacuum.return_to_base
+      - action: vacuum.return_to_base
         data:
           entity_id: vacuum.glenn
   glenn_clean_all:
     sequence:
-      - service: vacuum.start
+      - action: vacuum.start
         entity_id: vacuum.glenn
   # Zoned Clean
   glenn_clean_storage:
     sequence:
-      - service: mqtt.publish
+      - action: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
           payload: '{"segment_ids": ["17"]}'
   glenn_clean_bath:
     sequence:
-      - service: mqtt.publish
+      - action: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
           payload: '{"segment_ids": ["22"]}'
   glenn_clean_office:
     sequence:
-      - service: mqtt.publish
+      - action: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
           payload: '{"segment_ids": ["18"]}'
   glenn_clean_hall:
     sequence:
-      - service: mqtt.publish
+      - action: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
           payload: '{"segment_ids": ["16"]}'
   glenn_clean_kitchen:
     sequence:
-      - service: mqtt.publish
+      - action: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
           payload: '{"segment_ids": ["20"]}'
   glenn_clean_bed:
     sequence:
-      - service: mqtt.publish
+      - action: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
           payload: '{"segment_ids": ["21"]}'
   glenn_clean_living:
     sequence:
-      - service: mqtt.publish
+      - action: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
           payload: '{"segment_ids": ["19"]}'
@@ -112,7 +112,7 @@ script:
                     to: docked
                 continue_on_timeout: false
                 timeout: '00:30:00'
-              - service: >
+              - action: >
                   script.glenn_clean_{{ room }}
               - wait_for_trigger:
                   - platform: state
@@ -136,7 +136,7 @@ script:
                     entity_id: vacuum.glenn
                     state: idle
             sequence:
-              - service: >
+              - action: >
                   script.glenn_clean_{{ room }}
               - wait_for_trigger:
                   - platform: state

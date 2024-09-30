@@ -13,7 +13,7 @@ action:
     - conditions:
       - "{{ trigger.event.data.args.click_type == 'single' }}"
       sequence:
-        - service: light.toggle
+        - action: light.toggle
           data:
             entity_id: light.go
             transition: 5

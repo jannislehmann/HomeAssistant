@@ -10,6 +10,6 @@ trigger:
   entity_id: binary_sensor.door_appartment_battery_critical
   to: 'on'
 action:
-  - service: notify.telegram_group
+  - action: notify.telegram_group
     data:
       message: "{{ message }}"

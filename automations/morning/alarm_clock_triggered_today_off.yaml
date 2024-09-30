@@ -7,7 +7,7 @@ trigger:
   - platform: time
     at: '00:00:00'
 action:
-  service: input_boolean.turn_off
+  action: input_boolean.turn_off
   entity_id:
     - input_boolean.alarm_clock_triggered_today
     - input_boolean.alarm_clock_on

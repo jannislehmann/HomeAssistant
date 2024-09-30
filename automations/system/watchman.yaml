@@ -7,4 +7,4 @@ trigger:
   platform: time
   at: '04:00:00'
 action:
-  service: watchman.report
+  action: watchman.report

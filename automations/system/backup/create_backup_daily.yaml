@@ -5,7 +5,7 @@ trigger:
   platform: time
   at: "02:00:00"
 action:
-  service: auto_backup.backup
+  action: auto_backup.backup
   data:
     name: "DailyBackup: {{ now().strftime('%a, %-I:%M %p (%d/%m/%Y)') }}"
     password: !secret hassio_snapshot_password

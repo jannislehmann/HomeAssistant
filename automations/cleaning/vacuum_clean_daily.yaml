@@ -25,5 +25,5 @@ condition:
     entity_id: input_boolean.cleaned_today
     state: 'off'
 action:
-  service: vacuum.start
+  action: vacuum.start
   entity_id: vacuum.glenn

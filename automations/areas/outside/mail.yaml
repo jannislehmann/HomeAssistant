@@ -10,6 +10,6 @@ trigger:
   entity_id: binary_sensor.vibration
   to: 'on'
 action:
-  - service: notify.telegram_group
+  - action: notify.telegram_group
     data:
       message: "✉️ {{ sentence }}"

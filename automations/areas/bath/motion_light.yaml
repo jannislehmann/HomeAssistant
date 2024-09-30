@@ -35,7 +35,7 @@ action:
           entity_id: sensor.illuminance_bath
           below: 25
       sequence:
-        - service: light.turn_on
+        - action: light.turn_on
           data:
             transition: 3
             entity_id: light.bath_ceiling
@@ -49,5 +49,5 @@ action:
         entity_id: input_boolean.motion_sensor
         state: 'on'
       sequence:
-        - service: light.turn_off
+        - action: light.turn_off
           entity_id: light.bath_ceiling

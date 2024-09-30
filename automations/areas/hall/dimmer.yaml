@@ -14,9 +14,9 @@ action:
     - conditions:
       - "{{ trigger.event.data.command == 'on_press' }}"
       sequence:
-        - service: automation.turn_off
+        - action: automation.turn_off
           entity_id: automation.light_hall
-        - service: light.turn_on
+        - action: light.turn_on
           data:
             entity_id: light.flur
             transition: 3
@@ -25,7 +25,7 @@ action:
     - conditions:
       - "{{ trigger.event.data.args == [0, 30, 9] }}"
       sequence:
-        - service: light.turn_on
+        - action: light.turn_on
           data:
             entity_id: light.flur
             brightness_step_pct: 10
@@ -33,7 +33,7 @@ action:
     - conditions:
       - "{{ trigger.event.data.args == [1, 30, 9] }}"
       sequence:
-        - service: light.turn_on
+        - action: light.turn_on
           data:
             entity_id: light.flur
             brightness_step_pct: -10
@@ -41,8 +41,8 @@ action:
     - conditions:
       - "{{ trigger.event.data.command == 'off_press' }}"
       sequence:
-        - service: automation.turn_on
+        - action: automation.turn_on
           entity_id: automation.light_hall
         - delay: '00:00:15'
-        - service: light.turn_off
+        - action: light.turn_off
           entity_id: light.flur

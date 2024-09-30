@@ -13,6 +13,6 @@ condition:
   condition: time
   weekday: sun
 action:
-  service: recorder.purge
+  action: recorder.purge
   data:
     repack: true

@@ -14,7 +14,7 @@ action:
       entity_id: sensor.glenn_main_brush_time_left
       below: 60
     sequence:
-      service: notify.telegram_group
+      action: notify.telegram_group
       data:
         message: 🔧 Glenns Hauptbrüste muss bald getauscht werden.
   - conditions:
@@ -22,7 +22,7 @@ action:
       entity_id: sensor.glenn_side_brush_time_left
       below: 60
     sequence:
-      service: notify.telegram_group
+      action: notify.telegram_group
       data:
         message: 🔧 Glenns Seitenbürste müssen bald getauscht werden.
   - conditions:
@@ -30,7 +30,7 @@ action:
       entity_id: sensor.glenn_reset_main_filter_consumable
       below: 60
     sequence:
-      service: notify.telegram_group
+      action: notify.telegram_group
       data:
         message: 🔧 Glenns Filter muss bald getauscht werden.
   - conditions:
@@ -38,6 +38,6 @@ action:
       entity_id: sensor.glenn_sensor_time_left
       below: 30
     sequence:
-      service: notify.telegram_group
+      action: notify.telegram_group
       data:
         message: 🔧 Glenns Sensoren müssen bald gereinigt werden.

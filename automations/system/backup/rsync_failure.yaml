@@ -5,7 +5,7 @@ trigger:
   platform: event
   event_type: rclone_backup.job_failed
 action:
-  service: persistent_notification.create
+  action: persistent_notification.create
   data:
     title: "RSync Failed."
     message: |-

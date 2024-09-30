@@ -18,7 +18,7 @@ action:
         entity_id: media_player.denon_avr_x1700h
         state: playing
       sequence:
-        - service: media_player.select_sound_mode
+        - action: media_player.select_sound_mode
           data:
             sound_mode: MUSIC
           target:
@@ -29,13 +29,13 @@ action:
           entity_id: switch.ps5_power
           state: "on"
       sequence:
-        - service: media_player.select_sound_mode
+        - action: media_player.select_sound_mode
           data:
             sound_mode: GAME
           target:
             entity_id: media_player.avr
   default:
-    service: media_player.select_sound_mode
+    action: media_player.select_sound_mode
     data:
       sound_mode: PURE DIRECT
     target:

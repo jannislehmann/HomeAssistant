@@ -25,5 +25,5 @@ condition:
       entity_id: media_player.mass_denon
       state: "playing"
 action:
-  service: media_player.turn_off
+  action: media_player.turn_off
   entity_id: media_player.avr

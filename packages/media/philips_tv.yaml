@@ -7,19 +7,19 @@ input_boolean:
 script:
   toggle_ambilight:
     sequence:
-      - service: light.toggle
+      - action: light.toggle
         data:
           entity_id: light.ambilight
           effect: "FOLLOW_VIDEO: NATURAL"
   tv_hdmi_1:
     sequence:
-      - service: media_player.select_source
+      - action: media_player.select_source
         data:
           entity_id: media_player.philips_tv
           source: 'HDMI 1'
   tv_hdmi_3:
     sequence:
-      - service: media_player.select_source
+      - action: media_player.select_source
         data:
           entity_id: media_player.philips_tv
           source: 'HDMI 3'

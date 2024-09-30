@@ -14,6 +14,6 @@ action:
             plant: "{{ repeat.item }}"
         - condition: template
           value_template: "{{ states(plant) != 'ok' }}"
-        - service: notify.telegram_group
+        - action: notify.telegram_group
           data:
             message: "🪴 {{ state_attr(plant, 'friendly_name') }} benötigt etwas."

@@ -16,14 +16,14 @@ action:
           entity_id: binary_sensor.valetudo_glenn_mop_attachment
           state: 'on'
       sequence:
-      - service: input_boolean.turn_on
+      - action: input_boolean.turn_on
         entity_id: input_boolean.cleaned_today
-      - service: notify.telegram_group
+      - action: notify.telegram_group
         data:
           message: "Glenn ist fertig mit dem Wischen. "
     # No mop attachment
   default:
     sequence:
-    - service: input_boolean.turn_on
+    - action: input_boolean.turn_on
       entity_id: input_boolean.cleaned_today
 

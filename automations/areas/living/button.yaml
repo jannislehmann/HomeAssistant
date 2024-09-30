@@ -13,7 +13,7 @@ action:
     - conditions:
       - "{{ trigger.event.data.command == 'left_single' }}"
       sequence:
-        - service: light.toggle
+        - action: light.toggle
           data:
             entity_id: light.living_wall
             transition: 5
@@ -21,7 +21,7 @@ action:
     - conditions:
       - "{{ trigger.event.data.command == 'left_double' }}"
       sequence:
-        - service: media_player.select_source
+        - action: media_player.select_source
           data:
             entity_id: media_player.philips_tv
             source: 'HDMI 1'
@@ -29,7 +29,7 @@ action:
     - conditions:
       - "{{ trigger.event.data.command == 'left_long press' }}"
       sequence:
-        - service: media_player.select_source
+        - action: media_player.select_source
           data:
             entity_id: media_player.philips_tv
             source: 'HDMI 3'
@@ -37,10 +37,10 @@ action:
     - conditions:
       - "{{ trigger.event.data.command == 'right_single' }}"
       sequence:
-        - service: input_boolean.toggle
+        - action: input_boolean.toggle
           entity_id: input_boolean.automatic_ambilight
     # Right Double Click
     - conditions:
       - "{{ trigger.event.data.command == 'right_double' }}"
       sequence:
-        - service: script.toggle_ambilight
+        - action: script.toggle_ambilight

@@ -9,9 +9,9 @@ condition:
   weekday:
     - mon
 action:
-  service: auto_backup.backup_full
+  action: auto_backup.backup_full
   data:
     name: "WeeklyBackup: {{ now().strftime('%A, %B %-d, %Y') }}"
     # store backup for a month
-    # i.e. backup each week and store for 4 weeks
-    keep_days: 28
+    # i.e. backup each week and store for 2 weeks
+    keep_days: 14

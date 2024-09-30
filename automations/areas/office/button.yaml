@@ -13,13 +13,13 @@ action:
     - conditions:
       - "{{ trigger.event.data.args.click_type == 'single' }}"
       sequence:
-        - service: light.toggle
+        - action: light.toggle
           entity_id: light.playbar
     # Long Hold
     - conditions:
       - "{{ trigger.event.data.command == 'hold' }}"
       sequence:
-        - service: light.turn_off
+        - action: light.turn_off
           entity_id:
             - light.playbar
             - light.office_ceiling

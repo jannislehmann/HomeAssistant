@@ -20,7 +20,7 @@ script:
       - variables:
           minutes: "{{ (total_time / 60) | round(0) | int }}"
       - condition: "{{ minutes >= 5 }}"
-      - service: notify.telegram_group
+      - action: notify.telegram_group
         data:
           message: "👚👕 Die Waschmaschine ist fertig. Sie hat {{ minutes }} Minuten gebraucht."
 

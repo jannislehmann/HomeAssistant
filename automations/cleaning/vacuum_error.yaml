@@ -11,9 +11,9 @@ trigger:
   from: cleaning
   to: error
 action:
-  - service: notify.telegram_group
+  - action: notify.telegram_group
     data_template:
       message: "{{ message }} {{ states('sensor.glenn_error') }}"
-  - service: notify.apple_all
+  - action: notify.apple_all
     data_template:
       message: "{{ message }} {{ states('sensor.glenn_error') }}"

@@ -9,8 +9,8 @@ condition:
   condition: template
   value_template: "{{as_timestamp(states('sensor.cert_expiry_timestamp')) - as_timestamp(now()) < 30 * 24 * 60 * 60}}"
 action:
-  - service: hassio.addon_restart
+  - action: hassio.addon_restart
     data:
       addon: core_letsencrypt
   - delay: 00:05:00
-  - service: homeassistant.restart
+  - action: homeassistant.restart

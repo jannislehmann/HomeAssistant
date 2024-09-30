@@ -27,7 +27,7 @@ action:
           entity_id: input_boolean.motion_sensor
           state: 'on'
       sequence:
-        - service: light.turn_on
+        - action: light.turn_on
           data_template:
             # Only turn on one hall light during night mode as the other shines directly into the bed.
             entity_id: >
@@ -38,7 +38,7 @@ action:
               {% endif %}
   # No more motion detected
   default:
-    - service: light.turn_off
+    - action: light.turn_off
       data:
         entity_id: light.flur
         transition: 3

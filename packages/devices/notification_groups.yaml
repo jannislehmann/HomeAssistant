@@ -3,16 +3,16 @@ notify:
   - platform: group
     name: apple_jannis
     services:
-      - service: mobile_app_iphone_14_pro
-      - service: mobile_app_jannis_macbook
+      - action: mobile_app_iphone_14_pro
+      - action: mobile_app_jannis_macbook
 
   - platform: group
     name: apple_hannah
     services:
-      - service: mobile_app_iphone_von_hannah
+      - action: mobile_app_iphone_von_hannah
 
   - platform: group
     name: apple_all
     services:
-      - service: apple_jannis
-      - service: apple_hannah
+      - action: apple_jannis
+      - action: apple_hannah

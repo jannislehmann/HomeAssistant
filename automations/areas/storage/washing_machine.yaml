@@ -9,4 +9,4 @@ trigger:
   from: 'off'
   to: 'on'
 action:
-  service: script.washing_machine_notification
+  action: script.washing_machine_notification

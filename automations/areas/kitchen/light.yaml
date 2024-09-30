@@ -36,7 +36,7 @@ action:
           before: sunrise
           before_offset: "+00:30:00"
       sequence:
-        - service: light.turn_on
+        - action: light.turn_on
           data:
             entity_id: light.kitchen_cabinets
     - conditions:
@@ -44,7 +44,7 @@ action:
       - "{{ not is_state('media_player.mass_kitchen', 'playing')}}"
 
       sequence:
-      - service: light.turn_off
+      - action: light.turn_off
         data:
           entity_id: light.kitchen_cabinets
           transition: 3

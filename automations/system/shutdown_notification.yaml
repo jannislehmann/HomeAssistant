@@ -7,6 +7,6 @@ trigger:
   platform: homeassistant
   event: shutdown
 action:
-  - service: notify.telegram_jannis
+  - action: notify.telegram_jannis
     data:
       message: Home Assistant is shutting down... Bye!

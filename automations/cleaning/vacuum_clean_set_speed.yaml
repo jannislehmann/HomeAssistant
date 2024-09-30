@@ -9,7 +9,7 @@ trigger:
   from: docked
   to: cleaning
 action:
-  - service: vacuum.set_fan_speed
+  - action: vacuum.set_fan_speed
     data:
       entity_id: vacuum.glenn
       fan_speed: high

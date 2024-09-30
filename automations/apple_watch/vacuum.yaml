@@ -8,5 +8,5 @@ trigger:
   event_data:
     actionName: VACUUM
 action:
-  - service: vacuum.start
+  - action: vacuum.start
     entity_id: vacuum.glenn

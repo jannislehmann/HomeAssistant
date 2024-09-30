@@ -10,4 +10,4 @@ condition:
   condition: time
   weekday: sun
 action:
-  service: system_log.clear
+  action: system_log.clear

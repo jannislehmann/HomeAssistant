@@ -27,7 +27,7 @@ script:
             min: 0
             max: 100
     sequence:
-      - service: mass.play_media
+      - action: mass.play_media
         target:
           entity_id: "{{ player }}"
         data:
@@ -35,7 +35,7 @@ script:
           media_id: "{{ station }}"
       # Wait 5 seconds to ensure that player is actually playing
       - delay: 5
-      - service: media_player.volume_set
+      - action: media_player.volume_set
         data_template:
           entity_id: "{{ player }}"
           volume_level: "{{ volume_level / 100 }}"

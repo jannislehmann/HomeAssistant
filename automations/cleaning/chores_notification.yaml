@@ -10,7 +10,7 @@ condition:
     value_template: "{{ trigger.from_state.state | int < trigger.to_state.state | int }}"
 mode: single
 action:
-  - service: notify.telegram_group
+  - action: notify.telegram_group
     data_template:
       message: |
         Fällige Aufgaben:

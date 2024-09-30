@@ -16,7 +16,7 @@ condition:
     state: 'on'
   - "{{ not is_state('media_player.mass_kitchen', 'playing') }}"
 action:
-  service: script.play_radio_mass
+  action: script.play_radio_mass
   data:
     player: media_player.mass_kitchen
     volume_level: 20

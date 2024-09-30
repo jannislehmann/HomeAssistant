@@ -13,7 +13,7 @@ action:
         entity_id: binary_sensor.night
         state: "off"
       sequence:
-        - service: switch.turn_on
+        - action: switch.turn_on
           entity_id: switch.living_access_point
     - conditions:
       - condition: and
@@ -26,5 +26,5 @@ action:
           entity_id: calendar.on_call
           state: "off"
       sequence:
-        - service: switch.turn_off
+        - action: switch.turn_off
           entity_id: switch.living_access_point

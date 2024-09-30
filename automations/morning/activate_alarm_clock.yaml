@@ -23,11 +23,11 @@ action:
         - "{{ states('input_datetime.alarm_time')[0:5] == states('sensor.time') }}"
         - "{{ states('input_datetime.alarm_time') != '00:00:00' }}"
         sequence:
-        - service: input_datetime.set_datetime
+        - action: input_datetime.set_datetime
           data:
             entity_id: input_datetime.alarm_time
             time: "00:00:00"
-        - service: script.alarm_clock_morning
+        - action: script.alarm_clock_morning
 
       - conditions:
           # Weekend - Basic
@@ -39,7 +39,7 @@ action:
           # If the training conditions applies, the alarm is triggered before this
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
         sequence:
-          service: script.alarm_clock_morning
+          action: script.alarm_clock_morning
 
       - conditions:
           # Vacation
@@ -50,7 +50,7 @@ action:
           - "{{ states('input_boolean.vacation_mode') == 'on' }}"
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
         sequence:
-          service: script.alarm_clock_morning
+          action: script.alarm_clock_morning
 
       - conditions:
           # Public Holiday
@@ -63,13 +63,13 @@ action:
             state: "on"
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
         sequence:
-          service: script.alarm_clock_morning
+          action: script.alarm_clock_morning
 
       - conditions:
           # Workday - Work
           - condition: time
             after: '06:40:00'
-            before: '06:41:00'
+            before: '06:45:00'
             weekday: [mon, tue, wed, thu, fri]
           - condition: state
             entity_id: binary_sensor.workday_sensor
@@ -78,4 +78,4 @@ action:
           - "{{ states('input_datetime.alarm_time') == '00:00:00' }}"
           - "{{ states('input_boolean.vacation_mode') == 'off' }}"
         sequence:
-          service: script.alarm_clock_morning
+          action: script.alarm_clock_morning

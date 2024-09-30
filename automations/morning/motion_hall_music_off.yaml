@@ -12,21 +12,21 @@ condition:
     entity_id: input_boolean.alarm_clock_on
     state: 'on'
 action:
-  - service: light.turn_off
+  - action: light.turn_off
     data:
       entity_id: light.go
       transition: 5
-  - service: switch.turn_on
+  - action: switch.turn_on
     entity_id: switch.living_access_point
-  - service: media_player.volume_set
+  - action: media_player.volume_set
     data:
       entity_id: media_player.mass_bed
       volume_level: 0.15
-  - service: media_player.turn_off
+  - action: media_player.turn_off
     entity_id: media_player.mass_bed
   - delay: 00:15:00
-  - service: lock.unlock
+  - action: lock.unlock
     entity_id: lock.door_apartment
   - delay: 00:15:00
-  - service: input_boolean.turn_off
+  - action: input_boolean.turn_off
     entity_id: input_boolean.alarm_clock_on

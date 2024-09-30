@@ -14,19 +14,19 @@ light:
             off
           {% endif %}
         turn_on:
-          service: media_player.volume_mute
+          action: media_player.volume_mute
           target:
             entity_id: media_player.avr
           data:
             is_volume_muted: false
         turn_off:
-          service: media_player.volume_mute
+          action: media_player.volume_mute
           target:
             entity_id: media_player.avr
           data:
             is_volume_muted: true
         set_level:
-          service: media_player.volume_set
+          action: media_player.volume_set
           target:
             entity_id: media_player.avr
           data:

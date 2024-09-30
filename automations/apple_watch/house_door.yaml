@@ -8,5 +8,5 @@ trigger:
   event_data:
     actionName: HOUSE_DOOR
 action:
-  - service: lock.unlock
+  - action: lock.unlock
     entity_id: lock.door_house

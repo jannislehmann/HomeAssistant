@@ -7,8 +7,8 @@ cover:
         friendly_name: "Bedroom Shades"
         value_template: "closed"
         open_cover:
-          service: switch.turn_off
+          action: switch.turn_off
           entity_id: switch.bed_bot_cover
         close_cover:
-          service: switch.turn_on
+          action: switch.turn_on
           entity_id: switch.bed_bot_cover

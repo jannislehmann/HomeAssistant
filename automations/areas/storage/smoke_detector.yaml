@@ -8,10 +8,10 @@ trigger:
   entity_id: binary_sensor.storage_smoke_sensor
   to: 'on'
 action:
-  - service: notify.telegram_group
+  - action: notify.telegram_group
     data:
       message: ⚠️ Rauch im Abstellraum erkannt!
-  - service: notify.apple_all
+  - action: notify.apple_all
     data:
       message: ⚠️ Rauch im Abstellraum erkannt!
       push:
