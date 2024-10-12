@@ -9,8 +9,8 @@ script:
         entity_id:
           - input_boolean.alarm_clock_triggered_today
           - input_boolean.alarm_clock_on
-      - action: cover.open_cover
-        entity_id: cover.bed_cover
+      #- action: cover.open_cover
+      #  entity_id: cover.bed_cover
       - delay:
           minutes: 1
       - action: script.play_radio_mass
