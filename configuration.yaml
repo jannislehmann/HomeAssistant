@@ -103,6 +103,7 @@ logger:
     zeroconf: error
     zigpy.topology: warn
     zigpy.zcl: critical
+    custom_components.tibber_local: warn
 
 lovelace: !include lovelace/configuration.yaml
 
