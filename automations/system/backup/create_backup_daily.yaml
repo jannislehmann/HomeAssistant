@@ -16,6 +16,8 @@ action:
       - media
       - share
       - ssl
+    exlude_folders:
+      - share/kubernetes
     include_addons:
       - core_samba
       - core_mariadb

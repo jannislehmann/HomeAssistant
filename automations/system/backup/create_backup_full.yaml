@@ -12,6 +12,9 @@ action:
   action: auto_backup.backup_full
   data:
     name: "WeeklyBackup: {{ now().strftime('%A, %B %-d, %Y') }}"
+    exclude:
+      folders:
+      - share/kubernetes
     # store backup for a month
     # i.e. backup each week and store for 2 weeks
     keep_days: 14
