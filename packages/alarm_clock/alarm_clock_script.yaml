@@ -9,8 +9,7 @@ script:
         entity_id:
           - input_boolean.alarm_clock_triggered_today
           - input_boolean.alarm_clock_on
-      #- action: cover.open_cover
-      #  entity_id: cover.bed_cover
+      - action: script.conditionally_open_bed_cover
       - delay:
           minutes: 1
       - action: script.play_radio_mass
@@ -28,3 +27,15 @@ script:
           minutes: 45
       - action: input_boolean.turn_off
         entity_id: input_boolean.alarm_clock_on
+
+  conditionally_open_bed_cover:
+    mode: single
+    sequence:
+    - choose:
+      - conditions:
+          - condition: state
+            entity_id: sun.sun
+            state: above_horizon
+        sequence:
+          - action: cover.open_cover
+            entity_id: cover.bed_cover
