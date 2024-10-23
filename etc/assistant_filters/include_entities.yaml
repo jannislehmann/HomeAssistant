@@ -12,6 +12,7 @@ include_entities:
   - light.receiver_volume
   - light.outdoor_light
   - light.bath_ceiling
+  - light.kitchen_cabinets
   # Switches
   - switch.monitor
   - switch.office_desk
