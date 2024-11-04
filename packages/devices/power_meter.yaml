@@ -24,6 +24,16 @@ script:
         data:
           message: "👚👕 Die Waschmaschine ist fertig. Sie hat {{ minutes }} Minuten gebraucht."
 
+input_datetime:
+  washing_machine_on:
+    name: Washing machine last started
+    has_date: true
+    has_time: true
+  washing_machine_off:
+    name: Washing machine last done
+    has_date: true
+    has_time: true
+
 binary_sensor:
   - platform: template
     sensors:
