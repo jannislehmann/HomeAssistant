@@ -11,15 +11,23 @@ script:
         data:
           entity_id: light.ambilight
           effect: "FOLLOW_VIDEO: NATURAL"
-  tv_hdmi_1:
+  tv_hdmi_playstation:
     sequence:
       - action: media_player.select_source
         data:
           entity_id: media_player.philips_tv
           source: 'HDMI 1'
-  tv_hdmi_3:
+      - action: media_player.volume_set
+        data:
+          entity_id: media_player.avr
+          volume_level: 0.25
+  tv_hdmi_nintendoswitch:
     sequence:
       - action: media_player.select_source
         data:
           entity_id: media_player.philips_tv
           source: 'HDMI 3'
+      - action: media_player.volume_set
+        data:
+          entity_id: media_player.avr
+          volume_level: 0.25
