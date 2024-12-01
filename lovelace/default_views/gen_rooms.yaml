@@ -89,23 +89,6 @@
         {% endfor %}
       {% endif %}
 
-      {% if room.plants %}
-        - type: vertical-stack
-          cards:
-            - title: Pflanzen
-              type: custom:mushroom-title-card
-            {% for plant in room.plants %}
-            - type: custom:flower-card
-              entity: {{ plant.entity_id }}
-              show_bars:
-                - brigthness
-                - humidity
-                - moisture
-                - conductivity
-                - temperature
-            {% endfor %}
-      {% endif %}
-
       {% if room.additional_buttons or room.additional_switches %}
         - type: vertical-stack
           cards:
