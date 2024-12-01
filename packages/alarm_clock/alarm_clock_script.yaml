@@ -21,7 +21,9 @@ script:
           minutes: 2
       - action: light.turn_on
         data:
-          entity_id: light.go
+          entity_id:
+            - light.go
+            - light.bed_fado
           transition: 30
       - delay:
           minutes: 45

@@ -34,8 +34,8 @@ adaptive_lighting:
       - light.go
 
   - name: bed_fado
-    min_brightness: 50
-    max_brightness: 90
+    min_brightness: 25
+    max_brightness: 80
     take_over_control: true
     lights:
       - light.bed_fado
