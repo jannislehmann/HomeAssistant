@@ -10,19 +10,3 @@ packages:
   main_base: !include common/main_base.yaml
 
 esp32_ble_tracker:
-
-binary_sensor:
-  - platform: ble_presence
-    mac_address: !secret mac_mi_scale
-    name: "Presence"
-
-sensor:
-  - platform: xiaomi_miscale
-    mac_address: !secret mac_mi_scale
-    weight:
-      name: "Xiaomi Mi Scale Weight"
-    impedance:
-      name: "Xiaomi Mi Scale Impedance"
-  - platform: ble_rssi
-    mac_address: !secret mac_mi_scale
-    name: "RSSI"
