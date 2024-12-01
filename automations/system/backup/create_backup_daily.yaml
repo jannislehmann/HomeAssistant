@@ -5,25 +5,19 @@ trigger:
   platform: time
   at: "02:00:00"
 action:
-  action: auto_backup.backup
+  action: auto_backup.backup_partial
   data:
     name: "DailyBackup: {{ now().strftime('%a, %-I:%M %p (%d/%m/%Y)') }}"
     password: !secret hassio_snapshot_password
     keep_days: 2
-    include_folders:
+    folders:
       - addons
       - config
       - media
-      - share
       - ssl
-    exlude_folders:
-      - share/kubernetes
-    include_addons:
+    addons:
       - core_samba
       - core_mariadb
       - core_mosquitto
       - core_letsencrypt
-      - 243ffc37_syncthing
-      - ca5234a0_paperless-ngx
       - d5369777_music_assistant
-      - db21ed7f_changedetection.io
