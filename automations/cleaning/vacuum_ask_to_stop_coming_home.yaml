@@ -1,0 +1,37 @@
+---
+alias: Vacuum Coming Home
+id: b45b44b7-c7a3-43d7-8f3f-e753496fcdd8
+description: Ask to stop cleaning
+mode: parallel
+condition:
+  - condition: state
+    entity_id: vacuum.glenn
+    state: "cleaning"
+trigger:
+  - platform: state
+    entity_id: person.jannis
+    to: "home"
+    id: "jannis"
+  - platform: state
+    entity_id: person.hannah
+    to: "home"
+    id: "hannah"
+action:
+  - variables:
+      action_stop_vacuum: "{{ 'STOP_VACUUM' ~ context.id }}"
+  - service: "{{ 'notify.apple_' + trigger.id }}"
+    data:
+      message: "Soll Glenn stoppen?"
+      data:
+        actions:
+          - action: "{{ action_stop_vacuum }}"
+            title: Öffnen
+  - wait_for_trigger:
+      - platform: event
+        event_type: mobile_app_notification_action
+        event_data:
+          action: "{{ action_stop_vacuum }}"
+    timeout: '00:05:00'
+    continue_on_timeout: false
+  - service: vacuum.return_to_base
+    entity_id: vacuum.glenn
