@@ -12,6 +12,9 @@ lights:
   - entity_id: light.living_wall
     name: Wandlampe
     icon: mdi:wall-sconce-flat
+  - entity_id: light.living_besta
+    name: Besta
+    icon: mdi:led-strip
   - entity_id: light.twinkly
     name: Tannenbaum
     icon: mdi:string-lights

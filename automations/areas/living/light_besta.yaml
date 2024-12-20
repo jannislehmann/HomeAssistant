@@ -1,0 +1,33 @@
+---
+alias: Besta Light
+id: adbffe83-7f3e-4a3a-a252-656140234a72
+mode: queued
+trigger:
+  - platform: state
+    entity_id: light.living_wall
+action:
+  choose:
+    - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: light.living_wall
+            state: "on"
+          - condition: or
+            conditions:
+              - condition: time
+                before: '09:00'
+                after: '18:00'
+              - condition: sun
+                after: sunset
+                after_offset: "-01:00:00"
+      sequence:
+        - service: light.turn_on
+          data:
+            entity_id: light.living_besta
+            transition: 3
+  default:
+    - action: light.turn_off
+      data:
+        entity_id: light.living_besta
+        transition: 3

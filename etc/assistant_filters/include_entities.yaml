@@ -7,6 +7,7 @@ include_entities:
   - light.flur
   - light.go
   - light.living_wall
+  - light.living_besta
   - light.playbar
   - light.office_ceiling
   - light.receiver_volume

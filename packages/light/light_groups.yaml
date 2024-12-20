@@ -39,6 +39,7 @@ light:
     name: room_living
     entities:
       - light.living_wall
+      - light.living_besta
       - light.twinkly
 
   - platform: group
