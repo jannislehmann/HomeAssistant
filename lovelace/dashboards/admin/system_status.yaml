@@ -21,12 +21,6 @@
 
         - type: vertical-stack
           cards:
-            - title: Systemauslastung
-              type: custom:mushroom-title-card
-            - !include ../../cards/system/hardware.yaml
-
-        - type: vertical-stack
-          cards:
             - title: Missing Devices
               type: custom:mushroom-title-card
             - !include ../../cards/system/watchman.yaml
