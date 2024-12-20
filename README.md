@@ -9,8 +9,6 @@ which is not required as it is bright enough.
 
 * Check Home Assistant configuration
 * ESPHome
-* Emulated Hue
-* Home Assistant Google Drive Backup
 * Let's Encrypt (for HTTPS and maybe sometime MQTT encryption)
 * MariaDB
 * Mosquitto Broker
@@ -23,19 +21,12 @@ I use ESPHome for a few diyHue lights and generic LED RGB stripes.
 
 ## Hardware
 
-* Raspberry Pi 4 4GB with ConBee II
-* Self-built unRAID server for media, nas and more stuff
-* Android TV and a Fire TV Stick 4k
+* Proxmox VM running HA OS
+* Self-built TrueNAS server for media, nas and more stuff
+* Android TV and an Apple TV
 * Xiaomi motion, contact, temperature sensors
 * Xiaomi buttons
-* WS2812b LED stripes and RGBWW stripes connected to Wemos D1 minis
 * Hue Lights
-
-## Bigger Projects
-
-* MQTT Encryption
-* Self-made Multi Room Audio
-* Rhasspy voice assistant - project got scraped due to using multiple HomePod Minis and therefore giving Siri a try
 
 ## Issues
 
