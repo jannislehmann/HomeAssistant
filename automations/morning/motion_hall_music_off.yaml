@@ -12,8 +12,6 @@ condition:
     entity_id: input_boolean.alarm_clock_on
     state: 'on'
 action:
-  - action: cover.open_cover
-    entity_id: cover.bed_cover
   - action: light.turn_off
     data:
       entity_id:
