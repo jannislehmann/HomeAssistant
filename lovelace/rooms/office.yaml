@@ -15,6 +15,8 @@ lights:
   - entity_id: light.playbar
     name: Hue Play
     icon: phu:play
+  - entity_id: light.office_star
+    name: Stern
 contact_sensors:
   - entity_id: binary_sensor.contact_office
 includes:

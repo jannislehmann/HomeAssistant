@@ -23,7 +23,7 @@ adaptive_lighting:
       - light.office_ceiling
 
   - name: living_besta
-    max_color_temp: 3500
+    max_color_temp: 2800
     min_sunrise_time: '06:00:00'
     min_sunset_time: '20:00:00'
     max_brightness: 25

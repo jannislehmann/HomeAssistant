@@ -10,6 +10,7 @@ include_entities:
   - light.living_besta
   - light.playbar
   - light.office_ceiling
+  - light.office_star
   - light.receiver_volume
   - light.outdoor_light
   - light.bath_ceiling

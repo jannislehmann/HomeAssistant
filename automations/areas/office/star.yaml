@@ -1,0 +1,40 @@
+---
+alias: Turn on Office Start
+id: 97cd7f51-6330-4d70-867b-c727fd0acad4
+mode: single
+trigger:
+  - platform: sun
+    event: sunset
+  - platform: sun
+    event: sunrise
+  - platform: state
+    entity_id: input_boolean.alarm_clock_triggered_today
+  - platform: state
+    entity_id: binary_sensor.home
+condition:
+  - condition: state
+    entity_id: binary_sensor.home
+    state: "on"
+  - condition: state
+    entity_id: input_boolean.alarm_clock_triggered_today
+    state: "on"
+action:
+  choose:
+    # It's dark outside
+    - conditions:
+        - condition: or
+          conditions:
+          - condition: sun
+            after: sunset
+          - condition: sun
+            before: sunrise
+            before_offset: "+01:00:00"
+        - condition: state
+          entity_id: binary_sensor.night
+          state: "off"
+      sequence:
+        - action: light.turn_on
+          entity_id: light.office_star
+  default:
+    action: light.turn_off
+    entity_id: light.office_star

@@ -47,6 +47,7 @@ light:
     entities:
       - light.playbar
       - light.office_ceiling
+      - light.office_star
 
   - platform: group
     name: room_storage
