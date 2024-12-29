@@ -104,6 +104,8 @@ logger:
     zigpy.topology: warn
     zigpy.zcl: critical
     custom_components.tibber_local: warn
+    custom_components.opnsense.coordinator: warn
+    custom_components.opnsense.pyopnsense: critical
 
 lovelace: !include lovelace/configuration.yaml
 
