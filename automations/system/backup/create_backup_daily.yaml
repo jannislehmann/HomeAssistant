@@ -10,6 +10,7 @@ action:
     name: "DailyBackup: {{ now().strftime('%a, %-I:%M %p (%d/%m/%Y)') }}"
     password: !secret hassio_snapshot_password
     keep_days: 2
+    location: TrueNAS
     folders:
       - addons
       - config
