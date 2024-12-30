@@ -25,7 +25,7 @@ action:
       data:
         actions:
           - action: "{{ action_stop_vacuum }}"
-            title: Öffnen
+            title: Stoppen
   - wait_for_trigger:
       - platform: event
         event_type: mobile_app_notification_action
