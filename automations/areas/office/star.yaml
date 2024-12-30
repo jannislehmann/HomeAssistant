@@ -7,6 +7,7 @@ trigger:
     event: sunset
   - platform: sun
     event: sunrise
+    offset: "+01:00:00"
   - platform: state
     entity_id: input_boolean.alarm_clock_triggered_today
   - platform: state
