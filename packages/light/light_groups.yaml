@@ -1,7 +1,7 @@
 ---
 light:
   - platform: group
-    name: playbar
+    unique_id: light_playbar
     entities:
       - light.hue_play_1
       - light.hue_play_2
@@ -14,7 +14,7 @@ light:
       - light.playbar
 
   - platform: group
-    name: flur
+    unique_id: light_flur
     entities:
       - light.hall_door
       - light.hall_storage
