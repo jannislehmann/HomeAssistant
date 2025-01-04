@@ -24,5 +24,3 @@ media_players:
   - entity_id: media_player.avr
 contact_sensors:
   - entity_id: binary_sensor.contact_living_window
-includes:
-  - ../cards/playstation.yaml
