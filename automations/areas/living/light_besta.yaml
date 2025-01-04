@@ -5,6 +5,8 @@ mode: queued
 trigger:
   - platform: state
     entity_id: light.living_wall
+  - platform: sun
+    event: sunset
 action:
   choose:
     - conditions:
