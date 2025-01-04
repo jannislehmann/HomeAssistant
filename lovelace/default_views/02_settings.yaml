@@ -45,10 +45,6 @@
                     action: toggle
                   name: Glenn
                   icon: phu:roborock
-                - type: custom:mushroom-entity-card
-                  entity: input_boolean.open_house_door_on_ring
-                  tap_action:
-                    action: toggle
 
         - type: vertical-stack
           cards:

@@ -13,7 +13,3 @@ template:
 input_boolean:
   doorbell:
     initial: false
-  open_house_door_on_ring:
-    name: "Klingel automatisch öffnen"
-    initial: false
-    icon: mdi:door-closed-lock
