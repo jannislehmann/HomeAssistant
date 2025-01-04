@@ -1,5 +1,0 @@
----
-sensor:
-  - platform: cert_expiry
-    host: !secret internal_url
-    port: !secret http_port
