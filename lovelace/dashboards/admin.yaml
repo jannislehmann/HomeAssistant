@@ -1,4 +1,47 @@
 title: Administration
 decluttering_templates: !include_dir_merge_named /config/lovelace/decluttering_templates
 visible: false
-views: !include_dir_merge_list /config/lovelace/dashboards/admin
+views:
+  - title: Systemstatus
+    icon: mdi:information-outline
+    path: status
+    cards:
+      - type: vertical-stack
+        cards:
+          - title: Systemstatus
+            type: custom:mushroom-title-card
+
+          - type: vertical-stack
+            cards:
+              - title: Updates
+                type: custom:mushroom-title-card
+              - !include ../../cards/system/updates.yaml
+
+          - type: vertical-stack
+            cards:
+              - title: Restart
+                type: custom:mushroom-title-card
+              - !include ../../cards/system/restart.yaml
+
+          - type: vertical-stack
+            cards:
+              - title: Missing Devices
+                type: custom:mushroom-title-card
+              - !include ../../cards/system/watchman.yaml
+
+          - type: vertical-stack
+            cards:
+            - type: custom:battery-state-card
+              secondary_info: '{attributes.battery_type_and_quantity}'
+              round: 0
+              filter:
+                include:
+                  - name: entity_id
+                    value: '*_battery_plus'
+                exclude:
+                  - name: attributes.battery_low
+                    value: false
+              bulk_rename:
+                - from: "Battery+"
+              sort:
+                - state
