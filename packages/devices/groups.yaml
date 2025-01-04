@@ -7,6 +7,9 @@ binary_sensor:
       - binary_sensor.contact_living_window
 
 template:
+  - sensor:
+    - name: "Open Windows"
+      state: "{{ states.binary_sensor  | selectattr('entity_id', 'match', 'binary_sensor.contact_*') | selectattr('state', 'equalto', 'on') | map(attribute='entity_id') | list | count }}"
   - trigger:
       - platform: state
         entity_id: binary_sensor.presence_kitchen #PIR Motion Sensor
