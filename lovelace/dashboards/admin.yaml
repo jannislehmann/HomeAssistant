@@ -15,19 +15,19 @@ views:
             cards:
               - title: Updates
                 type: custom:mushroom-title-card
-              - !include ../../cards/system/updates.yaml
+              - !include ./../cards/system/updates.yaml
 
           - type: vertical-stack
             cards:
               - title: Restart
                 type: custom:mushroom-title-card
-              - !include ../../cards/system/restart.yaml
+              - !include ./../cards/system/restart.yaml
 
           - type: vertical-stack
             cards:
               - title: Missing Devices
                 type: custom:mushroom-title-card
-              - !include ../../cards/system/watchman.yaml
+              - !include ./../cards/system/watchman.yaml
 
           - type: vertical-stack
             cards:
