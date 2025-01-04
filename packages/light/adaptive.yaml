@@ -18,7 +18,7 @@ adaptive_lighting:
     # min_color_temp: 3500
     min_sunrise_time: '06:00:00'
     min_sunset_time: '20:00:00'
-    max_brightness: 70
+    max_brightness: 80
     lights:
       - light.office_ceiling
 
