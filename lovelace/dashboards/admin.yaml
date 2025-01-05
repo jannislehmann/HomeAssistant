@@ -13,12 +13,6 @@ views:
 
           - type: vertical-stack
             cards:
-              - title: Updates
-                type: custom:mushroom-title-card
-              - !include ./../cards/system/updates.yaml
-
-          - type: vertical-stack
-            cards:
               - title: Restart
                 type: custom:mushroom-title-card
               - !include ./../cards/system/restart.yaml
