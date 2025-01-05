@@ -2,8 +2,6 @@
   icon: mdi:home
   path: home
   cards:
-    # - !include ../cards/snow.yaml
-
     - type: vertical-stack
       cards:
       # Rooms

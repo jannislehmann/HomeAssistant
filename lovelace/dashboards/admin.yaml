@@ -15,13 +15,61 @@ views:
             cards:
               - title: Restart
                 type: custom:mushroom-title-card
-              - !include ./../cards/system/restart.yaml
+              - type: glance
+                show_header_toggle: false
+                show_state: false
+                entities:
+                  - entity: zone.home
+                    icon: 'mdi:home-assistant'
+                    name: Home Assistant
+                    tap_action:
+                      action: call-service
+                      service: homeassistant.restart
+                  - entity: zone.home
+                    icon: 'mdi:reload'
+                    name: Reload
+                    tap_action:
+                      action: call-service
+                      service: homeassistant.reload_all
+                  - entity: zone.home
+                    icon: 'mdi:cogs'
+                    name: Automation
+                    tap_action:
+                      action: call-service
+                      service: automation.reload
+                  - entity: zone.home
+                    icon: 'mdi:script-text'
+                    name: Script
+                    tap_action:
+                      action: call-service
+                      service: script.reload
+
 
           - type: vertical-stack
             cards:
               - title: Missing Devices
                 type: custom:mushroom-title-card
-              - !include ./../cards/system/watchman.yaml
+              - type: markdown
+                content: >-
+                  <h2> <ha-icon icon='mdi:shield-half-full'></ha-icon> Watchman report<h2>
+                  <h3>Missing Entities: {{ states.sensor.watchman_missing_entities.state }} </h3>
+                  {%- for item in state_attr("sensor.watchman_missing_entities", "entities") %}
+                  <hr> <table><tr> <td>
+                  <ha-icon icon='mdi:
+                  {%- if item.state=="missing"-%}cloud-alert'
+                  {%- elif item.state=="unavail" -%}cloud-off-outline' {%- else-%}cloud-question'
+                  {%- endif -%} ></ha-icon>
+                  {{ item.id }} [{{item.state}}] <a title="{{item.occurrences}}">
+                  {{item.occurrences.split('/')[-1].split(':')[0]}}</a>
+                  </td></tr></table>
+                  {%- endfor %}
+                card_mod:
+                  style:
+                    ha-markdown:
+                      $: |
+                        ha-markdown-element:first-of-type hr{
+                          border-color: #303030;
+                        }
 
           - type: vertical-stack
             cards:

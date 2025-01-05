@@ -8,10 +8,6 @@
   cards:
     - type: vertical-stack
       cards:
-        - !include 
-          - ../includes/header.yaml
-          - title: {{ room.name }}
-
       {% if room.sensors %}
         - type: horizontal-stack
           cards:
