@@ -4,49 +4,52 @@
   subview: true
   path: audio-mass
   icon: mdi:speaker-multiple
-  cards:
-    - type: vertical-stack
-      cards:
-        - !include
-            - ../../includes/header.yaml
-            - title: Audio MASS
+  max_columns: 2
+  cards: []
+  type: sections
+  sections:
+  - type: grid
+    cards:
+      - type: heading
+        heading: Audio
+        heading_style: title
 
-        - type: grid
-          square: false
-          columns: 2
-          cards:
-            - type: custom:decluttering-card
-              template: media_player_output
-              variables:
-                - entity_id: media_player.mass_office
-                - name: Büro
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: custom:decluttering-card
+            template: media_player_output
+            variables:
+              - entity_id: media_player.mass_office
+              - name: Büro
 
-            - type: custom:decluttering-card
-              template: media_player_output
-              variables:
-                - entity_id: media_player.mass_kitchen
-                - name: Küche
+          - type: custom:decluttering-card
+            template: media_player_output
+            variables:
+              - entity_id: media_player.mass_kitchen
+              - name: Küche
 
-            - type: custom:decluttering-card
-              template: media_player_output
-              variables:
-                - entity_id: media_player.mass_bed
-                - name: Schlafzimmer
+          - type: custom:decluttering-card
+            template: media_player_output
+            variables:
+              - entity_id: media_player.mass_bed
+              - name: Schlafzimmer
 
-            - type: custom:decluttering-card
-              template: media_player_output
-              variables:
-                - entity_id: media_player.mass_bath
-                - name: Badezimmer
-                
-            - type: custom:decluttering-card
-              template: media_player_output
-              variables:
-                - entity_id: media_player.mass_living
-                - name: Wohnzimmer
+          - type: custom:decluttering-card
+            template: media_player_output
+            variables:
+              - entity_id: media_player.mass_bath
+              - name: Badezimmer
+              
+          - type: custom:decluttering-card
+            template: media_player_output
+            variables:
+              - entity_id: media_player.mass_living
+              - name: Wohnzimmer
 
-            - type: custom:decluttering-card
-              template: media_player_output
-              variables:
-                - entity_id: media_player.mass_denon
-                - name: Denon
+          - type: custom:decluttering-card
+            template: media_player_output
+            variables:
+              - entity_id: media_player.mass_denon
+              - name: Denon

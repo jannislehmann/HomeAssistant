@@ -4,13 +4,8 @@
   subview: true
   path: chores
   icon: mdi:calendar-check
+  max_columns: 2
   cards:
-    - type: vertical-stack
-      cards:
-        - !include
-            - ../../includes/header.yaml
-            - title: Aufgaben
-
-        - type: custom:activity-manager-card
-          header: Aufgaben
-          category: Haushalt
+    - type: custom:activity-manager-card
+      header: Aufgaben
+      category: Haushalt
