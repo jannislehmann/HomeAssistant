@@ -1,4 +1,5 @@
 - title: Home
+  icon: mdi:home
   badges:
   - type: custom:mushroom-template-badge
     content: "{{ states('sensor.open_windows') }} Fenster offen"
