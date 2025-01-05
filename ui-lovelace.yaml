@@ -1,4 +1,3 @@
----
 title: Home
-decluttering_templates: !include_dir_merge_named lovelace/decluttering_templates
-views: !include_dir_merge_list lovelace/default_views
+decluttering_templates: !include_dir_merge_named /config/lovelace/decluttering_templates
+views: !include_dir_merge_list /config/lovelace/views
