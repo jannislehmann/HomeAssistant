@@ -1,0 +1,69 @@
+- title: Einstellungen
+  icon: mdi:cog
+  path: settings
+  max_columns: 2
+  cards: []
+  type: sections
+  sections:
+  - type: grid
+    cards:
+      - type: heading
+        heading: Wecker
+        heading_style: title
+      - type: custom:time-picker-card
+        entity: input_datetime.alarm_time
+
+      - type: heading
+        heading: Einstellungen
+        heading_style: title
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: input_boolean.alarm_clock
+            tap_action:
+              action: toggle
+            name: Wecker
+          - type: custom:mushroom-entity-card
+            entity: input_boolean.motion_sensor
+            tap_action:
+              action: toggle
+            name: Bewegungsmelder
+          - type: custom:mushroom-entity-card
+            entity: input_boolean.vacation_mode
+            tap_action:
+              action: toggle
+            name: Urlaub
+          - type: custom:mushroom-entity-card
+            entity: input_boolean.automatic_ambilight
+            tap_action:
+              action: toggle
+            name: Ambilight
+            icon: mdi:light-switch
+          - type: custom:mushroom-entity-card
+            entity: automation.vacuum_clean_daily
+            tap_action:
+              action: toggle
+            name: Glenn
+            icon: phu:roborock
+
+      - type: heading
+        heading: Verlauf
+        heading_style: title
+      - type: logbook
+        title: " "
+        entities:
+          - alarm_control_panel.ha_alarm
+          - binary_sensor.presence_kitchen
+          - binary_sensor.presence_hall
+          - binary_sensor.contact_office
+          - binary_sensor.contact_kitchen
+          - binary_sensor.contact_bed
+          - binary_sensor.contact_bath
+          - binary_sensor.contact_door
+          - binary_sensor.contact_living_door
+          - binary_sensor.contact_living_window
+          - lock.door_house
+          - lock.door_apartment
+          - binary_sensor.doorbell
