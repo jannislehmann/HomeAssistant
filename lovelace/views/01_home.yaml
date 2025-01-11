@@ -8,7 +8,7 @@
     visibility:
       - condition: state
         entity: sensor.open_windows
-        state_not: 0
+        state_not: '0'
   - type: entity
     show_name: false
     show_state: true
