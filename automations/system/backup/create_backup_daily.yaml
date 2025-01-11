@@ -8,7 +8,7 @@ action:
   action: auto_backup.backup_partial
   data:
     name: "DailyBackup: {{ now().strftime('%a, %-I:%M %p (%d/%m/%Y)') }}"
-    password: !secret hassio_snapshot_password
+    encrypted: true
     keep_days: 2
     location: TrueNAS
     folders:
