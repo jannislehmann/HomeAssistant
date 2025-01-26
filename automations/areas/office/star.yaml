@@ -3,15 +3,17 @@ alias: Turn on Office Star
 id: 97cd7f51-6330-4d70-867b-c727fd0acad4
 mode: single
 trigger:
-  - platform: sun
+  - trigger: sun
     event: sunset
-    offset: "+00:30:00"
-  - platform: sun
-    event: sunrise
-    offset: "+01:00:00"
-  - platform: state
+    offset: "-00:30:00"
+  # Sunrise
+  - trigger: numeric_state
+    entity_id: sun.sun
+    attribute: elevation
+    above: 5
+  - trigger: state
     entity_id: input_boolean.alarm_clock_triggered_today
-  - platform: state
+  - trigger: state
     entity_id: binary_sensor.home
 condition:
   - condition: state
@@ -21,23 +23,17 @@ condition:
     entity_id: input_boolean.alarm_clock_triggered_today
     state: "on"
 action:
-  choose:
-    # It's dark outside
-    - conditions:
-        - condition: or
-          conditions:
-          - condition: sun
-            after: sunset
-            before_offset: "+00:30:00"
-          - condition: sun
-            before: sunrise
-            before_offset: "+01:00:00"
-        - condition: state
-          entity_id: binary_sensor.night
-          state: "off"
-      sequence:
-        - action: light.turn_on
-          entity_id: light.office_star
-  default:
-    action: light.turn_off
-    entity_id: light.office_star
+  - delay: "00:01:00"
+  - choose:
+      # It's dark outside
+      - conditions:
+          - condition: numeric_state
+            entity_id: sun.sun
+            attribute: elevation
+            below: 5
+        sequence:
+          - action: light.turn_on
+            entity_id: light.office_star
+    default:
+      action: light.turn_off
+      entity_id: light.office_star
