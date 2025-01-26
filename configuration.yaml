@@ -108,6 +108,3 @@ logger:
     custom_components.opnsense.pyopnsense: critical
 
 lovelace: !include lovelace/configuration.yaml
-
-lovelace_gen:
-  rooms: !include_dir_list lovelace/rooms

@@ -43,4 +43,3 @@ They help me to combine my different lists where I had stored tasks and ideas.
 
 * @frenck for a lot of automations
 * @jcallaghan for the great issue tracker
-* @eliseomartelli for the frontend. Most of the lovelace-gen part is made by him. Awesome work by him!
