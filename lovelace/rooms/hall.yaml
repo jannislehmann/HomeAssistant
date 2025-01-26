@@ -1,9 +1,0 @@
----
-name: Flur
-icon: phu:rooms-hallway
-lights:
-  - entity_id: light.flur
-    name: Deckenlampe
-    icon: phu:double-spot
-contact_sensors:
-  - entity_id: binary_sensor.contact_door

@@ -9,9 +9,3 @@ dashboards:
     icon: mdi:cog
     show_in_sidebar: true
     require_admin: true
-  lovelace-home:
-    mode: yaml
-    filename: lovelace/dashboards/home.yaml
-    title: Home
-    icon: mdi:home
-    show_in_sidebar: true
