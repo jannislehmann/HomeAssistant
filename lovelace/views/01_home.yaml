@@ -229,15 +229,15 @@
           - type: entity
             show_state: true
             show_icon: true
-            entity: binary_sensor.contact_bed
+            entity: binary_sensor.contact_kitchen
             color: red
             icon: ''
           - type: entity
-            entity: sensor.temperature_bed
+            entity: sensor.temperature_kitchen
             tap_action:
               action: more-info
           - type: entity
-            entity: sensor.humidity_bed
+            entity: sensor.humidity_kitchen
             tap_action:
               action: more-info
         icon: phu:rooms-bed
@@ -267,14 +267,6 @@
             entity: binary_sensor.contact_door
             color: red
             icon: ''
-          - type: entity
-            entity: sensor.temperature_hall
-            tap_action:
-              action: more-info
-          - type: entity
-            entity: sensor.humidity_hall
-            tap_action:
-              action: more-info
         icon: phu:rooms-hallway
       - type: tile
         entity: light.flur
@@ -299,14 +291,6 @@
             entity: binary_sensor.contact_bath
             color: red
             icon: ''
-          - type: entity
-            entity: sensor.temperature_bath
-            tap_action:
-              action: more-info
-          - type: entity
-            entity: sensor.humidity_bath
-            tap_action:
-              action: more-info
         icon: phu:rooms-toilet
       - type: tile
         entity: light.bath_ceiling
