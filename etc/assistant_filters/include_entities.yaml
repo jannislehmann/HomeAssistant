@@ -17,7 +17,6 @@ include_entities:
   - light.kitchen_cabinets
   # Switches
   - switch.monitor
-  - switch.office_desk
   # Vacuum
   - vacuum.glenn
   - input_select.glenn_room
