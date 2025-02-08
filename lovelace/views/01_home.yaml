@@ -368,7 +368,7 @@
             tap_action:
               action: more-info
         icon: phu:rooms-storage
-      - type: custom:decluttering-card
+      - type: custom:streamline-card
         template: mini_graph
         variables:
           - entity_id: sensor.temperature_rack
@@ -382,7 +382,7 @@
             cards:
               - title: Waschmaschine
                 type: custom:mushroom-title-card
-              - type: custom:decluttering-card
+              - type: custom:streamline-card
                 template: mini_graph
                 variables:
                   - entity_id: sensor.washing_machine_current_consumption
