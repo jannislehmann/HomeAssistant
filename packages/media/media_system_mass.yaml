@@ -33,12 +33,28 @@ script:
         data:
           media_type: radio
           media_id: "{{ station }}"
-      # Wait 5 seconds to ensure that player is actually playing
-      - delay: 5
+      # Wait 3 seconds to ensure that player is actually playing
+      - delay: 3
       - action: media_player.volume_set
         data_template:
           entity_id: "{{ player }}"
           volume_level: "{{ volume_level / 100 }}"
+
+  # Play specific playlist on AVR
+  play_denon_coffee_music:
+    sequence:
+      - action: media_player.play_media
+        target:
+          entity_id: media_player.mass_denon
+        data:
+          media_content_id: spotify://track/51rPRW8NjxZoWPPjnRGzHw
+          media_content_type: music
+      # Wait 3 seconds to ensure that player is actually playing
+      - delay: 3
+      - action: media_player.volume_set
+        data:
+          entity_id: media_player.mass_denon
+          volume_level: 25
 
 media_player:
   - platform: universal
