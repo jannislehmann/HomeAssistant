@@ -58,20 +58,6 @@
         entity: vacuum.glenn
         state_not: docked
   - type: entity
-    show_name: false
-    show_state: true
-    show_icon: true
-    entity: media_player.mass_all
-    color: ''
-    tap_action:
-      action: navigate
-      navigation_path: /lovelace/audio-mass
-    name: Musik
-    visibility:
-      - condition: state
-        entity: media_player.mass_all
-        state_not: 'off'
-  - type: entity
     show_name: true
     show_state: true
     show_icon: true
@@ -118,19 +104,6 @@
               - start_pause
               - stop
               - return_home
-      - type: conditional
-        conditions:
-          - condition: state
-            entity: media_player.mass_all
-            state_not: "off"
-        card:
-          type: tile
-          entity: media_player.mass_outputs
-          name: Musik
-          hide_state: true
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace/audio-mass
       - type: tile
         entity: sensor.chores_due
         name: Aufgaben
