@@ -29,33 +29,19 @@ nspanel_lovelace:
     temperature_unit: celcius
   screensaver:
     time_id: homeassistant_time
-    ## For formatting options see: https://cplusplus.com/reference/ctime/strftime/
-    # time_format: '%H:%M'
-    # date_format: '%A, %d. %B %Y'
     weather:
       entity_id: sensor.weather_forecast_daily
-    status_icon_left:
-      entity_id: sensor.tibber_0100100700ff
-      icon: flash
+    # status_icon_left:
+    #   entity_id: sensor.tibber_0100100700ff
+    #   icon: flash
     # status_icon_right:
     #   entity_id: light.front_room_outer
     #   icon:
     #     value: robot-outline
     #     color: 200
   cards:
-    # - type: cardEntities
-    #   sleep_timeout: 30
-    #   title: House Info
-    #   entities:
-    #     - entity_id: sensor.outside_temperature
-    #       name: Outside Temp
-    #     - entity_id: sensor.nspanel_temperature
-    #       name: Room Temp
-    #     - entity_id: navigate.front_room
-    #       name: Front Room Nav
     - type: cardMedia
       id: media_card
-      sleep_timeout: 10
       title: Receiver
       media_entity_id: media_player.avr
       entities:
