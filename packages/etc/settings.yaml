@@ -9,19 +9,3 @@ binary_sensor:
         device_class: light
         value_template: >
           {{ is_state('input_boolean.night_mode', 'on') or (is_state('lock.door_apartment', 'locked') and is_state('binary_sensor.home', 'on') and (is_state('sun.sun', 'below_horizon') or (now().hour < 6 and now().hour > 22)) and is_state('input_boolean.alarm_clock_on', 'off')) }}
-      nspanel_sleep_override:
-        device_class: light
-        value_template: >
-          {{ (is_state('binary_sensor.night', 'off') and now().hour >= 16) or is_state('light.living_wall', 'on') or is_state('media_player.philips_tv', 'on') }}
-
-template:
-  - sensor:
-      - name: NSPanel Brightness
-        state: >
-          {% if states("sensor.time") > "22:30" %}
-          0
-          {% elif states("sensor.time") > "17:30" %}
-          10
-          {% else %}
-          0
-          {% endif %}
