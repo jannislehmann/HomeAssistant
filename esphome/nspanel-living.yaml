@@ -2,94 +2,125 @@
 substitutions:
   device: nspanel-living
   mac: '3c:e9:0e:85:d4:dc'
-  panel_recv_topic: "46d05652aeaa6278d9682a0ae574694d"
-  panel_send_topic: "nspanel_living/CustomSend"
 
 packages:
   main_base: !include common/main_base.yaml
 
-<<: !include common/mqtt.yaml
-
-logger:
-  level: NONE
+esp32:
+  board: esp32dev
+  framework:
+    # ESP-IDF is requried so we can access the NSPanel PSRAM
+    # which is on non-standard pins. ESP-IDF also uses less flash than Arduino!
+    type: esp-idf
 
 external_components:
   - source:
       type: git
-  #    url: https://github.com/afarago/esphome-nspanel-lovelace-ui
-      url: https://github.com/sairon/esphome-nspanel-lovelace-ui
-  #    ref: use-ha-api
-      ref: release/v0.2.x
+      url: https://github.com/olicooper/esphome-nspanel-lovelace-native
+      ref: dev
+    refresh: 3h
     components: [nspanel_lovelace]
-
-esp32:
-  board: esp32dev
-  framework:
-    type: arduino
 
 nspanel_lovelace:
   id: nspanel
-  mqtt_recv_topic: $panel_recv_topic
-  mqtt_send_topic: $panel_send_topic
-  # use_api: True
+  sleep_timeout: 10
+  locale:
+    language: de
+    temperature_unit: celcius
+  screensaver:
+    time_id: homeassistant_time
+    ## For formatting options see: https://cplusplus.com/reference/ctime/strftime/
+    # time_format: '%H:%M'
+    # date_format: '%A, %d. %B %Y'
+    weather:
+      entity_id: sensor.weather_forecast_daily
+    status_icon_left:
+      entity_id: sensor.tibber_0100100700ff
+      icon: flash
+    # status_icon_right:
+    #   entity_id: light.front_room_outer
+    #   icon:
+    #     value: robot-outline
+    #     color: 200
+  cards:
+    # - type: cardEntities
+    #   sleep_timeout: 30
+    #   title: House Info
+    #   entities:
+    #     - entity_id: sensor.outside_temperature
+    #       name: Outside Temp
+    #     - entity_id: sensor.nspanel_temperature
+    #       name: Room Temp
+    #     - entity_id: navigate.front_room
+    #       name: Front Room Nav
+    - type: cardMedia
+      id: media_card
+      sleep_timeout: 10
+      title: Receiver
+      media_entity_id: media_player.avr
+      entities:
+        - entity_id: script.tv_hdmi_nintendoswitch
+          icon: nintendo-game-boy
+          name: TV Nintendo Switch
+        - entity_id: script.tv_hdmi_playstation
+          icon: google-controller
+          name: TV PlayStation 5
+        - entity_id: script.play_denon_coffee_music
+          name: Käthe
+          icon: coffee
 
-#bluetooth_proxy:
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+    timezone: Europe/Berlin
+    on_time:
+      ## At midnight
+      - seconds: 0
+        minutes: 0
+        hours: 0
+        then:
+          - lambda: 'id(nspanel).set_display_dim(1, 50);'
+      ## At 8:00 PM
+      - seconds: 0
+        minutes: 0
+        hours: 20
+        then:
+          - lambda: 'id(nspanel).set_display_dim(10, 50);'
+      ## At 7:00 AM
+      - seconds: 0
+        minutes: 0
+        hours: 7
+        then:
+          - lambda: 'id(nspanel).set_display_dim(10, 50);'
 
-#esp32_ble_tracker:
-#  id: ble_tracker
-#  scan_parameters:
-#    interval: 1100ms
-#    window: 1100ms
-#    active: false
+logger:
+  baud_rate: 115200
 
-binary_sensor:
-  - platform: gpio
-    name: $device Left Button
-    internal: true
-    pin:
-      number: 14
-      inverted: true
-    on_click:
-      - homeassistant.service:
-          service: media_player.media_play_pause
-          data:
-            entity_id: media_player.apple_tv
-  - platform: gpio
-    name: $device Right Button
-    pin:
-      number: 27
-      inverted: true
-    on_click:
-      - switch.toggle: relay_1
+api:
+  services:
+    ## Service to update the TFT firmware using a URL that is accessible to the nspanel
+    - service: upload_tft
+      variables:
+        url: string
+      then:
+        - lambda: 'id(nspanel).upload_tft(url);'
+    ## Service to display a notification on the screensaver
+    - service: notify_on_screensaver
+      variables:
+        heading: string
+        message: string
+        ## Set to 0 (or remove) to keep message until screensaver refreshes
+        timeout_ms: int
+      then:
+        - lambda: 'id(nspanel).notify_on_screensaver(heading, message, timeout_ms);'
+        - rtttl.play: 'scale_up:d=32,o=5,b=100:c,c#,d#,e,f#,g#,a#,b'
 
-sensor:
-  - platform: wifi_signal
-    name: $device WiFi Signal
-    update_interval: 60s
-    internal: true
-
-  - platform: ntc
-    id: temperature
-    sensor: resistance_sensor
-    calibration:
-      b_constant: 3950
-      reference_temperature: 25°C
-      reference_resistance: 10kOhm
-    name: $device Temperature
-
-  - platform: resistance
-    id: resistance_sensor
-    sensor: ntc_source
-    configuration: DOWNSTREAM
-    resistor: 11.2kOhm
-    internal: true
-
-  - platform: adc
-    id: ntc_source
-    pin: 38
-    update_interval: 10s
-    attenuation: 11db
-    internal: true
+## UART for the Nextion display
+uart:
+  id: uart_nextion
+  tx_pin: 16
+  rx_pin: 17
+  baud_rate: 115200
 
 switch:
   - platform: gpio
@@ -110,28 +141,43 @@ switch:
     pin:
       number: 19
 
+binary_sensor:
+  ## Left button below the display
+  - platform: gpio
+    name: $device Left Button
+    pin:
+      number: GPIO14
+      inverted: true
+    id: left_button
+    internal: true
+    on_click:
+      - homeassistant.service:
+          service: media_player.media_play_pause
+          data:
+            entity_id: media_player.apple_tv
+  ## Right button below the display
+  - platform: gpio
+    name: $device Right Button
+    pin:
+      number: GPIO27
+      inverted: true
+    id: right_button
+    internal: true
+    on_click:
+      - switch.toggle: relay_1
+
+button:
+  - platform: restart
+    id: restart_switch
+    name: Restart
+
 output:
+  ## Buzzer for playing tones
   - platform: ledc
     id: buzzer_out
-    pin:
-      number: 21
+    pin: 21
 
+## Rtttl function for buzzer
 rtttl:
   id: buzzer
   output: buzzer_out
-
-uart:
-  - id: tf_uart
-    tx_pin: 16
-    rx_pin: 17
-    baud_rate: 115200
-
-api:
-  services:
-    - service: upload_tft
-      variables:
-        url: string
-      then:
-#id(ble_tracker).stop_scan();
-        - lambda: |-
-            id(nspanel).upload_tft("http://nspanel.pky.eu/lui.tft");
