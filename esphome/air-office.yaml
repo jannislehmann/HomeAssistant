@@ -3,9 +3,10 @@ substitutions:
   device: air-office
   mac: 'bc:dd:c2:7b:1a:db'
 
-esphome:
-  platform: ESP8266
+esp8266:
   board: d1_mini_lite
+  framework:
+    version: recommended
 
 packages:
   main_base: !include common/main_base.yaml

@@ -53,12 +53,17 @@ script:
           entity_id: media_player.mass_denon
         data:
           media_id: spotify://playlist/3M0EbNFUZBdIWGVgxoN6FU
-      # Wait 3 seconds to ensure that player is actually playing
-      - delay: 3
+      - delay: 10
       - action: media_player.volume_set
         data:
           entity_id: media_player.mass_denon
-          volume_level: 25
+          volume_level: 0.2
+
+  stop_denon_music:
+    sequence:
+      - action: media_player.media_pause
+        target:
+          entity_id: media_player.mass_denon
 
 media_player:
   - platform: universal

@@ -54,6 +54,9 @@ nspanel_lovelace:
         - entity_id: script.play_denon_coffee_music
           name: Käthe
           icon: coffee
+        - entity_id: script.stop_denon_music
+          name: Stop
+          icon: stop
 
 time:
   - platform: homeassistant
