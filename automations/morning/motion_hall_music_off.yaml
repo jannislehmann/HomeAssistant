@@ -24,7 +24,7 @@ action:
     data:
       entity_id: media_player.mass_bed
       volume_level: 0.15
-  - action: media_player.turn_off
+  - action: media_player.media_stop
     entity_id: media_player.mass_bed
   - delay: 00:15:00
   #- action: lock.unlock
