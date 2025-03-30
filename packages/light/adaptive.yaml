@@ -31,6 +31,12 @@ adaptive_lighting:
     lights:
       - light.living_besta
 
+  - name: living_floor
+    min_sunrise_time: '06:00:00'
+    min_sunset_time: '20:00:00'
+    lights:
+      - light.living_floor
+
   - name: kitchen
     lights:
       - light.kitchen_cabinets

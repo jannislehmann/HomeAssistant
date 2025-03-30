@@ -6,6 +6,7 @@ include_entities:
   - light.bed_fado
   - light.flur
   - light.go
+  - light.living_floor
   - light.living_wall
   - light.living_besta
   - light.playbar
@@ -17,6 +18,7 @@ include_entities:
   - light.kitchen_cabinets
   # Switches
   - switch.monitor
+  - switch.outdoor_plug
   # Vacuum
   - vacuum.glenn
   - input_select.glenn_room

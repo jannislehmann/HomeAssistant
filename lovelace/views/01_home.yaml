@@ -300,6 +300,10 @@
       - type: tile
         entity: light.living_wall
       - type: tile
+        entity: light.living_floor
+        features:
+          - type: light-brightness
+      - type: tile
         entity: light.living_besta
         features:
           - type: light-color-temp
@@ -351,6 +355,8 @@
         icon: phu:rooms-terace
       - type: tile
         entity: light.outdoor_light
+      - type: tile
+        entity: switch.outdoor_plug
 
   # Abstellraum
   - type: grid
