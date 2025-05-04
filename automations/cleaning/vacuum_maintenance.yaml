@@ -33,11 +33,3 @@ action:
       action: notify.telegram_group
       data:
         message: 🔧 Glenns Filter muss bald getauscht werden.
-  - conditions:
-    - condition: numeric_state
-      entity_id: sensor.glenn_sensor_time_left
-      below: 30
-    sequence:
-      action: notify.telegram_group
-      data:
-        message: 🔧 Glenns Sensoren müssen bald gereinigt werden.
