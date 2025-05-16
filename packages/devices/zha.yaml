@@ -1,0 +1,14 @@
+zha:
+  zigpy_config:
+    ota:
+      disable_default_providers: [ikea]  # Disable the default ikea provider
+      extra_providers:
+        - type: zigpy_local  # Look at `local_index.json` in the zigpy repo for an example
+          index_file: ./otas/index.json
+        - type: advanced  # !!! Please read the message below before enabling OTA updates from raw OTA files !!!
+          warning: I understand I can *destroy* my devices by enabling OTA updates from
+            files. Some OTA updates can be mistakenly applied to the wrong
+            device, breaking it. I am consciously using this at my own risk.
+          path: ./otas
+
+zha_toolkit:
