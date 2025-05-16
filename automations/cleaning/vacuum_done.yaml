@@ -17,7 +17,7 @@ action:
           state: 'on'
       sequence:
       - action: input_boolean.turn_on
-        entity_id: input_boolean.cleaned_today
+        entity_id: binary_sensor.glenn_cleaned_today
       - action: notify.telegram_group
         data:
           message: "Glenn ist fertig mit dem Wischen. "
@@ -25,5 +25,5 @@ action:
   default:
     sequence:
     - action: input_boolean.turn_on
-      entity_id: input_boolean.cleaned_today
+      entity_id: binary_sensor.glenn_cleaned_today
 

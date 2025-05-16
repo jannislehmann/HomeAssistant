@@ -1,7 +1,9 @@
 ---
-input_boolean:
-  cleaned_today:
-    icon: phu:roborock
+binary_sensor:
+  - platform: template
+    sensors:
+      glenn_cleaned_today:
+        value_template: "{{ state_attr('automation.vacuum_clean_daily','last_triggered') is not none and state_attr('automation.vacuum_clean_daily','last_triggered') > today_at() }}"
 
 input_select:
   glenn_room:

@@ -2,9 +2,14 @@
 input_boolean:
   alarm_clock:
     icon: mdi:alarm
-  alarm_clock_triggered_today:
   # Is an alarm currently on?
   alarm_clock_on:
+
+binary_sensor:
+  - platform: template
+    sensors:
+      alarm_clock_triggered_today:
+        value_template: "{{ state_attr('script.alarm_clock_morning','last_triggered') is not none and state_attr('script.alarm_clock_morning','last_triggered') > today_at() }}"
 
 input_datetime:
   alarm_time:

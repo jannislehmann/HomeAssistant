@@ -22,7 +22,7 @@ condition:
     entity_id: binary_sensor.home
     state: 'off'
   - condition: state
-    entity_id: input_boolean.cleaned_today
+    entity_id: binary_sensor.glenn_cleaned_today
     state: 'off'
 action:
   action: vacuum.start

@@ -8,4 +8,4 @@ trigger:
   at: '00:00:00'
 action:
   - action: input_boolean.turn_off
-    entity_id: input_boolean.cleaned_today
+    entity_id: binary_sensor.glenn_cleaned_today

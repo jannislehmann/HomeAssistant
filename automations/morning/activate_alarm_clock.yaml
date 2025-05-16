@@ -8,7 +8,7 @@ trigger:
   seconds: '/5'
 condition:
   - condition: state
-    entity_id: input_boolean.alarm_clock_triggered_today
+    entity_id: binary_sensor.alarm_clock_triggered_today
     state: 'off'
   - condition: state
     entity_id: input_boolean.alarm_clock
