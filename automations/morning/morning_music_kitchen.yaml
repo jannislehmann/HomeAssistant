@@ -19,5 +19,5 @@ action:
   action: script.play_radio_mass
   data:
     player: media_player.mass_kitchen
-    volume_level: 20
+    volume_level: 15
     station: Energy Bremen
