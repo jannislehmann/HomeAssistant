@@ -49,6 +49,7 @@ light:
     entities:
       - light.playbar
       - light.office_ceiling
+      - light.office_flowerpot
       - light.office_star
 
   - platform: group

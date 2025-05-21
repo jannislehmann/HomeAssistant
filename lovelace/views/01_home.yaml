@@ -149,6 +149,10 @@
         features:
           - type: light-brightness
       - type: tile
+        entity: light.office_flowerpot
+        features:
+          - type: light-brightness
+      - type: tile
         entity: light.office_star
       
   # Schlafzimmer
