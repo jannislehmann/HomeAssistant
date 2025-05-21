@@ -54,7 +54,7 @@ script:
       - action: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '{"segment_ids": ["16"]}'
+          payload: '{"segment_ids": ["23"]}'
   glenn_clean_kitchen:
     sequence:
       - action: mqtt.publish
@@ -72,7 +72,7 @@ script:
       - action: mqtt.publish
         data:
           topic: valetudo/glenn/MapSegmentationCapability/clean/set
-          payload: '{"segment_ids": ["19"]}'
+          payload: '{"segment_ids": ["16"]}'
   # Queued Room cleaning
   glenn_room_cleaning:
     mode: queued
