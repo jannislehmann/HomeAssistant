@@ -27,8 +27,8 @@ action:
   - action: media_player.media_stop
     entity_id: media_player.mass_bed
   - delay: 00:15:00
-  #- action: lock.unlock
-  #  entity_id: lock.door_apartment
+  - action: lock.unlock
+    entity_id: lock.door_apartment
   - delay: 00:15:00
   - action: input_boolean.turn_off
     entity_id: input_boolean.alarm_clock_on
