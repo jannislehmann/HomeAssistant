@@ -5,6 +5,8 @@ mode: queued
 trigger:
   - platform: state
     entity_id: light.living_wall
+  - platform: state
+    entity_id: light.living_floor
   - platform: sun
     event: sunset
 action:
@@ -12,18 +14,23 @@ action:
     - conditions:
         - condition: and
           conditions:
-          - condition: state
-            entity_id: light.living_wall
-            state: "on"
-          - condition: or
-            conditions:
-              - condition: time 
-                after: "18:00:00"
-              - condition: time 
-                before: "09:00:00"
-              - condition: sun
-                after: sunset
-                after_offset: "-01:00:00"
+            - condition: or
+              conditions:
+              - condition: state
+                entity_id: light.living_wall
+                state: "on"
+              - condition: state
+                entity_id: light.living_floor
+                state: "on"
+            - condition: or
+              conditions:
+                - condition: time 
+                  after: "18:00:00"
+                - condition: time 
+                  before: "09:00:00"
+                - condition: sun
+                  after: sunset
+                  after_offset: "-01:00:00"
       sequence:
         - service: light.turn_on
           data:
