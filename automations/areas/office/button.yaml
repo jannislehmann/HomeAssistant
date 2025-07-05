@@ -1,0 +1,45 @@
+alias: Button Office
+id: df699bc8-5570-417d-b917-f96db294d4aa
+mode: queued
+trigger:
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_ieee: "a4:c1:38:1a:3f:1e:e5:4c"
+action:
+  choose:
+    # First Button Short Press
+    - conditions:
+        - condition: template
+          value_template: "{{ trigger.event.data.command == 'remote_button_short_press' and trigger.event.data.endpoint_id == 1 }}"
+      sequence:
+        - action: light.toggle
+          target:
+            entity_id: light.office_flowerpot
+          data:
+            transition: 5
+    # Second Button Short Press (Increase Brightness)
+    - conditions:
+        - condition: template
+          value_template: "{{ trigger.event.data.command == 'remote_button_short_press' and trigger.event.data.endpoint_id == 2 }}"
+      sequence:
+        - action: light.turn_on
+          target:
+            entity_id: light.office_flowerpot
+          data:
+            # Add 25 to brightness, ensuring it doesn't exceed 255.
+            # If the light is off, it starts at 25.
+            brightness: >-
+              {{ [255, (state_attr('light.office_flowerpot', 'brightness') or 0) + 25] | min }}
+    # Second Button Double Press (Decrease Brightness)
+    - conditions:
+        - condition: template
+          value_template: "{{ trigger.event.data.command == 'remote_button_double_press' and trigger.event.data.endpoint_id == 2 }}"
+      sequence:
+        - action: light.turn_on
+          target:
+            entity_id: light.office_flowerpot
+          data:
+            # Subtract 25 from brightness, ensuring it doesn't go below 5.
+            brightness: >-
+              {{ [5, (state_attr('light.office_flowerpot', 'brightness') or 0) - 25] | max }}
