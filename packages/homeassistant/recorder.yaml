@@ -25,5 +25,4 @@ recorder:
     entities:
       - sun.sun
       - sensor.date
-  # Disable auto purging, I'm doing this using automations instead
-  auto_purge: false
+  auto_purge: true

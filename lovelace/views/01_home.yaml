@@ -89,8 +89,8 @@
         fill_container: false
       - type: custom:mushroom-lock-card
         entity: lock.door_apartment
-        features:
-          - type: "lock-open-door"
+      - type: custom:mushroom-lock-card
+        entity: lock.door_house
       - type: tile
         entity: vacuum.glenn
         tap_action:
@@ -321,14 +321,8 @@
           entity: media_player.avr
           features:
             - type: "media-player-volume-slider"
-      - type: conditional
-        conditions:
-          - condition: state
-            entity: light.twinkly
-            state_not: "unavailable"
-        card:
-          type: tile
-          entity: light.twinkly
+      - type: tile
+        entity: light.twinkly
 
   # Terrasse
   - type: grid
@@ -398,3 +392,14 @@
                   - entity_id: sensor.washing_machine_current_consumption
                   - color: "var(--google-green)"
                   - name: Stromverbrauch
+
+  - type: grid
+    cards:
+      - type: "custom:mediocre-media-player-card"
+        entity_id: media_player.avr
+        ma_entity_id: media_player.mass_denon
+        tap_opens_popup: true
+        speaker_group:
+          entities:
+            - media_player.mass_living
+            - media_player.mass_office
