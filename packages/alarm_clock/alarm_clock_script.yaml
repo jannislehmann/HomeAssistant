@@ -9,6 +9,12 @@ script:
         entity_id:
           - binary_sensor.alarm_clock_triggered_today
           - input_boolean.alarm_clock_on
+      - action: light.turn_on
+        data:
+          entity_id:
+            - light.go
+            - light.bed_fado
+          transition: 30
       - action: cover.open_cover
         entity_id: cover.bed_cover
       - delay:
@@ -18,14 +24,6 @@ script:
           player: media_player.mass_bed
           volume_level: 25
           station: Energy Bremen
-      - delay:
-          minutes: 2
-      - action: light.turn_on
-        data:
-          entity_id:
-            - light.go
-            - light.bed_fado
-          transition: 30
       - delay:
           minutes: 45
       - action: input_boolean.turn_off
