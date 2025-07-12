@@ -14,9 +14,7 @@ action:
       - "{{ trigger.event.data.command == 'left_single' }}"
       sequence:
         - action: light.toggle
-          data:
-            entity_id: light.living_wall
-            transition: 5
+          entity_id: light.living_wall
     # Left Double Click
     - conditions:
       - "{{ trigger.event.data.command == 'left_double' }}"
@@ -27,14 +25,22 @@ action:
       - "{{ trigger.event.data.command == 'left_long press' }}"
       sequence:
         - action: script.tv_hdmi_nintendoswitch
-    # Right Click
+    # Right Single Click
     - conditions:
       - "{{ trigger.event.data.command == 'right_single' }}"
       sequence:
-        - action: input_boolean.toggle
-          entity_id: input_boolean.automatic_ambilight
+        - action: light.toggle
+          data:
+            entity_id: light.living_floor
+            transition: 5
     # Right Double Click
     - conditions:
       - "{{ trigger.event.data.command == 'right_double' }}"
+      sequence:
+        - action: input_boolean.toggle
+          entity_id: input_boolean.automatic_ambilight
+    # Right Long Click
+    - conditions:
+      - "{{ trigger.event.data.command == 'right_long press' }}"
       sequence:
         - action: script.toggle_ambilight

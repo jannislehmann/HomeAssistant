@@ -43,3 +43,13 @@ action:
             # Subtract 25 from brightness, ensuring it doesn't go below 5.
             brightness: >-
               {{ [5, (state_attr('light.office_flowerpot', 'brightness') or 0) - 25] | max }}
+    # Third Button Short Press
+    - conditions:
+        - condition: template
+          value_template: "{{ trigger.event.data.command == 'remote_button_short_press' and trigger.event.data.endpoint_id == 3 }}"
+      sequence:
+        - action: light.toggle
+          target:
+            entity_id: light.office_ceiling
+          data:
+            transition: 5
