@@ -1,0 +1,14 @@
+alias: Schiller - Error Notifier
+id: 37c2ec4a-9078-4e73-a9e3-4f0c04fcd439
+description: ""
+mode: single
+trigger:
+  - trigger: state
+    entity_id:
+      - binary_sensor.schiller_print_error
+    to: "on"
+condition: []
+action:
+  - action: notify.telegram_jannis
+    data:
+      message: "Schiller hat ein Problem!"

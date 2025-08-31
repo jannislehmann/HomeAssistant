@@ -1,0 +1,64 @@
+rest_command:
+  update_spool:
+    url: !secret spoolman_updater_api_url
+    method: POST
+    headers:
+      Content-Type: "application/json"
+    payload: >
+      {
+        "name": "{{ filament_name }}",
+        "material": "{{ filament_material }}",
+        "tag_uid": "{{ filament_tag_uid }}",
+        "used_weight": {{ filament_used_weight | int }},
+        "color": "{{ filament_color }}",
+        "active_tray_id": "{{ filament_active_tray_id }}"
+      }
+
+utility_meter:
+  bambulab_filament_usage_meter:
+    source: sensor.bambu_lab_filament_usage_2
+    cycle: weekly
+
+template:
+  # Sensor for Bambu Lab Filament Usage
+  - trigger:
+      - trigger: state
+        entity_id:
+          - sensor.schiller_print_weight
+          - sensor.schiller_print_progress
+    sensor:
+      - name: "Bambu Lab Filament Usage"
+        unique_id: bambu_lab_filament_usage
+        # The state template calculates used filament based on total weight and progress.
+        # It's (total_weight * (progress_percentage / 100)).
+        state: "{{ states('sensor.schiller_print_weight') | float(0) * (states('sensor.schiller_print_progress') | float(0) / 100) }}"
+        # Sensor is available only if both input sensors have valid states.
+        unit_of_measurement: 'g' # Assumes the print weight is in grams
+        icon: mdi:filament
+
+  # Sensor for Schiller (Bambu Lab) Active Tray Index
+  - trigger:
+      - trigger: state
+        entity_id:
+          - sensor.schiller_ams_tray_1
+          - sensor.schiller_ams_tray_2
+          - sensor.schiller_ams_tray_3
+          - sensor.schiller_ams_tray_4
+    sensor:
+      - name: "Schiller Tray Index"
+        unique_id: schiller_tray_index
+        # This template loops through the AMS trays and returns the index of the
+        # one that has its 'active' attribute set to true.
+        state: >-
+          {% for tray in range(1, 5) %}
+            {% set entity_id = 'sensor.schiller_ams_tray_' ~ tray %}
+            {% if state_attr(entity_id, 'active') == true %}
+              {{ tray }}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        # This modern availability template checks if any of the tray sensors
+        # are available and have an 'active' attribute.
+        availability: >-
+          {{ expand('sensor.schiller_ams_tray_1', 'sensor.schiller_ams_tray_2', 'sensor.schiller_ams_tray_3', 'sensor.schiller_ams_tray_4') | list | count > 0 }}
+        icon: mdi:tray

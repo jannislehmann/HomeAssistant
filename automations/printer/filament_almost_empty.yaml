@@ -1,0 +1,16 @@
+alias: Filament almost empty
+id: d5b49c08-9c27-4d97-b00b-fd1cdea1008d
+description: ""
+trigger:
+  - trigger: event
+    event_type: spoolman_spool_threshold_exceeded
+condition: []
+action:
+  - action: notify.telegram_jannis
+    data_template:
+      message: >-
+        The spool {{ trigger.event.data['spool']['filament']['vendor']['name']
+        }} {{ trigger.event.data['spool']['filament']['name'] }} {{
+        trigger.event.data['spool']['filament']['material'] }} has reached {{
+        trigger.event.data['spool']['used_percentage'] }}% usage
+mode: restart

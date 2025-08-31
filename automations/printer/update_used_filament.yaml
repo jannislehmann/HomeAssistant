@@ -1,0 +1,35 @@
+alias: BAMBU LAB - Update Spool When Print Finishes or Tray Switches
+id: 8caacd91-1328-4ecf-9120-bb5bc32e0475
+triggers:
+  - trigger: state
+    entity_id: sensor.schiller_tray_index
+  - trigger: state
+    entity_id: sensor.schiller_print_status
+    to: finish
+conditions:
+  - condition: template
+    value_template: "{{ states('sensor.schiller_tray_index') not in ['unknown', 'unavailable'] }}"
+  - condition: template
+    value_template: "{{ states('sensor.schiller_tray_index') | int > 0 }}"
+actions:
+  - variables:
+      tray_number: "{{ trigger.from_state.state if trigger.entity_id == 'sensor.schiller_tray_index' else states('sensor.schiller_tray_index') }}"
+      tray_sensor: "sensor.schiller_ams_tray_{{ tray_number }}"
+      tray_weight: "{{ states('sensor.bambulab_filament_usage_meter_2') | float(0) | round(2) }}"
+      tag_uid: "{{ state_attr(tray_sensor, 'tag_uid') }}"
+      material: "{{ state_attr(tray_sensor, 'type') }}"
+      name: "{{ state_attr(tray_sensor, 'name') }}"
+      color: "{{ state_attr(tray_sensor, 'color') }}"
+  - action: rest_command.update_spool
+    data:
+      filament_name: "{{ name }}"
+      filament_material: "{{ material }}"
+      filament_tag_uid: "{{ tag_uid }}"
+      filament_used_weight: "{{ tray_weight }}"
+      filament_color: "{{ color }}"
+      filament_active_tray_id: "{{ tray_sensor | replace('sensor.', '') }}"
+  - action: utility_meter.calibrate
+    data:
+      value: "0"
+    target:
+      entity_id: sensor.bambulab_filament_usage_meter_2

@@ -1,0 +1,14 @@
+alias: Schiller Printing finished
+id: c8d59b4b-c8c5-4a50-a705-b796b86c07c2
+mode: single
+trigger:
+  - trigger: state
+    entity_id: sensor.schiller_print_status
+    from: running
+    to: finish
+action:
+  - action: notify.telegram_group
+    data:
+      message: "Schiller ist fertig."
+  - action: switch.turn_off
+    entity_id: switch.schiller

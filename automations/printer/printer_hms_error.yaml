@@ -1,0 +1,15 @@
+alias: Schiller - HMS Error Notifier
+id: 2431fc5b-6a54-4588-b3be-99b4f2102928
+description: ""
+mode: single
+trigger:
+  - trigger: state
+    entity_id:
+      - binary_sensor.schiller_hms_errors
+    to: "on"
+condition: []
+action:
+  - action: notify.telegram_jannis
+    data_template:
+      message: >-
+        {{ state_attr('binary_sensor.schiller_hms_errors', '1-Wiki') }}
