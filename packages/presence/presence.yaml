@@ -2,3 +2,20 @@
 input_boolean:
   vacation_mode:
     icon: mdi:palm-tree
+
+# Store the time when someone came home
+template:
+  - trigger:
+      - trigger: state
+        entity_id: person.jannis
+        to: 'home'
+    sensor:
+      - name: Jannis Last Came Home
+        state: "{{ now() }}"
+  - trigger:
+      - trigger: state
+        entity_id: person.hannah
+        to: 'home'
+    sensor:
+      - name: Hannah Last Came Home
+        state: "{{ now() }}"
