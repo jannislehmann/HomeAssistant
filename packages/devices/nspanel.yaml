@@ -3,15 +3,19 @@
 # https://docs.nspanel.pky.eu/stable/prepare_ha/#workaround-for-homeassistant-202404
 template:
   - trigger:
-      - platform: time_pattern
-        hours: /1
+      - trigger: time_pattern
+        minutes: /30
+      - trigger: homeassistant
+        event: start
+      - trigger: event
+        event_type: event_template_reloaded
     action:
       - action: weather.get_forecasts
         data:
           type: daily
         target:
           entity_id: weather.oldenburg
-        response_variable: daily
+        response_variable: data
     sensor:
       - name: Weather Forecast Daily
         unique_id: weather_forecast_daily
@@ -19,4 +23,17 @@ template:
         attributes:
           temperature: "{{ state_attr('weather.oldenburg', 'temperature') }}"
           temperature_unit: "{{ state_attr('weather.oldenburg', 'temperature_unit') }}"
-          forecast: "{{ daily['weather.oldenburg'].forecast }}"
+          forecast: >
+            {%- with ns = namespace(arr=[],obj={}) -%}
+            {%- for n in data['weather.oldenburg'].forecast[:5] -%}
+              {%- for k, v in n | items -%}
+                {%- if k == "datetime" -%}
+                  {%- set ns.obj = dict(ns.obj | items, **{k: as_datetime(v, "0" | as_datetime) | as_local | as_timestamp | timestamp_custom('%Y-%m-%dT%H:%M:%S')}) -%}
+                {%- elif k == "condition" or k == "temperature" -%}
+                  {%- set ns.obj = dict(ns.obj | items, **{k: v}) -%}
+                {%- endif -%}
+              {%- endfor -%}
+              {%- if (ns.obj.items() | length) == 3 and ns.obj.datetime -%}
+                {%- set ns.arr = ns.arr + [ns.obj] -%}
+              {%- endif -%}
+            {%- endfor %}{{ns.arr}}{% endwith -%}
