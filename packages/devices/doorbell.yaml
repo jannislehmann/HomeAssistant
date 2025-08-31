@@ -1,6 +1,6 @@
 template:
   - trigger:
-    - platform: state
+    - trigger: state
       entity_id: input_boolean.doorbell
       from: "off"
       to: "on"

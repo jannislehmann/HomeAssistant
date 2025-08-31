@@ -6,7 +6,7 @@ mode: single
 variables:
   message: "😢 Glenn hat ein Problem: "
 trigger:
-  platform: state
+  trigger: state
   entity_id: vacuum.glenn
   from: cleaning
   to: error

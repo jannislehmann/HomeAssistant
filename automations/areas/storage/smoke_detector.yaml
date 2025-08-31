@@ -4,7 +4,7 @@ id: 66b85a6c-b8a4-4f91-80b1-c12a9b3bc398
 description: Notifies when a smoke is detected in the storage room.
 mode: restart
 trigger:
-  platform: state
+  trigger: state
   entity_id: binary_sensor.storage_smoke_sensor
   to: 'on'
 action:

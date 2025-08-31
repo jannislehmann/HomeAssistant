@@ -3,7 +3,7 @@ mode: single
 id: 3241c5e3-5143-47f5-86de-70eb512c621b
 description: Apple Watch Haustür
 trigger:
-  platform: event
+  trigger: event
   event_type: ios.action_fired
   event_data:
     actionName: HOUSE_DOOR

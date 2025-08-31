@@ -7,7 +7,7 @@ alias: System recorder repack
 id: 752639e0-9527-45a6-84e8-f54537d40278
 mode: single
 trigger:
-  platform: time
+  trigger: time
   at: '05:55'
 condition:
   condition: time

@@ -4,14 +4,13 @@ id: 0c2d7924-c4c3-4fd6-83de-b1f0d8a9c893
 description: Turn on the light in the kitchen in the evening when presence is detected or turn it off if there is no motion.
 mode: restart
 trigger:
-  - platform: homeassistant
+  - trigger: homeassistant
     event: start
-  - platform: event
+  - trigger: event
     event_type: automation_reloaded
-  - platform: state
+  - trigger: state
     entity_id:
       - binary_sensor.kitchen_human_presence
-      - input_boolean.motion_sensor
       - alarm_control_panel.ha_alarm
       - media_player.mass_kitchen
 action:
@@ -20,9 +19,6 @@ action:
     - conditions:
       - condition: state
         entity_id: binary_sensor.kitchen_human_presence
-        state: 'on'
-      - condition: state
-        entity_id: input_boolean.motion_sensor
         state: 'on'
       - condition: state
         entity_id: alarm_control_panel.ha_alarm

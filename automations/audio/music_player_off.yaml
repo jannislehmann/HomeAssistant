@@ -4,17 +4,17 @@ description: Turns off the music system, when all outputs have been turned off f
 id: a0835b1b-bc91-46cb-ab59-e98358d15050
 mode: single
 trigger:
-  - platform: state
+  - trigger: state
     entity_id: media_player.mass_outputs
     to: 'off'
     for:
       minutes: 5
-  - platform: state
+  - trigger: state
     entity_id: media_player.mass_all
     to: 'idle'
     for:
       minutes: 5
-  - platform: state
+  - trigger: state
     entity_id: media_player.mass_outputs
     to: 'paused'
     for:

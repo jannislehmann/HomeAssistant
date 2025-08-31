@@ -4,7 +4,7 @@ description: Turns off the music in the bed room in the morning when there is mo
 id: c62fbc9d-c695-4ed1-8257-fe9ff0635978
 mode: single
 trigger:
-  platform: state
+  trigger: state
   entity_id: binary_sensor.presence_hall
   to: 'on'
 condition:
@@ -18,12 +18,6 @@ action:
         - light.go
         - light.bed_fado
       transition: 5
-  - action: switch.turn_on
-    entity_id: switch.living_access_point
-  - action: media_player.volume_set
-    data:
-      entity_id: media_player.mass_bed
-      volume_level: 0.15
   - action: media_player.media_stop
     entity_id: media_player.mass_bed
   - delay: 00:15:00

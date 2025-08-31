@@ -2,10 +2,10 @@
 alias: Notify Backup Failure
 id: 0ae02693-a24e-4b1b-b431-7c50ad1ac940
 trigger:
-  platform: event
+  trigger: event
   event_type: auto_backup.backup_failed
 action:
-  service: persistent_notification.create
+  action: persistent_notification.create
   data:
     title: "Backup Failed."
     message: |-

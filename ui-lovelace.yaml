@@ -1,3 +1,2 @@
 title: Home
-streamline_templates: !include_dir_merge_named lovelace/streamline_templates
 views: !include_dir_merge_list lovelace/views

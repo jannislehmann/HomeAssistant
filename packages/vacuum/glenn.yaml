@@ -106,10 +106,10 @@ script:
                     state: error
             sequence:
               - wait_for_trigger:
-                  - platform: state
+                  - trigger: state
                     entity_id: vacuum.glenn
                     to: returning
-                  - platform: state
+                  - trigger: state
                     entity_id: vacuum.glenn
                     to: docked
                 continue_on_timeout: false
@@ -117,10 +117,10 @@ script:
               - action: >
                   script.glenn_clean_{{ room }}
               - wait_for_trigger:
-                  - platform: state
+                  - trigger: state
                     entity_id: vacuum.glenn
                     to: returning
-                  - platform: state
+                  - trigger: state
                     entity_id: vacuum.glenn
                     to: docked
                 continue_on_timeout: false
@@ -141,10 +141,10 @@ script:
               - action: >
                   script.glenn_clean_{{ room }}
               - wait_for_trigger:
-                  - platform: state
+                  - trigger: state
                     entity_id: vacuum.glenn
                     to: returning
-                  - platform: state
+                  - trigger: state
                     entity_id: vacuum.glenn
                     to: docked
                 continue_on_timeout: false

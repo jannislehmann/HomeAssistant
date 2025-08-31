@@ -13,7 +13,6 @@ include_entities:
   - light.office_ceiling
   - light.office_flowerpot
   - light.office_star
-  - light.receiver_volume
   - light.outdoor_light
   - light.bath_ceiling
   - light.kitchen_cabinets
@@ -22,4 +21,3 @@ include_entities:
   - switch.outdoor_plug
   # Vacuum
   - vacuum.glenn
-  - input_select.glenn_room

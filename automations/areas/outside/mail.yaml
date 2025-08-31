@@ -6,7 +6,7 @@ mode: restart
 variables:
   sentence: Die Post ist da.
 trigger:
-  platform: state
+  trigger: state
   entity_id: binary_sensor.vibration
   to: 'on'
 action:

@@ -4,7 +4,7 @@ alias: System start notification
 id: 104463f6-7524-48d9-bbe5-2bb09017e946
 mode: single
 trigger:
-  platform: homeassistant
+  trigger: homeassistant
   event: start
 action:
   action: notify.telegram_jannis

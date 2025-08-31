@@ -2,7 +2,7 @@
 alias: "AutoBackup: Weekly Backup"
 id: 3770f24f-99bd-435d-9f61-948cf8ac8d2b
 trigger:
-  platform: time
+  trigger: time
   at: "02:30:00"
 condition:
   condition: time

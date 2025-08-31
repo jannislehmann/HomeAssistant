@@ -4,33 +4,24 @@ id: 9180ed16-c040-4ce2-ab8e-bdbb4a607ae1
 description: Turn on the light in the hall when coming home.
 mode: restart
 trigger:
-  - platform: state
+  - trigger: state
     entity_id: person.jannis
     to: "home"
-    id: "jannis"
-  - platform: state
+  - trigger: state
     entity_id: person.hannah
     to: "home"
-    id: "hannah"
 condition:
   - condition: state
     entity_id: sun.sun
     state: "below_horizon"
 action:
   - wait_for_trigger:
-      - platform: state
+      - trigger: state
         entity_id: binary_sensor.contact_door
         to: 'on'
-    timeout: '00:05:00'
+    timeout: '00:10:00'
     continue_on_timeout: false
-  - action: automation.turn_off
-    entity_id: automation.light_hall
   - action: light.turn_on
     data:
       entity_id: light.flur
       brightness_pct: 100
-  - delay: '00:05:00'
-  - action: automation.turn_on
-    entity_id: automation.light_hall
-  - action: light.turn_off
-    entity_id: light.flur

@@ -4,7 +4,7 @@ id: 216f2ee6-768e-4cdc-9d5e-b2124fee1e01
 description: Toggle Ambilight through the frontend
 mode: queued
 trigger:
-  platform: state
+  trigger: state
   entity_id: input_boolean.automatic_ambilight
 condition:
   - condition: state

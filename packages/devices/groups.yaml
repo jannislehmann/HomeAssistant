@@ -11,10 +11,10 @@ template:
     - name: "Open Windows"
       state: "{{ states.binary_sensor  | selectattr('entity_id', 'match', 'binary_sensor.contact_*') | selectattr('state', 'equalto', 'on') | map(attribute='entity_id') | list | count }}"
   - trigger:
-      - platform: state
-        entity_id: binary_sensor.presence_kitchen #PIR Motion Sensor
-      - platform: state
-        entity_id: binary_sensor.kitchen_occupancy #Aqara FP1 Main Presence Entity
+      - trigger: state
+        entity_id: binary_sensor.presence_kitchen # PIR Motion Sensor
+      - trigger: state
+        entity_id: binary_sensor.kitchen_occupancy # Aqara FP1 Main Presence Entity
     binary_sensor:
       - name: Kitchen Human Presence
         device_class: occupancy

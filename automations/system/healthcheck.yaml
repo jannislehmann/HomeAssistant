@@ -4,7 +4,7 @@ alias: Healthcheck Connection
 description: Send a ping to Healthcheck every minute
 mode: single
 trigger:
-  platform: time_pattern
+  trigger: time_pattern
   minutes: /1
 action:
   - action: rest_command.healthcheck

@@ -4,10 +4,10 @@ description: Turns off the music output in the kitchen when there is no more mov
 id: 3d20240e-56b1-4ed2-9a9b-929017899472
 mode: single
 trigger:
-  - platform: state
+  - trigger: state
     entity_id: binary_sensor.kitchen_human_presence
     to: 'off'
-    for: '00:02:30'
+    for: '00:02:00'
 action:
   - action: media_player.media_stop
     entity_id:

@@ -3,10 +3,10 @@ alias: Button Living
 id: 6b4f2245-d39a-4190-a846-c51dffcaae4e
 mode: queued
 trigger:
-  - platform: event
-    event_type: zha_event
-    event_data:
-      device_ieee: "00:15:8d:00:04:26:22:31"
+  trigger: event
+  event_type: zha_event
+  event_data:
+    device_ieee: "00:15:8d:00:04:26:22:31"
 action:
   choose:
     # Left Click
@@ -32,7 +32,7 @@ action:
         - action: light.toggle
           data:
             entity_id: light.living_floor
-            transition: 5
+            transition: 1
     # Right Double Click
     - conditions:
       - "{{ trigger.event.data.command == 'right_double' }}"

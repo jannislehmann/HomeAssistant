@@ -3,7 +3,7 @@ mode: parallel
 id: ae93e1d4-be70-4e61-a6c5-9673da327507
 description: Apple Watch Staubstauger
 trigger:
-  platform: event
+  trigger: event
   event_type: ios.action_fired
   event_data:
     actionName: VACUUM

@@ -4,7 +4,7 @@ alias: System automation reloaded notification
 id: 41f7aec4-17f1-480d-969d-14789cf501f5
 mode: single
 trigger:
-  platform: event
+  trigger: event
   event_type: automation_reloaded
 action:
   action: notify.telegram_jannis

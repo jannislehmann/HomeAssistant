@@ -4,7 +4,7 @@ description: Reset daily cleaning flag
 id: 4d6635ae-56d6-4d01-80bc-a9eac34ee646
 mode: single
 trigger:
-  platform: time
+  trigger: time
   at: '00:00:00'
 action:
   - action: input_boolean.turn_off

@@ -4,7 +4,7 @@ id: 4ba47def-0a50-4156-9b4f-97062eb42421
 description: Turns off the AVR when its detected to sit idle and consume power
 mode: queued
 trigger:
-  platform: time_pattern
+  trigger: time_pattern
   minutes: "/5"
 condition:
   # TV is off

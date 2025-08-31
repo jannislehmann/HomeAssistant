@@ -22,6 +22,9 @@ condition:
   - condition: state
     entity_id: binary_sensor.alarm_clock_triggered_today
     state: "on"
+  # Winter months
+  - condition: template
+    value_template: '{{ now().month >= 11 or now().month <= 1 }}'
 action:
   - delay: "00:01:00"
   - choose:

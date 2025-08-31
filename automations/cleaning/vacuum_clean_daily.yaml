@@ -4,16 +4,16 @@ alias: vacuum_clean_daily
 id: a64237e2-5c17-4022-aff6-fa8d16a19738
 mode: single
 trigger:
-  - platform: time
-    at: '10:00'
-  - platform: state
+  - trigger: time
+    at: '09:00'
+  - trigger: state
     entity_id: binary_sensor.home
     to: 'off'
 condition:
   - condition: or
     conditions:
       - condition: time
-        after: '09:00'
+        after: '08:00'
         before: '12:00'
       - condition: time
         after: '13:00'

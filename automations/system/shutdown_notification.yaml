@@ -4,7 +4,7 @@ alias: System shutdown notification
 id: 761953d0-50cc-4f0b-81ff-3f305223ce38
 mode: single
 trigger:
-  platform: homeassistant
+  trigger: homeassistant
   event: shutdown
 action:
   - action: notify.telegram_jannis

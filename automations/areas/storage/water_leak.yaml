@@ -6,7 +6,7 @@ mode: restart
 variables:
   message: "⚠️ Wasser im Abstellraum erkannt!"
 trigger:
-  platform: state
+  trigger: state
   entity_id: binary_sensor.storage_water
   to: 'on'
 action:

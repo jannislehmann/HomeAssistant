@@ -4,7 +4,7 @@ description: Vacuum cleaning done
 id: afff179f-e1d9-4e22-9f4b-0a50aa86c693
 mode: single
 trigger:
-  platform: state
+  trigger: state
   entity_id: vacuum.glenn
   from: cleaning
   to: returning
@@ -26,4 +26,3 @@ action:
     sequence:
     - action: input_boolean.turn_on
       entity_id: binary_sensor.glenn_cleaned_today
-

@@ -33,7 +33,6 @@ homeassistant:
 
     
 frontend:
-  # themes: !include_dir_merge_named themes
   themes:
     main: !include themes/main.yaml
   extra_module_url:
@@ -76,7 +75,6 @@ logger:
     # Some devices can be offline and we do require reporting for those.
     homeassistant.components.esphome: critical
     homeassistant.components.zha: warn
-    # zigpy: debug
     homeassistant.components.frontend: warn
     homeassistant.helpers.entity: critical
     homeassistant.components.command_line.switch: warn
@@ -93,7 +91,6 @@ logger:
     custom_components.display: error
     homeassistant.components.automation.toggle_ambilight: fatal
     custom_components.mikettle.sensor: warn
-    mikettle_local: debug
     custom_components.localtuya: critical
     pyhap.hap_protocol: warn
     homeassistant.components.python_script: warn
@@ -101,6 +98,7 @@ logger:
     homeassistant.components.automation.tablet_kitchen: critical
     asyncio: error
     zeroconf: error
+    zigpy.device: error
     zigpy.topology: warn
     zigpy.zcl: critical
     custom_components.tibber_local: warn

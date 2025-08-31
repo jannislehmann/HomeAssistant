@@ -26,11 +26,6 @@
               action: toggle
             name: Wecker
           - type: custom:mushroom-entity-card
-            entity: input_boolean.motion_sensor
-            tap_action:
-              action: toggle
-            name: Bewegungsmelder
-          - type: custom:mushroom-entity-card
             entity: input_boolean.vacation_mode
             tap_action:
               action: toggle

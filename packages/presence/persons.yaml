@@ -17,23 +17,6 @@ person:
       # App
       - device_tracker.iphone_von_hannah_2
 
-# Store the time when someone came home
-template:
-  - trigger:
-      - platform: state
-        entity_id: person.jannis
-        to: 'home'
-    sensor:
-      - name: Jannis Last Came Home
-        state: "{{ now() }}"
-  - trigger:
-      - platform: state
-        entity_id: person.hannah
-        to: 'home'
-    sensor:
-      - name: Hannah Last Came Home
-        state: "{{ now() }}"
-
 # Anyone home?
 binary_sensor:
   - platform: template

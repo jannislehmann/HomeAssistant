@@ -3,7 +3,7 @@ alias: System Let's Encrypt Renewal
 description: Checks whether the SSL certs needs to be renewed. If that is the case, start the Let's Encrypt add-on.
 id: 6d3fd9b0-eb21-435b-b85e-bb14d128a843
 trigger:
-  platform: time
+  trigger: time
   at: '04:00:00'
 condition:
   condition: template

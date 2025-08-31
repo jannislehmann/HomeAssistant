@@ -8,18 +8,18 @@ condition:
     entity_id: vacuum.glenn
     state: "cleaning"
 trigger:
-  - platform: state
+  - trigger: state
     entity_id: person.jannis
     to: "home"
     id: "jannis"
-  - platform: state
+  - trigger: state
     entity_id: person.hannah
     to: "home"
     id: "hannah"
 action:
   - variables:
       action_stop_vacuum: "{{ 'STOP_VACUUM' ~ context.id }}"
-  - service: "{{ 'notify.apple_' + trigger.id }}"
+  - action: "{{ 'notify.apple_' + trigger.id }}"
     data:
       message: "Soll Glenn stoppen?"
       data:
@@ -27,11 +27,11 @@ action:
           - action: "{{ action_stop_vacuum }}"
             title: Stoppen
   - wait_for_trigger:
-      - platform: event
+      - trigger: event
         event_type: mobile_app_notification_action
         event_data:
           action: "{{ action_stop_vacuum }}"
     timeout: '00:05:00'
     continue_on_timeout: false
-  - service: vacuum.return_to_base
+  - action: vacuum.return_to_base
     entity_id: vacuum.glenn

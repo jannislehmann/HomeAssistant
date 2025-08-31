@@ -3,7 +3,7 @@ alias: Wall Switch Office
 id: 22f61e24-7ea8-4fbf-80ab-6d1ee3816928
 mode: queued
 trigger:
-  - platform: event
+  - trigger: event
     event_type: zha_event
     event_data:
       device_ieee: "00:17:88:01:0b:01:65:a4"

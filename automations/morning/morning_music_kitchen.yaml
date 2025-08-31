@@ -4,10 +4,10 @@ description: Turns on music in the kitchen after entering in the morning
 id: bdd8c935-07b1-4a67-9e99-d8b99882cbcb
 mode: single
 trigger:
-  - platform: state
+  - trigger: state
     entity_id: binary_sensor.kitchen_human_presence
     to: 'on'
-  - platform: state
+  - trigger: state
     entity_id: input_boolean.alarm_clock_on
     to: 'off'
 condition:

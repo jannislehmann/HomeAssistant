@@ -4,7 +4,7 @@ id: 82e30320-0a53-44c3-adb8-f74ec6dabef9
 description: Sets the AVR sound mode depending on the input source
 mode: queued
 trigger:
-  platform: time_pattern
+  trigger: time_pattern
   minutes: "/1"
 condition:
   - condition: state

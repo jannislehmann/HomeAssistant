@@ -73,12 +73,12 @@ views:
           - type: vertical-stack
             cards:
             - type: custom:battery-state-card
-              secondary_info: '{attributes.battery_type_and_quantity}'
+              secondary_info: "{attributes.battery_type_and_quantity}"
               round: 0
               filter:
                 include:
                   - name: entity_id
-                    value: '*_battery_plus'
+                    value: "*_battery_plus"
                 exclude:
                   - name: attributes.battery_low
                     value: false
