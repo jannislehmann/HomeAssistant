@@ -37,6 +37,20 @@
   - type: entity
     show_name: true
     show_state: true
+    show_icon: false
+    entity: sensor.solar_power_of_p1
+    color: ''
+    show_entity_picture: false
+  - type: entity
+    show_name: true
+    show_state: true
+    show_icon: false
+    entity: sensor.solar_power_of_p2
+    color: ''
+    show_entity_picture: false
+  - type: entity
+    show_name: true
+    show_state: true
     show_icon: true
     entity: person.jannis
     color: ''
@@ -81,16 +95,16 @@
       - type: heading
         heading: Wohnung
         heading_style: title
+      - type: custom:mushroom-lock-card
+        entity: lock.door_house
+      - type: custom:mushroom-lock-card
+        entity: lock.door_apartment
       - type: custom:mushroom-alarm-control-panel-card
         entity: alarm_control_panel.ha_alarm
         states:
           - armed_home
           - armed_away
         fill_container: false
-      - type: custom:mushroom-lock-card
-        entity: lock.door_apartment
-      - type: custom:mushroom-lock-card
-        entity: lock.door_house
       - type: tile
         entity: vacuum.glenn
         tap_action:
@@ -112,6 +126,19 @@
         tap_action:
           action: navigate
           navigation_path: /lovelace/chores
+      - type: custom:mushroom-template-card
+        entity: switch.schiller
+        name: Schiller
+        icon: mdi:printer-3d
+        icon_color: "{{ 'orange' if is_state('switch.schiller', 'on') else 'off' }}"
+        primary: Schiller
+        secondary: >
+          {% if is_state('switch.schiller', 'on') %}
+          {{ states('sensor.schiller_active_power') | int }} W - {{ states('sensor.schiller_task_name') }}
+          {% endif %}
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/schiller
 
   # Büro
   - type: grid
@@ -351,10 +378,6 @@
             tap_action:
               action: more-info
         icon: phu:rooms-terace
-      - type: tile
-        entity: light.outdoor_light
-      - type: tile
-        entity: switch.outdoor_plug
 
   # Abstellraum
   - type: grid
@@ -364,6 +387,11 @@
         heading_style: title
         badges:
           - type: entity
+            entity: sensor.temperature_rack
+            icon: mdi:server
+            tap_action:
+              action: more-info
+          - type: entity
             entity: sensor.temperature_storage
             tap_action:
               action: more-info
@@ -372,34 +400,3 @@
             tap_action:
               action: more-info
         icon: phu:rooms-storage
-      - type: custom:streamline-card
-        template: mini_graph
-        variables:
-          - entity_id: sensor.temperature_rack
-          - color: "var(--google-red)"
-          - name: Serverrack Temparatur
-      - type: custom:state-switch
-        entity: binary_sensor.washing_machine
-        states:
-          "on":
-            type: vertical-stack
-            cards:
-              - title: Waschmaschine
-                type: custom:mushroom-title-card
-              - type: custom:streamline-card
-                template: mini_graph
-                variables:
-                  - entity_id: sensor.washing_machine_current_consumption
-                  - color: "var(--google-green)"
-                  - name: Stromverbrauch
-
-  - type: grid
-    cards:
-      - type: "custom:mediocre-media-player-card"
-        entity_id: media_player.avr
-        ma_entity_id: media_player.mass_denon
-        tap_opens_popup: true
-        speaker_group:
-          entities:
-            - media_player.mass_living
-            - media_player.mass_office
