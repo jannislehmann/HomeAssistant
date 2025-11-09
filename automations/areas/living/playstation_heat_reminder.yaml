@@ -1,0 +1,18 @@
+---
+alias: PlayStation 5 Heat Reminder
+id: 0688cb93-b397-4087-bad9-5e2f19b894e4
+mode: queued
+trigger:
+  - trigger: state
+    entity_id: switch.ps5_power
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: binary_sensor.contact_besta
+    state: 'off'
+action:
+  - action: esphome.nspanel_living_notify_on_screensaver
+    data:
+      heading: PlayStation
+      message: Tür öffnen
+      timeout_ms: 30000
