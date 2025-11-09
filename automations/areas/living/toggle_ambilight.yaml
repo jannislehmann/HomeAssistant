@@ -1,14 +1,14 @@
 ---
 alias: Toggle Ambilight
 id: 7564e411-05b1-40a3-a675-fec358c81b1a
-description: Toggle Ambilight depending on the sun level.
+description: Toggle Ambilight depending on the illuminance level.
 mode: queued
 trigger:
   trigger: time_pattern
   minutes: "/2"
 condition:
   - condition: state
-    entity_id: media_player.philips_tv
+    entity_id: remote.65oled856_12_remote
     state: 'on'
   - condition: or
     conditions:
@@ -18,6 +18,9 @@ condition:
       - condition: state
         entity_id: media_player.avr
         state: 'on'
+      - condition: state
+        entity_id: switch.ps5_power
+        state: 'on'
   - condition: state
     entity_id: input_boolean.automatic_ambilight
     state: 'on'
@@ -25,14 +28,9 @@ action:
   choose:
     # Dark outside.
     - conditions:
-        - condition: or
-          conditions:
-            - condition: time
-              after: '20:00:00'
-            - condition: sun
-              after: sunset
-            - condition: sun
-              before: sunrise
+        - condition: numeric_state
+          entity_id: sensor.illuminance
+          below: 2000
       sequence:
         - action: light.turn_on
           data:
