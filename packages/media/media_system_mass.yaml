@@ -53,7 +53,7 @@ script:
           entity_id: media_player.mass_denon
         data:
           media_id: spotify://playlist/3M0EbNFUZBdIWGVgxoN6FU
-      - delay: 10
+      - delay: 15
       - action: media_player.volume_set
         data:
           entity_id: media_player.mass_denon
