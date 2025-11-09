@@ -24,7 +24,7 @@ condition:
     state: "on"
   # Winter months
   - condition: template
-    value_template: '{{ now().month >= 11 or now().month <= 1 }}'
+    value_template: '{{ now().month >= 10 or now().month <= 1 }}'
 action:
   - delay: "00:01:00"
   - choose:
