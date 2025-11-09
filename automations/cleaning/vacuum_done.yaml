@@ -18,8 +18,9 @@ action:
       sequence:
       - action: input_boolean.turn_on
         entity_id: binary_sensor.glenn_cleaned_today
-      - action: notify.telegram_group
+      - action: notify.send_message
         data:
+          entity_id: notify.telegram_bot_7823793696_374596217
           message: "Glenn ist fertig mit dem Wischen. "
     # No mop attachment
   default:

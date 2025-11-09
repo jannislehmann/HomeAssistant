@@ -1,0 +1,30 @@
+light:
+  - platform: template
+    lights:
+      living_floor:
+        unique_id: living_floor
+        friendly_name: "Stehlampe"
+        level_template: "{{ state_attr('light.living_floor_hue', 'brightness') }}"
+        value_template: "{{ is_state('switch.living_floor', 'on') and is_state('light.living_floor_hue', 'on') }}"
+        turn_on:
+          - action: switch.turn_on
+            target:
+              entity_id: switch.living_floor
+          - delay: "00:00:01" # wait for lamp to power up
+          - action: light.turn_on
+            target:
+              entity_id: light.living_floor_hue
+        turn_off:
+          - action: light.turn_off
+            target:
+              entity_id: light.living_floor_hue
+          - delay: "00:00:01"
+          - action: switch.turn_off
+            target:
+              entity_id: switch.living_floor
+        set_level:
+          - action: light.turn_on
+            target:
+              entity_id: light.living_floor_hue
+            data:
+              brightness: "{{ brightness }}"

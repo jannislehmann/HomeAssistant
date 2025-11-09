@@ -9,7 +9,8 @@ trigger:
     to: "on"
 condition: []
 action:
-  - action: notify.telegram_jannis
+  - action: notify.send_message
     data_template:
+      entity_id: notify.telegram_bot_7823793696_1002384392545
       message: >-
         {{ state_attr('binary_sensor.schiller_hms_errors', '1-Wiki') }}

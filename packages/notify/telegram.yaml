@@ -7,11 +7,11 @@ telegram_bot:
     - !secret telegram_group_chat_id
 
 notify:
-  - name: telegram_jannis
+  - name: "telegram_jannis"
     platform: telegram
     api_key: !secret telegram_home_api
     chat_id: !secret telegram_chat_id
-  - name: telegram_group
+  - name: "telegram_group"
     platform: telegram
     api_key: !secret telegram_home_api
     chat_id: !secret telegram_group_chat_id

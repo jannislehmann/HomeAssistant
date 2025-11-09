@@ -14,22 +14,25 @@ action:
       entity_id: sensor.glenn_main_brush_time_left
       below: 60
     sequence:
-      action: notify.telegram_group
+      action: notify.send_message
       data:
+        entity_id: notify.telegram_bot_7823793696_374596217
         message: 🔧 Glenns Hauptbrüste muss bald getauscht werden.
   - conditions:
     - condition: numeric_state
       entity_id: sensor.glenn_side_brush_time_left
       below: 60
     sequence:
-      action: notify.telegram_group
+      action: notify.send_message
       data:
+        entity_id: notify.telegram_bot_7823793696_374596217
         message: 🔧 Glenns Seitenbürste müssen bald getauscht werden.
   - conditions:
     - condition: numeric_state
       entity_id: sensor.glenn_reset_main_filter_consumable
       below: 60
     sequence:
-      action: notify.telegram_group
+      action: notify.send_message
       data:
+        entity_id: notify.telegram_bot_7823793696_374596217
         message: 🔧 Glenns Filter muss bald getauscht werden.

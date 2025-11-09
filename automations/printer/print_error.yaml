@@ -9,6 +9,7 @@ trigger:
     to: "on"
 condition: []
 action:
-  - action: notify.telegram_jannis
+  - action: notify.send_message
     data:
+      entity_id: notify.telegram_bot_7823793696_1002384392545
       message: "Schiller hat ein Problem!"

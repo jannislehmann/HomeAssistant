@@ -1,12 +1,13 @@
 ---
 description: Send notification when scenes are reloaded
-alias: Systeme scene reloaded notification
+alias: System scene reloaded notification
 id: c8dffcdc-6d66-4bcf-b823-19a0bc2b1a97
 mode: single
 trigger:
   trigger: event
   event_type: scene_reloaded
 action:
-  action: notify.telegram_jannis
+  action: notify.send_message
   data:
+    entity_id: telegram_bot_7823793696_1002384392545
     message: Home Assistant reloaded all scenes 🌈

@@ -3,7 +3,7 @@ notify:
   - platform: group
     name: apple_jannis
     services:
-      - action: mobile_app_iphone_14_pro
+      - action: mobile_app_iphone_von_jannis
       - action: mobile_app_jannis_macbook
 
   - platform: group

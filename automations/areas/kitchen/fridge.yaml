@@ -25,8 +25,9 @@ action:
     - condition: trigger
       id: "very_hot"
     sequence:
-      - action: notify.telegram_group
+      - action: notify.send_message
         data:
+          entity_id: notify.telegram_bot_7823793696_374596217
           message: ❄️ Der Kühlschrank ist über 11°C!
       - action: notify.apple_all
         data:
@@ -35,13 +36,15 @@ action:
       - condition: trigger
         id: "hot"
     sequence:
-      - action: notify.telegram_group
+      - action: notify.send_message
         data:
+          entity_id: notify.telegram_bot_7823793696_374596217
           message: ❄️ Der Kühlschrank ist über 9°C!
   - conditions:
     - condition: trigger
       id: "cold"
     sequence:
-      - action: notify.telegram_group
+      - action: notify.send_message
         data:
+          entity_id: notify.telegram_bot_7823793696_374596217
           message: ❄️ Der Kühlschrank ist unter 5°C!

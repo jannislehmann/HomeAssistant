@@ -9,6 +9,7 @@ trigger:
   from: 'off'
   to: 'on'
 action:
-  action: notify.telegram_group
+  action: notify.send_message
   data:
+    entity_id: notify.telegram_bot_7823793696_374596217
     message: "👚👕 Die Waschmaschine ist fertig."

@@ -10,8 +10,9 @@ condition:
     value_template: "{{ trigger.from_state.state | int < trigger.to_state.state | int }}"
 mode: single
 action:
-  - action: notify.telegram_group
+  - action: notify.send_message
     data_template:
+      entity_id: notify.telegram_bot_7823793696_374596217
       message: |
         Fällige Aufgabe(n):
         {%- for activity in states.sensor | selectattr('attributes.integration', 'eq', 'activity_manager') -%}
