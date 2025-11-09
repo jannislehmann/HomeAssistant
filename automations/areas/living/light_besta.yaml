@@ -20,22 +20,21 @@ action:
                 entity_id: light.living_wall
                 state: "on"
               - condition: state
+                entity_id: light.ambilight
+                state: "on"
+              - condition: state
                 entity_id: light.living_floor
                 state: "on"
-            - condition: or
-              conditions:
-                - condition: time 
-                  before: "09:00:00"
-                - condition: sun
-                  after: sunset
-                  after_offset: "-01:00:00"
+            - condition: numeric_state
+              entity_id: sensor.illuminance
+              below: 1500
       sequence:
         - action: light.turn_on
           data:
             entity_id: light.living_besta
-            transition: 3
+            transition: 2
   default:
     - action: light.turn_off
       data:
         entity_id: light.living_besta
-        transition: 3
+        transition: 1

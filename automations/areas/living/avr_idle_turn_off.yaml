@@ -9,12 +9,12 @@ trigger:
 condition:
   # TV is off
   - condition: state
-    entity_id: media_player.philips_tv
+    entity_id: remote.65oled856_12_remote
     state: 'off'
     # Apple TV is off
   - condition: state
     entity_id: media_player.apple_tv
-    state: 'standby'
+    state: 'idle'
   # No music playing on AVR
   - condition: not
     conditions:
