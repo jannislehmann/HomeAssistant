@@ -12,7 +12,6 @@ light:
       - light.go
       - light.kitchen_cabinets
       - light.playbar
-      - light.living_floor
 
   - platform: group
     unique_id: light_flur

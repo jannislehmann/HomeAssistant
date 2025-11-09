@@ -31,12 +31,12 @@ adaptive_lighting:
       - light.living_besta
 
   - name: living_floor
-    min_brightness: 50
+    min_brightness: 60
     max_color_temp: 2500
     min_sunrise_time: '06:00:00'
     min_sunset_time: '20:00:00'
     lights:
-      - light.living_floor
+      - light.living_floor_hue
 
   - name: kitchen
     lights:
