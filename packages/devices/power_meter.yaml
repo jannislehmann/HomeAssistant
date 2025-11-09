@@ -5,7 +5,7 @@ binary_sensor:
         friendly_name: Washing machine
         value_template: >
           {{ states("sensor.washing_machine_current_consumption") | default(0) | float(0) > 6 }}
-        delay_off: "00:02:30"
+        delay_off: "00:04:00"
         icon_template: >
           {% if is_state("binary_sensor.washing_machine", "on") %}
             mdi:washing-machine
@@ -14,3 +14,42 @@ binary_sensor:
           {% endif %}
 
 powercalc:
+
+template:
+  - sensor:
+      - name: "Grid Export Power"
+        unique_id: grid_export_power
+        unit_of_measurement: "W"
+        device_class: power
+        state_class: measurement
+        state: >
+          {% set power = states('sensor.tibber_0100100700ff') | float(0) %}
+          {% if power < 0 %}
+            {{ -1 * power }}
+          {% else %}
+            0
+          {% endif %}
+
+sensor:
+  - platform: integration
+    source: sensor.grid_export_power
+    name: "Grid Export Energy"
+    method: trapezoidal
+    unit_prefix: k
+    round: 4
+
+homeassistant:
+  customize:
+    sensor.grid_export_energy:
+      device_class: energy
+      state_class: total_increasing
+      unit_of_measurement: "kWh"
+
+utility_meter:
+  grid_export_energy_daily:
+    source: sensor.grid_export_energy
+    cycle: daily
+
+  grid_export_energy_monthly:
+    source: sensor.grid_export_energy
+    cycle: monthly
